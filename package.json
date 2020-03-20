@@ -38,22 +38,26 @@
     "@angular/platform-browser": "9.0.0",
     "@angular/platform-browser-dynamic": "9.0.0",
     "@angular/router": "9.0.0",
-    "@nrwl/angular": "^9.1.2",
-    "core-js": "^2.5.4",
-    "rxjs": "~6.5.0",
-    "zone.js": "^0.10.2",
     "@nestjs/common": "^6.8.3",
     "@nestjs/core": "^6.8.3",
     "@nestjs/platform-express": "^6.8.3",
-    "reflect-metadata": "^0.1.13"
+    "@nrwl/angular": "^9.1.2",
+    "core-js": "^2.5.4",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "~6.5.0",
+    "zone.js": "^0.10.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "0.900.1",
     "@angular/compiler-cli": "9.0.0",
     "@angular/language-service": "9.0.0",
+    "@nestjs/schematics": "^6.7.0",
+    "@nestjs/testing": "^6.8.3",
     "@nrwl/cypress": "9.1.2",
     "@nrwl/eslint-plugin-nx": "9.1.0",
     "@nrwl/jest": "9.1.2",
+    "@nrwl/nest": "9.1.2",
+    "@nrwl/node": "9.1.2",
     "@nrwl/workspace": "9.1.0",
     "@types/jest": "24.9.1",
     "@types/node": "~8.9.4",
@@ -71,9 +75,11 @@
     "ts-node": "~7.0.0",
     "tslint": "~6.0.0",
     "typescript": "~3.7.4",
-    "@nrwl/node": "9.1.2",
-    "@nestjs/schematics": "^6.7.0",
-    "@nestjs/testing": "^6.8.3",
-    "@nrwl/nest": "9.1.2"
+    "@nrwl/storybook": "*",
+    "@storybook/angular": "5.3.9",
+    "@storybook/react": "5.3.9",
+    "@storybook/addon-knobs": "5.3.9",
+    "babel-loader": "8.0.6",
+    "@babel/core": "8.0.6"
   }
 }
