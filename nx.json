@@ -26,6 +26,9 @@
     },
     "store-feature-game-detail": {
       "tags": []
+    },
+    "api": {
+      "tags": []
     }
   }
 }
