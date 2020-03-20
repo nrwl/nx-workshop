@@ -2,7 +2,7 @@
 
 Labs:
 
-- [Lab 2](https://github.com/nrwl/nx-workshop/blob/master/docs/lab1/LAB.md)
+- [Lab 1](https://github.com/nrwl/nx-workshop/blob/master/docs/lab1/LAB.md)
 - [Lab 2](https://github.com/nrwl/nx-workshop/blob/master/docs/lab2/LAB.md)
 - [Lab 3](https://github.com/nrwl/nx-workshop/blob/master/docs/lab3/LAB.md)
 - [Lab 4](https://github.com/nrwl/nx-workshop/blob/master/docs/lab4/LAB.md)
