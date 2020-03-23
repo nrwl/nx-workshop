@@ -1,5 +1,7 @@
 ### 💻 Lab 5 - Generate a utility lib
 
+###### ⏰ Estimated time: 5-10 minutes
+
 Let's fix the ratings! They don't look that good and they could benefit from some formatting.
 
 We will create a shared utility lib where we'll add our formatters and see how to import them in our components afterwards.

@@ -1,5 +1,7 @@
 ### 💻 Lab 6 - Generate a route lib
 
+###### ⏰ Estimated time: 15-25 minutes
+
 We'll look at more advanced usages of the `@nrwl/angular` schematics and generate a new route lib for our store application. We'll see how Nx takes care of most of the work, and we just have to do the wiring up!
 
 #### 📚 Learning outcomes:

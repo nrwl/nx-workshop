@@ -1,5 +1,7 @@
 ### 💻 Lab 12 - e2e test the shared component
 
+###### ⏰ Estimated time: 5 minutes
+
 The storybook schematic we ran earlier also generated some e2e tests. Let's try them out!
 
 #### 📚 Learning outcomes:
@@ -27,3 +29,7 @@ The storybook schematic we ran earlier also generated some e2e tests. Let's try 
    ```
 
 4. Re-run the tests
+
+---
+
+🎓If you get stuck, check out [the solution](SOLUTION.md)

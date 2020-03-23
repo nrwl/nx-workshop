@@ -1,5 +1,7 @@
 ### 💻 Lab 4 - Generate a component lib
 
+###### ⏰ Estimated time: 10 minutes
+
 Let's add a header to our app! Because headers can be shared with other components, we will create a common lib that others can import as well.
 
 #### 📚 Learning outcomes:

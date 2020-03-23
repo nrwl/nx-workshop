@@ -1,5 +1,7 @@
 ### 💻 Lab 9 - Generate a type lib that the API and frontend can share
 
+###### ⏰ Estimated time: 15 minutes
+
 Now our dependency graph looks a bit disconnected. The frontend and the API still do not have anything in common. The power of Nx libraries is that they can be shared among any number of projects.
 
 We'll look at creating libs to store Typescript interfaces and then we'll use the Nx **Move** schematic to move that library around our project, with minimal effort.

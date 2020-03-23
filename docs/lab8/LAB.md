@@ -1,5 +1,7 @@
 ### 💻 Lab 8 - Displaying a full game in the routed game-detail component
 
+###### ⏰ Estimated time: 15-20 minutes
+
 Now that we have a proper API, we can remove the `fake-api` created earlier and make proper HTTP requests. We'll also look at how the Nrwl NestJS schematics created a helpful proxy configuration for us.
 
 #### 📚 Learning outcomes:

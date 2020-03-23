@@ -1,5 +1,7 @@
 ### 💻 Lab 7 - Add a NestJS API
 
+###### ⏰ Estimated time: 10-15 minutes
+
 Up until now we've had a single app in our repository, and a few other libs that it uses.
 
 But remember how we created that `fake-api` way back in the second lab, that only our `store` app can access?

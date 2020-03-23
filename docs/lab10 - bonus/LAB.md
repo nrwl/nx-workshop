@@ -1,5 +1,7 @@
 ### 💻 Lab 11 - Generate Storybook stories for the shared ui component
 
+###### ⏰ Estimated time: 10-15 minutes
+
 Let's explore some more Nx plugins by generating and running a storybook configuration for our shared store header.
 
 #### 📚 Learning outcomes:

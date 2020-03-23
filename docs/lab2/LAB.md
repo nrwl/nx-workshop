@@ -1,5 +1,7 @@
 ### 💻 Lab 2 - Generate an Angular app
 
+###### ⏰ Estimated time: 15-20 minutes
+
 TODO: add link to repo
 
 Before starting this lab, you can clone our Git repository (`master` branch will be starting point) or continue with the one you created.

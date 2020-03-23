@@ -1,5 +1,7 @@
 ### 💻 Lab 3 - Builders
 
+###### ⏰ Estimated time: 5-15 minutes
+
 We'll build the app we just created, and look at what builders are and how to customize them.
 
 #### 📚 Learning outcomes:
