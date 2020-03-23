@@ -49,6 +49,7 @@ In this lab we'll generate our first Angular application within the new monorepo
    `import { MatCardModule } from '@angular/material/card';`
 10. Serve the app: `nx serve store`
 11. See your app live at: `http://localhost:4200/`
+12. Inspect what changed from the last time you commited, then commit your changes
 
 ---
 

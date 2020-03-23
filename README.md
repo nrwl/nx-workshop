@@ -74,6 +74,4 @@ Still TODO:
 - finish lab TODOs
 - verify all the links still work
 - create branches for each lab
-- consider adding ESTIMATED TIMES for each lab
-- encourage people to commit after each lab
 - create the `final-solution` branch

@@ -91,6 +91,7 @@ Let's add a header to our app! Because headers can be shared with other componen
 
 8. Serve the project and test the changes
 9. Inspect the dependency graph - What do you see?
+10. Inspect what changed from the last time you commited, then commit your changes
 
 ---
 

@@ -71,6 +71,7 @@ Now let's load the full game in our routed component!
    ⚠️ Notice how we're using the shared `formatRating()` function in our routed component as well!
 
 9. Your component should look the same as the provided screenshot!
+10. Inspect what changed from the last time you commited, then commit your changes
 
 ---
 

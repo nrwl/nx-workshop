@@ -121,6 +121,7 @@ Let's fix that - we already have a `Game` interface in a lib. But it's nested in
 
 9.  Trigger a build of both the store and the API projects and make sure it passes
 10. Inspect the dependency graph
+11. Inspect what changed from the last time you commited, then commit your changes
 
 ---
 

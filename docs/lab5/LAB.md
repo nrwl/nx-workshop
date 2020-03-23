@@ -53,6 +53,7 @@ We will create a shared utility lib where we'll add our formatters and see how t
 
 5. Serve the store app
 6. Launch the dependency graph
+7. Inspect what changed from the last time you commited, then commit your changes
 
 ---
 

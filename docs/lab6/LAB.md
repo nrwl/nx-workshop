@@ -120,6 +120,7 @@ We'll look at more advanced usages of the `@nrwl/angular` schematics and generat
 
 10. Serve your app again, click on some games, and compare with the screenshot above
 11. Launch the dependency graph and see what's been added
+12. Inspect what changed from the last time you commited, then commit your changes
 
 ---
 

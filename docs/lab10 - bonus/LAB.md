@@ -67,6 +67,8 @@ Let's explore some more Nx plugins by generating and running a storybook configu
 
 <img src="../assets/storybook.gif" width="300" alt="the header component running in storybook">
 
+6. Inspect what changed from the last time you commited, then commit your changes
+
 ---
 
 🎓If you get stuck, check out [the solution](SOLUTION.md)

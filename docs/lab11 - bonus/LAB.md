@@ -29,6 +29,7 @@ The storybook schematic we ran earlier also generated some e2e tests. Let's try 
    ```
 
 4. Re-run the tests
+5. Inspect what changed from the last time you commited, then commit your changes
 
 ---
 
