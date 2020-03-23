@@ -38,3 +38,11 @@ You do not need to be familiar with Nest (and you can use the `@nrwl/express:app
 6. Update the Nest [app.controller.ts](`https://github.com/rarmatei/nx-workshop/tree/master/examples/lab7/apps/api/src/app/app.controller.ts`) to use the new methods from the service
 
 7. Let's now inspect the dependency graph!
+
+---
+
+🎓If you get stuck, check out [the solution](SOLUTION.md)
+
+---
+
+[➡️ Next lab ➡️](../lab8/LAB.md)

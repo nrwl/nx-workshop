@@ -119,3 +119,11 @@ Let's fix that - we already have a `Game` interface in a lib. But it's nested in
 
 9.  Trigger a build of both the store and the API projects and make sure it passes
 10. Inspect the dependency graph
+
+---
+
+🎓If you get stuck, check out [the solution](SOLUTION.md)
+
+---
+
+[➡️ Next lab ➡️](../lab10/LAB.md)

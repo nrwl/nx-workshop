@@ -89,3 +89,11 @@ Let's add a header to our app! Because headers can be shared with other componen
 
 8. Serve the project and test the changes
 9. Inspect the dependency graph - What do you see?
+
+---
+
+🎓If you get stuck, check out [the solution](SOLUTION.md)
+
+---
+
+[➡️ Next lab ➡️](../lab5/LAB.md)

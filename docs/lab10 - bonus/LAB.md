@@ -64,3 +64,11 @@ Let's explore some more Nx plugins by generating and running a storybook configu
 5. start typing in different titles and see how they appear in the header
 
 <img src="../assets/storybook.gif" width="300" alt="the header component running in storybook">
+
+---
+
+🎓If you get stuck, check out [the solution](SOLUTION.md)
+
+---
+
+[➡️ Next lab ➡️](../lab11/LAB.md)

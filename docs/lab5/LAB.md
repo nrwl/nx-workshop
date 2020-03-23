@@ -51,3 +51,11 @@ We will create a shared utility lib where we'll add our formatters and see how t
 
 5. Serve the store app
 6. Launch the dependency graph
+
+---
+
+🎓If you get stuck, check out [the solution](SOLUTION.md)
+
+---
+
+[➡️ Next lab ➡️](../lab6/LAB.md)

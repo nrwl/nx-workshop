@@ -69,3 +69,11 @@ Now let's load the full game in our routed component!
    ⚠️ Notice how we're using the shared `formatRating()` function in our routed component as well!
 
 9. Your component should look the same as the provided screenshot!
+
+---
+
+🎓If you get stuck, check out [the solution](SOLUTION.md)
+
+---
+
+[➡️ Next lab ➡️](../lab9/LAB.md)

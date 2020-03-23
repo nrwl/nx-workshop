@@ -51,6 +51,8 @@ As mentioned, for anything Angular/styling or HTML template work we will provide
 
 Finally, if you fall behind or join late, Git branches are provided for each lab, which will fast forward you to that lab - `git checkout lab-x` (where `x` is the number of the lab you want to start).
 
+If you want to skip ahead to the end: `git checkout final-solution`
+
 ### The labs
 
 Each lab will contain a link to the next one. Start from "Lab 1" and move through them as required:
@@ -79,3 +81,4 @@ Still TODO:
 - consider adding ESTIMATED TIMES for each lab
 - encourage people to commit after each lab
 - nx affected lab?
+- create the `final-solution` branch

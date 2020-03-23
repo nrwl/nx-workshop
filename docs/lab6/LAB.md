@@ -122,3 +122,11 @@ We'll look at more advanced usages of the `@nrwl/angular` schematics and generat
 ---
 
 The result is still pretty simple though. Our route just displays the ID of the selected game in a card. It would be great if we had some API to get the full game from that ID!
+
+---
+
+🎓If you get stuck, check out [the solution](SOLUTION.md)
+
+---
+
+[➡️ Next lab ➡️](../lab7/LAB.md)

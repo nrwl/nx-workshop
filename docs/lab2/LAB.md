@@ -55,3 +55,11 @@ Your app should look similar to the screenshot above!
 Now we're starting to see some content! But there are some styles missing: the Angular Material theme! We'll look at how to add it in the next workshop!
 
 The ratings also don't look that good - we'll fix those in **Lab 5**.
+
+---
+
+🎓If you get stuck, check out [the solution](SOLUTION.md)
+
+---
+
+[➡️ Next lab ➡️](../lab3/LAB.md)
