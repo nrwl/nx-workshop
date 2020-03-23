@@ -71,7 +71,6 @@ Each lab will contain a link to the next one. Start from "Lab 1" and move throug
 
 Still TODO:
 
-- finish lab TODOs
 - verify all the links still work
 - create branches for each lab
 - create the `final-solution` branch

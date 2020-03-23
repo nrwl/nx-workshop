@@ -2,9 +2,7 @@
 
 ###### ⏰ Estimated time: 15-20 minutes
 
-TODO: add link to repo
-
-Before starting this lab, you can clone our Git repository (`master` branch will be starting point) or continue with the one you created.
+> Before starting this lab, you can either clone this Git repository (`master` branch will be the starting point) or continue in the folder you created. If you clone, you will get access to all the lab branches so you can `checkout` if you fall behind.
 
 In this lab we'll generate our first Angular application within the new monorepo.
 
