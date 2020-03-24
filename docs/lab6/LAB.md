@@ -74,7 +74,7 @@ We'll look at more advanced usages of the `@nrwl/angular` schematics and generat
 
      </details>
 
-7. Populate your new component with the provided files: `game-detail.component.`[ts](`../../examples/lab6/libs/store/feature-game-detail/src/lib/game-detail/game-detail.component.ts`) / [css](`../../examples/lab6/libs/store/feature-game-detail/src/lib/game-detail/game-detail.component.css`) / [html](`../../examples/lab6/libs/store/feature-game-detail/src/lib/game-detail/game-detail.component.html`)
+7. Populate your new component with the provided files: `game-detail.component.`[ts](../../examples/lab6/libs/store/feature-game-detail/src/lib/game-detail/game-detail.component.ts) / [css](../../examples/lab6/libs/store/feature-game-detail/src/lib/game-detail/game-detail.component.css) / [html](../../examples/lab6/libs/store/feature-game-detail/src/lib/game-detail/game-detail.component.html)
 
 8. We now need to display your new routed component. Let's add a `<router-outlet>` below our list of cards:
 
