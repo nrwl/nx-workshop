@@ -25,6 +25,7 @@ In this lab we'll generate our first Angular application within the new monorepo
 #### 🏋️‍♀️ Steps:
 
 1. Make sure you can run Nx commands:
+   - try out `nx --version` and see if it outputs a version number
    - install the CLI globally: `npm i -g @nrwl/cli`
    - if you don't want to install it globally, use `yarn nx` instead of `nx` in all the commands below
 2. Run `nx list` to see which plugins you have installed
