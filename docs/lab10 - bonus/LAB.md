@@ -75,4 +75,4 @@ Let's explore some more Nx plugins by generating and running a storybook configu
 
 ---
 
-[➡️ Next lab ➡️](../lab11/LAB.md)
+[➡️ Next lab ➡️](../lab11%20-%20bonus/LAB.md)

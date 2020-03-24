@@ -33,6 +33,7 @@ We'll look at creating libs to store Typescript interfaces and then we'll use th
 
 3. Create your `Game` interface: see `libs/api/util-interface/src/lib/`[util-interface.ts](../../examples/lab9/libs/api/util-interface/src/lib/util-interface.ts)
 4. Import it in the API service: `apps/api/src/app/app.service.ts`
+
    ⚠️ You might need to restart the Typescript compiler in your editor
 
    <details>
@@ -73,6 +74,7 @@ Let's fix that - we already have a `Game` interface in a lib. But it's nested in
 ---
 
 7.  Use the `@nrwl/workspace:move` schematic to move the interface lib created above into the root `/libs` folder
+
     ⚠️ Make sure you use the `--dry-run` flag until you're confident your command is correct
 
     <details>
@@ -119,6 +121,8 @@ Let's fix that - we already have a `Game` interface in a lib. But it's nested in
 
     </details>
 
+    ⚠️ Notice how we didn't have to update the imports in the API. The `move` schematic took care of that for us!
+
 9.  Trigger a build of both the store and the API projects and make sure it passes
 10. Inspect the dependency graph
 11. Inspect what changed from the last time you committed, then commit your changes
@@ -129,4 +133,4 @@ Let's fix that - we already have a `Game` interface in a lib. But it's nested in
 
 ---
 
-[➡️ Next lab ➡️](../lab10/LAB.md)
+[➡️ Next lab ➡️](../lab10%20-%20bonus/LAB.md)
