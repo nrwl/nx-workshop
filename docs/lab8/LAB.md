@@ -29,7 +29,7 @@ Now that we have a proper API, we can remove the `fake-api` created earlier and 
 
    </details>
 
-3. Within the same folder, inject the `HttpClient` in the [app.component.ts](`../../examples/lab8/apps/store/src/app/app.component.ts`)'s constructor and call your new API as an _HTTP request_
+3. Within the same folder, inject the `HttpClient` in the [app.component.ts](../../examples/lab8/apps/store/src/app/app.component.ts)'s constructor and call your new API as an _HTTP request_
 
    ⚠️ _Notice how we assume it will be available at `/api` (more on that below)_
 
