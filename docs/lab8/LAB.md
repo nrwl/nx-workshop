@@ -50,9 +50,13 @@ Now that we have a proper API, we can remove the `fake-api` created earlier and 
    </details>
 
 5. Run `nx serve api`
+
    ⚠️ Notice the _PORT_ number
+
 6. In a different tab, run `nx serve store`
+
    ⚠️ Again, notice the _PORT_ number
+
 7. Everything should still look/function the same!
 
 ---
@@ -65,12 +69,12 @@ Now let's load the full game in our routed component!
 
 8. Inside the `libs/store/feature-game-detail/src/lib` folder, replace the following files:
 
-   - `/game-detail/game-detail.component.` [ts](../../examples/lab8/libs/store/feature-game-detail/src/lib/game-detail/game-detail.component.ts) / [html](../../examples/lab8/libs/store/feature-game-detail/src/lib/game-detail/game-detail.component.html) / [css](../../examples/lab8/libs/store/feature-game-detail/src/lib/game-detail/game-detail.component.css)
+   - `/game-detail/game-detail.component.` [ts](../../examples/lab8/libs/store/feature-game-detail/src/lib/game-detail/game-detail.component.ts) / [html](../../examples/lab8/libs/store/feature-game-detail/src/lib/game-detail/game-detail.component.html)
    - [/store-feature-game-detail.module.ts](../../examples/lab8/libs/store/feature-game-detail/src/lib/store-feature-game-detail.module.ts)
 
    ⚠️ Notice how we're using the shared `formatRating()` function in our routed component as well!
 
-9. Your component should look the same as the provided screenshot!
+9. Your component should look similar to the the provided screenshot!
 10. Inspect what changed from the last time you committed, then commit your changes
 
 ---
