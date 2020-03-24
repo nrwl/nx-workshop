@@ -14,7 +14,7 @@ Some of things you'll learn:
 - Easily move libs around your folder structure
 - Creating Storybook stories and e2e Cypress tests for your components
 
-To help you understand how to apply some of these lessons in your own projects, we'll try to build a more "real-world" example. However, because of the time constrains and to make sure we get to cover as much material as possible, we'll provide you with all the code for any "non-Nx" work you need to do - so you can focus learning to use Nx to its full potential.
+To help you understand how to apply some of these lessons in your own projects, we'll try to build a more "real-world" example. However, because of the time constrains and to make sure we get to cover as much material as possible, we'll provide you with all the code for any "non-Nx" work you need to do (like styling and configuring Angular routes) - so you can focus on learning to use Nx to its full potential.
 
 This is what we'll build:
 
@@ -22,23 +22,18 @@ This is what we'll build:
 
 ### Pre-requisites
 
-Nx has support for a lot of platforms, but in this workshop we'll be using mainly Angular. While all the code for any Angular specific work will be provided, it will help if you have experience with:
-
-- configuring the Angular router
-- using Angular modules
-- using the `async` pipe
-- beginner level TypeScript knowledge
+Nx has support for a lot of platforms, but in this workshop we'll be using mainly Angular. While all the code for any Angular specific work will be provided, it will help if you have some experience with the Angular ecosystem.
 
 ### How the labs work
 
-For each lab, you'll have the following sections:
+Each lab will have the following sections:
 
-- 📚 "Learning outcomes"
+- 📚 **"Learning outcomes"**
   - A summary of the most important things you'll learn in that lab
-- 📲 "After this workshop, your app should look similar to this"
+- 📲 **"After this workshop, your app should look similar to this"**
   - This will contain a screenshot of any changes to the app visuals after the lab
   - Any changes to the source directory structure
-- 🏋️‍♀️ "Steps"
+- 🏋️‍♀️ **"Steps"**
   - All the lab steps you need to follow
 
 ##### Hints and solutions feat. Ron the whale 🐳
@@ -47,7 +42,7 @@ While the _mighty narwhal_ is away on secret missions, you will occasionally see
 
 If you get stuck running any Nx command, there is a `SOLUTION.md` file in each lab's folder.
 
-As mentioned, for anything Angular/styling or HTML template work we will provide with the code you need as direct links to the files. Please use these as much as possible.
+As mentioned, for anything Angular/styling or HTML template work we will provide the code you need as direct links to the files. Please use these as much as possible.
 
 Finally, if you fall behind or join late, Git branches are provided for each lab, which will fast forward you to that lab - `git checkout lab-x` (where `x` is the number of the lab you want to start).
 
@@ -55,7 +50,7 @@ If you want to skip ahead to the end: `git checkout final-solution`
 
 ### The labs
 
-Each lab will contain a link to the next one. Start from "Lab 1" and move through them as required:
+Each lab will contain a link to the next one. Start from **"Lab 1"** and move through them as required:
 
 - 🔬[Lab 1](https://github.com/nrwl/nx-workshop/blob/master/docs/lab1/LAB.md)
 - ⚗️[Lab 2](https://github.com/nrwl/nx-workshop/blob/master/docs/lab2/LAB.md)

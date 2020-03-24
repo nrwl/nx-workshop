@@ -43,7 +43,9 @@ In this lab we'll generate our first Angular application within the new monorepo
    ⏳**Reminder:** When you are given example files to copy, the folder they're in hints to the _folder_ and _filename_ you can place them in when you do the copying
 7. Add some basic styling to your new component and display the games from the Fake API (to not spend too much time on this, you can copy it from here [.html](../../examples/lab2/apps/store/src/app/app.component.html) / [.css](../../examples/lab2/apps/store/src/app/app.component.css) / [.ts](../../examples/lab2/apps/store/src/app/app.component.ts) - and replace the full contents of the files)
 8. You can get the example game images from [here](../../examples/lab2/apps/store/src/assets)
+
    ⚠️ Make sure you put them in the correct folder
+
 9. Add the Material Card Module to `app.module.ts`:
 
    ```ts
