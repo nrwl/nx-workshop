@@ -63,9 +63,3 @@ Each lab will contain a link to the next one. Start from **"Lab 1"** and move th
 - 💻[Lab 9](https://github.com/nrwl/nx-workshop/blob/master/docs/lab9/LAB.md)
 - 👩‍💻[Lab 10](https://github.com/nrwl/nx-workshop/blob/master/docs/lab10/LAB.md)
 - ⌨️[Lab 11](https://github.com/nrwl/nx-workshop/blob/master/docs/lab11/LAB.md)
-
-Still TODO:
-
-- verify all the links still work
-- create branches for each lab
-- create the `final-solution` branch
