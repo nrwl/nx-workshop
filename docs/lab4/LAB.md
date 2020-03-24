@@ -62,7 +62,7 @@ Let's add a header to our app! Because headers can be shared with other componen
 
 5. Replace the `header` component's [template](../../examples/lab4/libs/store/ui-shared/src/lib/header/header.component.html) / [class](../../examples/lab4/libs/store/ui-shared/src/lib/header/header.component.ts)
 
-6. Import the `SharedModule` you just created in the `app/store/src/app/app.module.ts`
+6. Import the `SharedModule` you just created in the `apps/store/src/app/app.module.ts`
 
    <details>
    <summary>🐳 Hint</summary>
@@ -73,7 +73,7 @@ Let's add a header to our app! Because headers can be shared with other componen
 
    </details>
 
-   ⚠️ You might need to restart the TS compiler in your editor
+   ⚠️ You might need to restart the TS compiler in your editor (`CTRL+SHIFT+P` in VSCode and search for `Restart Typescript`)
 
 7. Let's use the new shared header component we created
 
