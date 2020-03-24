@@ -56,7 +56,7 @@ Let's explore some more Nx plugins by generating and running a storybook configu
 
 4. Serve storybook!
 
-   ⚠️ If you get an error, try running `yarn` again
+   ⚠️ If you get an error, try running `yarn` again, and when asked, select the top version from `babel/core`
 
    <details>
    <summary>🐳 Hint</summary>
