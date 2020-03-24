@@ -59,7 +59,7 @@ We'll build the app we just created, and look at what builders are and how to cu
 
 7. The **serve** architect (located a bit lower in `workspace.json`) also contains a builder, that _uses_ the output from the **build** architect we just changed
    - so we can just re-start `nx serve store` see the new styles you added!
-8. Inspect what changed from the last time you commited, then commit your changes
+8. Inspect what changed from the last time you committed, then commit your changes
 
 ---
 

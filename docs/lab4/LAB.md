@@ -60,7 +60,7 @@ Let's add a header to our app! Because headers can be shared with other componen
 
    </details>
 
-5. Replace the `header` component's [template](https://github.com/rarmatei/nx-workshop/tree/master/examples/lab4/libs/shared/src/lib/header/header.component.html) / [class](https://github.com/rarmatei/nx-workshop/tree/master/examples/lab4/libs/shared/src/lib/header/header.component.ts)
+5. Replace the `header` component's [template](../../examples/lab4/libs/store/ui-shared/src/lib/header/header.component.html) / [class](../../examples/lab4/libs/store/ui-shared/src/lib/header/header.component.ts)
 
 6. Import the `SharedModule` you just created in the `app/store/src/app/app.module.ts`
 
@@ -91,7 +91,7 @@ Let's add a header to our app! Because headers can be shared with other componen
 
 8. Serve the project and test the changes
 9. Inspect the dependency graph - What do you see?
-10. Inspect what changed from the last time you commited, then commit your changes
+10. Inspect what changed from the last time you committed, then commit your changes
 
 ---
 

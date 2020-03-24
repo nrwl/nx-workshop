@@ -26,7 +26,7 @@ We will create a shared utility lib where we'll add our formatters and see how t
 
 1. Stop the `ng serve`
 2. Use the `@nrwl/workspace` package to generate another lib in the `libs/store` folder
-3. Add the utility function to the new library you just created `libs/store/utility-formatters/src/lib/`[utility-formatters.ts](https://github.com/rarmatei/nx-workshop/tree/master/examples/lab5/libs/utils/src/lib/utils.ts)
+3. Add the utility function to the new library you just created `libs/store/utility-formatters/src/lib/`[utility-formatters.ts](../../examples/lab5/libs/store/util-formatters/src/lib/utils.ts)
 4. Use it in your frontend project to format the rating for each game
 
     <details>
@@ -53,7 +53,7 @@ We will create a shared utility lib where we'll add our formatters and see how t
 
 5. Serve the store app
 6. Launch the dependency graph
-7. Inspect what changed from the last time you commited, then commit your changes
+7. Inspect what changed from the last time you committed, then commit your changes
 
 ---
 

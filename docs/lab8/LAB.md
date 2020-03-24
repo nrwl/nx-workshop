@@ -29,7 +29,7 @@ Now that we have a proper API, we can remove the `fake-api` created earlier and 
 
    </details>
 
-3. Within the same folder, inject the `HttpClient` in the [app.component.ts](`https://github.com/rarmatei/nx-workshop/tree/master/examples/lab7/apps/frontend/src/app/app.component.ts`)'s constructor and call your new API as an _HTTP request_
+3. Within the same folder, inject the `HttpClient` in the [app.component.ts](`../../examples/lab8/apps/store/src/app/app.component.ts`)'s constructor and call your new API as an _HTTP request_
 
    ⚠️ _Notice how we assume it will be available at `/api` (more on that below)_
 
@@ -65,13 +65,13 @@ Now let's load the full game in our routed component!
 
 8. Inside the `libs/store/feature-game-detail/src/lib` folder, replace the following files:
 
-   - `/game-detail/game-detail.component.` [ts](https://github.com/rarmatei/nx-workshop/tree/master/examples/lab8/libs/frontend/feature-game-detail/src/lib/game-detail/game-detail.component.ts) / [html](https://github.com/rarmatei/nx-workshop/tree/master/examples/lab8/libs/frontend/feature-game-detail/src/lib/game-detail/game-detail.component.html) / [css](https://github.com/rarmatei/nx-workshop/tree/master/examples/lab8/libs/frontend/feature-game-detail/src/lib/game-detail/game-detail.component.css)
-   - [/store-feature-game-detail.module.ts](https://github.com/rarmatei/nx-workshop/tree/master/examples/lab8/libs/frontend/feature-game-detail/src/lib/frontend-feature-game-detail.module.ts)
+   - `/game-detail/game-detail.component.` [ts](../../examples/lab8/libs/store/feature-game-detail/src/lib/game-detail/game-detail.component.ts) / [html](../../examples/lab8/libs/store/feature-game-detail/src/lib/game-detail/game-detail.component.html) / [css](../../examples/lab8/libs/store/feature-game-detail/src/lib/game-detail/game-detail.component.css)
+   - [/store-feature-game-detail.module.ts](../../examples/lab8/libs/store/feature-game-detail/src/lib/store-feature-game-detail.module.ts)
 
    ⚠️ Notice how we're using the shared `formatRating()` function in our routed component as well!
 
 9. Your component should look the same as the provided screenshot!
-10. Inspect what changed from the last time you commited, then commit your changes
+10. Inspect what changed from the last time you committed, then commit your changes
 
 ---
 

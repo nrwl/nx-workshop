@@ -74,7 +74,7 @@ We'll look at more advanced usages of the `@nrwl/angular` schematics and generat
 
      </details>
 
-7. Populate your new component with the provided files: `game-detail.component.`[ts](`https://github.com/rarmatei/nx-workshop/tree/master/examples/lab6/libs/frontend/feature-game-detail/src/lib/game-detail/game-detail.component.ts`) / [css](`https://github.com/rarmatei/nx-workshop/tree/master/examples/lab6/libs/frontend/feature-game-detail/src/lib/game-detail/game-detail.component.css`) / [html](`https://github.com/rarmatei/nx-workshop/tree/master/examples/lab6/libs/frontend/feature-game-detail/src/lib/game-detail/game-detail.component.html`)
+7. Populate your new component with the provided files: `game-detail.component.`[ts](`../../examples/lab6/libs/store/feature-game-detail/src/lib/game-detail/game-detail.component.ts`) / [css](`../../examples/lab6/libs/store/feature-game-detail/src/lib/game-detail/game-detail.component.css`) / [html](`../../examples/lab6/libs/store/feature-game-detail/src/lib/game-detail/game-detail.component.html`)
 
 8. We now need to display your new routed component. Let's add a `<router-outlet>` below our list of cards:
 
@@ -120,7 +120,7 @@ We'll look at more advanced usages of the `@nrwl/angular` schematics and generat
 
 10. Serve your app again, click on some games, and compare with the screenshot above
 11. Launch the dependency graph and see what's been added
-12. Inspect what changed from the last time you commited, then commit your changes
+12. Inspect what changed from the last time you committed, then commit your changes
 
 ---
 

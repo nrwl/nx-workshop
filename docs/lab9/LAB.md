@@ -31,7 +31,7 @@ We'll look at creating libs to store Typescript interfaces and then we'll use th
 
    ⚠️ It's **important** that we create it in the `/api` folder for now
 
-3. Create your `Game` interface: see `libs/api/util-interface/src/lib/`[util-interface.ts]()
+3. Create your `Game` interface: see `libs/api/util-interface/src/lib/`[util-interface.ts](../../examples/lab9/libs/api/util-interface/src/lib/util-interface.ts)
 4. Import it in the API service: `apps/api/src/app/app.service.ts`
    ⚠️ You might need to restart the Typescript compiler in your editor
 
@@ -121,7 +121,7 @@ Let's fix that - we already have a `Game` interface in a lib. But it's nested in
 
 9.  Trigger a build of both the store and the API projects and make sure it passes
 10. Inspect the dependency graph
-11. Inspect what changed from the last time you commited, then commit your changes
+11. Inspect what changed from the last time you committed, then commit your changes
 
 ---
 
