@@ -1,7 +1,7 @@
 ##### To build the app for development:
 
-`nx build frontend`
+`nx build store`
 
 ##### To build the app for production:
 
-`nx build frontend --configuration=production`
+`nx build store --configuration=production`
