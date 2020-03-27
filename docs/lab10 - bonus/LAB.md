@@ -1,4 +1,4 @@
-### 💻 Lab 11 - Generate Storybook stories for the shared ui component
+### 💻 Lab 10 - Generate Storybook stories for the shared ui component
 
 ###### ⏰ Estimated time: 10-15 minutes
 

@@ -22,8 +22,8 @@ Let's add a header to our app! Because headers can be shared with other componen
 
 #### 🏋️‍♀️ Steps:
 
-1. Stop the `ng serve`
-2. Generate a new Angular library called `ui-shared` in the `libs/frontend` folder
+1. Stop the `nx serve`
+2. Generate a new Angular library called `ui-shared` in the `libs/store` folder
 
    <details>
    <summary>🐳 Hint</summary>
@@ -62,7 +62,7 @@ Let's add a header to our app! Because headers can be shared with other componen
 
 5. Replace the `header` component's [template](../../examples/lab4/libs/store/ui-shared/src/lib/header/header.component.html) / [class](../../examples/lab4/libs/store/ui-shared/src/lib/header/header.component.ts)
 
-6. Import the `SharedModule` you just created in the `apps/store/src/app/app.module.ts`
+6. Import the `StoreUiSharedModule` you just created in the `apps/store/src/app/app.module.ts`
 
    <details>
    <summary>🐳 Hint</summary>

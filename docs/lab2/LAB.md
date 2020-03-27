@@ -28,6 +28,9 @@ In this lab we'll generate our first Angular application within the new monorepo
    - try out `nx --version` and see if it outputs a version number
    - install the CLI globally: `npm i -g @nrwl/cli`
    - if you don't want to install it globally, use `yarn nx` instead of `nx` in all the commands below
+
+> Please make sure you are using the latest version of Nx (9.1.4)
+
 2. Run `nx list` to see which plugins you have installed
 3. Add the Angular plugin: `yarn add @nrwl/angular`
 4. Let's also add Angular Material so we can use some of their components: `yarn add @angular/material @angular/cdk`

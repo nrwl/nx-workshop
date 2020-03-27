@@ -1,4 +1,4 @@
-### 💻 Lab 12 - e2e test the shared component
+### 💻 Lab 11 - e2e test the shared component
 
 ###### ⏰ Estimated time: 5 minutes
 

@@ -27,7 +27,7 @@ We'll look at creating libs to store Typescript interfaces and then we'll use th
 
 1. Stop serving both the API and the frontend
 
-2. Generate a new lib called `util-interface` inside the `libs/api` folder
+2. Generate a new `@nrwl/workspace` lib called `util-interface` inside the `libs/api` folder
 
    ⚠️ It's **important** that we create it in the `/api` folder for now
 
@@ -94,7 +94,7 @@ Let's fix that - we already have a `Game` interface in a lib. But it's nested in
 
     <summary>🐳 Hint 3</summary>
 
-    Your library name is `api-util-formatters` - to move it to root, its new name needs to be `util-formatters`
+    Your library name is `api-util-interface` - to move it to root, its new name needs to be `util-interface`
 
     </details>
 

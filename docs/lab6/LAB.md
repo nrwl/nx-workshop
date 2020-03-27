@@ -28,7 +28,7 @@ We'll look at more advanced usages of the `@nrwl/angular` schematics and generat
    - lives under `libs/store`
    - has lazy loading
    - has routing enabled
-   - its parent routing module is `apps/frontend/src/app/app.module.ts`
+   - its parent routing module is `apps/store/src/app/app.module.ts`
 
    ⚠️ **Use `--help`** with the above schematic to figure out which options you need to use to enable **all** the above (See the solution if still unsure)
 

@@ -61,5 +61,5 @@ Each lab will contain a link to the next one. Start from **"Lab 1"** and move th
 - 🤖[Lab 7](https://github.com/nrwl/nx-workshop/blob/master/docs/lab7/LAB.md)
 - 📐[Lab 8](https://github.com/nrwl/nx-workshop/blob/master/docs/lab8/LAB.md)
 - 💻[Lab 9](https://github.com/nrwl/nx-workshop/blob/master/docs/lab9/LAB.md)
-- 👩‍💻[Lab 10](https://github.com/nrwl/nx-workshop/blob/master/docs/lab10/LAB.md)
-- ⌨️[Lab 11](https://github.com/nrwl/nx-workshop/blob/master/docs/lab11/LAB.md)
+- 👩‍💻[Lab 10](https://github.com/nrwl/nx-workshop/blob/master/docs/lab10 - bonus/LAB.md)
+- ⌨️[Lab 11](https://github.com/nrwl/nx-workshop/blob/master/docs/lab11 - bonus/LAB.md)
