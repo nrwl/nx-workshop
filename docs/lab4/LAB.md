@@ -84,13 +84,22 @@ Let's add a header to our app! Because headers can be shared with other componen
 
    ```html
    <bg-hoard-header title="Board Game Hoard"></bg-hoard-header>
-   <div class="container games-layout"></div>
+   <!-- right at the top - above our container -->
+   <div class="container"></div>
    ```
 
     </details>
 
 8. Serve the project and test the changes
-9. Inspect the dependency graph - What do you see?
+9. Run the command to inspect the dependency graph - What do you see? (Remember to "Select all" in the top left corner)
+    <details>
+    <summary>🐳 Hint</summary>
+
+   ```bash
+   nx dep-graph
+   ```
+
+    </details>
 10. Inspect what changed from the last time you committed, then commit your changes
 
 ---
