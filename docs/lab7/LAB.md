@@ -34,13 +34,12 @@ You do not need to be familiar with Nest (and you can use the `@nrwl/express:app
 
    ⚠️ Make sure you instruct the schematic to configure a proxy from the frontend `store` to the new `api` service (use `--help` to see the available options)
 
-4. If asked about what directory to create it in, just leave blank and press `ENTER`
-5. Copy the code from the `fake api` to the new Nest `apps/api/src/app/`[app.service.ts](../../examples/lab7/apps/api/src/app/app.service.ts) and expose the `getGames()` and `getGame()` methods
+4. Copy the code from the `fake api` to the new Nest `apps/api/src/app/`[app.service.ts](../../examples/lab7/apps/api/src/app/app.service.ts) and expose the `getGames()` and `getGame()` methods
 
-6. Update the Nest [app.controller.ts](../../examples/lab7/apps/api/src/app/app.controller.ts) to use the new methods from the service
+5. Update the Nest [app.controller.ts](../../examples/lab7/apps/api/src/app/app.controller.ts) to use the new methods from the service
 
-7. Let's now inspect the dependency graph!
-8. Inspect what changed from the last time you committed, then commit your changes
+6. Let's now inspect the dependency graph!
+7. Inspect what changed from the last time you committed, then commit your changes
 
 ---
 
