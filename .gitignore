@@ -1,10 +1,5 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
-# Lock files are not necessary for this workshop repo
-yarn.lock
-package-lock.json
-pnpm-lock.yaml
-
 # compiled output
 /dist
 /tmp
