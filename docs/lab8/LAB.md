@@ -74,7 +74,7 @@ Now let's load the full game in our routed component!
 
    ⚠️ Notice how we're using the shared `formatRating()` function in our routed component as well!
 
-9. Your component should look similar to the the provided screenshot!
+9. Your component should look similar to the provided screenshot! (you might need to restart your `nx serve store` so the new button styles can be copied over)
 10. Inspect what changed from the last time you committed, then commit your changes
 
 ---
