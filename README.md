@@ -4,7 +4,7 @@ In this workshop we'll be building a store for a fictional board game company ca
 
 We're going to be using [Nx](https://nx.dev/) and some its plugins to accelerate the development of this app.
 
-Some of things you'll learn:
+Some of the things you'll learn:
 
 - Generating a pristine Nx workspace
 - Generating frontend Angular apps and backend APIs inside your workspace, with pre-configured proxies
@@ -23,6 +23,22 @@ This is what we'll build:
 ### Pre-requisites
 
 Nx has support for a lot of platforms, but in this workshop we'll be using mainly Angular. While all the code for any Angular specific work will be provided, it will help if you have some experience with the Angular ecosystem.
+
+Make sure you have the following installed:
+
+- Node.js version 10 and up
+    - `node --version`
+- NPM
+    - `npm --version`
+- A Github account
+    - http://github.com
+- A Heroku account
+    - https://heroku.com/
+    - with the [CLI installed](https://devcenter.heroku.com/articles/heroku-cli): `heroku --version`
+    
+Optional:
+- docker
+    - `docker --version`
 
 ### How the labs work
 
@@ -52,14 +68,16 @@ If you want to skip ahead to the end: `git checkout final-solution`
 
 Each lab will contain a link to the next one. Start from **"Lab 1"** and move through them as required:
 
-- 🔬[Lab 1](https://github.com/nrwl/nx-workshop/blob/master/docs/lab1/LAB.md)
-- ⚗️[Lab 2](https://github.com/nrwl/nx-workshop/blob/master/docs/lab2/LAB.md)
-- 🧪[Lab 3](https://github.com/nrwl/nx-workshop/blob/master/docs/lab3/LAB.md)
-- 🔭[Lab 4](https://github.com/nrwl/nx-workshop/blob/master/docs/lab4/LAB.md)
-- 🧬[Lab 5](https://github.com/nrwl/nx-workshop/blob/master/docs/lab5/LAB.md)
-- 🧮[Lab 6](https://github.com/nrwl/nx-workshop/blob/master/docs/lab6/LAB.md)
-- 🤖[Lab 7](https://github.com/nrwl/nx-workshop/blob/master/docs/lab7/LAB.md)
-- 📐[Lab 8](https://github.com/nrwl/nx-workshop/blob/master/docs/lab8/LAB.md)
-- 💻[Lab 9](https://github.com/nrwl/nx-workshop/blob/master/docs/lab9/LAB.md)
-- 👩‍💻[Lab 10](https://github.com/nrwl/nx-workshop/blob/master/docs/lab10%20-%20bonus/LAB.md)
-- ⌨️[Lab 11](https://github.com/nrwl/nx-workshop/blob/master/docs/lab11%20-%20bonus/LAB.md)
+#### Day 1
+
+- 🔬[Lab 1 - Generate an empty workspace](https://github.com/nrwl/nx-workshop/blob/master/docs/lab1/LAB.md)
+- ⚗️[Lab 2 - Generate an Angular app](https://github.com/nrwl/nx-workshop/blob/master/docs/lab2/LAB.md)
+- 🧪[Lab 3 - Builders](https://github.com/nrwl/nx-workshop/blob/master/docs/lab3/LAB.md)
+- 🔭[Lab 4 - Generate a component lib](https://github.com/nrwl/nx-workshop/blob/master/docs/lab4/LAB.md)
+- 🧬[Lab 5 - Generate a component lib](https://github.com/nrwl/nx-workshop/blob/master/docs/lab5/LAB.md)
+- 🧮[Lab 6 - Generate a route lib](https://github.com/nrwl/nx-workshop/blob/master/docs/lab6/LAB.md)
+- 🤖[Lab 7 - Add a NestJS API](https://github.com/nrwl/nx-workshop/blob/master/docs/lab7/LAB.md)
+- 📐[Lab 8 - Displaying a full game in the routed game-detail component](https://github.com/nrwl/nx-workshop/blob/master/docs/lab8/LAB.md)
+- 💻[Lab 9 - Generate a type lib that the API and frontend can share](https://github.com/nrwl/nx-workshop/blob/master/docs/lab9/LAB.md)
+- 👩‍💻[Lab 10 - Generate Storybook stories for the shared ui component](https://github.com/nrwl/nx-workshop/blob/master/docs/lab10%20-%20bonus/LAB.md)
+- ⌨️[Lab 11 - E2E test the shared component](https://github.com/nrwl/nx-workshop/blob/master/docs/lab11%20-%20bonus/LAB.md)
