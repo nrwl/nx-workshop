@@ -37,7 +37,7 @@ Make sure you have the following installed:
     - with the [CLI installed](https://devcenter.heroku.com/articles/heroku-cli): `heroku --version`
     
 Optional:
-- docker
+- [Docker](https://www.docker.com/get-started)
     - `docker --version`
 
 ### How the labs work
