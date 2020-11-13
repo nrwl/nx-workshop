@@ -81,3 +81,16 @@ Each lab will contain a link to the next one. Start from **"Lab 1"** and move th
 - 💻[Lab 9 - Generate a type lib that the API and frontend can share](https://github.com/nrwl/nx-workshop/blob/master/docs/lab9/LAB.md)
 - 👩‍💻[Lab 10 - Generate Storybook stories for the shared ui component](https://github.com/nrwl/nx-workshop/blob/master/docs/lab10%20-%20bonus/LAB.md)
 - ⌨️[Lab 11 - E2E test the shared component](https://github.com/nrwl/nx-workshop/blob/master/docs/lab11%20-%20bonus/LAB.md)
+
+#### Day 2
+
+- 💡[Lab 12 - Module boundaries](https://github.com/nrwl/nx-workshop/blob/master/docs/lab1/LAB.md)
+- 🧸️[Lab 13 - Workspace schematics - Intro](https://github.com/nrwl/nx-workshop/blob/master/docs/lab2/LAB.md)
+- 🧵[Lab 14 - Workspace schematics - Modifying files](https://github.com/nrwl/nx-workshop/blob/master/docs/lab3/LAB.md)
+- 💎[Lab 15 - Setting up CI](https://github.com/nrwl/nx-workshop/blob/master/docs/lab4/LAB.md)
+- 🔌[Lab 16 - Distributed caching](https://github.com/nrwl/nx-workshop/blob/master/docs/lab5/LAB.md)
+- 🔍[Lab 17 - NxCloud GitHub bot](https://github.com/nrwl/nx-workshop/blob/master/docs/lab6/LAB.md)
+- 📎[Lab 18 - Run-Commands and deploying the frontend](https://github.com/nrwl/nx-workshop/blob/master/docs/lab7/LAB.md)
+- 🧲[Lab 19 - Deploying the API](https://github.com/nrwl/nx-workshop/blob/master/docs/lab8/LAB.md)
+- 🎈[Lab 20 - Setting up CD for automatic deployment](https://github.com/nrwl/nx-workshop/blob/master/docs/lab9/LAB.md)
+- 💈[Lab 21 - Deploying only what changed](https://github.com/nrwl/nx-workshop/blob/master/docs/lab10%20-%20bonus/LAB.md)
