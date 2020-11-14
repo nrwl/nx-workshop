@@ -16,11 +16,21 @@
    
    ![Nx Cloud Confirmation](./nx_cloud_enabled.png)
 2. Inspect the changes added in `nx.json` - especially the access token - we'll get back to that in a bit
-3. Important: Make sure, at this stage, you commit and push your changes. 
+3. Important: Make sure, at this stage, you commit and push your changes:
+
+```
+# make sure you're on master
+git checkout master
+git add . && git commit -m "add nx cloud"
+git push origin master
+```
+
 4. Run a build: `nx run-many --target=build --all`
     - it will a few seconds
 5. You'll see a link at the end, let's see what's there:
     ![Run Details Link](./run_details.png)
+    
+    We'll talk more about these links later!
     
 6. Try to build all projects again: `nx run-many --target=build --all`
     - It should finish much quicker this time - because it just pulled from the local cache!

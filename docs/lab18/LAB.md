@@ -12,26 +12,13 @@
 
 1. Switch back to `master`
 2. `yarn add surge`
-3. In `workspace.json` add an architect for the `store` project:
+4. Get the surge token (you'll need to create an account with an email and password)
 
 ```
-"deploy": {
-  "builder": "@nrwl/workspace:run-commands",
-  "outputs": [],
-  "options": {
-    "command":
-      "surge ./ ${SURGE_DOMAIN} --token ${SURGE_TOKEN}",
-    "cwd": "dist/apps/store",
-    "parallel": false
-  }
-}
+yarn surge token
 ```
 
-4. Get the surge token:
-
-```
-surge token
-```
+Copy the token you get in that command.
 
 5. Create a new file: `apps/store/.local.env`
 
@@ -40,7 +27,27 @@ SURGE_TOKEN=your-surge-token
 SURGE_DOMAIN=https://some-unique-url-123.surge.sh
 ```
 
-6. `nx build store --configuration production && nx deploy store`
+3. Generate a new run-commands architect:
+
+```
+nx generate run-commands deploy --project=store --command="surge dist/apps/store ${SURGE_DOMAIN} --token ${SURGE_TOKEN}"
+```
+
+6. Let's make sure the store is built for production:
+ 
+ `nx build store --configuration production`
+ 
+ 7. Now let's invoke the builder we added earlier:
+ 
+ `nx deploy store`
+ 
+ Note for Windows users: at this the command might fail, as we're trying to access env variables the Linux-way.
+ To make it pass:
+ 
+ ```
+nx generate run-commands windows-deploy --project=store --command="surge dist/apps/store %SURGE_DOMAIN% --token %SURGE_TOKEN%"
+nx windows-deploy store
+```
 
 You should see surge deploying to your URL - if you click you'll see just the header though, because it doesn't have a server to get the games from.
 
@@ -50,4 +57,4 @@ You should see surge deploying to your URL - if you click you'll see just the he
 
 ---
 
-[➡️ Next lab ➡️](../lab13/LAB.md)
+[➡️ Next lab ➡️](../lab19/LAB.md)

@@ -35,29 +35,35 @@
 3. Have it invoke the `@nrwl/workspace:lib` schematic: 
 
     ```
-    "directory": {
-          "type": "string",
-          "description": "The scope of your lib.",
-          "x-prompt": "Which directory do you want the lib to be in?",
-          "enum": [
-            "store",
-            "api",
-            "none"
-          ]
-        }
+    import { chain, externalSchematic, Rule } from '@angular-devkit/schematics';
+    
+    export default function(schema: any): Rule {
+      return chain([
+        externalSchematic('@nrwl/workspace', 'lib', {
+          name: `util-${schema.name}`,
+          linter: 'tslint',
+          directory: schema.directory === 'none' ? '' :  schema.directory,
+          tags: `type:util', scope:${schema.directory}`
+        })
+      ]);
+    }
     ```
 
 4. Let's invoke it: `nx workspace-schematic util-lib notifications`
 
-5. Add some code to it:
+5. Select `api` as the directory
 
-```
-export function sendNotification(clientId: string) {
-  console.log("sending notification to client: ", clientId);
-}
-```
+6. Now let's add some functionality to it
+    - In `libs/api/util-notifications/src/lib/api-util-notifications.ts`
+    - Add:
+    
+    ```
+   export function sendNotification(clientId: string) {
+     console.log("sending notification to client: ", clientId);
+   }
+   ```
 
-6. Now try to import the above function in `apps/api/src/app/app.service.ts`
+7. Now try to import the above function in `apps/api/src/app/app.service.ts`
     - It should work because it is now scoped to `api`
 
 ---

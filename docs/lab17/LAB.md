@@ -26,7 +26,7 @@ jobs:
     ......
 ```
 
-4. Make a change in the store: `apps/store/src/app/app.component.ts`
+4. Make a change in the store: `apps/store/src/app/app.component.ts` (so that it will trigger our affected commands in CI)
 
 ```
 export class AppComponent {
@@ -41,7 +41,12 @@ export class AppComponent {
 
 ![NxCloud Bot](./nx_cloud_bot.png)
 
-8. Merge your PR into master
+8. Merge your PR into master and pull latest locally:
+
+```
+git checkout master
+git pull
+```
 
 ---
 
@@ -49,4 +54,4 @@ export class AppComponent {
 
 ---
 
-[➡️ Next lab ➡️](../lab13/LAB.md)
+[➡️ Next lab ➡️](../lab18/LAB.md)

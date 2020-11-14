@@ -16,7 +16,7 @@ name: Deploy Website
 on:
   push:
     branches:
-      - main
+      - master
 
 env:
   SURGE_DOMAIN: ${{ secrets.SURGE_DOMAIN }}
@@ -51,7 +51,7 @@ jobs:
     - Make a change to your API (maybe change the name of one of the games)
     - Make a change to your store (maybe change the title in the header) 
 3. Commit everything locally on `master` and then push
-4. You should see your new workflow start up
+4. You should see your new workflow start up under the "Actions" tab on your GitHub repo
 5. Once it's done, navigate to your Surge deployment URL and test if you notice the new changes
 
 ---
@@ -60,4 +60,4 @@ jobs:
 
 ---
 
-[➡️ Next lab ➡️](../lab13/LAB.md)
+[➡️ Next lab ➡️](../lab22/LAB.md)

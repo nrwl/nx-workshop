@@ -13,7 +13,7 @@
 ```
 export const environment = {
   production: true,
-  apiUrl: 'https://bg-hoard-api-test.herokuapp.com'
+  apiUrl: 'https://<your-heroku-app-name>.herokuapp.com'
 };
 ```
 
@@ -67,4 +67,4 @@ nx deploy store
 
 ---
 
-[➡️ Next lab ➡️](../lab13/LAB.md)
+[➡️ Next lab ➡️](../lab21/LAB.md)

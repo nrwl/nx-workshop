@@ -8,10 +8,21 @@
 
 #### 🏋️‍♀️ Steps :
 
-1. If you are not on the `master` branch, we need to switch first:
-    - Commit any changes you have
-    - `git checkout master`
-    - `git merge the-branch-you-on`
+1. Let's make sure the master branch is up to date
+
+If you are on `master` - commit everything:
+```
+git add . && git commit -m "finished lab 14"
+```
+
+If you are on a different branch, commit everything, switch to master
+and bring it up to date:
+
+```
+git add . && git commit "finish lab 14"
+git checkout master
+git merge previous-branch-you-were-on
+```
 
 2. Create a new file `.github/workflows/ci.yml`
 
@@ -31,12 +42,18 @@ jobs:
       - run: npm run nx test api
 ```
 
-3. Create and switch to a new branch
+3. Create and switch to a new branch:
+
+```
+git add . && git commit -m "add ci"
+git checkout -b dynamic-title
+```
+
 4. Open `apps/store/src/app/app.component.html`
 5. And make the title of the header dynamic:
 
 ```
-apps/store/src/app/app.component.html
+<bg-hoard-header [title]="title"></bg-hoard-header>
 ```
 
 6. Commit all your changes and push your new branch
@@ -65,7 +82,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - uses: bahmutov/npm-install@v1.4.5
-      - run: npm run nx affected -- --target=test --base=origin/main --parallel
+      - run: npm run nx affected -- --target=test --base=origin/master --parallel
 ```
 
 11. Commit and push - on your Github Actions log - you should see only the `store` tests running.
@@ -83,34 +100,34 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - uses: bahmutov/npm-install@v1.4.5
-      - run: npm run nx affected -- --target=build --base=origin/main --parallel
+      - run: npm run nx affected -- --target=build --base=origin/master --parallel
   test:
     runs-on: ubuntu-latest
     name: Testing affected apps
     steps:
       - uses: actions/checkout@v1
       - uses: bahmutov/npm-install@v1.4.5
-      - run: npm run nx affected -- --target=test --base=origin/main --parallel
+      - run: npm run nx affected -- --target=test --base=origin/master --parallel
   lint:
     runs-on: ubuntu-latest
     name: Linting affected apps
     steps:
       - uses: actions/checkout@v1
       - uses: bahmutov/npm-install@v1.4.5
-      - run: npm run nx affected -- --target=lint --base=origin/main --parallel
+      - run: npm run nx affected -- --target=lint --base=origin/master --parallel
   e2e:
     runs-on: ubuntu-latest
     name: E2E testing affected apps
     steps:
       - uses: actions/checkout@v1
       - uses: bahmutov/npm-install@v1.4.5
-      - run: npm run nx affected -- --target=e2e --base=origin/main --parallel
+      - run: npm run nx affected -- --target=e2e --base=origin/master --parallel
 ```
 
 13. Commit and push
 14. You'll notice some steps, like test and e2e, are still failing. We will fix them later.
 15. For now, you can merge your PR into master 
-16. Switch to master locally and pull latest 
+16. Switch to master locally and pull latest so you will the changes from the PR that was merged in
 
 ---
 

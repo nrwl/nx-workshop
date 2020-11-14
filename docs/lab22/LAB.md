@@ -16,7 +16,7 @@ name: Deploy Website
 on:
   push:
     branches:
-      - main
+      - master
 
 env:
   SURGE_DOMAIN: ${{ secrets.SURGE_DOMAIN }}
@@ -33,7 +33,7 @@ jobs:
       - uses: rarmatei/last-successful-commit-action@v8
         id: last_successful_commit
         with:
-          branch: 'main'
+          branch: 'master'
           workflow_id: 'deploy.yml'
           github_token: ${{ secrets.GITHUB_TOKEN }}
       - run: npm run nx affected -- --target=build --base=${{ steps.last_successful_commit.outputs.commit_hash }} --parallel --configuration=production
@@ -43,7 +43,3 @@ jobs:
 ---
 
 🎓If you get stuck, check out [the solution](SOLUTION.md)
-
----
-
-[➡️ Next lab ➡️](../lab13/LAB.md)
