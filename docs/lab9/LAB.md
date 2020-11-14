@@ -27,7 +27,7 @@ We'll look at creating libs to store Typescript interfaces and then we'll use th
 
 1. Stop serving both the API and the frontend
 
-2. Generate a new `@nrwl/workspace` lib called `util-interface` inside the `libs/api` folder
+2. Generate a new `@nrwl/workspace` lib called `util-interface` inside the `libs/api` folder. Use `--linter=tslint` option.
 
    ⚠️ It's **important** that we create it in the `/api` folder for now
 

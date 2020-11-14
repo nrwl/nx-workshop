@@ -30,7 +30,7 @@ You do not need to be familiar with Nest (and you can use the `@nrwl/express:app
 
 1. Stop any running `nx serve` instance
 2. `yarn add @nrwl/nest`
-3. Generate a new NestJS app, called `api`
+3. Generate a new NestJS app, called `api` with `--linter=tslint` option
 
    ⚠️ Make sure you instruct the schematic to configure a proxy from the frontend `store` to the new `api` service (use `--help` to see the available options)
 
