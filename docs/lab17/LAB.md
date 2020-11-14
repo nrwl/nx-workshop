@@ -1,4 +1,4 @@
-### 💻 Lab 1 - generate an empty workspace
+### 💻 Lab 1 - NxCloud GitHub bot
 
 ###### ⏰ Estimated time: 5-10 minutes
 
@@ -8,7 +8,40 @@
 
 #### 🏋️‍♀️ Steps :
 
-1. Filler step
+1. Enable the NxCloud GitHub bot on your repository: [https://github.com/apps/nx-cloud](https://github.com/apps/nx-cloud)
+2. Switch to a new branch
+3. Add these env variable to your GitHub actions config:
+
+```
+name: Run CI checks
+
+on: [pull_request]
+
+env:
+  NX_BRANCH: ${{ github.event.number }}
+  NX_RUN_GROUP: ${{ github.run_id }}
+
+jobs:
+  build:
+    ......
+```
+
+4. Make a change in the store: `apps/store/src/app/app.component.ts`
+
+```
+export class AppComponent {
+  constructor(private http: HttpClient) {
+    console.log("component constructed")
+  }
+```
+
+5. Commit everything and push your branch
+6. Make a PR on GitHub
+7. Once the checks finish you should see:
+
+![NxCloud Bot](./nx_cloud_bot.png)
+
+8. Merge your PR into master
 
 ---
 
