@@ -1,6 +1,6 @@
 ### 🔌 Lab 16 - Distributed caching
 
-###### ⏰ Estimated time: 5-10 minutes
+###### ⏰ Estimated time: 10 minutes
 
 #### 📚 Learning outcomes:
 

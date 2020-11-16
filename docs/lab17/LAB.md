@@ -1,6 +1,6 @@
 ### 🔍 Lab 17 - NxCloud GitHub bot
 
-###### ⏰ Estimated time: 5-10 minutes
+###### ⏰ Estimated time: 10 minutes
 
 #### 📚 Learning outcomes:
 

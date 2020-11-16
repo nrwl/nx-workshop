@@ -1,5 +1,29 @@
-##### To create a new Nx workspace:
+##### Generate a new run-commands config:
 
 ```shell
-npx create-nx-workspace bg-hoard
+nx generate run-commands deploy --project=store --command="surge dist/apps/store https://<chose-some-unique-url-123>.surge.sh --token <your-surge-token>"
+```
+
+##### Deploy the store via Nx
+
+```shell
+nx deploy store
+```
+
+##### Building the store for production
+
+```bash
+nx build store --configuration production
+```
+
+##### The full deploy builder configuration
+
+```json
+"deploy": {
+  "builder": "@nrwl/workspace:run-commands",
+  "outputs": [],
+  "options": {
+    "command": "surge dist/apps/store ${SURGE_DOMAIN} --token ${SURGE_TOKEN}"
+  }
+}
 ```
