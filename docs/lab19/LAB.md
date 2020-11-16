@@ -58,7 +58,7 @@
    
    Heroku allows you to do container deployments.
    You define a Docker image that will run your server code.
-   You then point the Heroku CLI to your image, and it will build it, deploy it, and run it.
+   You then point the Heroku CLI to your image, and it will build it, deploy it, and run it at the remote address.
    
    So the plan is:
    - define a Docker image and have it sit idly in our app's source folder
@@ -93,7 +93,7 @@ add this as an option:
 8. Use the `@nrwl/workspace:run-commands` schematic to generate another "deploy" target:
     - This time for the `api` project
     - Use the [`--cwd` option](https://nx.dev/latest/angular/plugins/workspace/schematics/run-commands#cwd)
-    to ensure all commands execute in the `dist/apps/api`
+    to ensure all commands execute in the `dist/apps/api` folder
     - Leave the "command" blank for now
 
 
@@ -123,13 +123,13 @@ In our case, we want them to run one after another.
 9. Let's enable CORS on the server so our API can make requests to it (since they'll be deployed in separate places):
     - In `apps/api/src/main.ts`
     - Enable CORS:
-    ```
-    async function bootstrap() {
-        const app = await NestFactory.create(AppModule);
-        const globalPrefix = 'api';
-        app.setGlobalPrefix(globalPrefix);
-        app.enableCors(); <--- ADD THIS
-    ```
+        ```
+        async function bootstrap() {
+            const app = await NestFactory.create(AppModule);
+            const globalPrefix = 'api';
+            app.setGlobalPrefix(globalPrefix);
+            app.enableCors(); <--- ADD THIS
+        ```
    
    ⚠️ Normally, you want to restrict this to just a few origins. But to keep things simple in this workshop
    we'll enable it for all origins.

@@ -9,11 +9,10 @@
 #### 🏋️‍♀️ Steps:
 
 When we serve the Store and API locally, they work great, because of the configured
-proxy discussed in previous labs. The Store will think the API lives at the same address
-as it does.
+proxy discussed in previous labs. The Store will think the API lives at the same address.
 
-When deployed however, they do not yet know about each other. Let's configure
-a production URL for the Store.
+When deployed separately however, they do not yet know about each other. Let's configure
+a production URL for the API.
 
 1. In `apps/store/src/environments/environment.prod.ts` change it to:
 

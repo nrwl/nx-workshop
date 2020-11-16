@@ -6,32 +6,32 @@
 
 - Understand how to assign scopes and type tags to your libraries
 - How to specify boundaries around your tags and avoid circular dependencies in your repo
-- How to use linting to warn when you are not respecting these boundaries
+- How to use linting to trigger warnings or errors when you are not respecting these boundaries
 
 #### 🏋️‍♀️ Steps :
 
 1. Open `nx.json` and finish tagging the apps accordingly:
 
-```
-"projects": {
-    "store": {
-      "tags": ["scope:store", "type:app"]
-    },
-    .... <-- fill in the rest of the tags
-  }
-```
+    ```
+    "projects": {
+        "store": {
+          "tags": ["scope:store", "type:app"]
+        },
+        .... <-- fill in the rest of the tags
+      }
+    ```
 
 2. Open the root `tslint.json`, find the `"nx-enforce-module-boundaries"` rule and set the `depConstraints`:
 
-```
-"depConstraints": [
-          {
+    ```
+    "depConstraints": [
+        {
             "sourceTag": "scope:store",
             "onlyDependOnLibsWithTags": ["scope:store", "scope:shared"]
-          },
-          .... <-- finish adding constraints for the tags we defined in the previous step
-        ]
-```
+        },
+        .... <-- finish adding constraints for the tags we defined in the previous step
+    ]
+    ```
 
 3. Run `nx run-many --target=lint --all --parallel`
 

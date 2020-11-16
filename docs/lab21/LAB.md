@@ -42,7 +42,7 @@
     
     ![GitHub secrets](./github_secrets.png)
 
-3. Then back in our `deploy.yml` file, let's expose these secrets to the processes:
+3. Then back in our `deploy.yml` file, let's expose these secrets to the processes (use `ci.yml` as an example of where to put these):
 
     ```
     env:
@@ -60,7 +60,7 @@
 
 ---
 
-🎓If you get stuck, check out [the solution](SOLUTION.md)
+🎓 If you get stuck, check out [the solution](SOLUTION.md)
 
 ---
 

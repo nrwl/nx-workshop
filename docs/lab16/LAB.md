@@ -59,7 +59,7 @@ capabilities. Let's enable distributed caching.
 
     ⚡ It should be almost instant...
 
-9. ***But how?** You have no local cache - because we did a fresh pull of the repository. 
+9. **But how?** You have no local cache: we just did a fresh pull of the repository. 
 
     Check your terminal output - you should see this message: 
 

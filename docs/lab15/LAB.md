@@ -58,7 +58,7 @@ and bring it up to date:
     ```
 
     ⚠️ I know we **just** switched to master above. But it was important we bring it
-    up to date. Now we need to switch to a branch so we can submit our PR.
+    up to date. Now we need to switch to a new branch so we can submit our PR.
 
 4. Open `apps/store/src/app/app.component.html`
 5. And make the title of the header dynamic:
@@ -105,7 +105,7 @@ But now we're testing both projects - even though we only changed the store.
     ⚠️ It's okay to work on this on your new branch. We'll merge everything to `master`
     eventually.
 
-11. Commit and push - on your Github Actions log - you should see only the `store` tests running.
+11. Commit and push. On your Github Actions log you should see only the `store` tests running.
 12. Our tests are now being ran sequentially for each project. See if you can run them in parallel (consult the Nx Affected [docs](https://nx.dev/latest/angular/cli/affected#affected) if unsure) 
 12. Our CI only does testing now. But we also have targets for `lint`, `e2e` and `build`. 
 Would really be handy if CI also told us if any of those failed.

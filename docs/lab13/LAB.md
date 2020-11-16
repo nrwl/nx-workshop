@@ -21,7 +21,7 @@ workspace schematic called `util-lib`
 
 2. Commit everything (you'll see in a bit why).
 
-2. Inspect the files that got generated and try to run it.
+2. Inspect the files that got generated and try to run your schematic.
 
    <details>
    <summary>🐳 Hint</summary>
@@ -31,7 +31,7 @@ workspace schematic called `util-lib`
 
    </details>
    
-   ⚠️ It invokes the `@nrwl/workspace:lib` schematic by default. So it might generate some files when you run it.
+   ⚠️ It invokes the `@nrwl/workspace:lib` schematic by default. So it should generate some files when you run it.
    You can use Git to undo those changes (hence why it's recommended to commit before running a schematic).
 
 3. Try to make it `console.log()` the value of the `--name` property you passed to it.
@@ -48,7 +48,7 @@ asked about which CSS framework to use when creating Angular libs).
 
    </details>
 
-3. Have the schematic automatically to `--linter=tslint`, so the developer doesn't have
+3. Have the schematic automatically pass the `--linter=tslint` option, so the developer doesn't have
 to pass it each time they invoke the schematic.
 
     ⚠️ Continue referring to the doc page linked in the above hints
@@ -91,7 +91,7 @@ to pass it each time they invoke the schematic.
     - It should work because it should be scoped to `api`
     
 8. Try to import it in `apps/store/src/app/app.component.ts`
-    - It should fail as it's from outside its scope.
+    - It should fail because it's not within the same scope
     
 9. In `libs/api/util-notifications/src/lib/api-util-notifications.ts`
     - Try to import a `feature` lib

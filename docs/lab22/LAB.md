@@ -9,7 +9,7 @@
 
 #### 🏋️‍♀️ Steps :
 
-In the previous we set-up automatic deployments.
+In the previous labs we set-up automatic deployments.
 But everytime we push to master, we're always building and running the
 deployment scripts for ALL the apps in our workspace.
 As our repo grows, this is not scalable. We only want to build 
@@ -36,17 +36,18 @@ before I push I change the Store, it will deploy just the Store. Even though
 the API changed as well    
 - There is also the problem of failures. Now our setup is simple: it just builds.
 But let's say we wanted to run the E2E tests again before deploying - just to be extra safe!
-In that case, if I change the API, push, the E2E tests might fail. So API will not get deployed.
+In that case, if I change the API and push, the E2E tests might fail. So API will not get deployed.
 I then fix the E2E tests, but because the API does not depend on its E2E tests, `nx affected` will not mark it for deployment. 
 So even though we changed the API, it did not get deployed.
 
 💡 Solution: **last successful commit!**
-- If we constantly compare against previous point where all the affected apps got succesfully deployed - we 
+- If we constantly compare against the previous point where all the affected apps got succesfully deployed - we 
 will never miss a deployment
 - In our case, "succesfully deployed" means when our `deploy.yml` workflow completes without errors. That's a succesful commit!
-- Getting the last succesful commit is different on each platform. Some CI platforms don't even provide it all
+- Getting the last succesful commit is different on each platform:
     - [Netlify has the `CACHED_COMMIT_REF`](https://docs.netlify.com/configure-builds/environment-variables/#git-metadata)
     - On CircleCI, we can use the `<< pipeline.git.base_revision >>`
+    - Some CI platforms don't even provide it all
     - For GitHub actions, we can use the `rarmatei/last-successful-commit-action` action
 
 ---
@@ -63,9 +64,9 @@ will never miss a deployment
           github_token: ${{ secrets.GITHUB_TOKEN }} <-- we'll need to pass it a special GitHub auth token, so it can query the GitHub API for our repo
     ```
 
-    ⚠️ Don't worry about defining the `GITHUB_TOKEN` secret. It's already available.
+    ⚠️ Don't worry about defining the `GITHUB_TOKEN` secret. It's already available by default.
     
-2. You can now use in your affected commands:
+2. You can now use the output from the above action in your affected commands:
 
     ```
     --base=${{ steps.last_successful_commit.outputs.commit_hash }}
@@ -73,7 +74,7 @@ will never miss a deployment
 
 3. Commit everything and push. Let it build.
 
-4. Try to go through the scenarios described above and test if it is now covered:
+4. Try to go through the scenario described above and test if it is now covered by the changes we just made:
 
     > If I change the API over a few commits, and then in the last commit
       before I push I change the Store, it will deploy just the Store. Even though 
