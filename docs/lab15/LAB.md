@@ -92,14 +92,14 @@ But now we're testing both projects - even though we only changed the store.
     <details>
     <summary>🐳 Hint 1</summary>
     
-        Check-out this [handy tutorial](https://nx.dev/latest/angular/tutorial/11-test-affected-projects#step-11-test-affected-projects)
-        Refer to the [docs](https://nx.dev/latest/angular/cli/affected#affected) 
+    Check-out this [handy tutorial](https://nx.dev/latest/angular/tutorial/11-test-affected-projects#step-11-test-affected-projects)
+    Refer to the [docs](https://nx.dev/latest/angular/cli/affected#affected) 
     </details>
     
     <details>
     <summary>🐳 Hint 2</summary>
     
-        Since it's a Pull Request, your base commit will always be `--base=origin/master` 
+    Since it's a Pull Request, your base commit will always be `--base=origin/master` 
     </details>
 
     ⚠️ It's okay to work on this on your new branch. We'll merge everything to `master`

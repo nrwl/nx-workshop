@@ -63,14 +63,13 @@ to pass it each time they invoke the schematic.
 
 4. Because it's a `util` lib, it should automatically be generated with the `type:util` tags.
 
-       <details>
-       <summary>🐳 Hint</summary>
-       
-       Consult the `@nrwl/workspace:lib` [docs](https://nx.dev/latest/angular/plugins/workspace/schematics/library)
-       for possible options you can pass to it.
-    
-       </details>
+   <details>
+   <summary>🐳 Hint</summary>
+   
+   Consult the `@nrwl/workspace:lib` [docs](https://nx.dev/latest/angular/plugins/workspace/schematics/library)
+   for possible options you can pass to it.
 
+   </details>
 
 5. We also need to add `scope` tag to it. We can use the `directory` value for this.
 
