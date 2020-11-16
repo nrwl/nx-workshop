@@ -84,10 +84,10 @@ and risk exposing this secret token. Also, we might want to deploy to different 
  
  7. Now invoke the deploy target again, and check if it all still works.
  
-     Note for Windows users: at this the command might fail, as we're trying to access env variables the Linux-way.
-     To make it pass:
+     ⚠️ Note for Windows users: the command might fail, as we're trying to access env variables the Linux-way.
+     To make it pass, you can generate a separate `windows-deploy` builder:
      
-     ```
+    ```
     nx generate run-commands windows-deploy --project=store --command="surge dist/apps/store %SURGE_DOMAIN% --token %SURGE_TOKEN%"
     nx windows-deploy store
     ```

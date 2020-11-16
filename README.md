@@ -35,8 +35,6 @@ Make sure you have the following installed:
 - A Heroku account
     - https://heroku.com/
     - with the [CLI installed](https://devcenter.heroku.com/articles/heroku-cli): `heroku --version`
-    
-Optional:
 - [Docker](https://www.docker.com/get-started)
     - `docker --version`
 

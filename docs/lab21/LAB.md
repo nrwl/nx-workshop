@@ -1,58 +1,62 @@
-### 💻 Lab 21 - Setting up CD for automatic deployment
+### 🎈 Lab 21 - Setting up CD for automatic deployment
 
-###### ⏰ Estimated time: 5-10 minutes
+###### ⏰ Estimated time: 10-20 minutes
 
 #### 📚 Learning outcomes:
 
-- Understand how to bootstrap a new Nx workspace
+- Understand how to configure a simple Continous Deployment system using Nx and GitHub actions
+- Learn how to expose custom secrets on GitHub to your CD processes 
 
 #### 🏋️‍♀️ Steps :
 
-1. Add a `.github/workflows/deploy.yml` file:
+1. Add a `.github/workflows/deploy.yml` file
+2. Using your `ci.yml` config as an example, see if you can configure automated deployments from the 
+`master` branch:
 
-```
-name: Deploy Website
+   Anytime we push or merge something to the `master` branch it:
+   - builds the `store` and `api` for production
+   - deploys the `store` and `api`
+       
+   We'll start you off:
+   
+   ```
+   name: Deploy Website
+   
+   on:
+     push:
+       branches:
+         - master <-- workflow will run everytime we push or merge something to master
+   jobs:
+     build:
+       runs-on: ubuntu-latest
+       name: Deploying apps
+       steps:
+        .... <-- ADD THE STEPS HERE
+   ```
 
-on:
-  push:
-    branches:
-      - master
-
-env:
-  SURGE_DOMAIN: ${{ secrets.SURGE_DOMAIN }}
-  SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
-  HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    name: Deploying apps
-    steps:
-      - uses: actions/checkout@v2.3.4
-      - uses: bahmutov/npm-install@v1.4.5
-      - run: npm run nx build store -- --configuration=production
-      - run: npm run nx build api -- --configuration=production
-      - run: npm run nx deploy store
-      - run: npm run nx deploy api
-```
-
-2. Let's add our secrets that we kept in `.local.env` files to GitHub:
-    1. Go to your GitHub workshop fork
-    2. "Settings" at the top
-    3. "Secrets" (on the left menu bar)
-    4. Add values for:
-        1. SURGE_DOMAIN
-        2. SURGE_TOKEN
-        3. HEROKU_API_KEY
+2. Our "deploy" builders are using some secret ENV variables though. We'll need to make these available on GitHub:
+    1. Go to your GitHub workshop repo
+    2. Click on **"Settings"** at the top
+    3. Then **"Secrets"** on the left menu bar
+    4. Add values for all the variables we've been keeping in `.local.env` files
     
     ![GitHub secrets](./github_secrets.png)
 
+3. Then back in our `deploy.yml` file, let's expose these secrets to the processes:
+
+    ```
+    env:
+      SURGE_DOMAIN: ${{ secrets.SURGE_DOMAIN }}
+      SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
+      HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+    ```
+
 3. Since we'll be re-deploying, we want to test if we're looking at a new version of our code:
     - Make a change to your API (maybe change the name of one of the games)
-    - Make a change to your store (maybe change the title in the header) 
+    - Make a change to your Store (maybe change the title in the header) 
 3. Commit everything locally on `master` and then push
 4. You should see your new workflow start up under the "Actions" tab on your GitHub repo
-5. Once it's done, navigate to your Surge deployment URL and test if you notice the new changes
+5. Once it's done, navigate to your frontend Surge deployment URL and test if you notice the new changes
 
 ---
 

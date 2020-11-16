@@ -1,116 +1,151 @@
-### 💻 Lab 19 - Deploying the API
+### 🧲 Lab 19 - Deploying the API
 
-###### ⏰ Estimated time: 5-10 minutes
+###### ⏰ Estimated time: 30 minutes
 
 #### 📚 Learning outcomes:
 
-- Understand how to bootstrap a new Nx workspace
+- Explore more advanced usages of the "run-commands" builder
+- Go through an example of how to deploy an API to Heroku through Nx
 
 #### 🏋️‍♀️ Steps :
 
-1. For this workshop you'll need Docker and the Heroku CLI installed (Docker is optional - it's only if you want to trigger the deployment locally)
+1. For this workshop you'll need two CLI tools installed:
+    - [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli#download-and-install)
+        - Verify installation via: `heroku --version`
+    - [Docker](https://www.docker.com/get-started)
+        - Verify via `docker --version`
 
-3. Run these commands:
+3. Let's prepare Heroku to deploy our API:
 
-```
-heroku login
-heroku create <choose-some-unique-name for your api>
-heroku authorizations:create <-- remember the "Token" this outputs
-```
+    ```shell
+    # login first
+    heroku login
+    # create a new Heroku app where we'll deploy the API
+    heroku create <choose some unique name for your api>
+    # Get an authorization token so we don't have to login everytime
+    heroku authorizations:create
+    ```
+   
+   ⚠️ Make sure you remember and keep track of these values, as we'll use them later:
+   - The authorization "Token"
+   - The exact app name you used         
+     👉 This will determine the address where the API will 
+        be deployed to: `https://<your-app-name>.herokuapp.com` 
 
-4. Keep track of the "Token" you got from the above command - we'll use this to login to Heroku from now on.
-Also keep track of the unique name you gave to your Heroku API. This will determine the address where the API will 
-     be deployed to as well, for example `https://<your-app-name>.herokuapp.com`
-5. Create a new file `apps/api/.local.env`
+5. Let's setup our ENV variables from the beginning now
+ 
+    `apps/api/.local.env`
 
-```
-HEROKU_API_KEY=<your-heroku-token>
-```
+    ```
+    HEROKU_API_KEY=<your-heroku-token>
+    ```
 
 6. Create a new file `apps/api/Dockerfile`
 
-```
-FROM node:12-alpine
-WORKDIR /app
-COPY ./ ./
-CMD node main.js
-```
+    ```
+    # use a Node v12 based image
+    FROM node:12-alpine
+    # switch to the /app folder in the image
+    WORKDIR /app
+    # copy all files from the folder its in into the /app folder we switched to
+    COPY ./ ./
+    # launch the main.js file
+    CMD node main.js
+    ```
+   
+   <details>
+   <summary>❓ What's our plan here?</summary>
+   
+   Heroku allows you to do container deployments.
+   You define a Docker image that will run your server code.
+   You then point the Heroku CLI to your image, and it will build it, deploy it, and run it.
+   
+   So the plan is:
+   - define a Docker image and have it sit idly in our app's source folder
+   - when we want to deploy, we'll build our app to `dist/apps/api`
+   - we'll then copy this image over to `dist/apps/api`
+   - because it will be in the same folder as our built assets, it will copy all of them into the container via the `COPY ./ ./` instruction
+   - and then run the server via `CMD node main.js`
+   </details>
 
 7. In `workspace.json`, under the **production** build options for the API (`projects -> api -> architect -> build -> configurations -> production`)
 add this as an option:
 
-```
-"externalDependencies": [
-    "@nestjs/microservices",
-    "@nestjs/microservices/microservices-module",
-    "@nestjs/websockets/socket-module",
-    "class-transformer",
-    "class-validator",
-    "cache-manager"
-],
-```
+    ```
+    "externalDependencies": [
+        "@nestjs/microservices",
+        "@nestjs/microservices/microservices-module",
+        "@nestjs/websockets/socket-module",
+        "class-transformer",
+        "class-validator",
+        "cache-manager"
+    ],
+    ```
+   
+   <details>
+   <summary>❓ What does this do?</summary>
+   
+   The above option tells webpack to bundle ALL the dependencies our API requires inside `main.js`, except the ones above (which fail the build if we tell webpack to include, because they're lazily loaded).
+   Normally, it's not recommended to bundle any dependencies with your server bundles,
+   but in this case it simplifies the deployment process.
+   </details>
 
-The above option tells webpack to bundle all the dependencies with our API, except the ones above (which fail the build if we tell webpack to include).
-Normally, it's not recommended to bundle any dependencies with your server bundles,
-but in this case it simplifies the deployment process.
+8. Use the `@nrwl/workspace:run-commands` schematic to generate another "deploy" target:
+    - This time for the `api` project
+    - Use the [`--cwd` option](https://nx.dev/latest/angular/plugins/workspace/schematics/run-commands#cwd)
+    to ensure all commands execute in the `dist/apps/api`
+    - Leave the "command" blank for now
 
-8. Add a new "deploy" architect to the "api" this time:
 
-`nx generate run-commands deploy --project=api --cwd="dist/apps/api"`
+9. Let's customise the generated "deploy" config a bit
 
-Leave the command field blank.
-
-Go to `workspace.json` and add a few more options to it:
-```
-"deploy": {
-    "builder": "@nrwl/workspace:run-commands",
-        "outputs": [],
-        "options": {
-        "commands": [ <--- ADD THESE COMMANDS
-            "cp ../../../apps/api/Dockerfile .",
-            "heroku container:login",
-            "heroku container:push web -a <the name of your Heroku App>",
-            "heroku container:release web -a <the name of your Heroku App>"
-        ],
-        "cwd": "dist/apps/api",
-        "parallel": false <---- ADD THIS
-    }
-},
-```
+    Go to `workspace.json` and add the commands that we'll need to run:
+    ```
+    "deploy": {
+        "builder": "@nrwl/workspace:run-commands",
+            "outputs": [],
+            "options": {
+            "commands": [ <--- ADD THESE COMMANDS
+                "cp ../../../apps/api/Dockerfile .",
+                "heroku container:login",
+                "heroku container:push web -a <the name of your Heroku App>",
+                "heroku container:release web -a <the name of your Heroku App>"
+            ],
+            "cwd": "dist/apps/api"
+        }
+    },
+    ```
+   
+10. By default, if you give a list of commands to `run-commands`, it will run them in parallel.
+In our case, we want them to run one after another.
+**See if you can add a configuration option to make them run in parallel**
 
 9. Let's enable CORS on the server so our API can make requests to it (since they'll be deployed in separate places):
     - In `apps/api/src/main.ts`
     - Enable CORS:
     ```
-   async function bootstrap() {
-     const app = await NestFactory.create(AppModule);
-     const globalPrefix = 'api';
-     app.setGlobalPrefix(globalPrefix);
-     app.enableCors(); <--- ADD THIS
-   ```
+    async function bootstrap() {
+        const app = await NestFactory.create(AppModule);
+        const globalPrefix = 'api';
+        app.setGlobalPrefix(globalPrefix);
+        app.enableCors(); <--- ADD THIS
+    ```
    
-   Normally, you want to restrict this to just a few origins. But to keep things simple in this workshop
+   ⚠️ Normally, you want to restrict this to just a few origins. But to keep things simple in this workshop
    we'll enable it for all origins.
    
-10. Run:
+10. Use Nx to build the API for production, and then deploy it!
 
-```
-nx build api --configuration=production
-nx deploy api
-```
+    ⚠️ Note: On Windows, the deploy will fail. Create a separate `deploy-windows` architect, as we did in the previous lab, but use this for the copy command:
 
-Note: On Windows, the deploy will fail. Create a separate `deploy-windows` architect, as we did in the previous lab, but use this for the copy command:
+    ```
+    "commands": [
+        "xcopy \"..\\..\\..\\apps\\api\\Dockerfile\" .",
+        ....
+    ```
 
-```
-"commands": [
-    "xcopy \"..\\..\\..\\apps\\api\\Dockerfile\" .",
-    ....
-```
+11. Go to `https://<your-app-name>.herokuapp.com/api/games` - it should return you a list of games.
 
-11. Go to `https://<your-app-name>.herokuapp.com/api/games` - you should see a list of games.
-
-
-//TODO briefly talk about outputs here
 ---
 
 🎓If you get stuck, check out [the solution](SOLUTION.md)
