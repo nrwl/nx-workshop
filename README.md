@@ -28,8 +28,8 @@ Make sure you have the following installed:
 
 - Node.js version 10 and up
     - `node --version`
-- NPM
-    - `npm --version`
+- [Yarn](https://classic.yarnpkg.com/en/docs/install/)
+    - `yarn --version`
 - A Github account
     - http://github.com
 - A Heroku account
