@@ -10,7 +10,15 @@
     "nx.json": "*",
     "tsconfig.base.json": "*"
   },
-  "projects": {},
+  "projects": {
+    "store": {
+      "tags": []
+    },
+    "store-e2e": {
+      "tags": [],
+      "implicitDependencies": ["store"]
+    }
+  },
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
