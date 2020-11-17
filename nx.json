@@ -12,34 +12,30 @@
   },
   "projects": {
     "store": {
-      "tags": []
+      "tags": ["scope:store", "type:app"]
     },
     "store-e2e": {
-      "tags": [],
-      "implicitDependencies": [
-        "store"
-      ]
+      "tags": ["scope:store", "type:e2e"],
+      "implicitDependencies": ["store"]
     },
     "store-ui-shared": {
-      "tags": []
+      "tags": ["scope:store", "type:ui"]
     },
     "store-util-formatters": {
-      "tags": []
+      "tags": ["scope:store", "type:util"]
     },
     "store-feature-game-detail": {
-      "tags": []
+      "tags": ["scope:store", "type:feature"]
     },
     "api": {
-      "tags": []
+      "tags": ["scope:api", "type:app"]
     },
     "util-interface": {
-      "tags": []
+      "tags": ["scope:shared", "type:util"]
     },
     "store-ui-shared-e2e": {
-      "tags": [],
-      "implicitDependencies": [
-        "store-ui-shared"
-      ]
+      "tags": ["scope:store", "type:e2e"],
+      "implicitDependencies": ["store-ui-shared"]
     }
   },
   "tasksRunnerOptions": {
