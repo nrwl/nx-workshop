@@ -53,6 +53,8 @@ and inspect the terminal output:
 9. Have a look at the "Cache Hit" and "Cache Miss" filters. What do you think they do?
 
     ![Cache hit/miss](./cache_hit_miss.png)
+    
+10. Finally, you should see a "Claim workspace" button at the top - it's a good idea to do that at this stage. We'll explain more about that in a bit!
 
 8. Merge your PR into master and pull latest locally:
 
