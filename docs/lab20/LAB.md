@@ -51,12 +51,15 @@ a production URL for the API.
    Then use it:
    
     ```
-    games = this.http.get<Game[]>(${this.baseUrl}/api/games);
+    games = this.http.get<Game[]>(`${this.baseUrl}/api/games`);
     ```
 
 5. In `libs/store/feature-game-detail/src/lib/game-detail/game-detail.component.ts`
     - Inject it in the constructor: `@Inject('baseUrl') private baseUrl: string`
-    - Use it: `this.http.get<Game>(${this.baseUrl}/api/games/${id})`
+    - Use it: 
+        ```typescript
+        this.http.get<Game>(`${this.baseUrl}/api/games/${id}`)
+        ```
 
 6. Build the Store for production and trigger a deployment
 
