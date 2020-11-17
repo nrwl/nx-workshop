@@ -18,7 +18,10 @@
             "tsConfig": "apps/store/tsconfig.app.json",
             "aot": true,
             "assets": ["apps/store/src/favicon.ico", "apps/store/src/assets"],
-            "styles": ["apps/store/src/styles.css"],
+            "styles": [
+              "apps/store/src/styles.css",
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+            ],
             "scripts": []
           },
           "configurations": {
