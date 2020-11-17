@@ -54,6 +54,10 @@ Let's try and import a `store` lib from an `api` scope.
     - Try to `import { formatRating } from '@bg-hoard/store/util-formatters';`
 8. Run linting on all projects - you should see another expected error.
 9. You can now delete the import above.
+10. Run linting again and check if all the errors went away.
+    
+    💡 Pass the suggested `--only-failed` option, so it doesn't relint everything.
+
 
 ---
 
