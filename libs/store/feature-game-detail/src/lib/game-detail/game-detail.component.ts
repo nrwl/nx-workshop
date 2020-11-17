@@ -11,7 +11,7 @@ import { Game } from '@bg-hoard/util-interface';
   styleUrls: ['./game-detail.component.css'],
 })
 export class GameDetailComponent {
-  constructor(private route: ActivatedRoute, private http: HttpClient) {}
+  constructor(private route: ActivatedRoute, private http: HttpC lient) {}
 
   game$ = this.route.paramMap.pipe(
     map((params: ParamMap) => params.get('id')),
