@@ -68,7 +68,16 @@
    - and then run the server via `CMD node main.js`
    </details>
 
-7. In `workspace.json`, under the **production** build options for the API (`projects -> api -> architect -> build -> configurations -> production`)
+6. If you `nx build api` right now
+    - 👍 Then `cd dist/apps/api && node main.js`
+    It should work. Because it has access to `node_modules`
+    - 👎 If you copy your built sources to some other folder on your file system.
+    And then try to `node main.js` in that folder that doesn't hace access to `node_modules` - it will fail 
+
+    💡 By default, dependencies of server projects are not bundled together, as opposed to your Angular apps.
+    If curious why, you can [read more here](https://github.com/nestjs/nest/issues/1706#issuecomment-579248915).
+
+7. Let's fix the above - In `workspace.json`, under the **production** build options for the API (`projects -> api -> architect -> build -> configurations -> production`)
 add this as an option:
 
     ```
