@@ -34,7 +34,10 @@ workspace schematic called `util-lib`
    ⚠️ It invokes the `@nrwl/workspace:lib` schematic by default. So it should generate some files when you run it.
    You can use Git to undo those changes (hence why it's recommended to commit before running a schematic).
 
-3. Try to make it `console.log()` the value of the `--name` property you passed to it.
+3. In `tools/schematics/util-lib/index.ts` try to make it `console.log()` the value of the `--name` property you passed to it.
+
+4. Now that we're more familiar with how command line options are passed to the schematic,
+**let's revert all locally generated files**, as we're about to start making actually useful changes to the schematic.
 
 2. Add a new property to its schema called `directory`. It should have only 3 possible values:
 `"store", "api", "shared"`. If you do not pass `--directory` as an option when invoking the
@@ -73,6 +76,9 @@ to pass it each time they invoke the schematic.
 
 5. We also need to add `scope` tag to it. We can use the `directory` value for this.
 
+6. Before testing your changes, remember to commit them, in case you need to revert
+locally generated files again.
+
 4. Invoke your schematic and test if the above requirements work
     - Let's give it the name `notifications`
     - Select `api` as the directory
@@ -88,7 +94,8 @@ to pass it each time they invoke the schematic.
        ```
 
 7. Now try to import the above function in `apps/api/src/app/app.service.ts`
-    - It should work because it should be scoped to `api`
+    - Try to lint all the apps
+    - It should work because everything is in the `api` scope
     
 8. Try to import it in `apps/store/src/app/app.component.ts`
     - It should fail because it's not within the same scope
@@ -96,6 +103,11 @@ to pass it each time they invoke the schematic.
 9. In `libs/api/util-notifications/src/lib/api-util-notifications.ts`
     - Try to import a `feature` lib
     - It should correctly fail because the type hierarchy is not respected
+    
+10. **BONUS -** Currently, the schema passed to the schematic is of type `any` - `tools/schematics/util-lib/index.ts`
+Try to create an interface for it that respects the schematic's schema.
+
+11. **BONUS BONUS** - try to create another similar schematic, but for "feature" libs.
 
 ---
 
