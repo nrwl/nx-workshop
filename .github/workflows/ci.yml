@@ -1,0 +1,13 @@
+name: Run CI checks
+
+on: [pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    name: Testing affected apps
+    steps:
+             - uses: actions/checkout@v1
+             - uses: bahmutov/npm-install@v1.4.5
+             - run: npm run nx test store
+             - run: npm run nx test api
