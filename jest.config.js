@@ -6,5 +6,6 @@ module.exports = {
     '<rootDir>/libs/store/feature-game-detail',
     '<rootDir>/apps/api',
     '<rootDir>/libs/api/util-interface',
+    '<rootDir>/libs/api/util-notifications',
   ],
 };
