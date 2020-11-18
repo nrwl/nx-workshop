@@ -10,12 +10,48 @@
     "nx.json": "*",
     "tsconfig.base.json": "*"
   },
-  "projects": {},
+  "projects": {
+    "store": {
+      "tags": ["scope:store", "type:app"]
+    },
+    "store-e2e": {
+      "tags": ["scope:store", "type:e2e"],
+      "implicitDependencies": ["store"]
+    },
+    "store-ui-shared": {
+      "tags": ["scope:store", "type:ui"]
+    },
+    "store-util-formatters": {
+      "tags": ["scope:store", "type:util"]
+    },
+    "store-feature-game-detail": {
+      "tags": ["scope:store", "type:feature"]
+    },
+    "api": {
+      "tags": ["scope:api", "type:app"]
+    },
+    "util-interface": {
+      "tags": ["scope:shared", "type:util"]
+    },
+    "store-ui-shared-e2e": {
+      "tags": ["scope:store", "type:e2e"],
+      "implicitDependencies": ["store-ui-shared"]
+    },
+    "api-util-notifications": {
+      "tags": ["type:util'", "scope:api"]
+    }
+  },
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
+        "cacheableOperations": [
+          "build",
+          "lint",
+          "test",
+          "e2e",
+          "build-storybook"
+        ]
       }
     }
   },
