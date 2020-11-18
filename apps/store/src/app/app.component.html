@@ -1,4 +1,4 @@
-<bg-hoard-header title="Board Game Hoard"></bg-hoard-header>
+<bg-hoard-header [title]="title"></bg-hoard-header>
 <div class="container">
   <div class="games-layout">
     <mat-card
@@ -19,7 +19,7 @@
           {{ game.description }}
         </p>
         <span>
-          <span style="font-weight: bold;">Rating:</span>
+          <span style="font-weight: bold">Rating:</span>
           {{ formatRating(game.rating) }}
         </span>
       </mat-card-content>
