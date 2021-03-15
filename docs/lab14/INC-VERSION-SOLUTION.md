@@ -1,20 +1,17 @@
 ##### Increment version number
 
 ```typescript
-import { chain, Rule } from '@angular-devkit/schematics';
-import { updateJsonInTree } from '@nrwl/workspace';
+import { formatFiles, Tree, updateJson } from '@nrwl/devkit';
 
-function incrementVersion(): Rule {
-  return updateJsonInTree('workspace.json', (json) => {
+function incrementVersion(host: Tree) {
+  updateJson(host, 'workspace.json', (json) => {
     json.version++;
     return json;
   });
 }
 
-export default function (): Rule {
-  return chain([
-    incrementVersion()
-  ]);
+export default async function(host: Tree) {
+  incrementVersion(host);
+  await formatFiles(host);
 }
-
 ```
