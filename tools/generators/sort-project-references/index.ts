@@ -1,8 +1,7 @@
-import { chain, Rule } from '@angular-devkit/schematics';
-import { updateJsonInTree, formatFiles } from '@nrwl/workspace';
+import { formatFiles, Tree, updateJson } from '@nrwl/devkit';
 
-function sortKeys(file: string): Rule {
-  return updateJsonInTree(file, (json) => {
+function sortKeys(host: Tree, file: string) {
+  updateJson(host, file, (json) => {
     json.projects = sortObjectKeys(json.projects);
     return json;
   });
@@ -18,10 +17,8 @@ function sortObjectKeys(obj: any) {
   return sorted;
 }
 
-export default function (): Rule {
-  return chain([
-    sortKeys('workspace.json'),
-    sortKeys('nx.json'),
-    formatFiles(),
-  ]);
+export default async function(host: Tree) {
+  sortKeys(host, 'workspace.json');
+  sortKeys(host, 'nx.json');
+  await formatFiles(host);
 }
