@@ -1,84 +1,115 @@
-##### Generate a `util-lib` workspace schematic:
+##### Generate a `util-lib` workspace generator:
 
 ```shell script
-nx generate @nrwl/workspace:workspace-schematic util-lib
+nx generate @nrwl/workspace:workspace-generator util-lib
 ```
 
-##### Adding an enum to a schematic that prompts when empty
+##### Adding an enum to a generator that prompts when empty
 
-```
-"directory": {
-      "type": "string",
-      "description": "The scope of your lib.",
-      "x-prompt": "Which directory do you want the lib to be in?",
-      "enum": [
-        "store",
-        "api",
-        "shared"
+```json
+{
+  "directory": {
+    "type": "string",
+    "description": "The scope of your lib.",
+    "x-prompt": {
+      "message": "Which directory do you want the lib to be in?",
+      "type": "list",
+      "items": [
+        {
+          "value": "store",
+          "label": "Store"
+        },
+        {
+          "value": "api",
+          "label": "Api"
+        },
+        {
+          "value": "shared",
+          "label": "Shared"
+        }
       ]
-    }
+    },
+    "enum": [
+      "store",
+      "api",
+      "shared"
+    ]
+  }
+}
 ```
 
 ##### Defaulting to TSLint
 
 
-```
-import { chain, externalSchematic, Rule } from '@angular-devkit/schematics';
+```ts
+import { Tree, formatFiles, installPackagesTask } from '@nrwl/devkit';
+import { libraryGenerator } from '@nrwl/workspace/generators';
 
-export default function(schema: any): Rule {
-  return chain([
-    externalSchematic('@nrwl/workspace', 'lib', {
-      name: schema.name,
-      linter: 'tslint'
-    })
-  ]);
+export default async function(host: Tree, schema: any) {
+  await libraryGenerator(host, {
+    name: schema.name,
+    linter: 'tslint'
+  });
+  await formatFiles(host);
+  return () => {
+    installPackagesTask(host);
+  };
 }
 ```
 
 ##### Prefixing the name
 
- ```
-import { chain, externalSchematic, Rule } from '@angular-devkit/schematics';
+```ts
+import { Tree, formatFiles, installPackagesTask } from '@nrwl/devkit';
+import { libraryGenerator } from '@nrwl/workspace/generators';
 
-export default function(schema: any): Rule {
-  return chain([
-    externalSchematic('@nrwl/workspace', 'lib', {
-      name: `util-${schema.name}`,
-      linter: 'tslint'
-    })
-  ]);
+export default async function(host: Tree, schema: any) {
+  await libraryGenerator(host, {
+    name: `util-${schema.name}`,
+    linter: 'tslint'
+  });
+  await formatFiles(host);
+  return () => {
+    installPackagesTask(host);
+  };
 }
 ```
 
 ##### Choosing the directory
 
- ```
-import { chain, externalSchematic, Rule } from '@angular-devkit/schematics';
+```ts
+import { Tree, formatFiles, installPackagesTask } from '@nrwl/devkit';
+import { libraryGenerator } from '@nrwl/workspace/generators';
 
-export default function(schema: any): Rule {
-  return chain([
-    externalSchematic('@nrwl/workspace', 'lib', {
-      name: `util-${schema.name}`,
-      linter: 'tslint',
-      directory: schema.directory
-    })
-  ]);
+export default async function(host: Tree, schema: any) {
+  await libraryGenerator(host, {
+    name: `util-${schema.name}`,
+    linter: 'tslint',
+    directory: schema.directory
+  });
+  await formatFiles(host);
+  return () => {
+    installPackagesTask(host);
+  };
 }
 ```
 
 ##### Passing in tags
 
- ```
-import { chain, externalSchematic, Rule } from '@angular-devkit/schematics';
+```ts
+import { Tree, formatFiles, installPackagesTask } from '@nrwl/devkit';
+import { libraryGenerator } from '@nrwl/workspace/generators';
 
-export default function(schema: any): Rule {
-  return chain([
-    externalSchematic('@nrwl/workspace', 'lib', {
-      name: `util-${schema.name}`,
-      linter: 'tslint',
-      directory: schema.directory,
-      tags: `type:util', scope:${schema.directory}`
-    })
-  ]);
+export default async function(host: Tree, schema: any) {
+  await libraryGenerator(host, {
+    name: `util-${schema.name}`,
+    linter: 'tslint',
+    directory: schema.directory,
+    tags: `type:util', scope:${schema.directory}`
+  });
+  await formatFiles(host);
+  return () => {
+    installPackagesTask(host);
+  };
 }
 ```

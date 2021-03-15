@@ -1,11 +1,10 @@
 ##### Final schematic code
 
 ```typescript
-import { chain, Rule } from '@angular-devkit/schematics';
-import { updateJsonInTree, formatFiles } from '@nrwl/workspace';
+import { formatFiles, Tree, updateJson } from '@nrwl/devkit';
 
-function sortKeys(file: string): Rule {
-  return updateJsonInTree(file, (json) => {
+function sortKeys(host: Tree, file: string) {
+  updateJson(host, file, (json) => {
     json.projects = sortObjectKeys(json.projects);
     return json;
   });
@@ -13,34 +12,32 @@ function sortKeys(file: string): Rule {
 
 function sortObjectKeys(obj: any) {
   const sorted = {};
-  Object.keys(obj).sort().forEach(key => {
-    sorted[key] = obj[key];
-  });
+  Object.keys(obj)
+    .sort()
+    .forEach((key) => {
+      sorted[key] = obj[key];
+    });
   return sorted;
 }
 
-export default function (): Rule {
-  return chain([
-    sortKeys('workspace.json'),
-    sortKeys('nx.json'),
-    formatFiles()
-  ]);
+export default async function(host: Tree) {
+  sortKeys(host, 'workspace.json');
+  sortKeys(host, 'nx.json');
+  await formatFiles(host);
 }
-
 ```
 
 ##### BONUS SOLUTION
 
 ```typescript
-import { chain, Rule } from '@angular-devkit/schematics';
-import { formatFiles, updateJsonInTree } from '@nrwl/workspace';
+import { formatFiles, Tree, updateJson } from '@nrwl/devkit';
 import { get } from 'lodash';
 
-function sortKeysAtJsonPath(path: string, jsonPath: string[]): Rule {
-  return updateJsonInTree(path, (json) => {
+function sortKeysAtJsonPath(host: Tree, path: string, jsonPath: string[]): Rule {
+  updateJson(host, path, (json) => {
     //traverse JSON to find value we want to sort
     let parent = json;
-    if(jsonPath.length > 1) {
+    if (jsonPath.length > 1) {
       const pathToParent = jsonPath.slice(0, jsonPath.length - 1);
       parent = get(json, pathToParent);
     }
@@ -57,12 +54,10 @@ function sortKeysAtJsonPath(path: string, jsonPath: string[]): Rule {
   });
 }
 
-export default function (): Rule {
-  return chain([
-    sortKeysAtJsonPath('workspace.json', ['projects']),
-    sortKeysAtJsonPath('nx.json', ['projects']),
-    sortKeysAtJsonPath('tsconfig.base.json', ['compilerOptions', 'paths']),
-    formatFiles(),
-  ]);
+export default function(host: Tree) {
+  sortKeysAtJsonPath(host, 'workspace.json', ['projects']),
+  sortKeysAtJsonPath(host, 'nx.json', ['projects']),
+  sortKeysAtJsonPath(host, 'tsconfig.base.json', ['compilerOptions', 'paths']),
+  formatFiles(host),
 }
 ```
