@@ -24,7 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
             ),
         },
       ],
-      { initialNavigation: 'enabled' }
+      { initialNavigation: 'enabled', relativeLinkResolution: 'legacy' }
     ),
   ],
   providers: [],
