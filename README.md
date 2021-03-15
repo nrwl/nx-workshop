@@ -83,8 +83,8 @@ Each lab will contain a link to the next one. Start from **"Lab 1"** and move th
 #### Day 2
 
 - 💡 [Lab 12 - Module boundaries](https://github.com/nrwl/nx-workshop/blob/master/docs/lab12/LAB.md)
-- 🧸️ [Lab 13 - Workspace schematics - Intro](https://github.com/nrwl/nx-workshop/blob/master/docs/lab13/LAB.md)
-- 🧵 [Lab 14 - Workspace schematics - Modifying files](https://github.com/nrwl/nx-workshop/blob/master/docs/lab14/LAB.md)
+- 🧸️ [Lab 13 - Workspace Generators - Intro](https://github.com/nrwl/nx-workshop/blob/master/docs/lab13/LAB.md)
+- 🧵 [Lab 14 - Workspace Generators - Modifying files](https://github.com/nrwl/nx-workshop/blob/master/docs/lab14/LAB.md)
 - 💎 [Lab 15 - Setting up CI](https://github.com/nrwl/nx-workshop/blob/master/docs/lab15/LAB.md)
 - 🔌 [Lab 16 - Distributed caching](https://github.com/nrwl/nx-workshop/blob/master/docs/lab16/LAB.md)
 - 🔍 [Lab 17 - NxCloud GitHub bot](https://github.com/nrwl/nx-workshop/blob/master/docs/lab17/LAB.md)
