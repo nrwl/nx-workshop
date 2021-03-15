@@ -1,12 +1,15 @@
-import { chain, externalSchematic, Rule } from '@angular-devkit/schematics';
+import { Tree, formatFiles, installPackagesTask } from '@nrwl/devkit';
+import { libraryGenerator } from '@nrwl/workspace/generators';
 
-export default function (schema: any): Rule {
-  return chain([
-    externalSchematic('@nrwl/workspace', 'lib', {
-      name: `util-${schema.name}`,
-      linter: 'tslint',
-      directory: schema.directory,
-      tags: `type:util', scope:${schema.directory}`,
-    }),
-  ]);
+export default async function(host: Tree, schema: any) {
+  await libraryGenerator(host, {
+    name: `util-${schema.name}`,
+    linter: 'tslint',
+    directory: schema.directory,
+    tags: `type:util', scope:${schema.directory}`
+  });
+  await formatFiles(host);
+  return () => {
+    installPackagesTask(host);
+  };
 }
