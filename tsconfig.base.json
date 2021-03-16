@@ -15,7 +15,19 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@bg-hoard/store/ui-shared": ["libs/store/ui-shared/src/index.ts"],
+      "@bg-hoard/store/util-formatters": [
+        "libs/store/util-formatters/src/index.ts"
+      ],
+      "@bg-hoard/store/feature-game-detail": [
+        "libs/store/feature-game-detail/src/index.ts"
+      ],
+      "@bg-hoard/util-interface": ["libs/util-interface/src/index.ts"],
+      "@bg-hoard/api/util-notifications": [
+        "libs/api/util-notifications/src/index.ts"
+      ]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
