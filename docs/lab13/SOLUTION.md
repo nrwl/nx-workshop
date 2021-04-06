@@ -17,15 +17,15 @@ nx generate @nrwl/workspace:workspace-generator util-lib
       "items": [
         {
           "value": "store",
-          "label": "Store"
+          "label": "store"
         },
         {
           "value": "api",
-          "label": "Api"
+          "label": "api"
         },
         {
           "value": "shared",
-          "label": "Shared"
+          "label": "shared"
         }
       ]
     },
@@ -38,25 +38,6 @@ nx generate @nrwl/workspace:workspace-generator util-lib
 }
 ```
 
-##### Defaulting to TSLint
-
-
-```ts
-import { Tree, formatFiles, installPackagesTask } from '@nrwl/devkit';
-import { libraryGenerator } from '@nrwl/workspace/generators';
-
-export default async function(host: Tree, schema: any) {
-  await libraryGenerator(host, {
-    name: schema.name,
-    linter: 'tslint'
-  });
-  await formatFiles(host);
-  return () => {
-    installPackagesTask(host);
-  };
-}
-```
-
 ##### Prefixing the name
 
 ```ts
@@ -66,7 +47,6 @@ import { libraryGenerator } from '@nrwl/workspace/generators';
 export default async function(host: Tree, schema: any) {
   await libraryGenerator(host, {
     name: `util-${schema.name}`,
-    linter: 'tslint'
   });
   await formatFiles(host);
   return () => {
@@ -84,7 +64,6 @@ import { libraryGenerator } from '@nrwl/workspace/generators';
 export default async function(host: Tree, schema: any) {
   await libraryGenerator(host, {
     name: `util-${schema.name}`,
-    linter: 'tslint',
     directory: schema.directory
   });
   await formatFiles(host);
@@ -103,7 +82,6 @@ import { libraryGenerator } from '@nrwl/workspace/generators';
 export default async function(host: Tree, schema: any) {
   await libraryGenerator(host, {
     name: `util-${schema.name}`,
-    linter: 'tslint',
     directory: schema.directory,
     tags: `type:util, scope:${schema.directory}`
   });

@@ -16,11 +16,11 @@ nx deploy store
 nx build store --configuration production
 ```
 
-##### The full deploy builder configuration
+##### The full deploy executor configuration
 
 ```json
 "deploy": {
-  "builder": "@nrwl/workspace:run-commands",
+  "executor": "@nrwl/workspace:run-commands",
   "outputs": [],
   "options": {
     "command": "surge dist/apps/store ${SURGE_DOMAIN} --token ${SURGE_TOKEN}"

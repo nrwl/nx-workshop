@@ -28,14 +28,14 @@ Let's add a header to our app! Because headers can be shared with other componen
    <details>
    <summary>🐳 Hint</summary>
 
-   - it's a schematic! you've used it before in the second lab, but instead of an `app`, we now want to generate a `lib`
+   - it's a generator! you've used it before in the second lab, but instead of an `app`, we now want to generate a `lib`
    - use the `--help` command to figure out how to generate it in a **directory**
 
    </details>
 
 3. Generate a new Angular component, called `header`, inside the lib you just created
 
-   ⚠️ Make sure it's **exported** from the lib's module
+   ⚠️ Play around with the generator options so that the generated component is automatically **exported** from the lib's module
 
    <details><summary>🐳 Hint</summary>
 

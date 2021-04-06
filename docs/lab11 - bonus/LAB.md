@@ -2,7 +2,7 @@
 
 ###### ⏰ Estimated time: 5 minutes
 
-The storybook schematic we ran earlier also generated some e2e tests. Let's try them out!
+The storybook generator we invoked earlier also generated some e2e tests. Let's try them out!
 
 #### 📚 Learning outcomes:
 
@@ -17,7 +17,7 @@ The storybook schematic we ran earlier also generated some e2e tests. Let's try 
    ```ts
    cy.visit(
      '/iframe.html?id=headercomponent--primary&knob-title=BoardGameHoard'
-   );
+   )
    ```
 
 3. Now add a test to check if it contains that value

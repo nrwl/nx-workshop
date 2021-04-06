@@ -30,9 +30,9 @@ You do not need to be familiar with Nest (and you can use the `@nrwl/express:app
 
 1. Stop any running `nx serve` instance
 2. `yarn add @nrwl/nest`
-3. Generate a new NestJS app, called `api` with `--linter=tslint` option
+3. Generate a new NestJS app, called `api`
 
-   ⚠️ Make sure you instruct the schematic to configure a proxy from the frontend `store` to the new `api` service (use `--help` to see the available options)
+   ⚠️ Make sure you instruct the generator to configure a proxy from the frontend `store` to the new `api` service (use `--help` to see the available options)
 
 4. Copy the code from the `fake api` to the new Nest `apps/api/src/app/`[app.service.ts](../../examples/lab7/apps/api/src/app/app.service.ts) and expose the `getGames()` and `getGame()` methods
 

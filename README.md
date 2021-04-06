@@ -13,6 +13,13 @@ Some of the things you'll learn:
 - How to organize code in a monorepo
 - Easily move libs around your folder structure
 - Creating Storybook stories and e2e Cypress tests for your components
+- How to set boundaries between the different scopes in your project
+- Write automated source code generators for common tasks in your workspace
+- Set-up CI for your Pull Requests
+- Add distributed caching
+- Set up the NxCloud GitHub integration
+- Write advanced deployment targets using the `run-commands` executor
+- Set up Continuous Deployment systems that deploy only the affected projects
 
 To help you understand how to apply some of these lessons in your own projects, we'll try to build a more "real-world" example. However, because of the time constrains and to make sure we get to cover as much material as possible, we'll provide you with all the code for any "non-Nx" work you need to do (like styling and configuring Angular routes) - so you can focus on learning to use Nx to its full potential.
 
@@ -68,28 +75,28 @@ Each lab will contain a link to the next one. Start from **"Lab 1"** and move th
 
 #### Day 1
 
-- 🔬 [Lab 1 - Generate an empty workspace](https://github.com/nrwl/nx-workshop/blob/master/docs/lab1/LAB.md)
-- ⚗️ [Lab 2 - Generate an Angular app](https://github.com/nrwl/nx-workshop/blob/master/docs/lab2/LAB.md)
-- 🧪 [Lab 3 - Builders](https://github.com/nrwl/nx-workshop/blob/master/docs/lab3/LAB.md)
-- 🔭 [Lab 4 - Generate a component lib](https://github.com/nrwl/nx-workshop/blob/master/docs/lab4/LAB.md)
-- 🧬 [Lab 5 - Generate a component lib](https://github.com/nrwl/nx-workshop/blob/master/docs/lab5/LAB.md)
-- 🧮 [Lab 6 - Generate a route lib](https://github.com/nrwl/nx-workshop/blob/master/docs/lab6/LAB.md)
-- 🤖 [Lab 7 - Add a NestJS API](https://github.com/nrwl/nx-workshop/blob/master/docs/lab7/LAB.md)
-- 📐 [Lab 8 - Displaying a full game in the routed game-detail component](https://github.com/nrwl/nx-workshop/blob/master/docs/lab8/LAB.md)
-- 💻 [Lab 9 - Generate a type lib that the API and frontend can share](https://github.com/nrwl/nx-workshop/blob/master/docs/lab9/LAB.md)
-- 👩‍💻 [Lab 10 - Generate Storybook stories for the shared ui component](https://github.com/nrwl/nx-workshop/blob/master/docs/lab10%20-%20bonus/LAB.md)
-- ⌨️ [Lab 11 - E2E test the shared component](https://github.com/nrwl/nx-workshop/blob/master/docs/lab11%20-%20bonus/LAB.md)
+- 🔬 [Lab 1 - Generate an empty workspace](docs/lab1/LAB.md)
+- ⚗️ [Lab 2 - Generate an Angular app](docs/lab2/LAB.md)
+- 🧪 [Lab 3 - Executors](docs/lab3/LAB.md)
+- 🔭 [Lab 4 - Generate a component lib](docs/lab4/LAB.md)
+- 🧬 [Lab 5 - Generate a utility lib](docs/lab5/LAB.md)
+- 🧮 [Lab 6 - Generate a route lib](docs/lab6/LAB.md)
+- 🤖 [Lab 7 - Add a NestJS API](docs/lab7/LAB.md)
+- 📐 [Lab 8 - Displaying a full game in the routed game-detail component](docs/lab8/LAB.md)
+- 💻 [Lab 9 - Generate a type lib that the API and frontend can share](docs/lab9/LAB.md)
+- 👩‍💻 [Lab 10 - Generate Storybook stories for the shared ui component](docs/lab10%20-%20bonus/LAB.md)
+- ⌨️ [Lab 11 - E2E test the shared component](docs/lab11%20-%20bonus/LAB.md)
 
 #### Day 2
 
-- 💡 [Lab 12 - Module boundaries](https://github.com/nrwl/nx-workshop/blob/master/docs/lab12/LAB.md)
-- 🧸️ [Lab 13 - Workspace Generators - Intro](https://github.com/nrwl/nx-workshop/blob/master/docs/lab13/LAB.md)
-- 🧵 [Lab 14 - Workspace Generators - Modifying files](https://github.com/nrwl/nx-workshop/blob/master/docs/lab14/LAB.md)
-- 💎 [Lab 15 - Setting up CI](https://github.com/nrwl/nx-workshop/blob/master/docs/lab15/LAB.md)
-- 🔌 [Lab 16 - Distributed caching](https://github.com/nrwl/nx-workshop/blob/master/docs/lab16/LAB.md)
-- 🔍 [Lab 17 - NxCloud GitHub bot](https://github.com/nrwl/nx-workshop/blob/master/docs/lab17/LAB.md)
-- 📎 [Lab 18 - Run-Commands and deploying the frontend](https://github.com/nrwl/nx-workshop/blob/master/docs/lab18/LAB.md)
-- 🧲 [Lab 19 - Deploying the API](https://github.com/nrwl/nx-workshop/blob/master/docs/lab19/LAB.md)
-- 🎸 [Lab 20 - Connecting the frontend and backend](https://github.com/nrwl/nx-workshop/blob/master/docs/lab20/LAB.md)
-- 🎈 [Lab 21 - Setting up CD for automatic deployment](https://github.com/nrwl/nx-workshop/blob/master/docs/lab21/LAB.md)
-- 💈 [Lab 22 - Deploying only what changed](https://github.com/nrwl/nx-workshop/blob/master/docs/lab22/LAB.md)
+- 💡 [Lab 12 - Module boundaries](docs/lab12/LAB.md)
+- 🧸️ [Lab 13 - Workspace Generators - Intro](docs/lab13/LAB.md)
+- 🧵 [Lab 14 - Workspace Generators - Modifying files](docs/lab14/LAB.md)
+- 💎 [Lab 15 - Setting up CI](docs/lab15/LAB.md)
+- 🔌 [Lab 16 - Distributed caching](docs/lab16/LAB.md)
+- 🔍 [Lab 17 - NxCloud GitHub bot](docs/lab17/LAB.md)
+- 📎 [Lab 18 - Run-Commands and deploying the frontend](docs/lab18/LAB.md)
+- 🧲 [Lab 19 - Deploying the API](docs/lab19/LAB.md)
+- 🎸 [Lab 20 - Connecting the frontend and backend](docs/lab20/LAB.md)
+- 🎈 [Lab 21 - Setting up CD for automatic deployment](docs/lab21/LAB.md)
+- 💈 [Lab 22 - Deploying only what changed](docs/lab22/LAB.md)

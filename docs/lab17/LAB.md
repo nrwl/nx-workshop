@@ -10,7 +10,7 @@
 #### 🏋️‍♀️ Steps :
 
 1. **Enable the NxCloud GitHub bot** on your GitHub repository: [https://github.com/apps/nx-cloud](https://github.com/apps/nx-cloud)
-2. Switch to a new branch
+2. Switch to a new branch: `git checkout -b nxcloud-bot`
 3. Add these env variables to your GitHub actions config:
 
     ```

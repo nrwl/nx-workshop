@@ -21,7 +21,7 @@
       }
     ```
 
-2. Open the root `tslint.json`, find the `"nx-enforce-module-boundaries"` rule and set the `depConstraints`:
+2. Open the root `.eslintrc.json`, find the `"@nrwl/nx/enforce-module-boundaries"` rule and set the `depConstraints`:
 
     ```
     "depConstraints": [
@@ -57,6 +57,8 @@ Let's try and import a `store` lib from an `api` scope.
 10. Run linting again and check if all the errors went away.
     
     💡 Pass the suggested `--only-failed` option, so it doesn't relint everything.
+
+11. Commit everything before moving on to the next lab
 
 
 ---

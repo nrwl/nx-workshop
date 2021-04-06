@@ -48,7 +48,7 @@ will never miss a deployment
     - [Netlify has the `CACHED_COMMIT_REF`](https://docs.netlify.com/configure-builds/environment-variables/#git-metadata)
     - On CircleCI, we can use the `<< pipeline.git.base_revision >>`
     - Some CI platforms don't even provide it all
-    - For GitHub actions, we can use the `rarmatei/last-successful-commit-action` action
+    - For GitHub actions, we can use the `nrwl/last-successful-commit-action` action
 
 ---
 
@@ -56,7 +56,7 @@ will never miss a deployment
 
     ```
     - uses: bahmutov/npm-install@v1.4.5
-    - uses: rarmatei/last-successful-commit-action@v8
+    - uses: nrwl/last-successful-commit-action@v1
       id: last_successful_commit
       with:
           branch: 'master' <-- get the last successful commit on master

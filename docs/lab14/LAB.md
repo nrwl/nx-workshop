@@ -11,12 +11,12 @@
 
 1. Generate another generator called `sort-project-references`
 
-2. As a start let's make it increment the `"version"` number in our `workspace.json` file:
+2. As a start let's make it change the `defaultProject` from `store` to `api` in our workspace.json` file:
 
    <details>
    <summary>🐳 Hint</summary>
 
-    - Refer to the [docs](https://nx.dev/latest/angular/generators/workspace-generators#workspace-generators)
+    - Refer to the [docs](https://nx.dev/latest/angular/core-concepts/nx-devkit#nx-devkit)
     - Use this utility: 
         - `import { updateJson } from '@nrwl/devkit';`
     - As always, the answer is in the [the solution](INC-VERSION-SOLUTION.md). Try a few different approaches on your own first. 
@@ -25,8 +25,7 @@
    ⚠️ When you run the above, it might complain that you haven't supplied a `name`. Since
    we don't need this property in the generate, you can remove it from the schema.
 
-3. While what we just built above could be useful on its own - let's say whenever we want to release or deploy new versions of packages in our workspace..
-Let's build something even more useful:
+3. Now that we had some practice with the `updateJson` util - Let's build something even more useful:
     - When large teams work in the same workspace, they will occasionally be adding new libs in their PRs
     - Because these libs get added at the end of our `workspace.json` projects list, they can be a source of merge conflicts. All these PRs will be modifying the same file
     - If there was an easy way developers could sort the `projects` list in their `workspace.json` file before pushing the PR - it would reduce the chance of a merge conflict, as the changes would happen
@@ -53,7 +52,7 @@ Let's build something even more useful:
 
 2. `nx.json` also has a `projects` property vulnerable to merge conflicts. Let's sort it as well part of our above generator.
 
-3. Finally, it's good practice to have your generator run your modified files through Prettier after modifying them.
+3. Optional step: it's good practice to have your generator run your modified files through Prettier after modifying them. You might already have this, but just in case you removed it:
 
     - Use `import { formatFiles } from '@nrwl/devkit';`
     - `await` this at the end of your generator

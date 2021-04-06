@@ -2,7 +2,7 @@
 
 ###### ⏰ Estimated time: 15-20 minutes
 
-Now that we have a proper API, we can remove the `fake-api` created earlier and make proper HTTP requests. We'll also look at how the Nrwl NestJS schematics created a helpful proxy configuration for us.
+Now that we have a proper API, we can remove the `fake-api` created earlier and make proper HTTP requests. We'll also look at how the Nrwl NestJS generators created a helpful proxy configuration for us.
 
 #### 📚 Learning outcomes:
 
@@ -41,7 +41,7 @@ Now that we have a proper API, we can remove the `fake-api` created earlier and 
    ```html
    <mat-card
      class="game-card"
-     *ngFor="let game of games | async"
+     *ngFor="let game of games | async" <-- HERE
      [routerLink]="['/game', game.id]"
      >...</mat-card
    >
@@ -58,10 +58,13 @@ Now that we have a proper API, we can remove the `fake-api` created earlier and 
    ⚠️ Again, notice the _PORT_ number
 
 7. Everything should still look/function the same!
+   
+   🎓 You can inspect your Network tab in the dev tools and notice an XHR request made to `http://localhost:4200/api/games`
 
 ---
 
 🎓 Even though the frontend and server are being exposed at different ports, we can call `/api` from the frontend store because `Nx` created a proxy configuration for us (see `apps/store/proxy.conf.json`) so any calls to `/api` are being routed to the correct address/port where the API is running.
+This helps you avoid CORS issues while developing locally.
 
 ---
 

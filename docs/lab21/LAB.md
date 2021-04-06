@@ -34,7 +34,7 @@
         .... <-- ADD THE STEPS HERE
    ```
 
-2. Our "deploy" builders are using some secret ENV variables though. We'll need to make these available on GitHub:
+2. Our "deploy" targets are using some secret ENV variables though. We'll need to make these available on GitHub:
     1. Go to your GitHub workshop repo
     2. Click on **"Settings"** at the top
     3. Then **"Secrets"** on the left menu bar

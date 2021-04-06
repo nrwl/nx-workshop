@@ -35,3 +35,10 @@ jobs:
       - uses: bahmutov/npm-install@v1.4.5
       - run: npm run nx affected -- --target=e2e --base=origin/master --parallel
 ```
+
+##### Marking all projects as affected
+
+```json
+  "implicitDependencies": {
+    ".github/workflows/ci.yml": "*",
+```

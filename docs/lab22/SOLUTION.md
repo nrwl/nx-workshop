@@ -20,7 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - uses: bahmutov/npm-install@v1.4.5
-      - uses: rarmatei/last-successful-commit-action@v8
+      - uses: nrwl/last-successful-commit-action@v1
         id: last_successful_commit
         with:
           branch: 'master'

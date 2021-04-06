@@ -1,4 +1,51 @@
-##### Final schematic code
+##### Change default project
+
+```typescript
+import { Tree, formatFiles, installPackagesTask } from '@nrwl/devkit';
+import { updateJson } from '@nrwl/devkit';
+
+export default async function (host: Tree) {
+  await updateJson(host, 'workspace.json', (workspaceJson) => {
+    workspaceJson.defaultProject = 'api';
+    return workspaceJson;
+  });
+  await formatFiles(host);
+  return () => {
+    installPackagesTask(host);
+  };
+}
+```
+
+##### Sort workspace.json projects
+
+```typescript
+import { Tree, formatFiles, installPackagesTask } from '@nrwl/devkit';
+import { updateJson } from '@nrwl/devkit';
+
+export default async function (host: Tree) {
+  await updateJson(host, 'workspace.json', (workspaceJson) => {
+    workspaceJson.projects = sortObjectKeys(workspaceJson.projects);
+    return workspaceJson;
+  });
+  await formatFiles(host);
+  return () => {
+    installPackagesTask(host);
+  };
+}
+
+function sortObjectKeys(obj: any) {
+  const sorted = {};
+  Object.keys(obj)
+    .sort()
+    .forEach((key) => {
+      sorted[key] = obj[key];
+    });
+  return sorted;
+}
+
+```
+
+##### Final generator code
 
 ```typescript
 import { formatFiles, Tree, updateJson } from '@nrwl/devkit';
@@ -27,37 +74,29 @@ export default async function(host: Tree) {
 }
 ```
 
-##### BONUS SOLUTION
+##### BONUS 1 SOLUTION
 
 ```typescript
-import { formatFiles, Tree, updateJson } from '@nrwl/devkit';
-import { get } from 'lodash';
-
-function sortKeysAtJsonPath(host: Tree, path: string, jsonPath: string[]): Rule {
-  updateJson(host, path, (json) => {
-    //traverse JSON to find value we want to sort
-    let parent = json;
-    if (jsonPath.length > 1) {
-      const pathToParent = jsonPath.slice(0, jsonPath.length - 1);
-      parent = get(json, pathToParent);
-    }
-    const unordered = get(json, jsonPath);
-    //sort the keys
-    const sorted = {};
-    Object.keys(unordered).sort().forEach(key => {
-      sorted[key] = unordered[key];
-    });
-    //mutate original json and return it
-    const childProp = jsonPath[jsonPath.length - 1];
-    parent[childProp] = sorted;
+function sortTsConfigPaths(host: Tree) {
+  updateJson(host, 'tsconfig.base.json', (json) => {
+    json.compilerOptions.paths = sortObjectKeys(json.compilerOptions.paths);
     return json;
   });
 }
+```
 
-export default function(host: Tree) {
-  sortKeysAtJsonPath(host, 'workspace.json', ['projects']),
-  sortKeysAtJsonPath(host, 'nx.json', ['projects']),
-  sortKeysAtJsonPath(host, 'tsconfig.base.json', ['compilerOptions', 'paths']),
-  formatFiles(host),
+##### BONUS 2 SOLUTION
+
+```typescript
+function sortJest(host: Tree) {
+  const jestConfig = 'jest.config.js';
+  const contents = require(join(process.cwd(), jestConfig));
+  contents.projects.sort();
+  host.write(
+    jestConfig,
+    `
+        module.exports = ${JSON.stringify(contents)};
+      `
+  );
 }
 ```

@@ -4,12 +4,12 @@
 
 Now our dependency graph looks a bit disconnected. The frontend and the API still do not have anything in common. The power of Nx libraries is that they can be shared among any number of projects.
 
-We'll look at creating libs to store Typescript interfaces and then we'll use the Nx **Move** schematic to move that library around our project, with minimal effort.
+We'll look at creating libs to store Typescript interfaces and then we'll use the Nx **Move** generator to move that library around our project, with minimal effort.
 
 #### 📚 Learning outcomes:
 
 - Explore other real-world examples of creating shared libs for a specific project
-- Learn to use the `move` schematic
+- Learn to use the `move` generator
 
 #### 📲 After this workshop, you should have:
 
@@ -27,7 +27,7 @@ We'll look at creating libs to store Typescript interfaces and then we'll use th
 
 1. Stop serving both the API and the frontend
 
-2. Generate a new `@nrwl/workspace` lib called `util-interface` inside the `libs/api` folder. Use `--linter=tslint` option.
+2. Generate a new `@nrwl/workspace` lib called `util-interface` inside the `libs/api` folder.
 
    ⚠️ It's **important** that we create it in the `/api` folder for now
 
@@ -58,6 +58,7 @@ We'll look at creating libs to store Typescript interfaces and then we'll use th
    </details>
 
 6. Inspect the dependency graph
+7. Make sure to commit everything before proceeding!
 
 ---
 
@@ -73,7 +74,7 @@ Let's fix that - we already have a `Game` interface in a lib. But it's nested in
 
 ---
 
-7.  Use the `@nrwl/workspace:move` schematic to move the interface lib created above into the root `/libs` folder
+8.  Use the `@nrwl/workspace:move` generator to move the interface lib created above into the root `/libs` folder
 
     ⚠️ Make sure you use the `--dry-run` flag until you're confident your command is correct
 
@@ -86,7 +87,7 @@ Let's fix that - we already have a `Game` interface in a lib. But it's nested in
     <summary>🐳 Hint 2</summary>
 
     Use the `--help` command to figure out how to target a specific **project**
-    Alternatively, check out the [docs](https://nx.dev/angular/api/workspace/schematics/move)
+    Alternatively, check out the [docs](https://nx.dev/latest/angular/angular/move#move)
 
     </details>
 
@@ -121,7 +122,7 @@ Let's fix that - we already have a `Game` interface in a lib. But it's nested in
 
     </details>
 
-    ⚠️ Notice how we didn't have to update the imports in the API. The `move` schematic took care of that for us!
+    ⚠️ Notice how we didn't have to update the imports in the API. The `move` generator took care of that for us!
 
 9.  Trigger a build of both the store and the API projects and make sure it passes
 10. Inspect the dependency graph

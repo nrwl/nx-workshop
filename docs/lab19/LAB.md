@@ -4,7 +4,7 @@
 
 #### 📚 Learning outcomes:
 
-- Explore more advanced usages of the "run-commands" builder
+- Explore more advanced usages of the "run-commands" executor
 - Go through an example of how to deploy an API to Heroku through Nx
 
 #### 🏋️‍♀️ Steps :
@@ -77,7 +77,7 @@
     💡 By default, dependencies of server projects are not bundled together, as opposed to your Angular apps.
     If curious why, you can [read more here](https://github.com/nestjs/nest/issues/1706#issuecomment-579248915).
 
-7. Let's fix the above - In `workspace.json`, under the **production** build options for the API (`projects -> api -> architect -> build -> configurations -> production`)
+7. Let's fix the above - In `workspace.json`, under the **production** build options for the API (`projects -> api -> targets -> build -> configurations -> production`)
 add this as an option:
 
     ```
@@ -99,9 +99,9 @@ add this as an option:
    but in this case it simplifies the deployment process.
    </details>
 
-8. Use the `@nrwl/workspace:run-commands` schematic to generate another "deploy" target:
+8. Use the `@nrwl/workspace:run-commands` generator to generate another "deploy" target:
     - This time for the `api` project
-    - Use the [`--cwd` option](https://nx.dev/latest/angular/plugins/workspace/schematics/run-commands#cwd)
+    - Use the [`--cwd` option](https://nx.dev/latest/angular/workspace/run-commands-executor#cwd)
     to ensure all commands execute in the `dist/apps/api` folder
     - Leave the "command" blank for now
 
@@ -111,7 +111,7 @@ add this as an option:
     Go to `workspace.json` and add the commands that we'll need to run:
     ```
     "deploy": {
-        "builder": "@nrwl/workspace:run-commands",
+        "executor": "@nrwl/workspace:run-commands",
             "outputs": [],
             "options": {
             "commands": [ <--- ADD THESE COMMANDS
@@ -145,7 +145,7 @@ In our case, we want them to run one after another.
    
 10. Use Nx to build the API for production, and then deploy it!
 
-    ⚠️ Note: On Windows, the deploy will fail. Create a separate `deploy-windows` architect, as we did in the previous lab, but use this for the copy command:
+    ⚠️ Note: On Windows, the deploy will fail. Create a separate `deploy-windows` target, as we did in the previous lab, but use this for the copy command:
 
     ```
     "commands": [

@@ -4,8 +4,8 @@
 
 #### 📚 Learning outcomes:
 
-- Understand how to create custom builders via the "run-commands" workspace builder
-- Explore real-world usages of "run-commands" by creating a frontend "deploy" builder
+- Understand how to create custom targets via the "run-commands" workspace executor
+- Explore real-world usages of "run-commands" by creating a frontend "deploy" executor
 - Learn how to expose custom ENV variables to Nx
 
 #### 🏋️‍♀️ Steps :
@@ -40,14 +40,14 @@
     ⚠️ You should see surge deploying to your URL - if you click you'll see just the header though, because it doesn't have a server yet to get the games from.
 
 3. Let's now abstract away the above command into an Nx target.
-Generate a new **"deploy"** target using the `@nrwl/workspace:run-commands` schematic:
+Generate a new **"deploy"** target using the `@nrwl/workspace:run-commands` generator:
     - under the `store` project
     - the "command" will be the same as the one you typed in the previous step
     
     <details>
     <summary>🐳 Hint</summary>
     
-    Consult the run-commands schematic docs [here](https://nx.dev/latest/angular/plugins/workspace/schematics/run-commands)
+    Consult the run-commands generator docs [here](https://nx.dev/latest/angular/workspace/run-commands-executor#run-commands)
     </details>
 
 4. Use Git to inspect the changes in `workspace.json` and try to deploy the store using Nx! 
@@ -85,7 +85,7 @@ and risk exposing this secret token. Also, we might want to deploy to different 
  7. Now invoke the deploy target again, and check if it all still works.
  
      ⚠️ Note for Windows users: the command might fail, as we're trying to access env variables the Linux-way.
-     To make it pass, you can generate a separate `windows-deploy` builder:
+     To make it pass, you can generate a separate `windows-deploy` executor (make sure you keep the existing `deploy` target intact - it will be used by GitHub Actions):
      
     ```
     nx generate run-commands windows-deploy --project=store --command="surge dist/apps/store %SURGE_DOMAIN% --token %SURGE_TOKEN%"

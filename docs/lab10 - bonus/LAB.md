@@ -23,7 +23,7 @@ Let's explore some more Nx plugins by generating and running a storybook configu
 #### 🏋️‍♀️ Steps:
 
 1. `yarn add @nrwl/storybook`
-2. Use the `nrwl/angular:storybook-configuration` schematic to generate a storybook configuration for the `store-ui-shared` project
+2. Use the `nrwl/angular:storybook-configuration` generator to generate a storybook configuration for the `store-ui-shared` project
 
    ⚠️ Answer **YES** to all questions
 
@@ -63,7 +63,7 @@ Let's explore some more Nx plugins by generating and running a storybook configu
 
    </details>
 
-5. start typing in different titles and see how they appear in the header
+5. Start typing in different titles and see how they appear in the header
 
    <img src="../assets/storybook.gif" width="300" alt="the header component running in storybook">
 

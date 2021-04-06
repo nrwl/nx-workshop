@@ -2,11 +2,11 @@
 
 ###### ⏰ Estimated time: 15-25 minutes
 
-We'll look at more advanced usages of the `@nrwl/angular` schematics and generate a new route lib for our store application. We'll see how Nx takes care of most of the work, and we just have to do the wiring up!
+We'll look at more advanced usages of the `@nrwl/angular` generators and generate a new route lib for our store application. We'll see how Nx takes care of most of the work, and we just have to do the wiring up!
 
 #### 📚 Learning outcomes:
 
-- Get familiar with more advanced usages of Nx generate schematics to create an Angular route lib
+- Get familiar with more advanced usages of Nx generators to create an Angular route lib
 
 #### 📲 After this workshop, you should have:
 
@@ -23,14 +23,14 @@ We'll look at more advanced usages of the `@nrwl/angular` schematics and generat
 #### 🏋️‍♀️ Steps:
 
 1. Stop `nx serve`
-2. Use the `@nrwl/angular:lib` schematic to generate a new routing library called `feature-game-detail` that:
+2. Use the `@nrwl/angular:lib` generator to generate a new routing library called `feature-game-detail` that:
 
    - lives under `libs/store`
    - has lazy loading
    - has routing enabled
    - its parent routing module is `apps/store/src/app/app.module.ts`
 
-   ⚠️ **Use `--help`** with the above schematic to figure out which options you need to use to enable **all** the above (See the solution if still unsure)
+   ⚠️ **Use `--help`** with the above generator to figure out which options you need to use to enable **all** the above (See the solution if still unsure)
 
 3. Generate a new Angular component called `game-detail` under the above lib you created
 
@@ -49,7 +49,7 @@ We'll look at more advanced usages of the `@nrwl/angular` schematics and generat
 
     </details>
 
-5. Uncomment _line 11_ in `libs/store/feature-game-detail/src/lib/store-feature-game-detail.module.ts` and make sure it's pointing to the `game-detail` component you generated above
+5. Uncomment _line 10_ in `libs/store/feature-game-detail/src/lib/store-feature-game-detail.module.ts` and make sure it's pointing to the `game-detail` component you generated above
 
    <details>
    <summary>🐳 Hint</summary>
