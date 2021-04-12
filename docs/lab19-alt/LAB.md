@@ -28,6 +28,14 @@ deploying the two frontends independently in our GitHub Actions based Continous 
    
 4. Test your changes look okay at the deployed URL.
 
+5. Notice how both our frontends are pointing to the same `SURGE_DOMAIN` env variable. If we want to set up a GitHub Workflow that deploys them at two
+   separate domains, we'll need to refer to each domain separately:
+  - In `apps/admin-ui/.local.env`, rename `SURGE_DOMAIN` to `SURGE_DOMAIN_ADMIN_UI`
+  - Update `workspace.json --> admin-ui --> deploy` target to point to this new var
+  - Repeat the steps above for the `store` project
+
+4. Try to deploy both apps again and check if it still works.
+
 5. Commit everything before moving on to the next lab
 
 5. BONUS - Create a custom workspace generator that adds a `"deploy"` target for a frontend project, so that we don't have

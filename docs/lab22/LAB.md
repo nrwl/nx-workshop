@@ -9,7 +9,7 @@
 
 #### 🏋️‍♀️ Steps :
 
-In the previous labs we set-up automatic deployments.
+In the previous labs we set up automatic deployments.
 But everytime we push to master, we're always building and running the
 deployment scripts for ALL the apps in our workspace.
 As our repo grows, this is not scalable. We only want to build 
@@ -31,23 +31,22 @@ and deploy the apps that have actually changed, and need re-deploying.
 
 ⛔ The problem now is that it's always comparing against the last commit:
 
-- If I change the API over a few commits, and then in the last commit
-before I push I change the Store, it will deploy just the Store. Even though 
-the API changed as well    
+- Let's say I make some changes to the API/AdminUI over a few commits. Then I make one small change to the Store, commit it, and push to master.
+  Even though I've pushed lots of commits with changes to both the Store and the API/AdminUI, because our CD Workflow is only
+  looking at the last commit, it will only deploy the Store.
 - There is also the problem of failures. Now our setup is simple: it just builds.
 But let's say we wanted to run the E2E tests again before deploying - just to be extra safe!
-In that case, if I change the API and push, the E2E tests might fail. So API will not get deployed.
-I then fix the E2E tests, but because the API does not depend on its E2E tests, `nx affected` will not mark it for deployment. 
-So even though we changed the API, it did not get deployed.
+In that case, if I change the API/AdminUI and push, the E2E tests might fail. So API/AdminUI will not get deployed.
+I then fix the E2E tests, but because the API/AdminUI does not depend on its E2E tests, `nx affected` will not mark it for deployment. 
+So even though we changed the API/AdminUI, it did not get deployed.
 
 💡 Solution: **last successful commit!**
 - If we constantly compare against the previous point where all the affected apps got succesfully deployed - we 
 will never miss a deployment
-- In our case, "succesfully deployed" means when our `deploy.yml` workflow completes without errors. That's a succesful commit!
-- Getting the last succesful commit is different on each platform:
+- In our case, "successfully deployed" means when our `deploy.yml` workflow completes without errors. That's a succesful commit!
+- Getting the last successful commit is different on each platform:
     - [Netlify has the `CACHED_COMMIT_REF`](https://docs.netlify.com/configure-builds/environment-variables/#git-metadata)
     - On CircleCI, we can use the `<< pipeline.git.base_revision >>`
-    - Some CI platforms don't even provide it all
     - For GitHub actions, we can use the `nrwl/last-successful-commit-action` action
 
 ---
@@ -74,11 +73,11 @@ will never miss a deployment
 
 3. Commit everything and push. Let it build.
 
-4. Try to go through the scenario described above and test if it is now covered by the changes we just made:
+4. Try to go through one of the problematic scenarios described above. They should now be covered by our setup:
 
-    > If I change the API over a few commits, and then in the last commit
-      before I push I change the Store, it will deploy just the Store. Even though 
-      the API changed as well
+  > Let's say I make some changes to the API/AdminUI over a few commits. Then I make one small change to the Store, commit it, and push to master.
+  Even though I've pushed lots of commits with changes to both the Store and the API/AdminUI, because our CD Workflow is only
+  looking at the last commit, it will only deploy the Store.
 
 ---
 

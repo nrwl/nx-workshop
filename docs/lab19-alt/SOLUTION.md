@@ -23,7 +23,7 @@ nx g workspace-generator add-deploy-target
 `./files/.local.env`:
 
 ```
-SURGE_DOMAIN=https://<%= subdomain %>.surge.sh
+SURGE_DOMAIN_<%= undercaps(project) %>=https://<%= subdomain %>.surge.sh
 ```
 
 `index.ts`:
@@ -47,7 +47,11 @@ export default async function (host: Tree, schema: Schema) {
   await runCommandsGenerator(host, {
     name: 'deploy',
     project: schema.project,
-    command: `surge dist/apps/${schema.project} \${SURGE_DOMAIN} --token \${SURGE_TOKEN}`,
+    command: `surge dist/apps/${
+      schema.project
+    } \${SURGE_DOMAIN_${underscoreWithCaps(
+      schema.project
+    )}} --token \${SURGE_TOKEN}`,
   });
   await generateFiles(
     host,
@@ -55,13 +59,19 @@ export default async function (host: Tree, schema: Schema) {
     `apps/${schema.project}`,
     {
       tmpl: '',
+      project: schema.project,
       subdomain: schema.subdomain,
+      undercaps: underscoreWithCaps,
     }
   );
   await formatFiles(host);
   return () => {
     installPackagesTask(host);
   };
+}
+
+export function underscoreWithCaps(value: string): string {
+  return value.replace(/-/g, '_').toLocaleUpperCase();
 }
 ```
 
