@@ -2,7 +2,7 @@
 
 ###### ⏰ Estimated time: 15-20 minutes
 
-Now that we have a proper API, we can remove the `fake-api` created earlier and make proper HTTP requests. We'll also look at how the Nrwl NestJS generators created a helpful proxy configuration for us.
+Now we have a proper API that we can use to make HTTP requests. We'll look at how the Nrwl NestJS generators created a helpful proxy configuration for us.
 
 #### 📚 Learning outcomes:
 
@@ -17,8 +17,7 @@ Now that we have a proper API, we can remove the `fake-api` created earlier and 
 
 #### 🏋️‍♀️ Steps:
 
-1. We can now delete the `fake-api` from the `store` app
-2. Import the `HttpClientModule` in `apps/store/src/app.module.ts` and add it to the module's imports array:
+1. Import the `HttpClientModule` in `apps/store/src/app.module.ts` and add it to the module's imports array:
 
    <details>
    <summary>🐳 Hint</summary>

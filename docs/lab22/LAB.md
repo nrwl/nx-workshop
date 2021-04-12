@@ -15,7 +15,7 @@ deployment scripts for ALL the apps in our workspace.
 As our repo grows, this is not scalable. We only want to build 
 and deploy the apps that have actually changed, and need re-deploying.
 
-1. Update your `ci.yml` file so that it builds only the affected apps, and it deploys only the affected apps
+1. Update your `deploy.yml` file so that it builds only the affected apps, and it deploys only the affected apps
     
     ⚠️ You can compare against the previous commit for now: `--base=HEAD~1`
 
