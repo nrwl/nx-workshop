@@ -37,4 +37,4 @@ For now, our `store` project has no API when it is deployed. Hence, it is only d
 
 ---
 
-[➡️ Next lab ➡️](../lab21/LAB.md)
+[➡️ Next lab ➡️](../lab21-alt/LAB.md)

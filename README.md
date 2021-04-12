@@ -39,6 +39,8 @@ Make sure you have the following installed:
     - `yarn --version`
 - A Github account
     - http://github.com
+  
+Optional:
 - A Heroku account
     - https://heroku.com/
     - with the [CLI installed](https://devcenter.heroku.com/articles/heroku-cli): `heroku --version`
@@ -96,7 +98,11 @@ Each lab will contain a link to the next one. Start from **"Lab 1"** and move th
 - 🔌 [Lab 16 - Distributed caching](docs/lab16/LAB.md)
 - 🔍 [Lab 17 - NxCloud GitHub bot](docs/lab17/LAB.md)
 - 📎 [Lab 18 - Run-Commands and deploying the frontend](docs/lab18/LAB.md)
-- 🧲 [Lab 19 - Deploying the API](docs/lab19/LAB.md)
-- 🎸 [Lab 20 - Connecting the frontend and backend](docs/lab20/LAB.md)
-- 🎈 [Lab 21 - Setting up CD for automatic deployment](docs/lab21/LAB.md)
+
+| Option 1 - React frontends and more custom generators practice | Option 2 - Heroku API deployments with Docker |
+| ----------- | ----------- |
+| 🧭 [Lab 19 - Creating and deploying a 2nd frontend](docs/lab19-alt/LAB.md) | 🧲 [Lab 19 - Deploying the API](docs/lab19/LAB.md) |
+| ⛱️ [Lab 20 - Mock Store](docs/lab20-alt/LAB.md)     | 🎸 [Lab 20 - Connecting the frontend and backend](docs/lab20/LAB.md) |  
+| 🪁 [Lab 21 - Setting up CD for automatic deployment](docs/lab21-alt/LAB.md)     | 🎈 [Lab 21 - Setting up CD for automatic deployment](docs/lab21/LAB.md) |  
+
 - 💈 [Lab 22 - Deploying only what changed](docs/lab22/LAB.md)
