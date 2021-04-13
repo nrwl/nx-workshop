@@ -1,0 +1,19 @@
+name: Run CI checks
+
+on: [pull_request]
+
+jobs:
+  test-store:
+    runs-on: ubuntu-latest
+    name: Test Store
+    steps:
+      - uses: actions/checkout@v1
+      - uses: bahmutov/npm-install@v1.4.5
+      - run: npm run nx test store
+  test-api:
+    runs-on: ubuntu-latest
+    name: Test API
+    steps:
+      - uses: actions/checkout@v1
+      - uses: bahmutov/npm-install@v1.4.5`
+      - run: npm run nx test api
