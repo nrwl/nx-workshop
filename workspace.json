@@ -137,9 +137,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/store/ui-shared"
-          ],
+          "outputs": ["coverage/libs/store/ui-shared"],
           "options": {
             "jestConfig": "libs/store/ui-shared/jest.config.js",
             "passWithNoTests": true
