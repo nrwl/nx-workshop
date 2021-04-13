@@ -160,9 +160,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/store/util-formatters"
-          ],
+          "outputs": ["coverage/libs/store/util-formatters"],
           "options": {
             "jestConfig": "libs/store/util-formatters/jest.config.js",
             "passWithNoTests": true
