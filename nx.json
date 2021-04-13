@@ -21,6 +21,7 @@
     "store-ui-shared": { "tags": [] },
     "store-util-formatters": { "tags": [] },
     "store-feature-game-detail": { "tags": [] },
-    "api": { "tags": [] }
+    "api": { "tags": [] },
+    "api-util-interface": { "tags": [] }
   }
 }
