@@ -36,7 +36,10 @@
             "polyfills": "apps/store/src/polyfills.ts",
             "tsConfig": "apps/store/tsconfig.app.json",
             "aot": true,
-            "assets": ["apps/store/src/favicon.ico", "apps/store/src/assets"],
+            "assets": [
+              "apps/store/src/favicon.ico",
+              "apps/store/src/assets"
+            ],
             "styles": [
               "apps/store/src/styles.css",
               "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
@@ -102,7 +105,9 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/store"],
+          "outputs": [
+            "coverage/apps/store"
+          ],
           "options": {
             "jestConfig": "apps/store/jest.config.js",
             "passWithNoTests": true
@@ -131,7 +136,9 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/store-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": [
+              "apps/store-e2e/**/*.{js,ts}"
+            ]
           }
         }
       }
@@ -153,10 +160,45 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/store/ui-shared"],
+          "outputs": [
+            "coverage/libs/store/ui-shared"
+          ],
           "options": {
             "jestConfig": "libs/store/ui-shared/jest.config.js",
             "passWithNoTests": true
+          }
+        },
+        "storybook": {
+          "executor": "@nrwl/storybook:storybook",
+          "options": {
+            "uiFramework": "@storybook/angular",
+            "port": 4400,
+            "config": {
+              "configFolder": "libs/store/ui-shared/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        },
+        "build-storybook": {
+          "executor": "@nrwl/storybook:build",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "uiFramework": "@storybook/angular",
+            "outputPath": "dist/storybook/store-ui-shared",
+            "config": {
+              "configFolder": "libs/store/ui-shared/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
           }
         }
       }
@@ -169,12 +211,16 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/store/util-formatters/**/*.ts"]
+            "lintFilePatterns": [
+              "libs/store/util-formatters/**/*.ts"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/store/util-formatters"],
+          "outputs": [
+            "coverage/libs/store/util-formatters"
+          ],
           "options": {
             "jestConfig": "libs/store/util-formatters/jest.config.js",
             "passWithNoTests": true
@@ -199,7 +245,9 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/store/feature-game-detail"],
+          "outputs": [
+            "coverage/libs/store/feature-game-detail"
+          ],
           "options": {
             "jestConfig": "libs/store/feature-game-detail/jest.config.js",
             "passWithNoTests": true
@@ -214,12 +262,16 @@
       "targets": {
         "build": {
           "executor": "@nrwl/node:build",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/apps/api",
             "main": "apps/api/src/main.ts",
             "tsConfig": "apps/api/tsconfig.app.json",
-            "assets": ["apps/api/src/assets"]
+            "assets": [
+              "apps/api/src/assets"
+            ]
           },
           "configurations": {
             "production": {
@@ -244,12 +296,16 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/api/**/*.ts"]
+            "lintFilePatterns": [
+              "apps/api/**/*.ts"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/api"],
+          "outputs": [
+            "coverage/apps/api"
+          ],
           "options": {
             "jestConfig": "apps/api/jest.config.js",
             "passWithNoTests": true
@@ -265,15 +321,47 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/util-interface/**/*.ts"]
+            "lintFilePatterns": [
+              "libs/util-interface/**/*.ts"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/util-interface"],
+          "outputs": [
+            "coverage/libs/util-interface"
+          ],
           "options": {
             "jestConfig": "libs/util-interface/jest.config.js",
             "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "store-ui-shared-e2e": {
+      "root": "apps/store-ui-shared-e2e",
+      "sourceRoot": "apps/store-ui-shared-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/store-ui-shared-e2e/cypress.json",
+            "tsConfig": "apps/store-ui-shared-e2e/tsconfig.e2e.json",
+            "devServerTarget": "store-ui-shared:storybook"
+          },
+          "configurations": {
+            "ci": {
+              "devServerTarget": "store-ui-shared:storybook:ci"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/store-ui-shared-e2e/**/*.{js,ts}"
+            ]
           }
         }
       }
