@@ -16,10 +16,7 @@
             "polyfills": "apps/store/src/polyfills.ts",
             "tsConfig": "apps/store/tsconfig.app.json",
             "aot": true,
-            "assets": [
-              "apps/store/src/favicon.ico",
-              "apps/store/src/assets"
-            ],
+            "assets": ["apps/store/src/favicon.ico", "apps/store/src/assets"],
             "styles": [
               "apps/store/src/styles.css",
               "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
@@ -58,20 +55,14 @@
         },
         "serve": {
           "executor": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "store:build"
-          },
+          "options": { "browserTarget": "store:build" },
           "configurations": {
-            "production": {
-              "browserTarget": "store:build:production"
-            }
+            "production": { "browserTarget": "store:build:production" }
           }
         },
         "extract-i18n": {
           "executor": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "store:build"
-          }
+          "options": { "browserTarget": "store:build" }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
@@ -84,9 +75,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/store"
-          ],
+          "outputs": ["coverage/apps/store"],
           "options": {
             "jestConfig": "apps/store/jest.config.js",
             "passWithNoTests": true
@@ -107,18 +96,12 @@
             "devServerTarget": "store:serve"
           },
           "configurations": {
-            "production": {
-              "devServerTarget": "store:serve:production"
-            }
+            "production": { "devServerTarget": "store:serve:production" }
           }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "apps/store-e2e/**/*.{js,ts}"
-            ]
-          }
+          "options": { "lintFilePatterns": ["apps/store-e2e/**/*.{js,ts}"] }
         }
       }
     },
@@ -139,20 +122,37 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/store/ui-shared"
-          ],
+          "outputs": ["coverage/libs/store/ui-shared"],
           "options": {
             "jestConfig": "libs/store/ui-shared/jest.config.js",
             "passWithNoTests": true
           }
         }
       }
+    },
+    "store-util-formatters": {
+      "root": "libs/store/util-formatters",
+      "sourceRoot": "libs/store/util-formatters/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/store/util-formatters/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/store/util-formatters"],
+          "options": {
+            "jestConfig": "libs/store/util-formatters/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
-  "cli": {
-    "defaultCollection": "@nrwl/angular"
-  },
+  "cli": { "defaultCollection": "@nrwl/angular" },
   "generators": {
     "@nrwl/angular:application": {
       "style": "css",
@@ -165,9 +165,7 @@
       "linter": "eslint",
       "unitTestRunner": "jest"
     },
-    "@nrwl/angular:component": {
-      "style": "css"
-    }
+    "@nrwl/angular:component": { "style": "css" }
   },
   "defaultProject": "store"
 }
