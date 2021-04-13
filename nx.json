@@ -16,9 +16,21 @@
     }
   },
   "projects": {
-    "store": { "tags": [] },
-    "store-e2e": { "tags": [], "implicitDependencies": ["store"] },
-    "store-ui-shared": { "tags": [] },
-    "store-util-formatters": { "tags": [] }
+    "store": {
+      "tags": []
+    },
+    "store-e2e": {
+      "tags": [],
+      "implicitDependencies": ["store"]
+    },
+    "store-ui-shared": {
+      "tags": []
+    },
+    "store-util-formatters": {
+      "tags": []
+    },
+    "store-feature-game-detail": {
+      "tags": []
+    }
   }
 }
