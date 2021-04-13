@@ -42,8 +42,8 @@ workspace generator called `util-lib`
 3. The generator should prefix any name you give to your lib with `util-`
 
    For example:
-  - `nx workspace-generator util-lib dates`
-  - Should generate a lib with the name `util-dates`
+    - `nx workspace-generator util-lib dates`
+    - Should generate a lib with the name `util-dates`
 
 2. Add a new property to its schema called `directory`. It should have only 3 possible values:
 `"store", "api", "shared"`. If you do not pass `--directory` as an option when invoking the
