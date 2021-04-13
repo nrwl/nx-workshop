@@ -185,9 +185,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/store/feature-game-detail"
-          ],
+          "outputs": ["coverage/libs/store/feature-game-detail"],
           "options": {
             "jestConfig": "libs/store/feature-game-detail/jest.config.js",
             "passWithNoTests": true
