@@ -1,6 +1,4 @@
 {
-  "npmScope": "bg-hoard",
-  "affected": { "defaultBase": "master" },
   "implicitDependencies": {
     "workspace.json": "*",
     "package.json": { "dependencies": "*", "devDependencies": "*" },
@@ -9,6 +7,8 @@
     ".eslintrc.json": "*",
     "nx.json": "*"
   },
+  "affected": { "defaultBase": "master" },
+  "npmScope": "bg-hoard",
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
@@ -16,21 +16,11 @@
     }
   },
   "projects": {
-    "store": {
-      "tags": []
-    },
-    "store-e2e": {
-      "tags": [],
-      "implicitDependencies": ["store"]
-    },
-    "store-ui-shared": {
-      "tags": []
-    },
-    "store-util-formatters": {
-      "tags": []
-    },
-    "store-feature-game-detail": {
-      "tags": []
-    }
+    "store": { "tags": [] },
+    "store-e2e": { "tags": [], "implicitDependencies": ["store"] },
+    "store-ui-shared": { "tags": [] },
+    "store-util-formatters": { "tags": [] },
+    "store-feature-game-detail": { "tags": [] },
+    "api": { "tags": [] }
   }
 }
