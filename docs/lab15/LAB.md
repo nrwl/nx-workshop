@@ -144,16 +144,23 @@ Would really be handy if CI also told us if any of those failed.
 14. You'll notice some new steps in the GitHub Actions UI. Some of them are failing. That is okay. We can fix them later.
 15. For now, you can merge your PR into `master `
 16. Switch to `master` locally and pull latest so all your new CI changes are up to date.
-17. BONUS: Currently, if we create a PR with a change **only** to our `ci.yml` file, our `nx affected` commands won't run at all: as they'll think no project has been affected:
+
+    ```shell
+    git checkout master
+    git pull origin master
+    ```    
+
+17. **BONUS:** Currently, if we create a PR with a change **only** to our `ci.yml` file, our `nx affected` commands won't run at all: as they'll think no project has been affected:
 
     <img src="./no_affected.png" width="500" alt="Changes to ci.yml does not cause anything to be affected">
 
-    To be safe, we'd like to mark all projects as affected whenever we change our CI config. Have a look through the docs in the hint and see if you can do this.
+    To be safe, we'd like to mark all projects as affected whenever we change our CI config, as we don't know what those changes could have broken.
+    Have a look through the docs in the hint and see if you can do this.
 
     <details>
     <summary>🐳 Hint</summary>
   
-    [Configuring implicit dependencies](https://nx.dev/latest/angular/getting-started/configuration#implicit-dependencies)
+    [Configuring implicit dependencies](https://nx.dev/latest/angular/core-concepts/configuration#implicit-dependencies)
     </details>
 
 ---

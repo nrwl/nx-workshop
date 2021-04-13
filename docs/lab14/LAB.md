@@ -11,7 +11,7 @@
 
 1. Generate another generator called `sort-project-references`
 
-2. As a start let's make it change the `defaultProject` from `store` to `api` in our workspace.json` file:
+2. As a start let's make it change the `defaultProject` from `store` to `api` in our workspace.json file:
 
    <details>
    <summary>🐳 Hint</summary>

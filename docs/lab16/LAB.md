@@ -81,8 +81,8 @@ capabilities. Let's enable distributed caching.
     nx run-many --target=lint --all
     ```
     
-    ⚡ It should pull again from the NxCloud cache...
-    
+    ⚡ It should pull again from the NxCloud cache...This is even works across laptops! CI will use it as well!
+
 ---
 
 [➡️ Next lab ➡️](../lab17/LAB.md)
