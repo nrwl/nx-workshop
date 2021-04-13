@@ -1,0 +1,7 @@
+{
+  "cli": "nx",
+  "id": "sort-project-references",
+  "type": "object",
+  "properties": {},
+  "required": []
+}

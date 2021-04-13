@@ -1,7 +1,9 @@
 {
   "version": 2,
-  "cli": { "defaultCollection": "@nrwl/angular" },
-  "defaultProject": "store",
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "defaultProject": "api",
   "generators": {
     "@nrwl/angular:application": {
       "style": "css",
@@ -14,9 +16,82 @@
       "linter": "eslint",
       "unitTestRunner": "jest"
     },
-    "@nrwl/angular:component": { "style": "css" }
+    "@nrwl/angular:component": {
+      "style": "css"
+    }
   },
   "projects": {
+    "api": {
+      "root": "apps/api",
+      "sourceRoot": "apps/api/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/api",
+            "main": "apps/api/src/main.ts",
+            "tsConfig": "apps/api/tsconfig.app.json",
+            "assets": ["apps/api/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/api/src/environments/environment.ts",
+                  "with": "apps/api/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "api:build"
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/api/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/api"],
+          "options": {
+            "jestConfig": "apps/api/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "api-util-notifications": {
+      "root": "libs/api/util-notifications",
+      "sourceRoot": "libs/api/util-notifications/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/api/util-notifications/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/api/util-notifications"],
+          "options": {
+            "jestConfig": "libs/api/util-notifications/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "store": {
       "projectType": "application",
       "root": "apps/store",
@@ -76,12 +151,16 @@
             "proxyConfig": "apps/store/proxy.conf.json"
           },
           "configurations": {
-            "production": { "browserTarget": "store:build:production" }
+            "production": {
+              "browserTarget": "store:build:production"
+            }
           }
         },
         "extract-i18n": {
           "executor": "@angular-devkit/build-angular:extract-i18n",
-          "options": { "browserTarget": "store:build" }
+          "options": {
+            "browserTarget": "store:build"
+          }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
@@ -115,12 +194,41 @@
             "devServerTarget": "store:serve"
           },
           "configurations": {
-            "production": { "devServerTarget": "store:serve:production" }
+            "production": {
+              "devServerTarget": "store:serve:production"
+            }
           }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "options": { "lintFilePatterns": ["apps/store-e2e/**/*.{js,ts}"] }
+          "options": {
+            "lintFilePatterns": ["apps/store-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "store-feature-game-detail": {
+      "projectType": "library",
+      "root": "libs/store/feature-game-detail",
+      "sourceRoot": "libs/store/feature-game-detail/src",
+      "prefix": "bg-hoard",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/store/feature-game-detail/src/**/*.ts",
+              "libs/store/feature-game-detail/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/store/feature-game-detail"],
+          "options": {
+            "jestConfig": "libs/store/feature-game-detail/jest.config.js",
+            "passWithNoTests": true
+          }
         }
       }
     },
@@ -152,9 +260,15 @@
           "options": {
             "uiFramework": "@storybook/angular",
             "port": 4400,
-            "config": { "configFolder": "libs/store/ui-shared/.storybook" }
+            "config": {
+              "configFolder": "libs/store/ui-shared/.storybook"
+            }
           },
-          "configurations": { "ci": { "quiet": true } }
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
         },
         "build-storybook": {
           "executor": "@nrwl/storybook:build",
@@ -162,9 +276,41 @@
           "options": {
             "uiFramework": "@storybook/angular",
             "outputPath": "dist/storybook/store-ui-shared",
-            "config": { "configFolder": "libs/store/ui-shared/.storybook" }
+            "config": {
+              "configFolder": "libs/store/ui-shared/.storybook"
+            }
           },
-          "configurations": { "ci": { "quiet": true } }
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        }
+      }
+    },
+    "store-ui-shared-e2e": {
+      "root": "apps/store-ui-shared-e2e",
+      "sourceRoot": "apps/store-ui-shared-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/store-ui-shared-e2e/cypress.json",
+            "tsConfig": "apps/store-ui-shared-e2e/tsconfig.e2e.json",
+            "devServerTarget": "store-ui-shared:storybook"
+          },
+          "configurations": {
+            "ci": {
+              "devServerTarget": "store-ui-shared:storybook:ci"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/store-ui-shared-e2e/**/*.{js,ts}"]
+          }
         }
       }
     },
@@ -189,77 +335,6 @@
         }
       }
     },
-    "store-feature-game-detail": {
-      "projectType": "library",
-      "root": "libs/store/feature-game-detail",
-      "sourceRoot": "libs/store/feature-game-detail/src",
-      "prefix": "bg-hoard",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/store/feature-game-detail/src/**/*.ts",
-              "libs/store/feature-game-detail/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/store/feature-game-detail"],
-          "options": {
-            "jestConfig": "libs/store/feature-game-detail/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "api": {
-      "root": "apps/api",
-      "sourceRoot": "apps/api/src",
-      "projectType": "application",
-      "targets": {
-        "build": {
-          "executor": "@nrwl/node:build",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "outputPath": "dist/apps/api",
-            "main": "apps/api/src/main.ts",
-            "tsConfig": "apps/api/tsconfig.app.json",
-            "assets": ["apps/api/src/assets"]
-          },
-          "configurations": {
-            "production": {
-              "optimization": true,
-              "extractLicenses": true,
-              "inspect": false,
-              "fileReplacements": [
-                {
-                  "replace": "apps/api/src/environments/environment.ts",
-                  "with": "apps/api/src/environments/environment.prod.ts"
-                }
-              ]
-            }
-          }
-        },
-        "serve": {
-          "executor": "@nrwl/node:execute",
-          "options": { "buildTarget": "api:build" }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": { "lintFilePatterns": ["apps/api/**/*.ts"] }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/api"],
-          "options": {
-            "jestConfig": "apps/api/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
     "util-interface": {
       "root": "libs/util-interface",
       "sourceRoot": "libs/util-interface/src",
@@ -267,58 +342,15 @@
       "targets": {
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "options": { "lintFilePatterns": ["libs/util-interface/**/*.ts"] }
+          "options": {
+            "lintFilePatterns": ["libs/util-interface/**/*.ts"]
+          }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
           "outputs": ["coverage/libs/util-interface"],
           "options": {
             "jestConfig": "libs/util-interface/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "store-ui-shared-e2e": {
-      "root": "apps/store-ui-shared-e2e",
-      "sourceRoot": "apps/store-ui-shared-e2e/src",
-      "projectType": "application",
-      "targets": {
-        "e2e": {
-          "executor": "@nrwl/cypress:cypress",
-          "options": {
-            "cypressConfig": "apps/store-ui-shared-e2e/cypress.json",
-            "tsConfig": "apps/store-ui-shared-e2e/tsconfig.e2e.json",
-            "devServerTarget": "store-ui-shared:storybook"
-          },
-          "configurations": {
-            "ci": { "devServerTarget": "store-ui-shared:storybook:ci" }
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["apps/store-ui-shared-e2e/**/*.{js,ts}"]
-          }
-        }
-      }
-    },
-    "api-util-notifications": {
-      "root": "libs/api/util-notifications",
-      "sourceRoot": "libs/api/util-notifications/src",
-      "projectType": "library",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/api/util-notifications/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/api/util-notifications"],
-          "options": {
-            "jestConfig": "libs/api/util-notifications/jest.config.js",
             "passWithNoTests": true
           }
         }
