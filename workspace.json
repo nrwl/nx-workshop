@@ -1,6 +1,8 @@
 {
   "version": 2,
-  "cli": { "defaultCollection": "@nrwl/angular" },
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
   "defaultProject": "store",
   "generators": {
     "@nrwl/angular:application": {
@@ -14,7 +16,9 @@
       "linter": "eslint",
       "unitTestRunner": "jest"
     },
-    "@nrwl/angular:component": { "style": "css" }
+    "@nrwl/angular:component": {
+      "style": "css"
+    }
   },
   "projects": {
     "store": {
@@ -76,12 +80,16 @@
             "proxyConfig": "apps/store/proxy.conf.json"
           },
           "configurations": {
-            "production": { "browserTarget": "store:build:production" }
+            "production": {
+              "browserTarget": "store:build:production"
+            }
           }
         },
         "extract-i18n": {
           "executor": "@angular-devkit/build-angular:extract-i18n",
-          "options": { "browserTarget": "store:build" }
+          "options": {
+            "browserTarget": "store:build"
+          }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
@@ -115,12 +123,16 @@
             "devServerTarget": "store:serve"
           },
           "configurations": {
-            "production": { "devServerTarget": "store:serve:production" }
+            "production": {
+              "devServerTarget": "store:serve:production"
+            }
           }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "options": { "lintFilePatterns": ["apps/store-e2e/**/*.{js,ts}"] }
+          "options": {
+            "lintFilePatterns": ["apps/store-e2e/**/*.{js,ts}"]
+          }
         }
       }
     },
@@ -225,11 +237,15 @@
         },
         "serve": {
           "executor": "@nrwl/node:execute",
-          "options": { "buildTarget": "api:build" }
+          "options": {
+            "buildTarget": "api:build"
+          }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "options": { "lintFilePatterns": ["apps/api/**/*.ts"] }
+          "options": {
+            "lintFilePatterns": ["apps/api/**/*.ts"]
+          }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
@@ -241,20 +257,22 @@
         }
       }
     },
-    "api-util-interface": {
-      "root": "libs/api/util-interface",
-      "sourceRoot": "libs/api/util-interface/src",
+    "util-interface": {
+      "root": "libs/util-interface",
+      "sourceRoot": "libs/util-interface/src",
       "projectType": "library",
       "targets": {
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "options": { "lintFilePatterns": ["libs/api/util-interface/**/*.ts"] }
+          "options": {
+            "lintFilePatterns": ["libs/util-interface/**/*.ts"]
+          }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/api/util-interface"],
+          "outputs": ["coverage/libs/util-interface"],
           "options": {
-            "jestConfig": "libs/api/util-interface/jest.config.js",
+            "jestConfig": "libs/util-interface/jest.config.js",
             "passWithNoTests": true
           }
         }

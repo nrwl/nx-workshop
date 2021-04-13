@@ -23,7 +23,7 @@
       "@bg-hoard/store/feature-game-detail": [
         "libs/store/feature-game-detail/src/index.ts"
       ],
-      "@bg-hoard/api/util-interface": ["libs/api/util-interface/src/index.ts"]
+      "@bg-hoard/util-interface": ["libs/util-interface/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

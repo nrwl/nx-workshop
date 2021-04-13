@@ -1,27 +1,49 @@
 {
   "implicitDependencies": {
     "workspace.json": "*",
-    "package.json": { "dependencies": "*", "devDependencies": "*" },
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
     "tsconfig.base.json": "*",
     "tslint.json": "*",
     ".eslintrc.json": "*",
     "nx.json": "*"
   },
-  "affected": { "defaultBase": "master" },
+  "affected": {
+    "defaultBase": "master"
+  },
   "npmScope": "bg-hoard",
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
-      "options": { "cacheableOperations": ["build", "lint", "test", "e2e"] }
+      "options": {
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
+      }
     }
   },
   "projects": {
-    "store": { "tags": [] },
-    "store-e2e": { "tags": [], "implicitDependencies": ["store"] },
-    "store-ui-shared": { "tags": [] },
-    "store-util-formatters": { "tags": [] },
-    "store-feature-game-detail": { "tags": [] },
-    "api": { "tags": [] },
-    "api-util-interface": { "tags": [] }
+    "store": {
+      "tags": []
+    },
+    "store-e2e": {
+      "tags": [],
+      "implicitDependencies": ["store"]
+    },
+    "store-ui-shared": {
+      "tags": []
+    },
+    "store-util-formatters": {
+      "tags": []
+    },
+    "store-feature-game-detail": {
+      "tags": []
+    },
+    "api": {
+      "tags": []
+    },
+    "util-interface": {
+      "tags": []
+    }
   }
 }
