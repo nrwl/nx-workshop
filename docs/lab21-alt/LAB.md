@@ -56,7 +56,7 @@ In this lab we'll be setting up GitHub actions to build and deploy our projects 
 3. Since we'll be re-deploying, we want to test if we're looking at a new version of our code:
     - Make a change to your AdminUI (maybe change the text in the header)
     - Make a change to your Store (maybe change the title in the header) 
-3. Commit everything locally on `master` and then push (it's important we push to the `master` branch)
+3. Commit everything locally on `master` and then push (it's important we push to the `master` branch as that's where our workflow runs)
 4. You should see your new workflow start up under the "Actions" tab on your GitHub repo
 5. Once it's done, navigate to your frontend Surge deployment URLs and test if you notice the new changes
 

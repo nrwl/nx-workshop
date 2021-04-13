@@ -60,7 +60,7 @@ and risk exposing this secret token. Also, we might want to deploy to different 
     🔒 And let's add your secrets to it
     ```
     SURGE_TOKEN=<your-surge-token>
-    SURGE_DOMAIN=https://<some-unique-url-123>.surge.sh
+    SURGE_DOMAIN_STORE=https://<some-unique-url-123>.surge.sh
     ```
    
    ✅ Finally, update your "deploy" command, so that it loads the values from the ENV,
@@ -70,7 +70,7 @@ and risk exposing this secret token. Also, we might want to deploy to different 
     <summary>🐳 Hint</summary>
     
     ```bash
-   surge dist/apps/store ${SURGE_DOMAIN} --token ${SURGE_TOKEN} 
+   surge dist/apps/store ${SURGE_DOMAIN_STORE} --token ${SURGE_TOKEN} 
    ```
     </details>
 
@@ -88,7 +88,7 @@ and risk exposing this secret token. Also, we might want to deploy to different 
      To make it pass, you can generate a separate `windows-deploy` executor (make sure you keep the existing `deploy` target intact - it will be used by GitHub Actions):
      
     ```
-    nx generate run-commands windows-deploy --project=store --command="surge dist/apps/store %SURGE_DOMAIN% --token %SURGE_TOKEN%"
+    nx generate run-commands windows-deploy --project=store --command="surge dist/apps/store %SURGE_DOMAIN_STORE% --token %SURGE_TOKEN%"
     nx windows-deploy store
     ```
     
@@ -97,7 +97,7 @@ and risk exposing this secret token. Also, we might want to deploy to different 
 ❓ We did not load those environment variables into the deploy process anywhere. 
 We just added a `.local.env` file. How does that work?
 
-Nx [automatically picks up](https://nx.dev/latest/angular/cli/overview#loading-environment-variables) any `.env` or `.local.env` files in your workspace,
+Nx [automatically picks up](https://nx.dev/latest/react/guides/environment-variables#loading-environment-variables) any `.env` or `.local.env` files in your workspace,
 and loads them into processes invoked for that specific app.
 
 ---
@@ -106,4 +106,4 @@ and loads them into processes invoked for that specific app.
 
 ---
 
-[➡️ Next lab ➡️](../lab19/LAB.md)
+[➡️ For the next lab, head over to our chapter list to chose your path ➡️](https://github.com/nrwl/nx-workshop#day-2)

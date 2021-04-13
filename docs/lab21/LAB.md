@@ -54,9 +54,9 @@
 3. Since we'll be re-deploying, we want to test if we're looking at a new version of our code:
     - Make a change to your API (maybe change the name of one of the games)
     - Make a change to your Store (maybe change the title in the header) 
-3. Commit everything locally on `master` and then push
+3. Commit everything locally on `master` and then push (it's important we push to the `master` branch as that's where our workflow runs)
 4. You should see your new workflow start up under the "Actions" tab on your GitHub repo
-5. Once it's done, navigate to your frontend Surge deployment URL and test if you notice the new changes
+5. Once it's done, navigate to your frontend Surge deployment URL and test if you notice the new changes (the ones you made to the Store and also to the API)
 
 ---
 

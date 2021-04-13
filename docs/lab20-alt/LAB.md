@@ -25,13 +25,13 @@ For now, our `store` project has no API when it is deployed. Hence, it is only d
       <div class="games-layout">
         <mat-card
           class="game-card"
-          *ngFor="let game of games" <---- HERE
+          *ngFor="let game of games" <---- HERE (remove the async pipe)
    ```
    </details>
 
 6. Build and deploy your `store` project. Your deployed version should now be showing some games.
   
-    ⚠️ Displaying game details will still not work. We can fix that later. 
+    ⚠️ Clicking on games and displaying game details will still not work. We can fix that later. 
 
     <img src="./lab20_result.png" width="500" alt="screenshot of lab20 result">
 
