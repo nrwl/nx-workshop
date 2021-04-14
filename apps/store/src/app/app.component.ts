@@ -14,7 +14,7 @@ export class AppComponent {
     console.log('component constructed');
   }
 
-  title = 'Board Game Hoard';
+  title = 'Board Game Hoard - 2';
   formatRating = formatRating;
   games = getAllGames();
 }
