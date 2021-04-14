@@ -47,7 +47,7 @@ We'll build the app we just created, and look at what executors are and how to c
    </details>
 
 5. Open up the `dist` folder again - notice how we now generated a `3rdpartylicenses.txt` file, as per the "production" configuration in `workspace.json`
-6. Modify `workspace.json` and instruct the executor to import the Angular Material styles: `./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css` (and add it to the module's imports)
+6. Modify `workspace.json` and instruct the executor to import the Angular Material styles: `./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css`
 
    <details>
     <summary>🐳 Hint</summary>
@@ -58,6 +58,7 @@ We'll build the app we just created, and look at what executors are and how to c
    🎓Notice how we can configure executors by either modifying their options in `workspace.json` (this step) or through the command line (step 4)!
 
 7. The **serve** target (located a bit lower in `workspace.json`) also contains a executor, that _uses_ the output from the **build** target we just changed
+   (see `serve --> options --> browserTarget` --> it points to the `build` target of the `store` project)
    - so we can just re-start `nx serve store` see the new styles you added!
 8. Inspect what changed from the last time you committed, then commit your changes
 

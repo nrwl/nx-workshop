@@ -9,7 +9,7 @@ nx serve admin-ui
 ##### Adding a deploy config
 
 ```shell
-nx generate run-commands deploy --project=admin-ui --command="surge dist/apps/admin-ui \${SURGE_DOMAIN} --token \${SURGE_TOKEN}"
+nx generate run-commands deploy --project=admin-ui --command="surge dist/apps/admin-ui \${SURGE_DOMAIN_ADMIN_UI} --token \${SURGE_TOKEN}"
 ```
 
 ##### Bonus 

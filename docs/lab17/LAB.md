@@ -36,9 +36,11 @@
       }
     ```
 
+   ⚠️ If you already added the `ci.yml` as an implicit dependency of `*`, this step is **optional**
+
 5. Commit everything and push your branch
 6. Make a PR on GitHub
-7. Once the checks finish you should see:
+7. Once the checks finish you should see something similar to this:
 
     ![NxCloud Bot](./nx_cloud_bot.png)
     

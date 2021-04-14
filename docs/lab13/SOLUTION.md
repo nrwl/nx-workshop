@@ -4,6 +4,29 @@
 nx generate @nrwl/workspace:workspace-generator util-lib
 ```
 
+##### Running the generator in dry mode
+
+```shell
+nx workspace-generator util-lib test --dry-run
+```
+
+##### Prefixing the name
+
+```ts
+import { Tree, formatFiles, installPackagesTask } from '@nrwl/devkit';
+import { libraryGenerator } from '@nrwl/workspace/generators';
+
+export default async function(host: Tree, schema: any) {
+  await libraryGenerator(host, {
+    name: `util-${schema.name}`,
+  });
+  await formatFiles(host);
+  return () => {
+    installPackagesTask(host);
+  };
+}
+```
+
 ##### Adding an enum to a generator that prompts when empty
 
 ```json
@@ -35,23 +58,6 @@ nx generate @nrwl/workspace:workspace-generator util-lib
       "shared"
     ]
   }
-}
-```
-
-##### Prefixing the name
-
-```ts
-import { Tree, formatFiles, installPackagesTask } from '@nrwl/devkit';
-import { libraryGenerator } from '@nrwl/workspace/generators';
-
-export default async function(host: Tree, schema: any) {
-  await libraryGenerator(host, {
-    name: `util-${schema.name}`,
-  });
-  await formatFiles(host);
-  return () => {
-    installPackagesTask(host);
-  };
 }
 ```
 
@@ -89,5 +95,14 @@ export default async function(host: Tree, schema: any) {
   return () => {
     installPackagesTask(host);
   };
+}
+```
+
+##### Typed Schema
+
+```typescript
+interface Schema {
+  name: string;
+  directory: 'store' | 'api' | 'shared';
 }
 ```

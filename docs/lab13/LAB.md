@@ -19,7 +19,7 @@ with a correct scope and type tag.
 1. Use the `@nrwl/workspace:workspace-generator` generator to generate a new
 workspace generator called `util-lib`
 
-2. Inspect the files that got generated and then cCommit everything (you'll see in a bit why).
+2. Inspect the files that got generated and then commit everything (you'll see in a bit why).
 
 2. Try to run your generator (you can append `--dry-run` to avoid reverting using Git)
 
@@ -44,6 +44,8 @@ workspace generator called `util-lib`
    For example:
     - `nx workspace-generator util-lib dates`
     - Should generate a lib with the name `util-dates`
+
+   ⚠️ You can keep trying out your changes safely with the `--dry-run` flag.️
 
 2. Add a new property to its schema called `directory`. It should have only 3 possible values:
 `"store", "api", "shared"`. If you do not pass `--directory` as an option when invoking the
