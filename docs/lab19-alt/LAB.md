@@ -30,8 +30,10 @@ deploying the two frontends independently in our GitHub Actions based Continous 
 
 5. Commit everything before moving on to the next lab
 
-5. BONUS - Create a custom workspace generator that adds a `"deploy"` target for a frontend project, so that we don't have
+5. **BONUS** - Create a custom workspace generator that adds a `"deploy"` target for a frontend project, so that we don't have
 to manually re-do the steps in [Lab 18](../lab18/LAB.md) each time.
+
+6. **BONUS** - Create a new React or Angular frontend app, and test your above schematic
 
 ---
 

@@ -1,3 +1,9 @@
+##### Generate a `sort-project-references` workspace generator:
+
+```shell script
+nx generate @nrwl/workspace:workspace-generator sort-project-references
+```
+
 ##### Change default project
 
 ```typescript
@@ -88,6 +94,8 @@ function sortTsConfigPaths(host: Tree) {
 ##### BONUS 2 SOLUTION
 
 ```typescript
+import { join } from 'path';
+
 function sortJest(host: Tree) {
   const jestConfig = 'jest.config.js';
   const contents = require(join(process.cwd(), jestConfig));
