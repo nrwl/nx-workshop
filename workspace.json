@@ -1,6 +1,8 @@
 {
   "version": 2,
-  "cli": { "defaultCollection": "@nrwl/angular" },
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
   "defaultProject": "api",
   "generators": {
     "@nrwl/angular:application": {
@@ -14,7 +16,23 @@
       "linter": "eslint",
       "unitTestRunner": "jest"
     },
-    "@nrwl/angular:component": { "style": "css" }
+    "@nrwl/angular:component": {
+      "style": "css"
+    },
+    "@nrwl/react": {
+      "application": {
+        "style": "css",
+        "linter": "eslint",
+        "babel": true
+      },
+      "component": {
+        "style": "css"
+      },
+      "library": {
+        "style": "css",
+        "linter": "eslint"
+      }
+    }
   },
   "projects": {
     "api": {
@@ -47,11 +65,15 @@
         },
         "serve": {
           "executor": "@nrwl/node:execute",
-          "options": { "buildTarget": "api:build" }
+          "options": {
+            "buildTarget": "api:build"
+          }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "options": { "lintFilePatterns": ["apps/api/**/*.ts"] }
+          "options": {
+            "lintFilePatterns": ["apps/api/**/*.ts"]
+          }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
@@ -143,12 +165,16 @@
             "proxyConfig": "apps/store/proxy.conf.json"
           },
           "configurations": {
-            "production": { "browserTarget": "store:build:production" }
+            "production": {
+              "browserTarget": "store:build:production"
+            }
           }
         },
         "extract-i18n": {
           "executor": "@angular-devkit/build-angular:extract-i18n",
-          "options": { "browserTarget": "store:build" }
+          "options": {
+            "browserTarget": "store:build"
+          }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
@@ -189,12 +215,16 @@
             "devServerTarget": "store:serve"
           },
           "configurations": {
-            "production": { "devServerTarget": "store:serve:production" }
+            "production": {
+              "devServerTarget": "store:serve:production"
+            }
           }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "options": { "lintFilePatterns": ["apps/store-e2e/**/*.{js,ts}"] }
+          "options": {
+            "lintFilePatterns": ["apps/store-e2e/**/*.{js,ts}"]
+          }
         }
       }
     },
@@ -251,9 +281,15 @@
           "options": {
             "uiFramework": "@storybook/angular",
             "port": 4400,
-            "config": { "configFolder": "libs/store/ui-shared/.storybook" }
+            "config": {
+              "configFolder": "libs/store/ui-shared/.storybook"
+            }
           },
-          "configurations": { "ci": { "quiet": true } }
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
         },
         "build-storybook": {
           "executor": "@nrwl/storybook:build",
@@ -261,9 +297,15 @@
           "options": {
             "uiFramework": "@storybook/angular",
             "outputPath": "dist/storybook/store-ui-shared",
-            "config": { "configFolder": "libs/store/ui-shared/.storybook" }
+            "config": {
+              "configFolder": "libs/store/ui-shared/.storybook"
+            }
           },
-          "configurations": { "ci": { "quiet": true } }
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
         }
       }
     },
@@ -280,7 +322,9 @@
             "devServerTarget": "store-ui-shared:storybook"
           },
           "configurations": {
-            "ci": { "devServerTarget": "store-ui-shared:storybook:ci" }
+            "ci": {
+              "devServerTarget": "store-ui-shared:storybook:ci"
+            }
           }
         },
         "lint": {
@@ -319,7 +363,9 @@
       "targets": {
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "options": { "lintFilePatterns": ["libs/util-interface/**/*.ts"] }
+          "options": {
+            "lintFilePatterns": ["libs/util-interface/**/*.ts"]
+          }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
@@ -327,6 +373,106 @@
           "options": {
             "jestConfig": "libs/util-interface/jest.config.js",
             "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "admin-ui": {
+      "root": "apps/admin-ui",
+      "sourceRoot": "apps/admin-ui/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/admin-ui",
+            "index": "apps/admin-ui/src/index.html",
+            "main": "apps/admin-ui/src/main.tsx",
+            "polyfills": "apps/admin-ui/src/polyfills.ts",
+            "tsConfig": "apps/admin-ui/tsconfig.app.json",
+            "assets": [
+              "apps/admin-ui/src/favicon.ico",
+              "apps/admin-ui/src/assets"
+            ],
+            "styles": ["apps/admin-ui/src/styles.css"],
+            "scripts": [],
+            "webpackConfig": "@nrwl/react/plugins/webpack"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/admin-ui/src/environments/environment.ts",
+                  "with": "apps/admin-ui/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/web:dev-server",
+          "options": {
+            "buildTarget": "admin-ui:build"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "admin-ui:build:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/admin-ui/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/admin-ui"],
+          "options": {
+            "jestConfig": "apps/admin-ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "admin-ui-e2e": {
+      "root": "apps/admin-ui-e2e",
+      "sourceRoot": "apps/admin-ui-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/admin-ui-e2e/cypress.json",
+            "tsConfig": "apps/admin-ui-e2e/tsconfig.e2e.json",
+            "devServerTarget": "admin-ui:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "admin-ui:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/admin-ui-e2e/**/*.{js,ts}"]
           }
         }
       }

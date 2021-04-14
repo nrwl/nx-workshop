@@ -7,5 +7,6 @@ module.exports = {
     '<rootDir>/libs/store/feature-game-detail',
     '<rootDir>/libs/store/ui-shared',
     '<rootDir>/libs/store/util-formatters',
+    '<rootDir>/apps/admin-ui',
   ],
 };
