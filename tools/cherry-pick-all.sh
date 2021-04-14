@@ -52,3 +52,4 @@ git checkout starting-lab22
 git cherry-pick "$hash"
 git checkout final-solution
 git cherry-pick "$hash"
+git checkout master
