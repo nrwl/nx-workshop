@@ -9,6 +9,7 @@ env:
   SURGE_DOMAIN_STORE: ${{ secrets.SURGE_DOMAIN_STORE }}
   SURGE_DOMAIN_ADMIN_UI: ${{ secrets.SURGE_DOMAIN_ADMIN_UI }}
   SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
+  HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
 
 jobs:
   build:
@@ -19,5 +20,7 @@ jobs:
       - uses: bahmutov/npm-install@v1.4.5
       - run: npm run nx build store -- --configuration=production
       - run: npm run nx build admin-ui -- --configuration=production
+      - run: npm run nx build api -- --configuration=production
       - run: npm run nx deploy store
       - run: npm run nx deploy admin-ui
+      - run: npm run nx deploy api
