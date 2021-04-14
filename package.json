@@ -23,7 +23,8 @@
     "update": "nx migrate latest",
     "workspace-generator": "nx workspace-generator",
     "dep-graph": "nx dep-graph",
-    "help": "nx help"
+    "help": "nx help",
+    "cherry-pick-all": "./tools/cherry-pick-all.sh"
   },
   "private": true,
   "dependencies": {},
