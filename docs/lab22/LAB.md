@@ -77,6 +77,15 @@ will never miss a deployment
     --base=${{ steps.last_successful_commit.outputs.commit_hash }}
     ```
 
+3. By default, the `actions/checkout@v2.3.4` action only fetches the last commit (for efficiency). But
+since we now might want to compare against a larger range of commits, we need to tell it to fetch more:
+   
+    ```yaml
+    - uses: actions/checkout@v2.3.4
+      with:
+        fetch-depth: 0
+    ```
+
 3. Commit everything and push. Let it build. It should compare against the immediately previous commit (because your workflow ran against it, and it passed)
 
 4. Try to go through one of the problematic scenarios described above. It should now work, and it should build both the API (or AdminUI) and the Store (instead of just the Store)

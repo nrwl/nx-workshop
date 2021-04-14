@@ -18,7 +18,9 @@ jobs:
     runs-on: ubuntu-latest
     name: Deploying apps
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2.3.4
+        with:
+          fetch-depth: 0
       - uses: bahmutov/npm-install@v1.4.5
       - uses: nrwl/last-successful-commit-action@v1
         id: last_successful_commit
