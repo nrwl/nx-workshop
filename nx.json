@@ -44,6 +44,8 @@
     "store-util-formatters": { "tags": ["scope:store", "type:util"] },
     "util-interface": { "tags": ["scope:shared", "type:util"] },
     "admin-ui": { "tags": [] },
-    "admin-ui-e2e": { "tags": [], "implicitDependencies": ["admin-ui"] }
+    "admin-ui-e2e": { "tags": [], "implicitDependencies": ["admin-ui"] },
+    "ecommerce": { "tags": [] },
+    "ecommerce-e2e": { "tags": [], "implicitDependencies": ["ecommerce"] }
   }
 }

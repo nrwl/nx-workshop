@@ -434,6 +434,105 @@
           "options": { "lintFilePatterns": ["apps/admin-ui-e2e/**/*.{js,ts}"] }
         }
       }
+    },
+    "ecommerce": {
+      "root": "apps/ecommerce",
+      "sourceRoot": "apps/ecommerce/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/ecommerce",
+            "index": "apps/ecommerce/src/index.html",
+            "main": "apps/ecommerce/src/main.tsx",
+            "polyfills": "apps/ecommerce/src/polyfills.ts",
+            "tsConfig": "apps/ecommerce/tsconfig.app.json",
+            "assets": [
+              "apps/ecommerce/src/favicon.ico",
+              "apps/ecommerce/src/assets"
+            ],
+            "styles": ["apps/ecommerce/src/styles.css"],
+            "scripts": [],
+            "webpackConfig": "@nrwl/react/plugins/webpack"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/ecommerce/src/environments/environment.ts",
+                  "with": "apps/ecommerce/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/web:dev-server",
+          "options": { "buildTarget": "ecommerce:build" },
+          "configurations": {
+            "production": { "buildTarget": "ecommerce:build:production" }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/ecommerce/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/ecommerce"],
+          "options": {
+            "jestConfig": "apps/ecommerce/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "deploy": {
+          "executor": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "surge dist/apps/ecommerce ${SURGE_DOMAIN_ECOMMERCE} --token ${SURGE_TOKEN}"
+          }
+        }
+      }
+    },
+    "ecommerce-e2e": {
+      "root": "apps/ecommerce-e2e",
+      "sourceRoot": "apps/ecommerce-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/ecommerce-e2e/cypress.json",
+            "tsConfig": "apps/ecommerce-e2e/tsconfig.e2e.json",
+            "devServerTarget": "ecommerce:serve"
+          },
+          "configurations": {
+            "production": { "devServerTarget": "ecommerce:serve:production" }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": { "lintFilePatterns": ["apps/ecommerce-e2e/**/*.{js,ts}"] }
+        }
+      }
     }
   }
 }
