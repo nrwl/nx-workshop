@@ -18,9 +18,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2.3.4
       - uses: bahmutov/npm-install@v1.4.5
-      - run: npm run nx build store -- --configuration=production
-      - run: npm run nx build admin-ui -- --configuration=production
-      - run: npm run nx build api -- --configuration=production
-      - run: npm run nx deploy store
-      - run: npm run nx deploy admin-ui
-      - run: npm run nx deploy api
+      - uses: nrwl/last-successful-commit-action@v1
+        id: last_successful_commit
+        with:
+          branch: 'master'
+          workflow_id: 'deploy.yml'
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+      - run: npm run nx affected -- --target=build --base=${{ steps.last_successful_commit.outputs.commit_hash }} --parallel --configuration=production
+      - run: npm run nx affected -- --target=deploy --base=${{ steps.last_successful_commit.outputs.commit_hash }} --parallel

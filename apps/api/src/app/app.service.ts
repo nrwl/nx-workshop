@@ -1,10 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { Game } from '@bg-hoard/util-interface';
-import { sendNotification } from '@bg-hoard/api/util-notifications';
 
 const games: Game[] = [
   {
-    id: 'settlers-in-the-can',
+    id: 'settlers-in-the-can 2',
     name: 'Settlers in the Can',
     image: '/assets/beans.png', // 'https://media.giphy.com/media/xUNda3pLJEsg4Nedji/giphy.gif',
     description:
