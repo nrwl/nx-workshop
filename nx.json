@@ -5,6 +5,7 @@
       "dependencies": "*",
       "devDependencies": "*"
     },
+    ".github/workflows/ci.yml": "*",
     "tsconfig.base.json": "*",
     "tslint.json": "*",
     ".eslintrc.json": "*",
