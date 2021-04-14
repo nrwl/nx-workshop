@@ -41,6 +41,14 @@
               "optimization": true,
               "extractLicenses": true,
               "inspect": false,
+              "externalDependencies": [
+                "@nestjs/microservices",
+                "@nestjs/microservices/microservices-module",
+                "@nestjs/websockets/socket-module",
+                "class-transformer",
+                "class-validator",
+                "cache-manager"
+              ],
               "fileReplacements": [
                 {
                   "replace": "apps/api/src/environments/environment.ts",
@@ -64,6 +72,20 @@
           "options": {
             "jestConfig": "apps/api/jest.config.js",
             "passWithNoTests": true
+          }
+        },
+        "deploy": {
+          "executor": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "commands": [
+              "cp ../../../apps/api/Dockerfile .",
+              "heroku container:login",
+              "heroku container:push web -a trial-api-123",
+              "heroku container:release web -a trial-api-123"
+            ],
+            "cwd": "dist/apps/api",
+            "parallel": false
           }
         }
       }
