@@ -1,26 +1,77 @@
 {
-  "npmScope": "bg-hoard",
-  "affected": {
-    "defaultBase": "master"
-  },
   "implicitDependencies": {
     "workspace.json": "*",
     "package.json": {
       "dependencies": "*",
       "devDependencies": "*"
     },
+    ".github/workflows/ci.yml": "*",
     "tsconfig.base.json": "*",
     "tslint.json": "*",
     ".eslintrc.json": "*",
     "nx.json": "*"
   },
+  "affected": {
+    "defaultBase": "master"
+  },
+  "npmScope": "bg-hoard",
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
+        "cacheableOperations": [
+          "build",
+          "lint",
+          "test",
+          "e2e",
+          "build-storybook"
+        ]
       }
     }
   },
-  "projects": {}
+  "projects": {
+    "api": {
+      "tags": ["scope:api", "type:app"]
+    },
+    "api-util-notifications": {
+      "tags": ["type:util", "scope:api"]
+    },
+    "store": {
+      "tags": ["scope:store", "type:app"]
+    },
+    "store-e2e": {
+      "tags": ["scope:store", "type:e2e"],
+      "implicitDependencies": ["store"]
+    },
+    "store-feature-game-detail": {
+      "tags": ["scope:store", "type:feature"]
+    },
+    "store-ui-shared": {
+      "tags": ["scope:store", "type:ui"]
+    },
+    "store-ui-shared-e2e": {
+      "tags": ["scope:store", "type:e2e"],
+      "implicitDependencies": ["store-ui-shared"]
+    },
+    "store-util-formatters": {
+      "tags": ["scope:store", "type:util"]
+    },
+    "util-interface": {
+      "tags": ["scope:shared", "type:util"]
+    },
+    "admin-ui": {
+      "tags": []
+    },
+    "admin-ui-e2e": {
+      "tags": [],
+      "implicitDependencies": ["admin-ui"]
+    },
+    "ecommerce": {
+      "tags": []
+    },
+    "ecommerce-e2e": {
+      "tags": [],
+      "implicitDependencies": ["ecommerce"]
+    }
+  }
 }
