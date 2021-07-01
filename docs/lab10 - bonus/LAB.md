@@ -29,7 +29,7 @@ Let's explore some more Nx plugins by generating and running a storybook configu
 
 3. Inside `libs/store/ui-shared/src/lib/header/header.component.stories.ts`:
 
-   - Import the `MaterialToolbarModule`
+   - Import the `MatToolbarModule`
    - Import the Angular Material Theme
 
    <details>
