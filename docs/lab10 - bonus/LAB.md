@@ -23,7 +23,7 @@ Let's explore some more Nx plugins by generating and running a storybook configu
 #### 🏋️‍♀️ Steps:
 
 1. `yarn add @nrwl/storybook`
-2. Use the `nrwl/angular:storybook-configuration` generator to generate a storybook configuration for the `store-ui-shared` project
+2. Use the `@nrwl/angular:storybook-configuration` generator to generate a storybook configuration for the `store-ui-shared` project
 
    ⚠️ Answer **YES** to all questions
 
