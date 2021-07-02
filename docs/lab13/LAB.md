@@ -55,7 +55,7 @@ asked about which CSS framework to use when creating Angular libs).
    <details>
    <summary>🐳 Hint</summary>
 
-   [Adding dynamic prompts](https://nx.dev/latest/angular/generators/workspace-generators#adding-dynamic-prompts)
+   [Adding dynamic prompts](https://nx.dev/latest/angular/generators/generator-options#adding-dynamic-prompts)
 
    </details>
     
