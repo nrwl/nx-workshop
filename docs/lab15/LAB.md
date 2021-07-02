@@ -43,14 +43,14 @@ and bring it up to date:
         name: Test Store # the name that will appear on the Actions UI
         steps: # what steps it will perform
           - uses: actions/checkout@v1 # checkout whatever branch the PR is using
-          - uses: bahmutov/npm-install@v1.4.5 # trigger an `npm install`
+          - uses: bahmutov/npm-install@v1 # trigger an `npm install`
           - run: npm run nx test store # test the "store" project
       test-api: 
         runs-on: ubuntu-latest 
         name: Test API
         steps: 
           - uses: actions/checkout@v1
-          - uses: bahmutov/npm-install@v1.4.5`
+          - uses: bahmutov/npm-install@v1
           - run: npm run nx test api
       
     ```
