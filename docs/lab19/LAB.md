@@ -127,7 +127,7 @@ add this as an option:
    
 10. By default, if you give a list of commands to `run-commands`, it will run them in parallel.
 In our case, we want them to run one after another.
-**See if you can add a configuration option to make them run in parallel**
+**See if you can add a configuration option to make them run sequentially**
 
 9. Let's enable CORS on the server so our API can make requests to it (since they'll be deployed in separate places):
     - In `apps/api/src/main.ts`
