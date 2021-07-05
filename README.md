@@ -104,5 +104,4 @@ Each lab will contain a link to the next one. Start from **"Lab 1"** and move th
 | 🧭 [Lab 19 - Creating and deploying a 2nd frontend](docs/lab19-alt/LAB.md) | 🧲 [Lab 19 - Deploying the API](docs/lab19/LAB.md) |
 | ⛱️ [Lab 20 - Mock Store](docs/lab20-alt/LAB.md)     | 🎸 [Lab 20 - Connecting the frontend and backend](docs/lab20/LAB.md) |  
 | 🪁 [Lab 21 - Setting up CD for automatic deployment](docs/lab21-alt/LAB.md)     | 🎈 [Lab 21 - Setting up CD for automatic deployment](docs/lab21/LAB.md) |  
-
-- 💈 [Lab 22 - Deploying only what changed](docs/lab22/LAB.md)
+| 💈 [Lab 22 - Deploying only what changed](docs/lab22/LAB.md) | 💈 [Lab 22 - Deploying only what changed](docs/lab22/LAB.md) |
