@@ -153,6 +153,8 @@ In our case, we want them to run one after another.
         ....
     ```
 
+    ⚠️ Note: On Apple M1 commputers the deployement will succeed, but running Docker image on heroku app will fail due to unsupported ARM architecture. Don't worry you will still deploy your api via `GitHub` in the [Lab 21](../lab21/LAB.md). You can head over there and then come back to lab 20.
+
 11. Go to `https://<your-app-name>.herokuapp.com/api/games` - it should return you a list of games.
 
 ---
