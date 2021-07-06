@@ -24,7 +24,8 @@
     "workspace-generator": "nx workspace-generator",
     "dep-graph": "nx dep-graph",
     "help": "nx help",
-    "postinstall": "ngcc --properties es2015 browser module main"
+    "postinstall": "ngcc --properties es2015 browser module main",
+    "serve_all": "nx run-many --target=serve --projects=api,store --parallel"
   },
   "private": true,
   "dependencies": {
@@ -38,7 +39,11 @@
     "@angular/platform-browser": "^12.0.0",
     "@angular/platform-browser-dynamic": "^12.0.0",
     "@angular/router": "^12.0.0",
+    "@nestjs/common": "^7.0.0",
+    "@nestjs/core": "^7.0.0",
+    "@nestjs/platform-express": "^7.0.0",
     "@nrwl/angular": "^12.5.6",
+    "reflect-metadata": "^0.1.13",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.4"
@@ -50,11 +55,15 @@
     "@angular-eslint/template-parser": "~12.0.0",
     "@angular/compiler-cli": "^12.0.0",
     "@angular/language-service": "^12.0.0",
+    "@nestjs/schematics": "^7.0.0",
+    "@nestjs/testing": "^7.0.0",
     "@nrwl/cli": "12.5.6",
     "@nrwl/cypress": "12.5.6",
     "@nrwl/eslint-plugin-nx": "12.5.6",
     "@nrwl/jest": "12.5.6",
     "@nrwl/linter": "12.5.6",
+    "@nrwl/nest": "12.5.7",
+    "@nrwl/node": "12.5.7",
     "@nrwl/tao": "12.5.6",
     "@nrwl/workspace": "12.5.6",
     "@types/jest": "26.0.8",
