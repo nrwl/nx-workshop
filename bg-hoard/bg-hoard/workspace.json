@@ -120,6 +120,31 @@
         }
       }
     },
+    "store-feature-game-detail": {
+      "projectType": "library",
+      "root": "libs/store/feature-game-detail",
+      "sourceRoot": "libs/store/feature-game-detail/src",
+      "prefix": "bg-hoard",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/store/feature-game-detail"],
+          "options": {
+            "jestConfig": "libs/store/feature-game-detail/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/store/feature-game-detail/src/**/*.ts",
+              "libs/store/feature-game-detail/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
     "store-ui-shared": {
       "projectType": "library",
       "root": "libs/store/ui-shared",
