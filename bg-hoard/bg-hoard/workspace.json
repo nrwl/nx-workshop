@@ -119,6 +119,31 @@
           }
         }
       }
+    },
+    "store-ui-shared": {
+      "projectType": "library",
+      "root": "libs/store/ui-shared",
+      "sourceRoot": "libs/store/ui-shared/src",
+      "prefix": "bg-hoard",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/store/ui-shared"],
+          "options": {
+            "jestConfig": "libs/store/ui-shared/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/store/ui-shared/src/**/*.ts",
+              "libs/store/ui-shared/src/**/*.html"
+            ]
+          }
+        }
+      }
     }
   },
   "cli": {
