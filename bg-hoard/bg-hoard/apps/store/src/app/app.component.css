@@ -1,0 +1,37 @@
+.games-layout {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.container {
+  max-width: 800px;
+  margin: 50px auto;
+}
+
+.game-card {
+  max-width: 205px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.game-card:hover {
+  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.3);
+  transform: translate3d(0, -2px, 0);
+  cursor: pointer;
+}
+.game-card:focus {
+  outline: none;
+}
+
+.center-content {
+  display: flex;
+  justify-content: center;
+}
+
+.game-details {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
