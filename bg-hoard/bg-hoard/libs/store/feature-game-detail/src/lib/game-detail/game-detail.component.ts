@@ -1,16 +1,20 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-import { map } from 'rxjs/operators';
+import { map, switchMap } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
+import { formatRating } from '@bg-hoard/store/util-formatters';
 
 @Component({
   selector: 'bg-hoard-game-detail',
   templateUrl: './game-detail.component.html',
-  styleUrls: ['./game-detail.component.css']
+  styleUrls: ['./game-detail.component.css'],
 })
 export class GameDetailComponent {
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private http: HttpClient) {}
 
-  gameId$ = this.route.paramMap.pipe(
-    map((params: ParamMap) => params.get('id'))
+  game$ = this.route.paramMap.pipe(
+    map((params: ParamMap) => params.get('id')),
+    switchMap((id) => this.http.get<any>(`/api/games/${id}`))
   );
+  formatRating = formatRating;
 }
