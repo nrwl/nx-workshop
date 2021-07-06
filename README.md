@@ -33,7 +33,7 @@ Nx has support for a lot of platforms, but in this workshop we'll be using mainl
 
 Make sure you have the following installed:
 
-- Node.js version 10 and up
+- Node.js version 12 and up
     - `node --version`
 - [Yarn](https://classic.yarnpkg.com/en/docs/install/)
     - `yarn --version`
