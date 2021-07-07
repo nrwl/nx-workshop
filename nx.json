@@ -40,10 +40,10 @@
       "tags": ["scope:api", "type:util"]
     },
     "store": {
-      "tags": ["type:app"]
+      "tags": ["type:app", "scope:store"]
     },
     "store-e2e": {
-      "tags": ["type:e2e"],
+      "tags": ["type:e2e", "scope:store"],
       "implicitDependencies": ["store"]
     },
     "store-feature-game-detail": {
