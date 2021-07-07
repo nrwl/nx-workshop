@@ -51,12 +51,7 @@ export default async function(host: Tree, schema: any) {
           "label": "shared"
         }
       ]
-    },
-    "enum": [
-      "store",
-      "api",
-      "shared"
-    ]
+    }
   }
 }
 ```
