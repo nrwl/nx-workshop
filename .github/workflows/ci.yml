@@ -3,17 +3,10 @@ name: Run CI checks
 on: [pull_request]
 
 jobs:
-  test-store:
+  test-affected:
     runs-on: ubuntu-latest
-    name: Test Store 
+    name: Test Affected Apps
     steps:
       - uses: actions/checkout@v1
       - uses: bahmutov/npm-install@v1
-      - run: npm run nx test store 
-  test-api: 
-    runs-on: ubuntu-latest 
-    name: Test API
-    steps: 
-      - uses: actions/checkout@v1
-      - uses: bahmutov/npm-install@v1
-      - run: npm run nx test api
+      - run: npm run nx nx affected --target=test --base=origin/master --parallel
