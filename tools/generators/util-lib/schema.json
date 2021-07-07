@@ -20,7 +20,7 @@
         "shared"
       ],
       "x-prompt": {
-        "message": "Where would you like to generate this library?",
+        "message": "What is the scope for this library?",
         "type": "list",
         "items": [
           {
