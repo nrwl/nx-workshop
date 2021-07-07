@@ -50,7 +50,7 @@
       "tags": ["scope:store", "type:feature"]
     },
     "store-ui-shared": {
-      "tags": ["scope:shared", "type:ui"]
+      "tags": ["type:ui", "scope:store"]
     },
     "store-ui-shared-e2e": {
       "tags": ["scope:shared", "type:e2e"],

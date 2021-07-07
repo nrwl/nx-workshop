@@ -14,26 +14,22 @@
     "directory": {
       "type": "string",
       "description": "Library directory",
-      "enum": [
-        "store",
-        "api",
-        "shared"
-      ],
+      "enum": ["api", "store", "shared"],
       "x-prompt": {
         "message": "What is the scope for this library?",
         "type": "list",
         "items": [
           {
-            "value": "store",
-            "label": "/store"
+            "value": "api",
+            "label": "api scope"
           },
           {
-            "value": "api",
-            "label": "/api"
+            "value": "store",
+            "label": "store scope"
           },
           {
             "value": "shared",
-            "label": "/shared"
+            "label": "shared scope"
           }
         ]
       }
