@@ -7,6 +7,8 @@
 - Explore some more advanced, real-world usages of generators
 - Understand how to modify existing source code with generators
 
+**If you are running Nx 12.4+ please use the [➡️ Alternative Lab 14 ➡️](LAB_ALTERNATIVE.md)**
+
 #### 🏋️‍♀️ Steps :
 
 1. Generate another generator called `sort-project-references`
