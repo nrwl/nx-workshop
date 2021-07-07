@@ -1,6 +1,6 @@
 {
   "cli": "nx",
-  "id": "util-lib",
+  "id": "feature-lib",
   "type": "object",
   "properties": {
     "name": {
