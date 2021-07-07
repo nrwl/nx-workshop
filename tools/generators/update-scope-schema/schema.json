@@ -1,0 +1,5 @@
+{
+  "cli": "nx",
+  "id": "update-scope-schema",
+  "type": "object"
+}
