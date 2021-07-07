@@ -5,6 +5,7 @@ export default async function (host: Tree, schema: any) {
   const nxJson = readJson(host, 'nx.json');
   const scopes = getScopes(nxJson);
   updateJson(host, 'tools/generators/util-lib/schema.json', (json) => {
+    json.properties.directory.enum = scopes;
     json.properties.directory['x-prompt'].items = scopes.map(scope => {
       return { value: scope, label: `${scope} scope`}
     })
