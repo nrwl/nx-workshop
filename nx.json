@@ -40,7 +40,7 @@
       "tags": ["scope:api", "type:util"]
     },
     "store": {
-      "tags": ["scope:store", "type:app"]
+      "tags": ["type:app"]
     },
     "store-e2e": {
       "tags": ["type:e2e"],
