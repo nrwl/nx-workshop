@@ -13,7 +13,7 @@
   },
   "tasksRunnerOptions": {
     "default": {
-      "runner": "@nrwl/workspace/tasks-runners/default",
+      "runner": "@nrwl/nx-cloud",
       "options": {
         "cacheableOperations": [
           "build",
@@ -21,7 +21,10 @@
           "test",
           "e2e",
           "build-storybook"
-        ]
+        ],
+        "accessToken": "NTUzNDFiMmEtOTFkNy00ZDhlLWJmZGQtNTdhZTk0NTU2ZWI0fHJlYWQtd3JpdGU=",
+        "canTrackAnalytics": false,
+        "showUsageWarnings": true
       }
     }
   },
@@ -35,33 +38,64 @@
   },
   "projects": {
     "api": {
-      "tags": ["scope:api", "type:app"]
+      "tags": [
+        "scope:api",
+        "type:app"
+      ]
     },
     "api-util-notifications": {
-      "tags": ["scope:api", "type:util"]
+      "tags": [
+        "scope:api",
+        "type:util"
+      ]
     },
     "store": {
-      "tags": ["type:app", "scope:store"]
+      "tags": [
+        "type:app",
+        "scope:store"
+      ]
     },
     "store-e2e": {
-      "tags": ["type:e2e", "scope:store"],
-      "implicitDependencies": ["store"]
+      "tags": [
+        "type:e2e",
+        "scope:store"
+      ],
+      "implicitDependencies": [
+        "store"
+      ]
     },
     "store-feature-game-detail": {
-      "tags": ["scope:store", "type:feature"]
+      "tags": [
+        "scope:store",
+        "type:feature"
+      ]
     },
     "store-ui-shared": {
-      "tags": ["type:ui", "scope:store"]
+      "tags": [
+        "type:ui",
+        "scope:store"
+      ]
     },
     "store-ui-shared-e2e": {
-      "tags": ["scope:shared", "type:e2e"],
-      "implicitDependencies": ["store-ui-shared"]
+      "tags": [
+        "scope:shared",
+        "type:e2e"
+      ],
+      "implicitDependencies": [
+        "store-ui-shared"
+      ]
     },
     "store-util-formatters": {
-      "tags": ["scope:store", "type:util"]
+      "tags": [
+        "scope:store",
+        "type:util"
+      ]
     },
     "util-interface": {
-      "tags": ["scope:shared", "type:util"]
+      "tags": [
+        "scope:shared",
+        "type:util"
+      ]
     }
   }
 }
