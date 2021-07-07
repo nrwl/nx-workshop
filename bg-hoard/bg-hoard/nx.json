@@ -1,0 +1,66 @@
+{
+  "npmScope": "bg-hoard",
+  "affected": {
+    "defaultBase": "master"
+  },
+  "implicitDependencies": {
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    ".eslintrc.json": "*"
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/workspace/tasks-runners/default",
+      "options": {
+        "cacheableOperations": [
+          "build",
+          "lint",
+          "test",
+          "e2e",
+          "build-storybook"
+        ]
+      }
+    }
+  },
+  "targetDependencies": {
+    "build": [
+      {
+        "target": "build",
+        "projects": "dependencies"
+      }
+    ]
+  },
+  "projects": {
+    "api": {
+      "tags": ["scope:api", "type:app"]
+    },
+    "api-util-notifications": {
+      "tags": ["scope:api", "type:util"]
+    },
+    "store": {
+      "tags": ["scope:store", "type:app"]
+    },
+    "store-e2e": {
+      "tags": ["scope:store", "type:e2e"],
+      "implicitDependencies": ["store"]
+    },
+    "store-feature-game-detail": {
+      "tags": ["scope:store", "type:feature"]
+    },
+    "store-ui-shared": {
+      "tags": ["scope:store", "type:ui"]
+    },
+    "store-ui-shared-e2e": {
+      "tags": ["scope:store", "type:e2e"],
+      "implicitDependencies": ["store-ui-shared"]
+    },
+    "store-util-formatters": {
+      "tags": ["scope:store", "type:util"]
+    },
+    "util-interface": {
+      "tags": ["scope:shared", "type:util"]
+    }
+  }
+}
