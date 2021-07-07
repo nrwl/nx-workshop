@@ -24,7 +24,8 @@
     "workspace-generator": "nx workspace-generator",
     "dep-graph": "nx dep-graph",
     "help": "nx help",
-    "postinstall": "ngcc --properties es2015 browser module main"
+    "postinstall": "ngcc --properties es2015 browser module main && husky install",
+    "pre-commit": "yarn nx workspace-generator update-scope-schema"
   },
   "private": true,
   "dependencies": {
@@ -80,6 +81,7 @@
     "eslint": "7.22.0",
     "eslint-config-prettier": "8.1.0",
     "eslint-plugin-cypress": "^2.10.3",
+    "husky": "^7.0.1",
     "jest": "27.0.3",
     "jest-preset-angular": "9.0.3",
     "prettier": "^2.3.1",

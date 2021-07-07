@@ -43,7 +43,7 @@
       "tags": ["scope:store", "type:app"]
     },
     "store-e2e": {
-      "tags": ["scope:store", "type:e2e"],
+      "tags": ["type:e2e"],
       "implicitDependencies": ["store"]
     },
     "store-feature-game-detail": {
