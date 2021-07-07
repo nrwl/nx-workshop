@@ -24,7 +24,8 @@
     "workspace-generator": "nx workspace-generator",
     "dep-graph": "nx dep-graph",
     "help": "nx help",
-    "postinstall": "ngcc --properties es2015 browser module main",
+    "postinstall": "husky install",
+    "pre-commit": "yarn nx workspace-generator update-scope-schema",
     "serve_all": "nx run-many --target=serve --projects=api,store --parallel"
   },
   "private": true,
