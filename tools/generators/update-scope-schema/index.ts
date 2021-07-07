@@ -7,4 +7,5 @@ export default async function (host: Tree, schema: any) {
     json.defaultProject = 'api';
     return json;
   })
+  await formatFiles(host);
 }
