@@ -1,13 +1,13 @@
-### 💻 Lab 1 - generate an empty workspace
+# 💻 Lab 1 - generate an empty workspace
 
 ###### ⏰ Estimated time: 5-10 minutes
 
-#### 📚 Learning outcomes:
+## 📚 Learning outcomes:
 
 - Understand how to bootstrap a new Nx workspace
 <br /><br /><br />
 
-#### 📲 After this workshop, your app should look similar to this:
+## 📲 After this workshop, your app should look similar to this:
 
 <details>
   <summary>File structure</summary>
@@ -15,14 +15,14 @@
 </details>
 <br /><br />
 
-#### 🏋️‍♀️ Steps :
+## 🏋️‍♀️ Steps :
 
 1. Generate an empty Nx workspace for a fictional company called "The Board Game Hoard"
-   &nbsp;<br /><br /><br /><br /> <br />
+   <br /> <br />
 2. The workspace name should be `bg-hoard`
-   &nbsp;<br />
+   <br /> <br />
 3. Make sure you select `Empty` workspace and `No to NxCloud` when asked
-   &nbsp;<br />
+   <br /> <br />
 
 ---
 
