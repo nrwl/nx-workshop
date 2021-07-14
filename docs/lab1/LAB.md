@@ -5,7 +5,7 @@
 #### 📚 Learning outcomes:
 
 - Understand how to bootstrap a new Nx workspace
-<br /><br />
+<br /><br /><br />
 
 #### 📲 After this workshop, your app should look similar to this:
 
@@ -17,13 +17,11 @@
 
 #### 🏋️‍♀️ Steps :
 
-1. Generate an empty Nx workspace for a fictional company called "The Board Game Hoard"
-<br />
-2. The workspace name should be `bg-hoard`
-<br />
-3. Make sure you select `Empty` workspace and `No to NxCloud` when asked
-<br /><br />
-
+<ol>
+  <li style="margin: 20px">Generate an empty Nx workspace for a fictional company called "The Board Game Hoard"</li>
+  <li style="margin: 20px">The workspace name should be `bg-hoard`</li>
+  <li style="margin: 20px">Make sure you select `Empty` workspace and `No to NxCloud` when asked</li>
+</ol>
 
 ---
 
