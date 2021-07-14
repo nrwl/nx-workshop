@@ -1,7 +1,7 @@
 # 💻 Lab 1 - generate an empty workspace
 
 ###### ⏰ Estimated time: 5-10 minutes
-<br /><br />
+<br />
 
 ## 📚 Learning outcomes:
 
