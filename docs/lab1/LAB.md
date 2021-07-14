@@ -18,11 +18,11 @@
 #### 🏋️‍♀️ Steps :
 
 1. Generate an empty Nx workspace for a fictional company called "The Board Game Hoard"
-   <br />
+   &nbsp;<br />
 2. The workspace name should be `bg-hoard`
-   <br />
+   &nbsp;<br />
 3. Make sure you select `Empty` workspace and `No to NxCloud` when asked
-   <br />
+   &nbsp;<br />
 
 ---
 
