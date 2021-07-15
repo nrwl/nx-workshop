@@ -51,7 +51,7 @@ We'll look at creating libs to store Typescript interfaces and then we'll use th
    ```
 
    </details>
-   <br /><br />
+   <br />
 
 5. **Build the API** and make sure there are no errors
 
@@ -63,7 +63,7 @@ We'll look at creating libs to store Typescript interfaces and then we'll use th
    ```
 
    </details>
-   <br /><br />
+   <br />
 6. **Inspect the dependency graph**
    <br /><br />
 7. Make sure to **commit everything** before proceeding!
@@ -107,7 +107,7 @@ Let's fix that - we already have a `Game` interface in a lib. But it's nested in
     Your library name is `api-util-interface` - to move it to root, its new name needs to be `util-interface`
 
     </details>
-   <br /><br />
+   <br />
 
 8.  We can now **import it in the frontend components** and use it when making the `http` request:
 

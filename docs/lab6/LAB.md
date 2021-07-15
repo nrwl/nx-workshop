@@ -67,7 +67,7 @@ We'll look at more advanced usages of the `@nrwl/angular` generators and generat
    ```
 
     </details>
-   <br /><br />
+   <br />
 
 6. **Import `MatCardModule`** in `store-feature-game-detail.module.ts` and add it to the module's `imports: [...]`:
 
@@ -80,7 +80,7 @@ We'll look at more advanced usages of the `@nrwl/angular` generators and generat
     ```
 
      </details>
-   <br /><br />
+   <br />
 
 7. **Populate your new component** with the provided files: `game-detail.component.`[ts](../../examples/lab6/libs/store/feature-game-detail/src/lib/game-detail/game-detail.component.ts) / [css](../../examples/lab6/libs/store/feature-game-detail/src/lib/game-detail/game-detail.component.css) / [html](../../examples/lab6/libs/store/feature-game-detail/src/lib/game-detail/game-detail.component.html)
    <br /><br />
@@ -104,7 +104,7 @@ We'll look at more advanced usages of the `@nrwl/angular` generators and generat
     ```
 
      </details>
-   <br /><br />
+   <br />
 
 9. **Make clicking on each card route** to the `feature-game-detail` module with the game's ID:
 
@@ -126,7 +126,7 @@ We'll look at more advanced usages of the `@nrwl/angular` generators and generat
     ```
 
      </details>
-   <br /><br />
+   <br />
 
 10. **Serve your app** again, click on some games, and compare with the screenshot above
    <br /><br />

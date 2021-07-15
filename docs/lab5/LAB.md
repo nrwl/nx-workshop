@@ -56,7 +56,7 @@ We will create a shared utility lib where we'll add our formatters and see how t
    ```
 
     </details>
-   <br /><br />
+   <br />
 
 5. Serve the store app - notice how the ratings are formatted.
    <br /><br />

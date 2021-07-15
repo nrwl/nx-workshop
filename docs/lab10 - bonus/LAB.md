@@ -58,7 +58,7 @@ Let's explore some more Nx plugins by generating and running a storybook configu
    ```
 
    </details>
-   <br /><br />
+   <br />
 
 4. **Serve storybook!**
 
@@ -68,7 +68,7 @@ Let's explore some more Nx plugins by generating and running a storybook configu
    `nx storybook store-ui-shared`
 
    </details>
-   <br /><br />
+   <br />
 
 5. Start typing in different titles and **see how they appear** in the header
 

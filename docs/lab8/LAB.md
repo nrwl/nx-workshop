@@ -31,7 +31,7 @@ Now we have a proper API that we can use to make HTTP requests. We'll look at ho
    ```
 
    </details>
-   <br /><br />
+   <br />
 
 2. Within the same folder, **inject the `HttpClient`** in the [app.component.ts](../../examples/lab8/apps/store/src/app/app.component.ts)'s constructor and **call your new API** as an _HTTP request_
 
@@ -53,7 +53,7 @@ Now we have a proper API that we can use to make HTTP requests. We'll look at ho
    ```
 
    </details>
-   <br /><br />
+   <br />
 
 5. **Run `nx serve api`**
 
