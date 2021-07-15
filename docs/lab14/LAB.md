@@ -1,17 +1,17 @@
-### 🧵 Lab 14 - Workspace generators - Modifying files
+# 🧵 Lab 14 - Workspace generators - Modifying files (Alternative version)
 
 ###### ⏰ Estimated time: 25-35 minutes
 
-#### 📚 Learning outcomes:
+## 📚 Learning outcomes:
 
-- Explore some more advanced, real-world usages of generators
-- Understand how to modify existing source code with generators
+- **Explore some more advanced, real-world usages of generators**
+- **Understand how to modify existing source code with generators**
+<br /><br /><br />
 
-**If you are running Nx 12.4+ please use the [➡️ Alternative Lab 14 ➡️](LAB-ALTERNATIVE.md)**
+## 🏋️‍♀️ Steps :
 
-#### 🏋️‍♀️ Steps :
-
-1. Generate another generator called `sort-project-references`
+1. Generate another generator called `update-scope-schema`
+   <br /> <br />
 
 2. As a start let's make it change the `defaultProject` from `store` to `api` in our workspace.json file:
 
@@ -26,51 +26,99 @@
    
    ⚠️ When you run the above, it might complain that you haven't supplied a `name`. Since
    we don't need this property in the generate, you can remove it from the schema.
+   <br /> <br />
 
 3. Now that we had some practice with the `updateJson` util - Let's build something even more useful:
-    - When large teams work in the same workspace, they will occasionally be adding new libs in their PRs
-    - Because these libs get added at the end of our `workspace.json` projects list, they can be a source of merge conflicts. All these PRs will be modifying the same file
-    - If there was an easy way developers could sort the `projects` list in their `workspace.json` file before pushing the PR - it would reduce the chance of a merge conflict, as the changes would happen
-    at different places in the file.
+    - When large teams work in the same workspace, they will occasionally be adding new projects and new scope tags
+    - We want to make sure that scope tags specified in our `util-lib` generator are up to date
+    - We want to check if there is a new scope tag in the `nx.json` and update our generator schema
+    - We can use `readJson` util for reading the file without updating
+    - **BONUS** 
     
-    **Modify your generator so it sorts the value of `projects` in `workspace.json` by key**.
+    **Modify your generator so it fetches list of scopes from `projects` in `nx.json` and updates the schema in util-lib**.
     
-    ⚠️ You can use the function provided in the Hint to sort the keys of an object
+    ⚠️ You can use the function provided in the Hint to extract the `scopes`
     
    <details>
    <summary>🐳 Hint</summary>
 
     ```typescript
-    function sortObjectKeys(obj: any) {
-      const sorted = {};
-      Object.keys(obj).sort().forEach(key => {
-        sorted[key] = obj[key];
-      });
-      return sorted;
+    function getScopes(nxJson: any) {
+      const projects: any[] = Object.values(nxJson.projects);
+      const allScopes: string[] = projects
+        .map(project => project.tags
+          // take only those that point to scope
+          .filter((tag: string) => tag.startsWith('scope:'))
+        )
+        // flatten the array
+        .reduce((acc, tags) => [...acc, ...tags], [])
+        // remove prefix `scope:`
+        .map((scope: string) => scope.slice(6));
+      // remove duplicates
+      return [...new Set(allScopes)];
     }
     ```
      
    </details>
 
-2. `nx.json` also has a `projects` property vulnerable to merge conflicts. Let's sort it as well part of our above generator.
+    ⚠️ If you use `Set` for removing duplicates you need to allow it in `tsconfig.tools.json`
 
-3. Optional step: it's good practice to have your generator run your modified files through Prettier after modifying them. You might already have this, but just in case you removed it:
+   <details>
+   <summary>🐳 Hint</summary>
+
+    ```json
+    {
+      ...
+      "compilerOptions": {
+        ...
+        "downlevelIteration": true
+      },
+      ...
+    }
+    ```
+   
+   </details>
+   <br />
+
+4. It's good practice to have your generator run your modified files through Prettier after modifying them. You might already have this, but just in case you removed it:
 
     - Use `import { formatFiles } from '@nrwl/devkit';`
     - `await` this at the end of your generator
+    <br /> <br />
 
-4. Run your generator and notice the resulting changes. Commit your changes so you start fresh on your next lab.
+5. `index.ts` also has a `Schema` interface that should be updated. For modifying files that are not JSON we will use `host.read(path)` and `host.write(path, content)` methods.
 
-5. **BONUS** - If you finish early, open up `tsconfig.base.json`
-
-    You'll notice its `compilerOptions/paths` property also contains all the projects in our
-    workspace. Try to sort this as well as part of your generator.
+    ⚠️ You can use the function provided in the Hint to replace the `scopes`
     
-    Another one you can look at is the root `jest.config.js` - this will be interesting as it's a `.js` file.
+   <details>
+   <summary>🐳 Hint</summary>
 
-6. **BONUS BONUS** - use a tool like [Husky](https://typicode.github.io/husky/#/) to run your
-generator automatically before each commit. This will ensure developers never forget to sort
-their workspace files.
+    ```typescript
+    function replaceScopes(content: string, scopes: string[]): string {
+      const joinScopes = scopes.map(s => `'${s}'`).join(' | ');
+      const PATTERN = /interface Schema \{\n.*\n.*\n\}/gm;
+      return content.replace(PATTERN,
+        `interface Schema {
+      name: string;
+      directory: ${joinScopes};
+    }`
+      );
+    }
+    ```
+     
+   </details>
+   <br />
+
+6. Run your generator and notice the resulting changes. Commit your changes so you start fresh on your next lab.
+   <br /> <br />
+
+7. **BONUS** - As a bonus, if project doesn't have `scope` tag defined, we will assume it's the first segment of the name (e.g `admin-ui-lib` -> `scope:admin`) and we will go ahead and set one for it.
+   <br /> <br />
+
+8. **BONUS BONUS** - use a tool like [Husky](https://typicode.github.io/husky/#/) to run your
+generator automatically before each commit. This will ensure developers never forget to add
+their scope files.
+   <br /> <br />
 
 ---
 
