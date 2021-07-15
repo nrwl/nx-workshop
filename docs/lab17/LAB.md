@@ -6,6 +6,7 @@
 
 - **Explore the NxCloud Run-Detail pages**
 - **Configure the NxCloud bot to get easy to read reports on the Nx checks performed during CI**
+<br /><br /><br />
 
 ## 🏋️‍♀️ Steps :
 
