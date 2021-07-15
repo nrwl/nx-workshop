@@ -51,7 +51,7 @@ In this lab we'll generate our first Angular application within the new monorepo
    <summary>🐳 Hint</summary>
    <img src="../assets/lab2_cmds.png" alt="Nx generate cmd structure">
    </details>
-   <br /> <br /> 
+   <br /> 
 
 6. **Create a `fake-api.ts` file** in your new app that returns an array of some games (you can just copy the code from [here](../../examples/lab2/apps/store/src/fake-api/index.ts))
    

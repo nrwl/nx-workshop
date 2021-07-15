@@ -37,7 +37,7 @@ Let's add a header to our app! Because headers can be shared with other componen
    - use the `--help` command to figure out how to generate it in a **directory**
 
    </details>
-   <br /> <br /> 
+   <br /> 
 
 3. **Generate a new Angular component**, called `header`, inside the lib you just created
 
@@ -48,7 +48,7 @@ Let's add a header to our app! Because headers can be shared with other componen
    use `--help` to figure out how to specify under which **project** you want to generate the new component and how to automatically have it **exported**
 
    </details>
-   <br /> <br /> 
+   <br /> 
 
 4. **Import `MatToolbarModule`** in the new shared module you just created
 
@@ -66,7 +66,7 @@ Let's add a header to our app! Because headers can be shared with other componen
       ```
 
    </details>
-   <br /> <br /> 
+   <br /> 
 
 5. **Replace the `header` component's [template](../../examples/lab4/libs/store/ui-shared/src/lib/header/header.component.html) / [class](../../examples/lab4/libs/store/ui-shared/src/lib/header/header.component.ts)**
    <br /> <br /> 
@@ -98,7 +98,7 @@ Let's add a header to our app! Because headers can be shared with other componen
    ```
 
     </details>
-   <br /> <br /> 
+   <br /> 
 
 8. **Serve the project** and test the changes
    <br /> <br /> 
@@ -111,7 +111,7 @@ Let's add a header to our app! Because headers can be shared with other componen
    ```
 
     </details>
-   <br /> <br /> 
+   <br /> 
 10. **Inspect what changed** from the last time you committed, then **commit your changes**
    <br /> <br /> 
 

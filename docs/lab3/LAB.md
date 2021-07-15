@@ -53,7 +53,7 @@ We'll build the app we just created, and look at what executors are and how to c
    `--configuration=production`
 
    </details>
-   <br /> <br /> 
+   <br /> 
 
 5. **Open up the `dist` folder** again - notice how we now generated a `3rdpartylicenses.txt` file, as per the "production" configuration in `workspace.json`
    <br /> <br /> 
