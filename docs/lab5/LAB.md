@@ -23,7 +23,7 @@ We will create a shared utility lib where we'll add our formatters and see how t
   <summary>File structure</summary>
   <img src="../assets/lab5_directory-structure.png" height="700" alt="lab5 file structure">
 </details>
-<br /><br />
+<br />
 
 ## 🏋️‍♀️ Steps:
 

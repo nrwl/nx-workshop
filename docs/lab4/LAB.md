@@ -21,7 +21,7 @@ Let's add a header to our app! Because headers can be shared with other componen
   <summary>File structure</summary>
   <img src="../assets/lab4_directory-structure.png" height="700" alt="lab4 file structure">
 </details>
-<br /><br />
+<br />
 
 ## 🏋️‍♀️ Steps:
 

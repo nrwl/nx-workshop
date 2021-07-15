@@ -28,7 +28,7 @@ You do not need to be familiar with Nest (and you can use the `@nrwl/express:app
   <summary>File structure</summary>
   <img src="../assets/lab7_directory-structure.png" height="700" alt="lab7 file structure">
 </details>
-<br /><br />
+<br />
 
 ## 🏋️‍♀️ Steps:
 

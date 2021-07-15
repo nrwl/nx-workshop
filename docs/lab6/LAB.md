@@ -21,7 +21,7 @@ We'll look at more advanced usages of the `@nrwl/angular` generators and generat
   <summary>File structure</summary>
   <img src="../assets/lab6_directory-structure.png" height="700" alt="lab6 file structure">
 </details>
-<br /><br />
+<br />
 
 ## 🏋️‍♀️ Steps:
 

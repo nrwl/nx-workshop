@@ -25,7 +25,7 @@ We'll look at creating libs to store Typescript interfaces and then we'll use th
   <summary>File structure</summary>
   <img src="../assets/lab9_directory-structure.png" height="700" alt="lab9 file structure">
 </details>
-<br /><br />
+<br />
 
 ## 🏋️‍♀️ Steps:
 

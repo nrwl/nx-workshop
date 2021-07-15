@@ -24,7 +24,7 @@ In this lab we'll generate our first Angular application within the new monorepo
   <summary>File structure</summary>
   <img src="../assets/lab2_file_structure.png" height="700" alt="lab2 file structure">
 </details>
-<br /><br />
+<br />
 
 ## 🏋️‍♀️ Steps:
 

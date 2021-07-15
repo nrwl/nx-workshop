@@ -22,7 +22,7 @@ Let's explore some more Nx plugins by generating and running a storybook configu
   <summary>File structure</summary>
   <img src="../assets/lab10_directory-structure.png" height="700" alt="lab10 file structure">
 </details>
-<br /><br />
+<br />
 
 ## 🏋️‍♀️ Steps:
 

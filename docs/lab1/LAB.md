@@ -14,7 +14,7 @@
   <summary>File structure</summary>
   <img src="../assets/lab1_directory-structure.png" height="700" alt="lab7 file structure">
 </details>
-<br /><br />
+<br />
 
 ## 🏋️‍♀️ Steps :
 

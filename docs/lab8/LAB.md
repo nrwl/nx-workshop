@@ -17,7 +17,7 @@ Now we have a proper API that we can use to make HTTP requests. We'll look at ho
   <summary>App screenshot</summary>
   <img src="../assets/lab8_screenshot.png" width="500" alt="screenshot of lab8 result">
 </details>
-<br /><br />
+<br />
 
 ## 🏋️‍♀️ Steps:
 
