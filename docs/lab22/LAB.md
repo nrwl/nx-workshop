@@ -59,7 +59,7 @@ will never miss a deployment
 
 ---
 
-1. Right after the `npm-install` step, let's trigger the action to get the last successful commit:
+5. Right after the `npm-install` step, let's trigger the action to get the last successful commit:
 
     ```yml
     - uses: bahmutov/npm-install@v1.4.5
@@ -74,14 +74,14 @@ will never miss a deployment
     ⚠️ Don't worry about defining the `GITHUB_TOKEN` secret. It's already available by default.
     <br /> <br />
     
-2. You can now use the output from the above action in your affected commands:
+6. You can now use the output from the above action in your affected commands:
 
     ```bash
     --base=${{ steps.last_successful_commit.outputs.commit_hash }}
     ```
     <br />
 
-3. By default, the `actions/checkout@v2.3.4` action only fetches the last commit (for efficiency). But since we now might want to compare against a larger range of commits, we need to tell it to fetch more:
+7. By default, the `actions/checkout@v2.3.4` action only fetches the last commit (for efficiency). But since we now might want to compare against a larger range of commits, we need to tell it to fetch more:
    
     ```yaml
     - uses: actions/checkout@v2.3.4
@@ -90,10 +90,10 @@ will never miss a deployment
     ```
     <br />
 
-4. Commit everything and push. Let it build. It should compare against the immediately previous commit (because your workflow ran against it, and it passed)
+8. Commit everything and push. Let it build. It should compare against the immediately previous commit (because your workflow ran against it, and it passed)
    <br /> <br />
 
-5. Try to go through one of the problematic scenarios described above. It should now work, and it should build both the API (or AdminUI) and the Store (instead of just the Store)
+9. Try to go through one of the problematic scenarios described above. It should now work, and it should build both the API (or AdminUI) and the Store (instead of just the Store)
 
   > Let's say I make some changes to the API (or AdminUI) over a few commits - and I don't push them. Then I make one small change to the Store, commit it, and push to master.
   Even though I've pushed lots of commits with changes to both the Store and the API (or AdminUI), because our CD Workflow is only looking at the last commit, it will only deploy the Store.
