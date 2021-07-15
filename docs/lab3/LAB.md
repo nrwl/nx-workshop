@@ -35,8 +35,7 @@ We'll build the app we just created, and look at what executors are and how to c
    <summary>🐳 Hint</summary>
    <img src="../assets/lab3_build_cmds.png" alt="Nx executor command structure">
    </details>
-
-   <br /> <br /> 
+   <br /> 
 
 2. You should now have a `dist` folder - let's **open it up**!
    - This is your whole app's output! If we wanted we could push this now to a server and it would all work.
