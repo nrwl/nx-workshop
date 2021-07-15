@@ -1,6 +1,7 @@
 # 🧵 Lab 14 - Workspace generators - Modifying files (Alternative version)
 
 ###### ⏰ Estimated time: 25-35 minutes
+<br />
 
 ## 📚 Learning outcomes:
 

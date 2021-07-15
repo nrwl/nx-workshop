@@ -1,11 +1,13 @@
 # 🧲 Lab 19 - Deploying the API
 
 ###### ⏰ Estimated time: 30 minutes
+<br />
 
 ## 📚 Learning outcomes:
 
 - **Explore more advanced usages of the "run-commands" executor**
 - **Go through an example of how to deploy an API to Heroku through Nx**
+<br /><br /><br />
 
 ## 🏋️‍♀️ Steps :
 

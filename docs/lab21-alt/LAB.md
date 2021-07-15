@@ -1,6 +1,7 @@
 # 🎈 Lab 21 - Setting up CD for automatic deployment
 
 ###### ⏰ Estimated time: 10-20 minutes
+<br />
 
 ## 📚 Learning outcomes:
 

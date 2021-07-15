@@ -1,6 +1,7 @@
 # 🎸 Lab 20 - Connecting the frontend and backend
 
 ###### ⏰ Estimated time: 5 minutes
+<br />
 
 ## 📚 Learning outcomes:
 

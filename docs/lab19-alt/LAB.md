@@ -1,6 +1,7 @@
 # 🧲 Lab 19 Alternative - Creating and deploying a 2nd frontend
 
 ###### ⏰ Estimated time: 15-20 minutes
+<br />
 
 ## 📚 Learning outcomes:
 

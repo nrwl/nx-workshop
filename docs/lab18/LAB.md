@@ -1,6 +1,7 @@
 # 📎 Lab 18 - Run-Commands and deploying the frontend
 
 ###### ⏰ Estimated time: 15-20 minutes
+<br />
 
 ## 📚 Learning outcomes:
 

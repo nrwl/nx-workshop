@@ -1,6 +1,7 @@
 # 🧲 Lab 20 Alternative - Mock Store
 
 ###### ⏰ Estimated time: 5 minutes
+<br />
 
 ## 🏋️‍♀️ Steps :
 

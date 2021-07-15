@@ -1,6 +1,7 @@
 # 💈 Lab 22 - Deploying only what changed
 
 ###### ⏰ Estimated time: 20-25 minutes
+<br />
 
 ## 📚 Learning outcomes:
 

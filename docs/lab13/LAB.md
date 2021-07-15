@@ -1,6 +1,7 @@
 # 🧸️ Lab 13 - Workspace Generators - Intro
 
 ###### ⏰ Estimated time: 20-25 minutes
+<br />
 
 ## 📚 Learning outcomes:
 

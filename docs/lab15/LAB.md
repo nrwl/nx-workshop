@@ -1,6 +1,7 @@
 # 💎 Lab 15 - Setting up CI
 
 ###### ⏰ Estimated time: 5-10 minutes
+<br />
 
 ## 📚 Learning outcomes:
 
