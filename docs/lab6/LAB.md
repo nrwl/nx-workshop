@@ -53,7 +53,7 @@ We'll look at more advanced usages of the `@nrwl/angular` generators and generat
    ```
 
     </details>
-    <br /><br />
+    <br />
 
 5. **Uncomment _line 10_** in `libs/store/feature-game-detail/src/lib/store-feature-game-detail.module.ts` and make sure it's pointing to the `game-detail` component you generated above
 
