@@ -62,12 +62,10 @@ will never miss a deployment
 5. Right after the `npm-install` step, let's trigger the action to get the last successful commit:
 
     ```yml
-    - uses: bahmutov/npm-install@v1.4.5
-    - uses: nrwl/nx-set-shas
+    - uses: bahmutov/npm-install@v1
+    - uses: nrwl/nx-set-shas@v2
     ```
-
-    ⚠️ Don't worry about defining the `GITHUB_TOKEN` secret. It's already available by default.
-    <br /> <br />
+    <br />
     
 6. You can now use the output from the above action in your affected commands:
 
