@@ -55,7 +55,7 @@ will never miss a deployment
 - Getting the last successful commit is different on each platform:
     - [Netlify has the `CACHED_COMMIT_REF`](https://docs.netlify.com/configure-builds/environment-variables/#git-metadata)
     - On CircleCI, we can use the `<< pipeline.git.base_revision >>`
-    - For GitHub actions, we can use the `nrwl/last-successful-commit-action` action
+    - For GitHub actions, we can use the `nrwl/nx-set-shas` action
 
 ---
 
@@ -63,12 +63,7 @@ will never miss a deployment
 
     ```yml
     - uses: bahmutov/npm-install@v1.4.5
-    - uses: nrwl/last-successful-commit-action@v1
-      id: last_successful_commit
-      with:
-          branch: 'master' <-- get the last successful commit on master
-          workflow_id: 'deploy.yml' <-- use the deploy.yml workflow as the definition for "success"
-          github_token: ${{ secrets.GITHUB_TOKEN }} <-- we'll need to pass it a special GitHub auth token, so it can query the GitHub API for our repo
+    - uses: nrwl/nx-set-shas
     ```
 
     ⚠️ Don't worry about defining the `GITHUB_TOKEN` secret. It's already available by default.
@@ -77,14 +72,14 @@ will never miss a deployment
 6. You can now use the output from the above action in your affected commands:
 
     ```bash
-    --base=${{ steps.last_successful_commit.outputs.commit_hash }}
+    --base=${{ env.NX_BASE }}
     ```
     <br />
 
-7. By default, the `actions/checkout@v2.3.4` action only fetches the last commit (for efficiency). But since we now might want to compare against a larger range of commits, we need to tell it to fetch more:
+7. By default, the `actions/checkout@v2` action only fetches the last commit (for efficiency). But since we now might want to compare against a larger range of commits, we need to tell it to fetch more:
    
     ```yaml
-    - uses: actions/checkout@v2.3.4
+    - uses: actions/checkout@v2
       with:
         fetch-depth: 0
     ```

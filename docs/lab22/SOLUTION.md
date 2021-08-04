@@ -22,12 +22,7 @@ jobs:
         with:
           fetch-depth: 0
       - uses: bahmutov/npm-install@v1.4.5
-      - uses: nrwl/last-successful-commit-action@v1
-        id: last_successful_commit
-        with:
-          branch: 'master'
-          workflow_id: 'deploy.yml'
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-      - run: npm run nx affected -- --target=build --base=${{ steps.last_successful_commit.outputs.commit_hash }} --parallel --configuration=production
-      - run: npm run nx affected -- --target=deploy --base=${{ steps.last_successful_commit.outputs.commit_hash }} --parallel
+      - uses: nrwl/nx-set-shas@v2
+      - run: npm run nx affected -- --target=build --base=${{ env.NX_BASE }} --parallel --configuration=production
+      - run: npm run nx affected -- --target=deploy --base=${{ env.NX_BASE }} --parallel
 ```
