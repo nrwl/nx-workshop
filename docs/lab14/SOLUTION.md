@@ -31,7 +31,7 @@ function getScopes(nxJson: any) {
     )
     .reduce((acc, tags) => [...acc, ...tags], [])
     .map((scope: string) => scope.slice(6));
-  return [...new Set(allScopes)];
+  return Array.from(new Set(allScopes));
 }
 
 export default async function (host: Tree) {
@@ -60,7 +60,7 @@ function getScopes(nxJson: any) {
     )
     .reduce((acc, tags) => [...acc, ...tags], [])
     .map((scope: string) => scope.slice(6));
-  return [...new Set(allScopes)];
+  return Array.from(new Set(allScopes));
 }
 
 function replaceScopes(content: string, scopes: string[]): string {
