@@ -62,23 +62,6 @@
      
    </details>
 
-    ⚠️ If you use `Set` for removing duplicates you need to allow it in `tsconfig.tools.json`
-
-   <details>
-   <summary>🐳 Hint</summary>
-
-    ```json
-    {
-      ...
-      "compilerOptions": {
-        ...
-        "downlevelIteration": true
-      },
-      ...
-    }
-    ```
-   
-   </details>
    <br />
 
 4. It's good practice to have your generator run your modified files through Prettier after modifying them. You might already have this, but just in case you removed it:
