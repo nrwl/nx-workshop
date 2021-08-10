@@ -1,4 +1,4 @@
-##### Generate a `sort-project-references` workspace generator:
+##### Generate a `update-scope-schema` workspace generator:
 
 ```shell script
 nx generate @nrwl/workspace:workspace-generator update-scope-schema
