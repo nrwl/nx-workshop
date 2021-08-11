@@ -1,16 +1,19 @@
-### 💻 Lab 2 - Generate an Angular app
+# 💻 Lab 2 - Generate an Angular app
 
 ###### ⏰ Estimated time: 15-20 minutes
+<br />
 
 > Before starting this lab, you can either clone this Git repository you're looking at (`master` branch will be the starting point) or continue in the folder you created. If you clone, you will get access to all the lab branches so you can `git checkout lab-xx` if you fall behind.
 
 In this lab we'll generate our first Angular application within the new monorepo.
+<br /><br />
 
-#### 📚 Learning outcomes:
+## 📚 Learning outcomes:
 
-- Get familiar with generating new apps within your workspace using the Nx CLI
+- **Get familiar with generating new apps within your workspace using the Nx CLI**
+<br /><br /><br />
 
-#### 📲 After this workshop, your app should look similar to this:
+## 📲 After this workshop, your app should look similar to this:
 
 <details>
   <summary>App Screenshot</summary>
@@ -21,20 +24,26 @@ In this lab we'll generate our first Angular application within the new monorepo
   <summary>File structure</summary>
   <img src="../assets/lab2_file_structure.png" height="700" alt="lab2 file structure">
 </details>
+<br />
 
-#### 🏋️‍♀️ Steps:
+## 🏋️‍♀️ Steps:
 
 1. Make sure you can run Nx commands:
    - try out `nx --version` and see if it outputs a version number
    - install the CLI globally: `npm i -g @nrwl/cli`
    - if you don't want to install it globally, use `yarn nx` instead of `nx` in all the commands below
 
-> Please make sure you are using the latest version of Nx (11.5+)
+> Please make sure you are using the latest version of Nx (12.5+)
 
-2. Run `nx list` to see which plugins you have installed and which are available
-3. Add the Angular plugin: `yarn add @nrwl/angular`
-4. Let's also add Angular Material so we can use some of their components: `yarn add @angular/material @angular/cdk`
-5. Use the [`@nrwl/angular` plugin](https://nx.dev/latest/angular/angular/application) to generate an Angular app called `store` in your new workspace
+   <br />
+
+2. **Run `nx list`** to see which plugins you have installed and which are available
+   <br /> <br /> 
+3. **Add the Angular plugin: `yarn add @nrwl/angular`**
+   <br /> <br /> 
+4. Let's also **add Angular Material** so we can use some of their components: `yarn add @angular/material @angular/cdk`
+   <br /> <br /> 
+5. **Use the [`@nrwl/angular` plugin](https://nx.dev/latest/angular/angular/application) to generate an Angular app** called `store` in your new workspace
 
    ⚠️**Important:** Make sure you **enable routing** when asked!
 
@@ -42,28 +51,33 @@ In this lab we'll generate our first Angular application within the new monorepo
    <summary>🐳 Hint</summary>
    <img src="../assets/lab2_cmds.png" alt="Nx generate cmd structure">
    </details>
+   <br />
 
-6. Create a `fake-api.ts` file in your new app that returns an array of some games (you can just copy the code from [here](../../examples/lab2/apps/store/src/fake-api/index.ts))
+6. **Create a `fake-api.ts` file** in your new app that returns an array of some games (you can just copy the code from [here](../../examples/lab2/apps/store/src/fake-api/index.ts))
    
    ⏳**Reminder:** When you are given example files to copy, the folder they're in hints to the _folder_ and _filename_ you can place them in when you do the copying
+
+   <br /> <br /> 
    
-7. Add some basic styling to your new component and display the games from the Fake API (to not spend too much time on this, you can copy it from here [.html](../../examples/lab2/apps/store/src/app/app.component.html) / [.css](../../examples/lab2/apps/store/src/app/app.component.css) / [.ts](../../examples/lab2/apps/store/src/app/app.component.ts) - and replace the full contents of the files)
-8. You can get the example game images from [here](../../examples/lab2/apps/store/src/assets)
+7. **Add some basic styling to your new component** and display the games from the Fake API (to not spend too much time on this, you can copy it from here [.html](../../examples/lab2/apps/store/src/app/app.component.html) / [.css](../../examples/lab2/apps/store/src/app/app.component.css) / [.ts](../../examples/lab2/apps/store/src/app/app.component.ts) - and replace the full contents of the files)
+   + You can get the example game images from [here](../../examples/lab2/apps/store/src/assets)
+      <br />⚠️ Make sure you put them in the correct folder
+   <br /> <br /> 
 
-   ⚠️ Make sure you put them in the correct folder
-
-9. Add the Material Card Module to `app.module.ts`:
+9. **Add the Material Card Module to `app.module.ts`**:
 
    ```ts
    import { MatCardModule } from '@angular/material/card';
    ```
+   <br /> <br /> 
+10. **Serve the app**: `nx serve store`
+   <br /> <br /> 
+11. **See your app** live at [http://localhost:4200/](http://localhost:4200/)
 
-10. Serve the app: `nx serve store`
-
-⚠️ In a company context you might need to define a hostname ``` nx serve store --host=my.host.name  ```
-
-12. See your app live at [http://localhost:4200/](http://localhost:4200/)
-13. Inspect what changed from the last time you committed, then commit your changes
+   ⚠️ In a company context you might need to define a hostname ``` nx serve store --host=my.host.name  ```
+   <br /> <br /> 
+12. **Inspect what changed** from the last time you committed, then **commit your changes**
+   <br /> <br /> 
 
 ---
 

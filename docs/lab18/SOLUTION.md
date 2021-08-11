@@ -23,7 +23,7 @@ nx build store --configuration production
   "executor": "@nrwl/workspace:run-commands",
   "outputs": [],
   "options": {
-    "command": "surge dist/apps/store ${SURGE_DOMAIN} --token ${SURGE_TOKEN}"
+    "command": "surge dist/apps/store ${SURGE_DOMAIN_STORE} --token ${SURGE_TOKEN}"
   }
 }
 ```

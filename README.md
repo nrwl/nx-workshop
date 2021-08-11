@@ -33,7 +33,7 @@ Nx has support for a lot of platforms, but in this workshop we'll be using mainl
 
 Make sure you have the following installed:
 
-- Node.js version 10 and up
+- Node.js version 12.14.1 and up
     - `node --version`
 - [Yarn](https://classic.yarnpkg.com/en/docs/install/)
     - `yarn --version`
@@ -104,5 +104,4 @@ Each lab will contain a link to the next one. Start from **"Lab 1"** and move th
 | 🧭 [Lab 19 - Creating and deploying a 2nd frontend](docs/lab19-alt/LAB.md) | 🧲 [Lab 19 - Deploying the API](docs/lab19/LAB.md) |
 | ⛱️ [Lab 20 - Mock Store](docs/lab20-alt/LAB.md)     | 🎸 [Lab 20 - Connecting the frontend and backend](docs/lab20/LAB.md) |  
 | 🪁 [Lab 21 - Setting up CD for automatic deployment](docs/lab21-alt/LAB.md)     | 🎈 [Lab 21 - Setting up CD for automatic deployment](docs/lab21/LAB.md) |  
-
-- 💈 [Lab 22 - Deploying only what changed](docs/lab22/LAB.md)
+| 💈 [Lab 22 - Deploying only what changed](docs/lab22/LAB.md) | 💈 [Lab 22 - Deploying only what changed](docs/lab22/LAB.md) |

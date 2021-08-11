@@ -1,17 +1,20 @@
-### 💻 Lab 9 - Generate a type lib that the API and frontend can share
+# 💻 Lab 9 - Generate a type lib that the API and frontend can share
 
 ###### ⏰ Estimated time: 15 minutes
+<br />
 
 Now our dependency graph looks a bit disconnected. The frontend and the API still do not have anything in common. The power of Nx libraries is that they can be shared among any number of projects.
 
 We'll look at creating libs to store Typescript interfaces and then we'll use the Nx **Move** generator to move that library around our project, with minimal effort.
+<br /><br />
 
-#### 📚 Learning outcomes:
+## 📚 Learning outcomes:
 
-- Explore other real-world examples of creating shared libs for a specific project
-- Learn to use the `move` generator
+- **Explore other real-world examples of creating shared libs for a specific project**
+- **Learn to use the `move` generator**
+<br /><br /><br />
 
-#### 📲 After this workshop, you should have:
+## 📲 After this workshop, you should have:
 
 <details>
   <summary>App Screenshot</summary>
@@ -22,17 +25,20 @@ We'll look at creating libs to store Typescript interfaces and then we'll use th
   <summary>File structure</summary>
   <img src="../assets/lab9_directory-structure.png" height="700" alt="lab9 file structure">
 </details>
+<br />
 
-#### 🏋️‍♀️ Steps:
+## 🏋️‍♀️ Steps:
 
-1. Stop serving both the API and the frontend
-
-2. Generate a new `@nrwl/workspace` lib called `util-interface` inside the `libs/api` folder.
+1. **Stop serving** both the API and the frontend
+   <br /><br />
+2. **Generate a new `@nrwl/workspace` lib** called `util-interface` inside the `libs/api` folder.
 
    ⚠️ It's **important** that we create it in the `/api` folder for now
+   <br /><br />
 
-3. Create your `Game` interface: see `libs/api/util-interface/src/lib/`[api-util-interface.ts](../../examples/lab9/libs/api/util-interface/src/lib/api-util-interface.ts)
-4. Import it in the API service: `apps/api/src/app/app.service.ts`
+3. **Create your `Game` interface**: see `libs/api/util-interface/src/lib/`[api-util-interface.ts](../../examples/lab9/libs/api/util-interface/src/lib/api-util-interface.ts)
+   <br /><br />
+4. **Import it** in the API service: `apps/api/src/app/app.service.ts`
 
    ⚠️ You might need to restart the Typescript compiler in your editor
 
@@ -45,8 +51,9 @@ We'll look at creating libs to store Typescript interfaces and then we'll use th
    ```
 
    </details>
+   <br />
 
-5. Build the API and make sure there are no errors
+5. **Build the API** and make sure there are no errors
 
    <details>
    <summary>🐳 Hint</summary>
@@ -56,9 +63,11 @@ We'll look at creating libs to store Typescript interfaces and then we'll use th
    ```
 
    </details>
-
-6. Inspect the dependency graph
-7. Make sure to commit everything before proceeding!
+   <br />
+6. **Inspect the dependency graph**
+   <br /><br />
+7. Make sure to **commit everything** before proceeding!
+   <br /><br />
 
 ---
 
@@ -74,7 +83,7 @@ Let's fix that - we already have a `Game` interface in a lib. But it's nested in
 
 ---
 
-8.  Use the `@nrwl/workspace:move` generator to move the interface lib created above into the root `/libs` folder
+8.  Use the `@nrwl/workspace:move` generator to **move the interface lib** created above into the root `/libs` folder
 
     ⚠️ Make sure you use the `--dry-run` flag until you're confident your command is correct
 
@@ -98,8 +107,9 @@ Let's fix that - we already have a `Game` interface in a lib. But it's nested in
     Your library name is `api-util-interface` - to move it to root, its new name needs to be `util-interface`
 
     </details>
+   <br />
 
-8.  We can now import it in the frontend components and use it when making the `http` request:
+8.  We can now **import it in the frontend components** and use it when making the `http` request:
 
     <details>
     <summary>🐳 Hint</summary>
@@ -123,10 +133,13 @@ Let's fix that - we already have a `Game` interface in a lib. But it's nested in
     </details>
 
     ⚠️ Notice how we didn't have to update the imports in the API. The `move` generator took care of that for us!
-
-9.  Trigger a build of both the store and the API projects and make sure it passes
-10. Inspect the dependency graph
-11. Inspect what changed from the last time you committed, then commit your changes
+   <br /><br />
+9.  **Trigger a build** of both the store and the API projects and make sure it passes
+   <br /><br />
+10. **Inspect the dependency graph**
+   <br /><br />
+11. **Inspect what changed** from the last time you committed, then **commit your changes**
+   <br /><br />
 
 ---
 

@@ -1,14 +1,16 @@
-### 💻 Lab 4 - Generate a component lib
+# 💻 Lab 4 - Generate a component lib
 
 ###### ⏰ Estimated time: 10 minutes
 
 Let's add a header to our app! Because headers can be shared with other components, we will create a common lib that others can import as well.
+<br />
 
-#### 📚 Learning outcomes:
+## 📚 Learning outcomes:
 
-- Get familiar with generating project specific component libraries inside a folder
+- **Get familiar with generating project specific component libraries inside a folder**
+<br /><br /><br />
 
-#### 📲 After this workshop, you should have:
+## 📲 After this workshop, you should have:
 
 <details>
   <summary>App Screenshot</summary>
@@ -19,11 +21,14 @@ Let's add a header to our app! Because headers can be shared with other componen
   <summary>File structure</summary>
   <img src="../assets/lab4_directory-structure.png" height="700" alt="lab4 file structure">
 </details>
+<br />
 
-#### 🏋️‍♀️ Steps:
+## 🏋️‍♀️ Steps:
 
-1. Stop the `nx serve`
-2. Generate a new Angular library called `ui-shared` in the `libs/store` folder
+1. **Stop the `nx serve`**
+   <br /> <br /> 
+
+2. **Generate a new Angular library** called `ui-shared` in the `libs/store` folder
 
    <details>
    <summary>🐳 Hint</summary>
@@ -32,8 +37,9 @@ Let's add a header to our app! Because headers can be shared with other componen
    - use the `--help` command to figure out how to generate it in a **directory**
 
    </details>
+   <br /> 
 
-3. Generate a new Angular component, called `header`, inside the lib you just created
+3. **Generate a new Angular component**, called `header`, inside the lib you just created
 
    ⚠️ Play around with the generator options so that the generated component is automatically **exported** from the lib's module
 
@@ -42,8 +48,9 @@ Let's add a header to our app! Because headers can be shared with other componen
    use `--help` to figure out how to specify under which **project** you want to generate the new component and how to automatically have it **exported**
 
    </details>
+   <br /> 
 
-4. Import `MatToolbarModule` in the new shared module you just created
+4. **Import `MatToolbarModule`** in the new shared module you just created
 
 
      <details>
@@ -59,10 +66,11 @@ Let's add a header to our app! Because headers can be shared with other componen
       ```
 
    </details>
+   <br /> 
 
-5. Replace the `header` component's [template](../../examples/lab4/libs/store/ui-shared/src/lib/header/header.component.html) / [class](../../examples/lab4/libs/store/ui-shared/src/lib/header/header.component.ts)
-
-6. Import the `StoreUiSharedModule` you just created in the `apps/store/src/app/app.module.ts`
+5. **Replace the `header` component's [template](../../examples/lab4/libs/store/ui-shared/src/lib/header/header.component.html) / [class](../../examples/lab4/libs/store/ui-shared/src/lib/header/header.component.ts)**
+   <br /> <br /> 
+6. **Import the `StoreUiSharedModule`** you just created in the `apps/store/src/app/app.module.ts`
 
    <details>
    <summary>🐳 Hint</summary>
@@ -74,6 +82,7 @@ Let's add a header to our app! Because headers can be shared with other componen
    </details>
 
    ⚠️ You might need to restart the TS compiler in your editor (`CTRL+SHIFT+P` in VSCode and search for `Restart Typescript`)
+   <br /> <br /> 
 
 7. Let's use the new shared header component we created
 
@@ -89,9 +98,11 @@ Let's add a header to our app! Because headers can be shared with other componen
    ```
 
     </details>
+   <br /> 
 
-8. Serve the project and test the changes
-9. Run the command to inspect the dependency graph - What do you see? (Remember to "Select all" in the top left corner)
+8. **Serve the project** and test the changes
+   <br /> <br /> 
+9. **Run the command to inspect the dependency graph** - What do you see? (Remember to "Select all" in the top left corner)
     <details>
     <summary>🐳 Hint</summary>
 
@@ -100,7 +111,9 @@ Let's add a header to our app! Because headers can be shared with other componen
    ```
 
     </details>
-10. Inspect what changed from the last time you committed, then commit your changes
+   <br /> 
+10. **Inspect what changed** from the last time you committed, then **commit your changes**
+   <br /> <br /> 
 
 ---
 
