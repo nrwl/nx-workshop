@@ -73,6 +73,8 @@ In this lab we'll generate our first Angular application within the new monorepo
 10. **Serve the app**: `nx serve store`
    <br /> <br /> 
 11. **See your app** live at [http://localhost:4200/](http://localhost:4200/)
+
+   ⚠️ In a company context you might need to define a hostname ``` nx serve store --host=my.host.name  ```
    <br /> <br /> 
 12. **Inspect what changed** from the last time you committed, then **commit your changes**
    <br /> <br /> 
