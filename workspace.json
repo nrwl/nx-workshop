@@ -52,6 +52,28 @@
         }
       }
     },
+    "api-util-notifications": {
+      "root": "libs/api/util-notifications",
+      "sourceRoot": "libs/api/util-notifications/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/api/util-notifications/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/api/util-notifications"],
+          "options": {
+            "jestConfig": "libs/api/util-notifications/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "store": {
       "projectType": "application",
       "root": "apps/store",
