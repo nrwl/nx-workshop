@@ -29,31 +29,31 @@
     }
   },
   "projects": {
-    "api": {
-      "tags": []
-    },
     "store": {
-      "tags": []
+      "tags": ["scope:store", "type:app"]
     },
     "store-e2e": {
-      "tags": [],
+      "tags": ["scope:store", "type:e2e"],
       "implicitDependencies": ["store"]
     },
-    "store-feature-game-detail": {
-      "tags": []
-    },
     "store-ui-shared": {
-      "tags": []
-    },
-    "store-ui-shared-e2e": {
-      "tags": [],
-      "implicitDependencies": ["store-ui-shared"]
+      "tags": ["scope:store", "type:ui"]
     },
     "store-util-formatters": {
-      "tags": []
+      "tags": ["scope:store", "type:util"]
+    },
+    "store-feature-game-detail": {
+      "tags": ["scope:store", "type:feature"]
+    },
+    "api": {
+      "tags": ["scope:api", "type:app"]
     },
     "util-interface": {
-      "tags": []
+      "tags": ["scope:shared", "type:util"]
+    },
+    "store-ui-shared-e2e": {
+      "tags": ["scope:store", "type:e2e"],
+      "implicitDependencies": ["store-ui-shared"]
     }
   },
   "targetDependencies": {
