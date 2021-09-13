@@ -1,0 +1,24 @@
+.game-image {
+  width: 300px;
+  border-radius: 20px;
+  margin-right: 20px;
+}
+
+.content {
+  display: flex;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sell-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.buy-button {
+  margin-right: 20px;
+}
