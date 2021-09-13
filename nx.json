@@ -23,6 +23,9 @@
     }
   },
   "projects": {
+    "api": {
+      "tags": []
+    },
     "store": {
       "tags": []
     },
