@@ -17,7 +17,7 @@
   },
   "tasksRunnerOptions": {
     "default": {
-      "runner": "@nrwl/workspace/tasks-runners/default",
+      "runner": "@nrwl/nx-cloud",
       "options": {
         "cacheableOperations": [
           "build",
@@ -25,46 +25,84 @@
           "test",
           "e2e",
           "build-storybook"
-        ]
+        ],
+        "accessToken": "ZGE1OWRlMDEtYmY2MC00NjJkLTk2NDItMGRmMjBlOWJlMTgzfHJlYWQtd3JpdGU="
       }
     }
   },
   "projects": {
     "api": {
-      "tags": ["scope:api", "type:app"]
+      "tags": [
+        "scope:api",
+        "type:app"
+      ]
     },
     "api-util-notifications": {
-      "tags": ["type:util", "scope:api"]
+      "tags": [
+        "type:util",
+        "scope:api"
+      ]
     },
     "store": {
-      "tags": ["scope:store", "type:app"]
+      "tags": [
+        "scope:store",
+        "type:app"
+      ]
     },
     "store-e2e": {
-      "tags": ["scope:store", "type:e2e"],
-      "implicitDependencies": ["store"]
+      "tags": [
+        "scope:store",
+        "type:e2e"
+      ],
+      "implicitDependencies": [
+        "store"
+      ]
     },
     "store-feature-game-detail": {
-      "tags": ["scope:store", "type:feature"]
+      "tags": [
+        "scope:store",
+        "type:feature"
+      ]
     },
     "store-ui-shared": {
-      "tags": ["scope:store", "type:ui"]
+      "tags": [
+        "scope:store",
+        "type:ui"
+      ]
     },
     "store-ui-shared-e2e": {
-      "tags": ["scope:store", "type:e2e"],
-      "implicitDependencies": ["store-ui-shared"]
+      "tags": [
+        "scope:store",
+        "type:e2e"
+      ],
+      "implicitDependencies": [
+        "store-ui-shared"
+      ]
     },
     "store-util-formatters": {
-      "tags": ["scope:store", "type:util"]
+      "tags": [
+        "scope:store",
+        "type:util"
+      ]
     },
     "util-interface": {
-      "tags": ["scope:shared", "type:util"]
+      "tags": [
+        "scope:shared",
+        "type:util"
+      ]
     },
     "video-games": {
-      "tags": ["scope:video-games"]
+      "tags": [
+        "scope:video-games"
+      ]
     },
     "video-games-e2e": {
-      "tags": ["scope:video"],
-      "implicitDependencies": ["video-games"]
+      "tags": [
+        "scope:video"
+      ],
+      "implicitDependencies": [
+        "video-games"
+      ]
     }
   },
   "targetDependencies": {
