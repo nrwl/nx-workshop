@@ -27,6 +27,10 @@ This is what we'll build:
 
   <img src="docs/assets/game-demo.gif" height="700" alt="lab4 file structure">
 
+##### Slides
+
+Can be found [here](https://bit.ly/393cP6G)
+
 ### Pre-requisites
 
 Nx has support for a lot of platforms, but in this workshop we'll be using mainly Angular. While all the code for any Angular specific work will be provided, it will help if you have some experience with the Angular ecosystem.
