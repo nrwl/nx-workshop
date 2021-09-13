@@ -5,6 +5,7 @@
   },
   "implicitDependencies": {
     "workspace.json": "*",
+    ".github/workflows/ci.yml": "*",
     "package.json": {
       "dependencies": "*",
       "devDependencies": "*"
