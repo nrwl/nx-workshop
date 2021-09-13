@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "cli": "nx",
+  "$id": "util-lib",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Library name",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      }
+    },
+    "directory": {
+      "type": "string",
+      "description": "The scope of your lib.",
+      "x-prompt": {
+        "message": "Which directory do you want the lib to be in?",
+        "type": "list",
+        "items": [
+          {
+            "value": "store",
+            "label": "store"
+          },
+          {
+            "value": "api",
+            "label": "api"
+          },
+          {
+            "value": "shared",
+            "label": "shared"
+          }
+        ]
+      }
+    }
+  },
+  "required": ["name"]
+}
