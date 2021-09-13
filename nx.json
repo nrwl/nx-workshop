@@ -22,7 +22,15 @@
       }
     }
   },
-  "projects": {},
+  "projects": {
+    "store": {
+      "tags": []
+    },
+    "store-e2e": {
+      "tags": [],
+      "implicitDependencies": ["store"]
+    }
+  },
   "targetDependencies": {
     "build": [
       {
