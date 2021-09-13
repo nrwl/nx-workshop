@@ -64,6 +64,8 @@ will never miss a deployment
     ```yml
     - uses: bahmutov/npm-install@v1
     - uses: nrwl/nx-set-shas@v2
+      with:
+        main-branch-name: 'main' # remember to set this correctly
     ```
     <br />
     

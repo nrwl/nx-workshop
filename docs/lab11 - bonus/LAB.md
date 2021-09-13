@@ -20,7 +20,7 @@ The storybook generator we invoked earlier also generated some e2e tests. Let's 
 
    ```ts
    cy.visit(
-     '/iframe.html?id=headercomponent--primary&knob-title=BoardGameHoard'
+      '/iframe.html?id=headercomponent--primary&args=title:BoardGameHoard;'
    )
    ```
    <br /><br />

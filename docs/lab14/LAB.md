@@ -20,10 +20,10 @@
    <details>
    <summary>🐳 Hint</summary>
 
-   - Refer to the [docs](https://nx.dev/latest/angular/core-concepts/nx-devkit#nx-devkit)
+   - Refer to the [docs](https://nx.dev/latest/angular/nx-devkit/index#updatejson)
    - Use this utility:
      - `import { updateJson } from '@nrwl/devkit';`
-   - As always, the answer is in the [the solution](INC-VERSION-SOLUTION.md). Try a few different approaches on your own first.
+   - As always, the answer is in the [the solution](SOLUTION.md). Try a few different approaches on your own first.
    </details>
 
    ⚠️ When you run the above, it might complain that you haven't supplied a `name`. Since
@@ -35,8 +35,8 @@
    - When large teams work in the same workspace, they will occasionally be adding new projects and hence, **new scope tags**
    - We want to make sure that scope tags specified in our `util-lib` generator are up to date and take into account all these new scopes that teams have been adding
    - We want to check if there is a new scope tag in `nx.json` and update our generator schema
-   - We can use `readJson` util for reading the file (we don't need to update it)
-   - **BONUS:** Modify your generator so it fetches list of scopes from `projects` in `nx.json` and updates the schema in util-lib
+   - We can use [`readJson`](https://nx.dev/latest/angular/nx-devkit/index#readjson) util for reading the `nx.json` file 
+   - **BONUS:** Modify your generator so it fetches list of scopes from `projects` in `nx.json` and updates the schema in util-lib with any new ones
 
    ⚠️ You can use the function provided in the Hint to extract the `scopes`
 
@@ -96,6 +96,17 @@
    <br />
 
 6. So we can test our changes, create a new app and define a scope for it.
+
+     <details>
+   <summary>🐳 Hint</summary>
+
+   ```shell
+   nx generate app vide-games --tags=scope:vide-games
+   ```
+
+   </details>
+   <br />
+
 7. Run your generator and notice the resulting changes. Commit them so you start fresh on your next lab.
    <br /> <br />
 

@@ -42,7 +42,7 @@
     ⚠️ Make sure you chose a **unique value** for your domain above, otherwise
     it will fail as you won't have permission to deploy to an existing one.
     
-    ⚠️ You should see surge deploying to your URL - if you click you'll see just the header though, because it doesn't have a server yet to get the games from.
+    ⚠️ You should see surge deploying to your URL - if you click you'll see just the header though, because it doesn't have a server yet to get the games from (the Network Dev Tools tab will have failing requests).
     <br /> <br />
 
 7. Let's now abstract away the above command into an Nx target. Generate a new **"deploy"** target using the `@nrwl/workspace:run-commands` generator:
@@ -80,14 +80,6 @@
     </details>
     <br />
 
-10. Since we're deploying, it's a good idea to make sure the store is built for production - we did that in one of the initial labs.
-    <details>
-    <summary>🐳 Hint</summary>
-    
-    Consult the [the solution](SOLUTION.md) if you don't remember how.
-    </details>
-    <br />
- 
 11. Now invoke the deploy target again, and check if it all still works.
  
      ⚠️ Note for Windows users: the command might fail, as we're trying to access env variables the Linux-way.

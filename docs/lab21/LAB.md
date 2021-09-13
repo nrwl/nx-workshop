@@ -49,7 +49,7 @@
 
     ```yml
     env:
-      SURGE_DOMAIN: ${{ secrets.SURGE_DOMAIN }}
+      SURGE_DOMAIN_STORE: ${{ secrets.SURGE_DOMAIN_STORE }}
       SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
       HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
     ```

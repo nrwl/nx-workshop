@@ -44,17 +44,17 @@ We'll build the app we just created, and look at what executors are and how to c
    - this is the **target**, and it has a **executor** option, that points to `@angular-devkit/build-angular:browser`
    - Remember how we copied some images into our `/assets` folder earlier? Look through the executor options and try to find how it knows to include them in the final build!
    <br /> <br /> 
-4. **Send a flag to the executor** so that it builds for production
+4. Notice the `defaultConfiguration` executor option is pointing to `production`. This means it applies all the prod optimisations to our outputs, as per the `production` configuration in `workspace.json`. **Send a flag to the executor** so that it builds for development instead.
 
    <details>
    <summary>🐳 Hint</summary>
 
-   `--configuration=production`
+   `--configuration=development`
 
    </details>
    <br /> 
 
-5. **Open up the `dist` folder** again - notice how we now generated a `3rdpartylicenses.txt` file, as per the "production" configuration in `workspace.json`
+5. **Open up the `dist` folder** again - notice how all the file names have no hashes, and the contents themselves are human readable. 
    <br /> <br /> 
 6. **Modify `workspace.json`** and instruct the executor to import the Angular Material styles: `./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css`
 

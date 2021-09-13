@@ -57,7 +57,6 @@ and bring it up to date:
       
     ```
    
-   ⚠️ Make sure to remove the "helper" comments above.
    <br /> <br />
 
 3. Commit and then switch to a new branch:

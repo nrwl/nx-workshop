@@ -15,22 +15,6 @@
    <br /> <br />
 2. Switch to a new branch: `git checkout -b nxcloud-bot`
    <br /> <br />
-3. Add these env variables to your GitHub actions config:
-
-    ```
-    name: Run CI checks
-    
-    on: [pull_request]
-    
-    env:
-      NX_BRANCH: ${{ github.event.number }}
-      NX_RUN_GROUP: ${{ github.run_id }}
-    
-    jobs:
-      build:
-        ......
-    ```
-    <br /> <br />
 
 4. Make a change in the store: `apps/store/src/app/app.component.ts` (so that it will trigger our affected commands in CI):
 
@@ -41,7 +25,6 @@
       }
     ```
 
-   ⚠️ If you already added the `ci.yml` as an implicit dependency of `*`, this step is **optional**
    <br /> <br />
 
 5. Commit everything and push your branch

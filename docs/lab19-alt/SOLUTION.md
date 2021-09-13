@@ -101,3 +101,8 @@ export function underscoreWithCaps(value: string): string {
 }
 ```
 
+##### Deploy all projects in parallel
+
+```shell
+nx run-many --all --target=deploy --parallel
+```
