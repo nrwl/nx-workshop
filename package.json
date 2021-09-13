@@ -46,6 +46,7 @@
     "@nrwl/nest": "^12.9.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "~6.6.0",
+    "surge": "^0.23.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.4"
   },
