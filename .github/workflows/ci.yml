@@ -30,4 +30,4 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - uses: bahmutov/npm-install@v1.4.5
-      - run: npm run nx affected -- --target=e2e --base=origin/master --parallel
+      - run: npm run nx affected -- --target=e2e --base=origin/master --parallel #
