@@ -1,0 +1,21 @@
+{
+  "cli": "nx",
+  "id": "add-deploy-target",
+  "type": "object",
+  "properties": {
+    "project": {
+      "type": "string",
+      "description": "Project name to generate the deploy target for",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      }
+    },
+    "subdomain": {
+      "type": "string",
+      "description": "Surge subdomain where you want it deployed.",
+      "x-prompt": "What is the Surge subdomain you want it deployed under? (https://<your-subdomain>.surge.sh)"
+    }
+  },
+  "required": ["project", "subdomain"]
+}
