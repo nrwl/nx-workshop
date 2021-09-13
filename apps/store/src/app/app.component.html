@@ -3,7 +3,7 @@
   <div class="games-layout">
     <mat-card
       class="game-card"
-      *ngFor="let game of games | async"
+      *ngFor="let game of games"
       [routerLink]="['/game', game.id]"
     >
       <mat-card-header class="center-content">
