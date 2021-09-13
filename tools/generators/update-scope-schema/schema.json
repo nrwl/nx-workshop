@@ -1,0 +1,8 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "cli": "nx",
+  "$id": "update-scope-schema",
+  "type": "object",
+  "properties": {},
+  "required": []
+}
