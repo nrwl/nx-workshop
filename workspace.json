@@ -347,6 +347,125 @@
           }
         }
       }
+    },
+    "video-games": {
+      "projectType": "application",
+      "root": "apps/video-games",
+      "sourceRoot": "apps/video-games/src",
+      "prefix": "bg-hoard",
+      "targets": {
+        "build": {
+          "executor": "@angular-devkit/build-angular:browser",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/video-games",
+            "index": "apps/video-games/src/index.html",
+            "main": "apps/video-games/src/main.ts",
+            "polyfills": "apps/video-games/src/polyfills.ts",
+            "tsConfig": "apps/video-games/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "apps/video-games/src/favicon.ico",
+              "apps/video-games/src/assets"
+            ],
+            "styles": ["apps/video-games/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/video-games/src/environments/environment.ts",
+                  "with": "apps/video-games/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "executor": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "video-games:build:production"
+            },
+            "development": {
+              "browserTarget": "video-games:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "executor": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "video-games:build"
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/video-games/src/**/*.ts",
+              "apps/video-games/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/video-games"],
+          "options": {
+            "jestConfig": "apps/video-games/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "video-games-e2e": {
+      "root": "apps/video-games-e2e",
+      "sourceRoot": "apps/video-games-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/video-games-e2e/cypress.json",
+            "devServerTarget": "video-games:serve:development"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "video-games:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/video-games-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
     }
   },
   "cli": {

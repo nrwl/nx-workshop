@@ -57,6 +57,13 @@
     },
     "util-interface": {
       "tags": ["scope:shared", "type:util"]
+    },
+    "video-games": {
+      "tags": ["scope:video-games"]
+    },
+    "video-games-e2e": {
+      "tags": ["scope:video"],
+      "implicitDependencies": ["video-games"]
     }
   },
   "targetDependencies": {
