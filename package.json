@@ -27,16 +27,14 @@
     "cherry-pick-all": "./tools/cherry-pick-all.sh"
   },
   "private": true,
-  "dependencies": {},
   "devDependencies": {
-    "@nrwl/tao": "12.9.0",
     "@nrwl/cli": "12.9.0",
+    "@nrwl/tao": "12.9.0",
     "@nrwl/workspace": "12.9.0",
     "@types/node": "12.12.38",
     "dotenv": "10.0.0",
+    "prettier": "2.4.0",
     "ts-node": "~9.1.1",
-    "typescript": "4.3.5",
-    "prettier": "2.4.0"
+    "typescript": "4.3.5"
   }
 }
-
