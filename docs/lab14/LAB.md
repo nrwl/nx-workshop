@@ -57,7 +57,7 @@
        // remove prefix `scope:`
        .map((scope: string) => scope.slice(6));
      // remove duplicates
-     return [...new Set(allScopes)];
+     return Array.from(new Set(allScopes));
    }
    ```
 
