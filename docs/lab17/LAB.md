@@ -16,7 +16,7 @@
 2. Switch to a new branch: `git checkout -b nxcloud-bot`
    <br /> <br />
 
-4. Make a change in the store: `apps/store/src/app/app.component.ts` (so that it will trigger our affected commands in CI):
+3. Make a change in the store: `apps/store/src/app/app.component.ts` (so that it will trigger our affected commands in CI):
 
     ```
     export class AppComponent {
@@ -27,16 +27,16 @@
 
    <br /> <br />
 
-5. Commit everything and push your branch
+4. Commit everything and push your branch
    <br /> <br />
-6. Make a PR on GitHub
+5. Make a PR on GitHub
    <br /> <br />
-7. Once the checks finish you should see something similar to this:
+6. Once the checks finish you should see something similar to this:
 
     ![NxCloud Bot](./nx_cloud_bot.png)
     <br />
     
-8. Click on one of the "failed" commands (if any). On the "Run Details" page, click on one of the projects and inspect the terminal output:
+7. Click on one of the "failed" commands (if any). On the "Run Details" page, click on one of the projects and inspect the terminal output:
 
     ![Nx Cloud project](./nx-cloud-projects.png)
     
@@ -44,21 +44,24 @@
 
     <br /> <br />
     
-9. Have a look at the "Cache Hit" and "Cache Miss" filters. What do you think they do?
+8. Have a look at the "Cache Hit" and "Cache Miss" filters. What do you think they do?
 
     ![Cache hit/miss](./cache_hit_miss.png)
     <br />
     
-10. Finally, you should see a "Claim workspace" button at the top - it's a good idea to do that at this stage. We'll explain more about that in a bit!
+9. Finally, you should see a "Claim workspace" button at the top - it's a good idea to do that at this stage. We'll explain more about that in a bit!
    <br /> <br />
 
-11. Merge your PR into master and pull latest locally:
+10. Merge your PR into master and pull latest locally:
 
     ```
     git checkout master
     git pull
     ```
     <br />
+
+11. **BONUS**: [Have a look at some of the docs](https://nx.app/docs/configuring-ci) for setting up NxCloud on CI to see how the set-up might apply to your CI provider.
+12. **BONUS**: Read this blog post on "Distributed Task Execution". We'll briefly talk about this after the lab.
 
 ---
 
