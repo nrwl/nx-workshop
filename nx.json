@@ -1,5 +1,5 @@
 {
-  "npmScope": "bg-hoard",
+  "npmScope": "nrwl",
   "affected": {
     "defaultBase": "master"
   },
@@ -22,7 +22,6 @@
       }
     }
   },
-  "projects": {},
   "targetDependencies": {
     "build": [
       {
@@ -30,5 +29,8 @@
         "projects": "dependencies"
       }
     ]
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/workspace"
   }
 }

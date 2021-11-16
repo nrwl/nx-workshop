@@ -1,6 +1,7 @@
 # 💻 Lab 8 - Displaying a full game in the routed game-detail component
 
 ###### ⏰ Estimated time: 15-20 minutes
+
 <br />
 
 Now we have a proper API that we can use to make HTTP requests. We'll look at how the Nrwl NestJS generators created a helpful proxy configuration for us.
@@ -9,7 +10,7 @@ Now we have a proper API that we can use to make HTTP requests. We'll look at ho
 ## 📚 Learning outcomes:
 
 - **Learn how to connect frontend and backend apps in an Nx workspace**
-<br /><br /><br />
+  <br /><br /><br />
 
 ## 📲 After this workshop, you should have:
 
@@ -21,7 +22,7 @@ Now we have a proper API that we can use to make HTTP requests. We'll look at ho
 
 ## 🏋️‍♀️ Steps:
 
-1. **Import the `HttpClientModule`** in `apps/store/src/app.module.ts` and add it to the module's imports array:
+1. **Import the `HttpClientModule`** in `apps/store/src/app/app.module.ts` and add it to the module's imports array:
 
    <details>
    <summary>🐳 Hint</summary>
@@ -38,7 +39,7 @@ Now we have a proper API that we can use to make HTTP requests. We'll look at ho
    ⚠️ _Notice how we assume it will be available at `/api` (more on that below)_
    <br /><br />
 
-4. Because our list of `games` is now an Observable, we need to **add an `async` pipe** in the template that gets the games:
+3. Because our list of `games` is now an Observable, we need to **add an `async` pipe** in the template that gets the games:
 
    <details>
    <summary>🐳 Hint</summary>
@@ -46,7 +47,9 @@ Now we have a proper API that we can use to make HTTP requests. We'll look at ho
    ```html
    <mat-card
      class="game-card"
-     *ngFor="let game of games | async" <-- HERE
+     *ngFor="let game of games | async"
+     <--
+     HERE
      [routerLink]="['/game', game.id]"
      >...</mat-card
    >
@@ -55,18 +58,18 @@ Now we have a proper API that we can use to make HTTP requests. We'll look at ho
    </details>
    <br />
 
-5. **Run `nx serve api`**
+4. **Run `nx serve api`**
 
    ⚠️ Notice the _PORT_ number
    <br /><br />
 
-6. In a different tab, **run `nx serve store`**
+5. In a different tab, **run `nx serve store`**
 
    ⚠️ Again, notice the _PORT_ number
    <br /><br />
 
-7. Everything should still look/function the same!
-   
+6. Everything should still look/function the same!
+
    🎓 You can inspect your Network tab in the dev tools and notice an XHR request made to `http://localhost:4200/api/games`
    <br /><br />
 
@@ -90,7 +93,7 @@ Now let's load the full game in our routed component!
 9. Your component should look similar to the provided screenshot! (you might need to restart your `nx serve store` so the new button styles can be copied over)
    <br /><br />
 10. **Inspect what changed** from the last time you committed, then **commit your changes**
-   <br /><br />
+    <br /><br />
 
 ---
 

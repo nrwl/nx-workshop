@@ -1,0 +1,10 @@
+{
+  "name": "@nrwl/nx-workshop",
+  "version": "0.1.22",
+  "main": "src/index.js",
+  "generators": "./generators.json",
+  "executors": "./executors.json",
+  "nx-migrations": {
+    "migrations": "./migrations.json"
+  }
+}

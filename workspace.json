@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "projects": {},
-  "cli": {
-    "defaultCollection": "@nrwl/workspace"
+  "projects": {
+    "nx-workshop": "libs/nx-workshop",
+    "nx-workshop-e2e": "apps/nx-workshop-e2e"
   }
 }

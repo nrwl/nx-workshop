@@ -1,0 +1,26 @@
+{
+  "root": "apps/nx-workshop-e2e",
+  "projectType": "application",
+  "sourceRoot": "apps/nx-workshop-e2e/src",
+  "targets": {
+    "build-migrations": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "parallel": false,
+        "commands": [
+          "npx nx build nx-workshop",
+          "cp -R dist/libs/nx-workshop/* tmp/nx-e2e/proj/node_modules/@nrwl/nx-workshop"
+        ]
+      }
+    },
+    "e2e": {
+      "executor": "@nrwl/nx-plugin:e2e",
+      "options": {
+        "target": "nx-workshop:build",
+        "jestConfig": "apps/nx-workshop-e2e/jest.config.js"
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["nx-workshop"]
+}
