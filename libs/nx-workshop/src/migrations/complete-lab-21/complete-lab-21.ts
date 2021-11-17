@@ -4,7 +4,7 @@ export default function update(host: Tree) {
   const { herokuName } = readJsonFile('.nx-workshop.json');
 
   host.write(
-    '.github/workflows/deploy.yml`',
+    '.github/workflows/deploy.yml',
     `
 name: Deploy Website
 

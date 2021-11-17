@@ -73,6 +73,8 @@ export default async function update(tree: Tree) {
   }
   // Lab 19-alt
   tree.delete('tools/generators/add-deploy-target');
+  // Lab 21
+  tree.delete('.github/workflows/deploy.yml');
   // Set npmScope to bg-hoard
   updateJson(tree, 'nx.json', (json) => {
     json.npmScope = 'bg-hoard';
