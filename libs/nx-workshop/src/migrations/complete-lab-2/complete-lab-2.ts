@@ -18,8 +18,8 @@ export default async function update(tree: Tree) {
   await addDependenciesToPackageJson(
     tree,
     {
-      '@angular/cdk': 'latest',
-      '@angular/material': 'latest',
+      '@angular/cdk': '^12.2.0',
+      '@angular/material': '^12.2.0',
     },
     {
       '@nrwl/angular': nxVersion,

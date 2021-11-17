@@ -1,11 +1,15 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { addDependenciesToPackageJson, Tree, updateJson } from '@nrwl/devkit';
 import { uniq } from '@nrwl/nx-plugin/testing';
-import { readJsonFile, runCommandsGenerator } from '@nrwl/workspace';
+import {
+  formatFiles,
+  readJsonFile,
+  runCommandsGenerator,
+} from '@nrwl/workspace';
 import { execSync } from 'child_process';
 
-export default function update(host: Tree) {
-  addDependenciesToPackageJson(
+export default async function update(host: Tree) {
+  await addDependenciesToPackageJson(
     host,
     {},
     {
@@ -42,4 +46,6 @@ export default function update(host: Tree) {
     project: 'store',
     command: `surge dist/apps/store https://${surgeName}.surge.sh --token ${surgeToken}`,
   });
+
+  await formatFiles();
 }
