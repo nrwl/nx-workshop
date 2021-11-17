@@ -1,0 +1,166 @@
+{
+  "generators": {
+    "complete-lab-1": {
+      "version": "0.1.1",
+      "description": "Complete Lab 1",
+      "cli": "nx",
+      "implementation": "./src/migrations/complete-lab-1/complete-lab-1"
+    },
+    "complete-lab-2": {
+      "version": "0.1.2",
+      "description": "Complete Lab 2",
+      "cli": "nx",
+      "implementation": "./src/migrations/complete-lab-2/complete-lab-2"
+    },
+    "complete-lab-3": {
+      "version": "0.1.3",
+      "description": "Complete Lab 3",
+      "cli": "nx",
+      "implementation": "./src/migrations/complete-lab-3/complete-lab-3"
+    },
+    "complete-lab-4": {
+      "version": "0.1.4",
+      "description": "Complete Lab 4",
+      "cli": "nx",
+      "implementation": "./src/migrations/complete-lab-4/complete-lab-4"
+    },
+    "complete-lab-5": {
+      "version": "0.1.5",
+      "description": "Complete Lab 5",
+      "cli": "nx",
+      "implementation": "./src/migrations/complete-lab-5/complete-lab-5"
+    },
+    "complete-lab-6": {
+      "version": "0.1.6",
+      "description": "Complete Lab 6",
+      "cli": "nx",
+      "implementation": "./src/migrations/complete-lab-6/complete-lab-6"
+    },
+    "complete-lab-7": {
+      "version": "0.1.7",
+      "description": "Complete Lab 7",
+      "cli": "nx",
+      "implementation": "./src/migrations/complete-lab-7/complete-lab-7"
+    },
+    "complete-lab-8": {
+      "version": "0.1.8",
+      "description": "Complete Lab 8",
+      "cli": "nx",
+      "implementation": "./src/migrations/complete-lab-8/complete-lab-8"
+    },
+    "complete-lab-9": {
+      "version": "0.1.9",
+      "description": "Complete Lab 9",
+      "cli": "nx",
+      "implementation": "./src/migrations/complete-lab-9/complete-lab-9"
+    },
+    "complete-lab-10": {
+      "version": "0.1.10",
+      "description": "Complete Lab 10",
+      "cli": "nx",
+      "implementation": "./src/migrations/complete-lab-10/complete-lab-10"
+    },
+    "complete-lab-11": {
+      "version": "0.1.11",
+      "description": "Complete Lab 11",
+      "cli": "nx",
+      "implementation": "./src/migrations/complete-lab-11/complete-lab-11"
+    },
+    "complete-lab-12": {
+      "version": "0.1.12",
+      "description": "Complete Lab 12",
+      "cli": "nx",
+      "implementation": "./src/migrations/complete-lab-12/complete-lab-12"
+    },
+    "complete-lab-13a": {
+      "version": "0.1.13",
+      "description": "Complete Lab 13a",
+      "cli": "nx",
+      "implementation": "./src/migrations/complete-lab-13/complete-lab-13a"
+    },
+    "complete-lab-13b": {
+      "version": "0.1.13",
+      "description": "Complete Lab 13b",
+      "cli": "nx",
+      "implementation": "./src/migrations/complete-lab-13/complete-lab-13b"
+    },
+    "complete-lab-13c": {
+      "version": "0.1.13",
+      "description": "Complete Lab 13c",
+      "cli": "nx",
+      "implementation": "./src/migrations/complete-lab-13/complete-lab-13c"
+    },
+    "complete-lab-14": {
+      "version": "0.1.14",
+      "description": "Complete Lab 14",
+      "cli": "nx",
+      "implementation": "./src/migrations/complete-lab-14/complete-lab-14"
+    },
+    "complete-lab-15": {
+      "version": "0.1.15",
+      "description": "Complete Lab 15",
+      "cli": "nx",
+      "implementation": "./src/migrations/complete-lab-15/complete-lab-15"
+    },
+    "complete-lab-16": {
+      "version": "0.1.16",
+      "description": "Complete Lab 16",
+      "cli": "nx",
+      "implementation": "./src/migrations/complete-lab-16/complete-lab-16"
+    },
+    "complete-lab-17": {
+      "version": "0.1.17",
+      "description": "Complete Lab 17",
+      "cli": "nx",
+      "implementation": "./src/migrations/complete-lab-17/complete-lab-17"
+    },
+    "complete-lab-18": {
+      "version": "0.1.18",
+      "description": "Complete Lab 18",
+      "cli": "nx",
+      "implementation": "./src/migrations/complete-lab-18/complete-lab-18"
+    },
+    "complete-lab-19": {
+      "version": "0.1.19",
+      "description": "Complete Lab 19",
+      "cli": "nx",
+      "implementation": "./src/migrations/complete-lab-19/complete-lab-19"
+    },
+    "complete-lab-19-alt": {
+      "version": "0.1.19-alt",
+      "description": "Complete Lab 19-alt",
+      "cli": "nx",
+      "implementation": "./src/migrations/complete-lab-19-alt/complete-lab-19-alt"
+    },
+    "complete-lab-20": {
+      "version": "0.1.20",
+      "description": "Complete Lab 20",
+      "cli": "nx",
+      "implementation": "./src/migrations/complete-lab-20/complete-lab-20"
+    },
+    "complete-lab-20-alt": {
+      "version": "0.1.20-alt",
+      "description": "Complete Lab 20-alt",
+      "cli": "nx",
+      "implementation": "./src/migrations/complete-lab-20-alt/complete-lab-20-alt"
+    },
+    "complete-lab-21": {
+      "version": "0.1.21",
+      "description": "Complete Lab 21",
+      "cli": "nx",
+      "implementation": "./src/migrations/complete-lab-21/complete-lab-21"
+    },
+    "complete-lab-21-alt": {
+      "version": "0.1.21-alt",
+      "description": "Complete Lab 21-alt",
+      "cli": "nx",
+      "implementation": "./src/migrations/complete-lab-21-alt/complete-lab-21-alt"
+    },
+    "complete-lab-22": {
+      "version": "0.1.22",
+      "description": "Complete Lab 22",
+      "cli": "nx",
+      "implementation": "./src/migrations/complete-lab-22/complete-lab-22"
+    }
+  }
+}

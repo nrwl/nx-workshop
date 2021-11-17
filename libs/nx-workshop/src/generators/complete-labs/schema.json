@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "cli": "nx",
+  "$id": "CompleteLabs",
+  "title": "",
+  "type": "object",
+  "properties": {
+    "lab": {
+      "type": "number",
+      "description": "Complete a single lab",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      }
+    },
+    "option": {
+      "type": "string",
+      "enum": ["option1", "option2"],
+      "description": "Complete labs in option 1 or option 2 of the second day"
+    },
+    "from": {
+      "type": "number",
+      "description": "Complete a range of labs starting at this lab (inclusive)"
+    },
+    "to": {
+      "type": "number",
+      "description": "Complete a range of labs ending at this lab (inclusive)"
+    }
+  },
+  "required": []
+}
