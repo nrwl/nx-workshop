@@ -2,7 +2,7 @@ Hi to everyone at {{ company/ conference }}!
 
 {{ co-speaker name }} and I are very excited to be able to have some time with you in the upcoming two days!
 
-Here is a link to the repo we'll be using for the workshop: https://github.com/nrwl/nx-react-workshop
+Here is a link to the repo we'll be using for the workshop: https://github.com/nrwl/nx-workshop
 
 This repo includes the lab instructions as well as code snippets we'll be using in the workshop. The repo also includes branches that can be used to `jump ahead` to the start of another lab when necessary. Please take the opportunity to check this repo and ensure that the prerequisites are satisfied (excerpt below for your convenience!
 
