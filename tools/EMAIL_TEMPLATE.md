@@ -22,7 +22,7 @@ Looking forward to meeting you all!
 Nx has support for a lot of platforms, but in this workshop we'll be using Angular. While all the code for any Angular specific work will be provided, it will help if you have some experience with the Angular ecosystem.
 
 Make sure you have the following installed:
-- Node.js version 12.14.1 and up (14 recommended, but other versions might be okay as well)
+- Node.js version 12.14.1 and up (16 recommended, but other versions might be okay as well)
   - `node --version`
 - A Github account
   - http://github.com
