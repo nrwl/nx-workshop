@@ -1,13 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import {
-  addProviderToModule,
-  getTsSourceFile,
-} from '@nrwl/angular/src/utils/nx-devkit/ast-utils';
-import { readJsonFile, Tree } from '@nrwl/devkit';
+import { insertNgModuleImport } from '@nrwl/angular/src/generators/utils';
+import { formatFiles, readJsonFile, Tree } from '@nrwl/devkit';
 import { insertImport } from '@nrwl/workspace/src/generators/utils/insert-import';
 import { replaceInFile } from '../utils';
 
-export default function update(host: Tree) {
+export default async function update(host: Tree) {
   const { herokuName } = readJsonFile('.nx-workshop.json');
   host.write(
     'apps/store/src/environments/environment.prod.ts',
@@ -27,10 +24,8 @@ export default function update(host: Tree) {
   );
 
   const modulePath = 'apps/store/src/app/app.module.ts';
-  let sourceFile = getTsSourceFile(host, modulePath);
-  sourceFile = addProviderToModule(
+  insertNgModuleImport(
     host,
-    sourceFile,
     modulePath,
     `{
   provide: 'baseUrl',
@@ -68,4 +63,5 @@ export default function update(host: Tree) {
     'this.http.get<Game>(`/api/games/${id}`)',
     'this.http.get<Game>(`${this.baseUrl}/api/games/${id}`)'
   );
+  await formatFiles(host);
 }

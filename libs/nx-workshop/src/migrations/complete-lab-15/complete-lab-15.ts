@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Tree, updateJson } from '@nrwl/devkit';
+import { formatFiles, Tree, updateJson } from '@nrwl/devkit';
 
-export default function update(host: Tree) {
+export default async function update(host: Tree) {
   host.write(
     '.github/workflows/ci.yml',
     `
@@ -44,4 +44,5 @@ jobs:
     json['implicitDependencies']['.github/workflows/ci.yml'] = '*';
     return json;
   });
+  await formatFiles(host);
 }

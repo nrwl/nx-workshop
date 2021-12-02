@@ -1,10 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { formatFiles, Tree } from '@nrwl/devkit';
-import { insertImport } from '@nrwl/workspace/src/generators/utils/insert-import';
-import { tsquery } from '@phenomnomnominal/tsquery';
 import { replaceInFile } from '../utils';
 
-export default function update(host: Tree) {
+export default async function update(host: Tree) {
   host.write(
     'apps/store/src/fake-api/index.ts',
     `
@@ -54,5 +52,5 @@ export default function update(host: Tree) {
     'games'
   );
 
-  formatFiles(host);
+  await formatFiles(host);
 }

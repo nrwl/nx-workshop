@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Tree, updateJson } from '@nrwl/devkit';
+import { Tree, formatFiles } from '@nrwl/devkit';
 
-export default function update(host: Tree) {
+export default async function update(host: Tree) {
   host.write(
     '.github/workflows/ci.yml',
     `
@@ -44,4 +44,5 @@ jobs:
       - run: npm run nx affected -- --target=e2e --base=origin/master --parallel
 `
   );
+  await formatFiles(host);
 }

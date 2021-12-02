@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Tree } from '@nrwl/devkit';
+import { formatFiles, Tree } from '@nrwl/devkit';
 import workspaceGenerator from '@nrwl/workspace/src/generators/workspace-generator/workspace-generator';
 
-export default function update(host: Tree) {
+export default async function update(host: Tree) {
   // nx generate @nrwl/workspace:workspace-generator util-lib
   workspaceGenerator(host, {
     name: 'util-lib',
@@ -67,4 +67,5 @@ export default function update(host: Tree) {
   }
 `
   );
+  await formatFiles(host);
 }

@@ -1,12 +1,13 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import {
+  formatFiles,
   readProjectConfiguration,
   Tree,
   updateJson,
   updateProjectConfiguration,
 } from '@nrwl/devkit';
 
-export default function update(host: Tree) {
+export default async function update(host: Tree) {
   const projectUpdates = {
     store: {
       tags: ['scope:store', 'type:app'],
@@ -70,4 +71,5 @@ export default function update(host: Tree) {
     ];
     return json;
   });
+  await formatFiles(host);
 }

@@ -8,7 +8,7 @@ import {
 import { applicationGenerator } from '@nrwl/nest';
 import { runCommandsGenerator } from '@nrwl/workspace';
 import workspaceGenerator from '@nrwl/workspace/src/generators/workspace-generator/workspace-generator';
-import { nxVersion } from '../version';
+import { dependencies } from '../../../package.json';
 
 export default async function update(host: Tree) {
   // yarn add @nrwl/nest # or "npm i -S @nrwl/nest"
@@ -16,7 +16,7 @@ export default async function update(host: Tree) {
     host,
     {},
     {
-      '@nrwl/nest': nxVersion,
+      '@nrwl/nest': dependencies['@nrwl/nest'],
     }
   );
   // nx g @nrwl/nest:app admin-ui

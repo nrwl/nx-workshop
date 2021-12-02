@@ -1,12 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { formatFiles, Tree } from '@nrwl/devkit';
-import { Linter } from '@nrwl/linter';
 import { libraryGenerator } from '@nrwl/angular/generators';
 import { wrapAngularDevkitSchematic } from '@nrwl/devkit/ngcli-adapter';
-import {
-  addImportToModule,
-  getTsSourceFile,
-} from '@nrwl/angular/src/utils/nx-devkit/ast-utils';
+import { insertNgModuleImport } from '@nrwl/angular/src/generators/utils';
 import { insertImport } from '@nrwl/workspace/src/generators/utils/insert-import';
 
 export default async function update(tree: Tree) {
@@ -28,13 +24,7 @@ export default async function update(tree: Tree) {
 
   // Add MatToolbarModule to AppModule imports
   const modulePath = 'libs/store/ui-shared/src/lib/store-ui-shared.module.ts';
-  let sourceFile = getTsSourceFile(tree, modulePath);
-  sourceFile = addImportToModule(
-    tree,
-    sourceFile,
-    modulePath,
-    'MatToolbarModule'
-  );
+  insertNgModuleImport(tree, modulePath, 'MatToolbarModule');
   insertImport(
     tree,
     modulePath,
@@ -64,13 +54,7 @@ export default async function update(tree: Tree) {
 
   // Add StoreUiSharedModule to AppModule imports
   const appModulePath = 'apps/store/src/app/app.module.ts';
-  let appModuleSourceFile = getTsSourceFile(tree, appModulePath);
-  appModuleSourceFile = addImportToModule(
-    tree,
-    appModuleSourceFile,
-    appModulePath,
-    'StoreUiSharedModule'
-  );
+  insertNgModuleImport(tree, appModulePath, 'StoreUiSharedModule');
   insertImport(
     tree,
     appModulePath,

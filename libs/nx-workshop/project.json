@@ -59,6 +59,7 @@
     "publish": {
       "executor": "@nrwl/workspace:run-commands",
       "options": {
+        "parallel": false,
         "commands": [
           "npx nx build nx-workshop",
           "cd dist/libs/nx-workshop && yarn publish"

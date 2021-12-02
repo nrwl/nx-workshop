@@ -1,6 +1,6 @@
-import { readJsonFile, Tree } from '@nrwl/devkit';
+import { formatFiles, readJsonFile, Tree } from '@nrwl/devkit';
 
-export default function update(host: Tree) {
+export default async function update(host: Tree) {
   const { herokuName } = readJsonFile('.nx-workshop.json');
 
   host.write(
@@ -32,4 +32,5 @@ jobs:
       - run: npm run nx deploy api
 `
   );
+  await formatFiles(host);
 }

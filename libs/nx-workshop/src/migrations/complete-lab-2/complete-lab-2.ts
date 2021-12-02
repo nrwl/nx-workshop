@@ -5,12 +5,9 @@ import {
   installPackagesTask,
   Tree,
 } from '@nrwl/devkit';
-import { nxVersion } from '../version';
+import { dependencies } from '../../../package.json';
 import { applicationGenerator } from '@nrwl/angular/generators';
-import {
-  addImportToModule,
-  getTsSourceFile,
-} from '@nrwl/angular/src/utils/nx-devkit/ast-utils';
+import { insertNgModuleImport } from '@nrwl/angular/src/generators/utils';
 import fetch from 'node-fetch';
 import { insertImport } from '@nrwl/workspace/src/generators/utils/insert-import';
 
@@ -18,11 +15,11 @@ export default async function update(tree: Tree) {
   await addDependenciesToPackageJson(
     tree,
     {
-      '@angular/cdk': '^12.2.0',
-      '@angular/material': '^12.2.0',
+      '@angular/cdk': '^13.0.0',
+      '@angular/material': '^13.0.0',
     },
     {
-      '@nrwl/angular': nxVersion,
+      '@nrwl/angular': dependencies['@nrwl/angular'],
     }
   );
   await applicationGenerator(tree, {
@@ -148,11 +145,9 @@ export default async function update(tree: Tree) {
 
   // Add MatCardModule to AppModule imports
   const modulePath = 'apps/store/src/app/app.module.ts';
-  let sourceFile = getTsSourceFile(tree, modulePath);
-  sourceFile = addImportToModule(tree, sourceFile, modulePath, 'MatCardModule');
+  insertNgModuleImport(tree, modulePath, 'MatCardModule');
   insertImport(tree, modulePath, 'MatCardModule', '@angular/material/card');
 
-  formatFiles(tree);
   async function download(uri: string, filename: string) {
     await fetch(uri)
       .then(async (res) => Buffer.from(await res.arrayBuffer()))
@@ -172,6 +167,7 @@ export default async function update(tree: Tree) {
     'https://github.com/nrwl/nx-react-workshop/raw/main/examples/lab2/apps/store/src/assets/chess.png',
     'apps/store/src/assets/chess.png'
   );
+  await formatFiles(tree);
   return async () => {
     installPackagesTask(tree);
   };

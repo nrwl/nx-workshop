@@ -1,8 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import {
-  addImportToModule,
-  getTsSourceFile,
-} from '@nrwl/angular/src/utils/nx-devkit/ast-utils';
+import { insertNgModuleImport } from '@nrwl/angular/src/generators/utils';
 import { formatFiles, Tree } from '@nrwl/devkit';
 import { insertImport } from '@nrwl/workspace/src/generators/utils/insert-import';
 import { replaceInFile } from '../utils';
@@ -10,13 +7,7 @@ import { replaceInFile } from '../utils';
 export default async function update(host: Tree) {
   // Add HttpClientModule to StoreFeatureGameDetailModule imports
   const appModulePath = 'apps/store/src/app/app.module.ts';
-  let sourceFile = getTsSourceFile(host, appModulePath);
-  sourceFile = addImportToModule(
-    host,
-    sourceFile,
-    appModulePath,
-    'HttpClientModule'
-  );
+  insertNgModuleImport(host, appModulePath, 'HttpClientModule');
   insertImport(host, appModulePath, 'HttpClientModule', '@angular/common/http');
 
   const appComponentPath = 'apps/store/src/app/app.component.ts';
@@ -104,13 +95,8 @@ export class GameDetailComponent {
   // Add MatButtonModule to StoreFeatureGameDetailModule imports
   const storeFeatureGameDetailModulePath =
     'libs/store/feature-game-detail/src/lib/store-feature-game-detail.module.ts';
-  let gameDetailModuleFile = getTsSourceFile(
+  insertNgModuleImport(
     host,
-    storeFeatureGameDetailModulePath
-  );
-  gameDetailModuleFile = addImportToModule(
-    host,
-    gameDetailModuleFile,
     storeFeatureGameDetailModulePath,
     'MatButtonModule'
   );

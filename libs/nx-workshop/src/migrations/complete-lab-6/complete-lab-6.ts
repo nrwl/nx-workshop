@@ -1,9 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { libraryGenerator } from '@nrwl/angular/generators';
-import {
-  addImportToModule,
-  getTsSourceFile,
-} from '@nrwl/angular/src/utils/nx-devkit/ast-utils';
+import { insertNgModuleImport } from '@nrwl/angular/src/generators/utils';
 import { formatFiles, Tree } from '@nrwl/devkit';
 import { wrapAngularDevkitSchematic } from '@nrwl/devkit/ngcli-adapter';
 import { insertImport } from '@nrwl/workspace/src/generators/utils/insert-import';
@@ -37,13 +34,7 @@ export default async function update(host: Tree) {
   );
 
   // Add MatCardModule to StoreFeatureGameDetailModule imports
-  let sourceFile = getTsSourceFile(host, gameDetailModulePath);
-  sourceFile = addImportToModule(
-    host,
-    sourceFile,
-    gameDetailModulePath,
-    'MatCardModule'
-  );
+  insertNgModuleImport(host, gameDetailModulePath, 'MatCardModule');
   insertImport(
     host,
     gameDetailModulePath,

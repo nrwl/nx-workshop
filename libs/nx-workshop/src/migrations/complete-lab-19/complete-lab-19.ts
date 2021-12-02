@@ -1,5 +1,6 @@
 import {
   addDependenciesToPackageJson,
+  formatFiles,
   readJsonFile,
   readProjectConfiguration,
   Tree,
@@ -10,7 +11,7 @@ import { uniq } from '@nrwl/nx-plugin/testing';
 import { execSync } from 'child_process';
 import { replaceInFile } from '../utils';
 
-export default function update(host: Tree) {
+export default async function update(host: Tree) {
   let herokuToken, herokuName;
   if (host.exists('.nx-workshop.json')) {
     const workshopConstants = readJsonFile('.nx-workshop.json');
@@ -97,4 +98,5 @@ CMD node main.js
   const port = process.env.PORT || 3333;
 `
   );
+  await formatFiles(host);
 }

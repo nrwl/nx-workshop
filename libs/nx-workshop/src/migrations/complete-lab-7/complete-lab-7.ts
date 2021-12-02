@@ -1,15 +1,14 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Tree, addDependenciesToPackageJson, formatFiles } from '@nrwl/devkit';
+import { addDependenciesToPackageJson, formatFiles, Tree } from '@nrwl/devkit';
 import { applicationGenerator } from '@nrwl/nest';
-import { Linter } from '@nrwl/linter';
-import { nxVersion } from '../version';
+import { dependencies } from '../../../package.json';
 
 export default async function update(host: Tree) {
   await addDependenciesToPackageJson(
     host,
     {},
     {
-      '@nrwl/nest': nxVersion,
+      '@nrwl/nest': dependencies['@nrwl/nest'],
     }
   );
 

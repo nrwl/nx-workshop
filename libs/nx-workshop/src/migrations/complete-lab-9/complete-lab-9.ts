@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Tree } from '@nrwl/devkit';
+import { formatFiles, Tree } from '@nrwl/devkit';
 import { libraryGenerator, moveGenerator } from '@nrwl/workspace';
 import { insertImport } from '@nrwl/workspace/src/generators/utils/insert-import';
 import { replaceInFile } from '../utils';
@@ -60,4 +60,5 @@ export default async function update(host: Tree) {
     'this.http.get<any>(`/api/games/${id}`);',
     'this.http.get<Game>(`/api/games/${id}`);'
   );
+  await formatFiles(host);
 }

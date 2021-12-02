@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Tree } from '@nrwl/devkit';
+import { Tree, formatFiles } from '@nrwl/devkit';
 
-export default function update(host: Tree) {
+export default async function update(host: Tree) {
   host.write(
     `.github/workflows/deploy.yml`,
     `
@@ -30,4 +30,5 @@ jobs:
       - run: npm run nx deploy admin-ui
 `
   );
+  await formatFiles(host);
 }

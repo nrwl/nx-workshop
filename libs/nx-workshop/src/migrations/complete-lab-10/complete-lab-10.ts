@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { addDependenciesToPackageJson, Tree } from '@nrwl/devkit';
+import { addDependenciesToPackageJson, formatFiles, Tree } from '@nrwl/devkit';
 import { storybookConfigurationGenerator } from '@nrwl/angular/generators';
-import { nxVersion } from '../version';
+import { dependencies } from '../../../package.json';
 import { Linter } from '@nrwl/linter';
-import { insertImport } from '@nrwl/workspace/src/generators/utils/insert-import';
+import { insertImport } from '../utils';
 
 export default async function update(host: Tree) {
   // yarn add @nrwl/storybook
@@ -11,7 +11,7 @@ export default async function update(host: Tree) {
     host,
     {},
     {
-      '@nrwl/storybook': nxVersion,
+      '@nrwl/storybook': dependencies['@nrwl/storybook'],
     }
   );
   // nx generate @nrwl/angular:storybook-configuration store-ui-shared
@@ -38,4 +38,5 @@ export default async function update(host: Tree) {
         .toString()
         .replace('imports: []', 'imports: [MatToolbarModule]')
   );
+  await formatFiles(host);
 }
