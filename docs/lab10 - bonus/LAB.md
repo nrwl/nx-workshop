@@ -35,7 +35,6 @@ Let's explore some more Nx plugins by generating and running a storybook configu
 3. Inside `libs/store/ui-shared/src/lib/header/header.component.stories.ts`:
 
    - **Import the `MatToolbarModule`**
-   - **Import the Angular Material Theme**
 
    <details>
    <summary>🐳 Hint</summary>
@@ -44,17 +43,17 @@ Let's explore some more Nx plugins by generating and running a storybook configu
    //IMPORT TOOLBAR MODULE
    import { MatToolbarModule } from '@angular/material/toolbar';
 
-   //IMPORT THEME
-   import '@angular/material/prebuilt-themes/deeppurple-amber.css';
-
    //......
-
-   export const primary = () => ({
-     moduleMetadata: {
-       imports: [MatToolbarModule] // <-- import the module
-     }
-     //...
-   });
+   export default {
+      title: 'HeaderComponent',
+      component: HeaderComponent,
+      decorators: [
+         moduleMetadata({
+            imports: [MatToolbarModule] // <-- import the module
+         }),
+         //...
+      ],
+   } as Meta<HeaderComponent>;
    ```
 
    </details>
