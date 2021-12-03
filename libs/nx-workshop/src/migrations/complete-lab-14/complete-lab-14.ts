@@ -15,7 +15,7 @@ export default async function update(host: Tree) {
     import { formatFiles, Tree, updateJson } from '@nrwl/devkit';
 
     export default async function(host: Tree) {
-      updateJson(host, 'workspace.json', (json) => {
+      updateJson(host, 'nx.json', (json) => {
         json.defaultProject = 'api';
         return json;
       });
@@ -35,10 +35,16 @@ export default async function update(host: Tree) {
   host.write(
     'tools/generators/util-lib/index.ts',
     `
-    import { Tree, updateJson, formatFiles, readJson } from '@nrwl/devkit';
+    import {
+      formatFiles,
+      ProjectConfiguration,
+      Tree,
+      updateJson,
+    } from '@nrwl/devkit';
+    import { getProjects } from '@nrwl/devkit/src/generators/project-configuration';
 
-    function getScopes(nxJson: any) {
-      const projects: any[] = Object.values(nxJson.projects);
+    function getScopes(projectMap: Map<string, ProjectConfiguration>) {
+      const projects: any[] = Object.values(projectMap);
       const allScopes: string[] = projects
         .map((project) =>
           project.tags.filter((tag: string) => tag.startsWith('scope:'))
@@ -54,14 +60,14 @@ export default async function update(host: Tree) {
       return content.replace(
         PATTERN,
         \`interface Schema {
-      name: string;
-      directory: \${joinScopes};
-    }\`
+          name: string;
+          directory: \${joinScopes};
+        }\`
       );
     }
 
     export default async function (host: Tree) {
-      const scopes = getScopes(readJson(host, 'nx.json'));
+      const scopes = getScopes(getProjects(host));
       updateJson(host, 'tools/generators/util-lib/schema.json', (schemaJson) => {
         schemaJson.properties.directory['x-prompt'].items = scopes.map((scope) => ({
           value: scope,

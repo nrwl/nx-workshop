@@ -32,11 +32,10 @@ export default async function update(host: Tree) {
   );
   host.write(
     headerComponentStoriesPath,
-    "import '@angular/material/prebuilt-themes/deeppurple-amber.css';\n" +
-      host
-        .read(headerComponentStoriesPath)
-        .toString()
-        .replace('imports: []', 'imports: [MatToolbarModule]')
+    host
+      .read(headerComponentStoriesPath)
+      .toString()
+      .replace('imports: []', 'imports: [MatToolbarModule]')
   );
   await formatFiles(host);
 }

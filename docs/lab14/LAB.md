@@ -15,7 +15,7 @@
 1. Generate another generator called `update-scope-schema`
    <br /> <br />
 
-2. As a start let's make it change the `defaultProject` from `store` to `api` in our workspace.json file:
+2. As a start let's make it change the `defaultProject` from `store` to `api` in our `nx.json` file:
 
    <details>
    <summary>🐳 Hint</summary>
@@ -34,9 +34,9 @@
 
    - When large teams work in the same workspace, they will occasionally be adding new projects and hence, **new scope tags**
    - We want to make sure that scope tags specified in our `util-lib` generator are up to date and take into account all these new scopes that teams have been adding
-   - We want to check if there is a new scope tag in `nx.json` and update our generator schema
-   - We can use [`readJson`](https://nx.dev/latest/angular/nx-devkit/index#readjson) util for reading the `nx.json` file 
-   - **BONUS:** Modify your generator so it fetches list of scopes from `projects` in `nx.json` and updates the schema in util-lib with any new ones
+   - We want to check if there is a new scope tag in any of our `project.json` files and update our generator schema
+   - We can use the [`getProjects`](https://nx.dev/l/a/nx-devkit/index#getprojects) util to read all the projects at once.
+   - **BONUS:** Modify your generator so it fetches list of scopes from all the `project.json` files and updates the schema in util-lib with any new ones
 
    ⚠️ You can use the function provided in the Hint to extract the `scopes`
 
@@ -44,8 +44,8 @@
    <summary>🐳 Hint</summary>
 
    ```typescript
-   function getScopes(nxJson: any) {
-     const projects: any[] = Object.values(nxJson.projects);
+   function getScopes(projectMap: Map<string, ProjectConfiguration>) {
+     const projects: any[] = Object.values(projectMap);
      const allScopes: string[] = projects
        .map((project) =>
          project.tags

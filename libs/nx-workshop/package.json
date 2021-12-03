@@ -8,12 +8,12 @@
     "migrations": "./migrations.json"
   },
   "dependencies": {
-    "@nrwl/workspace": "13.2.0",
-    "@nrwl/angular": "13.2.0",
-    "@nrwl/nest": "13.2.0",
+    "@nrwl/workspace": "13.2.3",
+    "@nrwl/angular": "13.2.3",
+    "@nrwl/nest": "13.2.3",
     "@nrwl/nx-cloud": "latest",
-    "@nrwl/nx-plugin": "13.2.0",
-    "@nrwl/storybook": "13.2.0",
+    "@nrwl/nx-plugin": "13.2.3",
+    "@nrwl/storybook": "13.2.3",
     "cors": "*",
     "node-fetch": "^2.x",
     "surge": "*"
