@@ -2,6 +2,11 @@
   "name": "@nrwl/nx-workshop",
   "version": "0.1.28",
   "main": "src/index.js",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "private": false,
   "generators": "./generators.json",
   "executors": "./executors.json",
   "nx-migrations": {

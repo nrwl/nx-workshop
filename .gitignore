@@ -25,6 +25,8 @@
 !.vscode/extensions.json
 
 # misc
+.env
+.npmrc
 .local.env
 /.sass-cache
 /connect.lock

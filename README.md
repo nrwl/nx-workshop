@@ -38,18 +38,19 @@ Nx has support for a lot of platforms, but in this workshop we'll be using mainl
 Make sure you have the following installed:
 
 - Node.js version 12.14.1 and up
-    - `node --version`
+  - `node --version`
 - [Yarn](https://classic.yarnpkg.com/en/docs/install/)
-    - `yarn --version`
+  - `yarn --version`
 - A Github account
-    - http://github.com
-  
+  - http://github.com
+
 Optional:
+
 - A Heroku account
-    - https://heroku.com/
-    - with the [CLI installed](https://devcenter.heroku.com/articles/heroku-cli): `heroku --version`
+  - https://heroku.com/
+  - with the [CLI installed](https://devcenter.heroku.com/articles/heroku-cli): `heroku --version`
 - [Docker](https://www.docker.com/get-started)
-    - `docker --version`
+  - `docker --version`
 
 ### How the labs work
 
@@ -84,6 +85,7 @@ Each lab will contain a link to the next one. Start from **"Lab 1"** and move th
 - 🔬 [Lab 1 - Generate an empty workspace](docs/lab1/LAB.md)
 - ⚗️ [Lab 2 - Generate an Angular app](docs/lab2/LAB.md)
 - 🧪 [Lab 3 - Executors](docs/lab3/LAB.md)
+- 🚂 [Lab 3.1 - Migrations](docs/lab3.1/LAB.md)
 - 🔭 [Lab 4 - Generate a component lib](docs/lab4/LAB.md)
 - 🧬 [Lab 5 - Generate a utility lib](docs/lab5/LAB.md)
 - 🧮 [Lab 6 - Generate a route lib](docs/lab6/LAB.md)
@@ -103,9 +105,9 @@ Each lab will contain a link to the next one. Start from **"Lab 1"** and move th
 - 🔍 [Lab 17 - NxCloud GitHub bot](docs/lab17/LAB.md)
 - 📎 [Lab 18 - Run-Commands and deploying the frontend](docs/lab18/LAB.md)
 
-| Option 1 - React frontends and more custom generators practice | Option 2 - Heroku API deployments with Docker |
-| ----------- | ----------- |
-| 🧭 [Lab 19 - Creating and deploying a 2nd frontend](docs/lab19-alt/LAB.md) | 🧲 [Lab 19 - Deploying the API](docs/lab19/LAB.md) |
-| ⛱️ [Lab 20 - Mock Store](docs/lab20-alt/LAB.md)     | 🎸 [Lab 20 - Connecting the frontend and backend](docs/lab20/LAB.md) |  
-| 🪁 [Lab 21 - Setting up CD for automatic deployment](docs/lab21-alt/LAB.md)     | 🎈 [Lab 21 - Setting up CD for automatic deployment](docs/lab21/LAB.md) |  
-| 💈 [Lab 22 - Deploying only what changed](docs/lab22/LAB.md) | 💈 [Lab 22 - Deploying only what changed](docs/lab22/LAB.md) |
+| Option 1 - React frontends and more custom generators practice              | Option 2 - Heroku API deployments with Docker                           |
+| --------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| 🧭 [Lab 19 - Creating and deploying a 2nd frontend](docs/lab19-alt/LAB.md)  | 🧲 [Lab 19 - Deploying the API](docs/lab19/LAB.md)                      |
+| ⛱️ [Lab 20 - Mock Store](docs/lab20-alt/LAB.md)                             | 🎸 [Lab 20 - Connecting the frontend and backend](docs/lab20/LAB.md)    |
+| 🪁 [Lab 21 - Setting up CD for automatic deployment](docs/lab21-alt/LAB.md) | 🎈 [Lab 21 - Setting up CD for automatic deployment](docs/lab21/LAB.md) |
+| 💈 [Lab 22 - Deploying only what changed](docs/lab22/LAB.md)                | 💈 [Lab 22 - Deploying only what changed](docs/lab22/LAB.md)            |

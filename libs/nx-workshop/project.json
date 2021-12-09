@@ -62,7 +62,7 @@
         "parallel": false,
         "commands": [
           "npx nx build nx-workshop",
-          "cd dist/libs/nx-workshop && yarn publish"
+          "npm publish dist/libs/nx-workshop"
         ]
       }
     }
