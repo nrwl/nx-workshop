@@ -13,7 +13,7 @@
 
 In this lab, we'll practice generating a 2nd frontend, using React. This is in preparation for the next few labs, where we'll be deploying the two frontends independently in our GitHub Actions based Continous Deployment setup.
 
-1. We want to build a new Admin UI for out store. But we'll use React as our framework of choice.
+1. We want to build a new Admin UI for our store. But we'll use React as our framework of choice.
    **Generate a new React app called "admin-ui"**
    You can use any configuration options you want.
 
