@@ -2,7 +2,7 @@
 
 In this workshop we'll be building a store for a fictional board game company called "The Board Game Hoard".
 
-We're going to be using [Nx](https://nx.dev/) and some its plugins to accelerate the development of this app.
+We're going to be using [Nx](https://nx.dev/) and some of its plugins to accelerate the development of this application.
 
 Some of the things you'll learn:
 
