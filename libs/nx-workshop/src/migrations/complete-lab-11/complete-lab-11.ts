@@ -3,11 +3,11 @@ import { formatFiles, Tree } from '@nrwl/devkit';
 
 export default async function update(host: Tree) {
   host.write(
-    'apps/store-ui-shared-e2e/src/integration/header/header.spec.ts',
+    'apps/store-ui-shared-e2e/src/integration/header/header.component.spec.ts',
     `
     describe('store-ui-shared: Header component', () => {
       beforeEach(() =>
-        cy.visit('/iframe.html?id=header--primary&args=title:BoardGameHoard')
+        cy.visit('/iframe.html?id=headercomponent--primary&args=title:BoardGameHoard')
       );
 
       it('should show the title', () => {
