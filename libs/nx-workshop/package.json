@@ -19,6 +19,7 @@
     "@nrwl/nx-cloud": "latest",
     "@nrwl/nx-plugin": "14.5.10",
     "@nrwl/storybook": "14.5.10",
+    "@nrwl/tao": "14.5.10",
     "cors": "*",
     "node-fetch": "^2.x",
     "surge": "*"

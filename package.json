@@ -46,6 +46,7 @@
     "@nrwl/nx-plugin": "14.5.10",
     "@nrwl/storybook": "14.5.10",
     "@nrwl/workspace": "14.5.10",
+    "@nrwl/tao": "14.5.10",
     "@phenomnomnominal/tsquery": "^4.1.1",
     "@swc-node/register": "^1.4.2",
     "@swc/core": "^1.2.173",
