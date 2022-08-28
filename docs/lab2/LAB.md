@@ -33,7 +33,7 @@ In this lab we'll generate our first Angular application within the new monorepo
    - install the CLI globally: `npm i -g @nrwl/cli`
    - if you don't want to install it globally, use `yarn nx` instead of `nx` in all the commands below
 
-> Please make sure you are using the latest version of Nx (12.5+)
+> Please make sure you are using the latest version of Nx (14.5+)
 
    <br />
 

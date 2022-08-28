@@ -1,26 +1,34 @@
 {
-  "root": "libs/nx-workshop",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/nx-workshop/src",
   "projectType": "library",
   "targets": {
     "lint": {
       "executor": "@nrwl/linter:eslint",
-      "outputs": ["{options.outputFile}"],
+      "outputs": [
+        "{options.outputFile}"
+      ],
       "options": {
-        "lintFilePatterns": ["libs/nx-workshop/**/*.ts"]
+        "lintFilePatterns": [
+          "libs/nx-workshop/**/*.ts"
+        ]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/nx-workshop"],
+      "outputs": [
+        "coverage/libs/nx-workshop"
+      ],
       "options": {
-        "jestConfig": "libs/nx-workshop/jest.config.js",
+        "jestConfig": "libs/nx-workshop/jest.config.ts",
         "passWithNoTests": true
       }
     },
     "build": {
-      "executor": "@nrwl/node:package",
-      "outputs": ["{options.outputPath}"],
+      "executor": "@nrwl/js:tsc",
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/libs/nx-workshop",
         "tsConfig": "libs/nx-workshop/tsconfig.lib.json",

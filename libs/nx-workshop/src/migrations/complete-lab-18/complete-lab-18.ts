@@ -3,10 +3,10 @@ import { addDependenciesToPackageJson, Tree, updateJson } from '@nrwl/devkit';
 import { uniq } from '@nrwl/nx-plugin/testing';
 import {
   formatFiles,
-  readJsonFile,
   runCommandsGenerator,
 } from '@nrwl/workspace';
 import { execSync } from 'child_process';
+import { readJsonFile } from '@nrwl/devkit';
 
 export default async function update(host: Tree) {
   await addDependenciesToPackageJson(
