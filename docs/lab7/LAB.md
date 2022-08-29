@@ -45,7 +45,7 @@ You do not need to be familiar with Nest (and you can use the `@nrwl/express:app
    <br /><br />
 5. **Update the Nest [app.controller.ts](../../examples/lab7/apps/api/src/app/app.controller.ts)** to use the new methods from the service
    <br /><br />
-6. Let's now **inspect the dependency graph**!
+6. Let's now **inspect the project graph**!
    <br /><br />
 7. **Inspect what changed** from the last time you committed, then **commit your changes**\
    <br /><br />

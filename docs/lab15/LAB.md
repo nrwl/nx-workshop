@@ -109,8 +109,8 @@ But now we're testing both projects - even though we only changed the store.
     <details>
     <summary>🐳 Hint 1</summary>
 
-    Check-out this [handy tutorial](https://nx.dev/latest/angular/tutorial/11-test-affected-projects#step-11-test-affected-projects)
-    Refer to the [docs](https://nx.dev/latest/angular/cli/affected#affected)
+    Check-out this [handy tutorial](https://nx.dev/angular-tutorial/11-test-affected-projects)
+    Refer to the [docs](https://nx.dev/nx/affected#affected)
     </details>
 
     <details>
@@ -146,7 +146,7 @@ But now we're testing both projects - even though we only changed the store.
     <img src="./store_affected.png" width="500" alt="Only store tests are running">
     <br />
 
-12. Our tests are now being ran sequentially for each project. See if you can run them in parallel (consult the Nx Affected [docs](https://nx.dev/latest/angular/cli/affected#affected) if unsure)
+12. Our tests are now being ran sequentially for each project. See if you can run them in parallel (consult the Nx Affected [docs](https://nx.dev/nx/affected#affected) if unsure)
     <br /> <br />
 
 13. Our CI only does testing now. But we also have targets for `lint`, `e2e` and `build`. Would really be handy if CI also told us if any of those failed.
@@ -179,7 +179,7 @@ But now we're testing both projects - even though we only changed the store.
     <details>
     <summary>🐳 Hint</summary>
 
-    [Configuring implicit dependencies](https://nx.dev/latest/angular/core-concepts/configuration#implicit-dependencies)
+    [Configuring implicit dependencies](https://nx.dev/configuration/packagejson#implicitdependencies)
     </details>
     <br />
 

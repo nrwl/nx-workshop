@@ -1,5 +1,5 @@
 ##### To create a new Nx workspace:
 
 ```shell
-npx create-nx-workspace bg-hoard --preset=empty --no-nx-cloud
+npx create-nx-workspace bg-hoard --preset=apps --no-nx-cloud
 ```

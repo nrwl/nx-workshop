@@ -3,7 +3,7 @@
 ###### ⏰ Estimated time: 15 minutes
 <br />
 
-Now our dependency graph looks a bit disconnected. The frontend and the API still do not have anything in common. The power of Nx libraries is that they can be shared among any number of projects.
+Now our project graph looks a bit disconnected. The frontend and the API still do not have anything in common. The power of Nx libraries is that they can be shared among any number of projects.
 
 We'll look at creating libs to store Typescript interfaces and then we'll use the Nx **Move** generator to move that library around our project, with minimal effort.
 <br /><br />
@@ -64,7 +64,7 @@ We'll look at creating libs to store Typescript interfaces and then we'll use th
 
    </details>
    <br />
-6. **Inspect the dependency graph**
+6. **Inspect the project graph**
    <br /><br />
 7. Make sure to **commit everything** before proceeding!
    <br /><br />
@@ -96,7 +96,7 @@ Let's fix that - we already have a `Game` interface in a lib. But it's nested in
     <summary>🐳 Hint 2</summary>
 
     Use the `--help` command to figure out how to target a specific **project**
-    Alternatively, check out the [docs](https://nx.dev/latest/angular/angular/move#move)
+    Alternatively, check out the [docs](https://nx.dev/packages/workspace/generators/move)
 
     </details>
 
@@ -136,7 +136,7 @@ Let's fix that - we already have a `Game` interface in a lib. But it's nested in
    <br /><br />
 9.  **Trigger a build** of both the store and the API projects and make sure it passes
    <br /><br />
-10. **Inspect the dependency graph**
+10. **Inspect the project graph**
    <br /><br />
 11. **Inspect what changed** from the last time you committed, then **commit your changes**
    <br /><br />

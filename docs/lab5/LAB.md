@@ -60,7 +60,7 @@ We will create a shared utility lib where we'll add our formatters and see how t
 
 5. Serve the store app - notice how the ratings are formatted.
    <br /><br />
-6. Launch the dependency graph - notice how the app depends on two libs now.
+6. Launch the project graph - notice how the app depends on two libs now.
    <br /><br />
 7. Inspect what changed from the last time you committed, then commit your changes
    <br /><br />
