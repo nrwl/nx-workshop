@@ -16,7 +16,7 @@ The storybook generator we invoked earlier also generated some e2e tests. Let's 
 1. Our previous command generated a new `apps/store-ui-shared-e2e` folder. Let's **run them**: `nx e2e store-ui-shared-e2e`
    - The tests should pass!
    <br /><br />
-2. Open `apps/store-ui-shared-e2e/src/integration/header/header.component.spec.ts` and **give the title a value**:
+2. Open `apps/store-ui-shared-e2e/src/integration/header/header.component.cy.ts` and **give the title a value**:
 
    ```ts
    cy.visit(
