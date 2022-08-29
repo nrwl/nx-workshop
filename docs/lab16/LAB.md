@@ -11,7 +11,7 @@
 
 ## 🏋️‍♀️ Steps :
 
-1. Earlier in the workshop, we discussed about Nx's [local caching](https://nx.dev/latest/angular/workspace/computation-caching#computation-caching) 
+1. Earlier in the workshop, we discussed about Nx's [local caching](https://nx.dev/using-nx/caching) 
 capabilities. Let's enable distributed caching.
 
    ```

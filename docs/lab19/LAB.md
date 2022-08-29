@@ -4,22 +4,22 @@
 
 <br />
 
-## 📚 Learning outcomes:
+## 📚 Learning outcomes
 
 - **Explore more advanced usages of the "run-commands" executor**
 - **Go through an example of how to deploy an API to Heroku through Nx**
   <br /><br /><br />
 
-## 🏋️‍♀️ Steps :
+## 🏋️‍♀️ Steps
 
-1.  For this workshop you'll need two CLI tools installed:
+1. For this workshop you'll need two CLI tools installed:
 
     - [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli#download-and-install)
       - Verify installation via: `heroku --version`
     - [Docker](https://www.docker.com/get-started) - Verify via `docker --version`
       <br /> <br />
 
-2.  Let's prepare Heroku to deploy our API:
+2. Let's prepare Heroku to deploy our API:
 
     ```shell
     # login first
@@ -38,7 +38,7 @@
       be deployed to: `https://<your-app-name>.herokuapp.com`
       <br /> <br />
 
-3.  Let's setup our ENV variables from the beginning now
+3. Let's setup our ENV variables from the beginning now
 
     `apps/api/.local.env`
 
@@ -48,7 +48,7 @@
 
     <br />
 
-4.  Create a new file `apps/api/Dockerfile`
+4. Create a new file `apps/api/Dockerfile`
 
     ```dockerfile
     # use a Node v12 based image
@@ -78,7 +78,7 @@
     </details>
     <br />
 
-5.  If you `nx build api` right now
+5. If you `nx build api` right now
 
     - 👍 Then `cd dist/apps/api && node main.js`
       It should work. Because it has access to `node_modules`
@@ -89,38 +89,38 @@
     If curious why, you can [read more here](https://github.com/nestjs/nest/issues/1706#issuecomment-579248915).
     <br /> <br />
 
-6.  Let's fix the above - In `project.json`, under the **production** build options for the API (`projects -> api -> targets -> build -> configurations -> production`)
+6. Let's fix the above - In `project.json`, under the **production** build options for the API (`projects -> api -> targets -> build -> configurations -> production`)
     add this as an option:
 
-        ```json
-        "externalDependencies": [
-            "@nestjs/microservices",
-            "@nestjs/microservices/microservices-module",
-            "@nestjs/websockets/socket-module",
-            "class-transformer",
-            "class-validator",
-            "cache-manager"
-        ],
-        ```
+```json
+"externalDependencies": [
+    "@nestjs/microservices",
+    "@nestjs/microservices/microservices-module",
+    "@nestjs/websockets/socket-module",
+    "class-transformer",
+    "class-validator",
+    "cache-manager"
+],
+```
 
        <details>
        <summary>❓ What does this do?</summary>
-       
+
        The above option tells webpack to bundle ALL the dependencies our API requires inside `main.js`, except the ones above (which fail the build if we tell webpack to include, because they're lazily loaded).
        Normally, it's not recommended to bundle any dependencies with your server bundles,
        but in this case it simplifies the deployment process.
        </details>
        <br />
 
-7.  Use the `@nrwl/workspace:run-commands` generator to generate another "deploy" target:
+7. Use the `@nrwl/workspace:run-commands` generator to generate another "deploy" target:
 
     - This time for the `api` project
-    - Use the [`--cwd` option](https://nx.dev/latest/angular/workspace/run-commands-executor#cwd)
+    - Use the [`--cwd` option](https://nx.dev/packages/workspace/generators/run-commands)
       to ensure all commands execute in the `dist/apps/api` folder
     - Leave the "command" blank for now
       <br /> <br />
 
-8.  Let's customise the generated "deploy" config a bit
+8. Let's customise the generated "deploy" config a bit
 
     Go to `project.json` and add the commands that we'll need to run:
 
@@ -142,7 +142,7 @@
 
     <br />
 
-9.  By default, if you give a list of commands to `run-commands`, it will run them in parallel.
+9. By default, if you give a list of commands to `run-commands`, it will run them in parallel.
     In our case, we want them to run one after another.
     **See if you can add a configuration option to make them run sequentially**
     <br /> <br />
@@ -150,6 +150,7 @@
 10. Let's enable CORS on the server so our API can make requests to it (since they'll be deployed in separate places):
     - In `apps/api/src/main.ts`
     - Enable CORS:
+
       ```ts
       async function bootstrap() {
           const app = await NestFactory.create(AppModule);

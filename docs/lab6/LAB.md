@@ -130,7 +130,7 @@ We'll look at more advanced usages of the `@nrwl/angular` generators and generat
 
 10. **Serve your app** again, click on some games, and compare with the screenshot above
    <br /><br />
-11. **Launch the dependency graph** and see what's been added
+11. **Launch the project graph** and see what's been added
    <br /><br />
 12. **Inspect what changed** from the last time you committed, then **commit your changes**
 

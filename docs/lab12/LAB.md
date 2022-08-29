@@ -69,10 +69,7 @@
 9. You can now **delete the import** above.
    <br /><br />
 10. **Run linting** again and check if all the errors went away.
-
-    💡 Pass the suggested `--only-failed` option, so it doesn't relint everything.
-    <br /><br />
-
+   <br /><br />
 11. **Commit everything** before moving on to the next lab
 
 ---

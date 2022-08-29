@@ -20,7 +20,7 @@
    <details>
    <summary>🐳 Hint</summary>
 
-   - Refer to the [docs](https://nx.dev/latest/angular/nx-devkit/index#updatejson)
+   - Refer to the [docs](https://nx.dev/devkit/index#updatejson)
    - Use this utility:
      - `import { updateJson } from '@nrwl/devkit';`
    - As always, the answer is in the [the solution](SOLUTION.md). Try a few different approaches on your own first.
@@ -35,7 +35,7 @@
    - When large teams work in the same workspace, they will occasionally be adding new projects and hence, **new scope tags**
    - We want to make sure that scope tags specified in our `util-lib` generator are up to date and take into account all these new scopes that teams have been adding
    - We want to check if there is a new scope tag in any of our `project.json` files and update our generator schema
-   - We can use the [`getProjects`](https://nx.dev/l/a/nx-devkit/index#getprojects) util to read all the projects at once.
+   - We can use the [`getProjects`](https://nx.dev/devkit/index#getprojects) util to read all the projects at once.
    - **BONUS:** Modify your generator so it fetches list of scopes from all the `project.json` files and updates the schema in util-lib with any new ones
 
    ⚠️ You can use the function provided in the Hint to extract the `scopes`

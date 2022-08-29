@@ -30,7 +30,7 @@ workspace generator called `util-lib`
    <details>
    <summary>🐳 Hint</summary>
 
-   Inspect the [Workspace generators docs](https://nx.dev/latest/angular/generators/workspace-generators#workspace-generators)
+   Inspect the [Workspace generators docs](https://nx.dev/generators/workspace-generators#workspace-generators)
    for details on how to run it.
 
    </details>
@@ -63,7 +63,7 @@ asked about which CSS framework to use when creating Angular libs).
    <details>
    <summary>🐳 Hint</summary>
 
-   [Adding dynamic prompts](https://nx.dev/latest/angular/generators/generator-options#adding-dynamic-prompts)
+   [Adding dynamic prompts](https://nx.dev/generators/generator-options#adding-dynamic-prompts)
 
    </details>
    <br />
@@ -76,7 +76,7 @@ asked about which CSS framework to use when creating Angular libs).
    <details>
    <summary>🐳 Hint</summary>
    
-   Consult the `@nrwl/workspace:lib` [docs](https://nx.dev/latest/angular/workspace/library)
+   Consult the `@nrwl/workspace:lib` [docs](https://nx.dev/packages/workspace/generators/library)
    for possible options you can pass to it.
 
    </details>

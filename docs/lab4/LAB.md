@@ -102,12 +102,12 @@ Let's add a header to our app! Because headers can be shared with other componen
 
 8. **Serve the project** and test the changes
    <br /> <br /> 
-9. **Run the command to inspect the dependency graph** - What do you see? (Remember to "Select all" in the top left corner)
+9. **Run the command to inspect the project graph** - What do you see? (Remember to "Select all" in the top left corner)
     <details>
     <summary>🐳 Hint</summary>
 
    ```bash
-   nx dep-graph
+   nx graph
    ```
 
     </details>

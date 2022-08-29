@@ -59,6 +59,31 @@ Let's explore some more Nx plugins by generating and running a storybook configu
    </details>
    <br />
 
+4. Inside `libs/store/ui-shared/project.json`:
+
+   - **Add the Material stylesheet to the `build-storybook` target**
+
+   <details>
+   <summary>🐳 Hint</summary>
+
+   ```json
+   "build-storybook": {
+      "executor": "@storybook/angular:build-storybook",
+      "outputs": ["{options.outputDir}"],
+      "options": {
+        "outputDir": "dist/storybook/store-ui-shared",
+        "configDir": "libs/store/ui-shared/.storybook",
+        "browserTarget": "store:build",
+        "compodoc": false,
+        "styles": [
+          "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+        ]
+      }
+   }
+   ```
+
+   </details>
+   <br />
 4. **Serve storybook!**
 
    <details>
