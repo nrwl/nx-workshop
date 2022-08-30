@@ -11,7 +11,7 @@
 
 ## 🏋️‍♀️ Steps :
 
-1. Earlier in the workshop, we discussed about Nx's [local caching](https://nx.dev/using-nx/caching) 
+1. Earlier in the workshop, we discussed about Nx's [local caching](https://nx.dev/concepts/how-caching-works) 
 capabilities. Let's enable distributed caching.
 
    ```

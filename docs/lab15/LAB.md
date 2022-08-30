@@ -179,7 +179,7 @@ But now we're testing both projects - even though we only changed the store.
     <details>
     <summary>🐳 Hint</summary>
 
-    [Configuring implicit dependencies](https://nx.dev/configuration/packagejson#implicitdependencies)
+    [Configuring implicit dependencies](https://nx.dev/reference/project-configuration#implicitdependencies)
     </details>
     <br />
 
