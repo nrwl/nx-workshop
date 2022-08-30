@@ -115,7 +115,7 @@
 7. Use the `@nrwl/workspace:run-commands` generator to generate another "deploy" target:
 
     - This time for the `api` project
-    - Use the [`--cwd` option](https://nx.dev/packages/workspace/generators/run-commands)
+    - Use the [`--cwd` option](https://nx.dev/packages/workspace/generators/run-commands#cwd)
       to ensure all commands execute in the `dist/apps/api` folder
     - Leave the "command" blank for now
       <br /> <br />

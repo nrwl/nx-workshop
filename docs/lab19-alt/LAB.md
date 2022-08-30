@@ -31,7 +31,7 @@ In this lab, we'll practice generating a 2nd frontend, using React. This is in p
    ⚠️ **BONUS POINTS:** Create a custom workspace generator that adds a `"deploy"` target for a frontend project, so that we don't have to manually re-do the steps in [Lab 18](../lab18/LAB.md) each time.
 
    ⚠️ Hint: You can have a `.local.env` at the root of your workspace as well, for any variables that need to be shared.
-   You can move your `SURGE_TOKEN` variable to the root, so it can be shared among your projects. [READ MORE](https://nx.dev/guides/environment-variables#setting-environment-variables)
+   You can move your `SURGE_TOKEN` variable to the root, so it can be shared among your projects. [READ MORE](https://nx.dev/recipe/define-environment-variables#setting-environment-variables)
    <br /> <br />
 
 5. Try to deploy both apps and check if they still work.

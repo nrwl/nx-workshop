@@ -100,7 +100,7 @@
 ❓ We did not load those environment variables into the deploy process anywhere.
 We just added a `.local.env` file. How does that work?
 
-Nx [automatically picks up](https://nx.dev/guides/environment-variables#setting-environment-variables) any `.env` or `.local.env` files in your workspace,
+Nx [automatically picks up](https://nx.dev/recipe/define-environment-variables#setting-environment-variables) any `.env` or `.local.env` files in your workspace,
 and loads them into processes invoked for that specific app.
 
 ---
