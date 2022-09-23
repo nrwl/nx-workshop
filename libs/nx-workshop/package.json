@@ -4,8 +4,7 @@
   "main": "src/index.js",
   "publishConfig": {
     "access": "public",
-    "registry": "https://registry.npmjs.org/",
-    "@nrwl:registry": "https://npm.pkg.github.com"
+    "registry": "https://registry.npmjs.org/"
   },
   "private": false,
   "generators": "./generators.json",
