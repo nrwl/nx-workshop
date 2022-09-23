@@ -15,8 +15,8 @@ export default async function update(tree: Tree) {
   await addDependenciesToPackageJson(
     tree,
     {
-      '@angular/cdk': '^13.0.0',
-      '@angular/material': '^13.0.0',
+      '@angular/cdk': '^14.2.0',
+      '@angular/material': '^14.2.0',
     },
     {
       '@nrwl/angular': dependencies['@nrwl/angular'],

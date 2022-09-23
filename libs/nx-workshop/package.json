@@ -13,13 +13,13 @@
     "migrations": "./migrations.json"
   },
   "dependencies": {
-    "@nrwl/workspace": "14.5.10",
-    "@nrwl/angular": "14.5.10",
-    "@nrwl/nest": "14.5.10",
+    "@nrwl/workspace": "14.5.11",
+    "@nrwl/angular": "14.5.11",
+    "@nrwl/nest": "14.5.11",
     "@nrwl/nx-cloud": "latest",
-    "@nrwl/nx-plugin": "14.5.10",
-    "@nrwl/storybook": "14.5.10",
-    "@nrwl/tao": "14.5.10",
+    "@nrwl/nx-plugin": "14.5.11",
+    "@nrwl/storybook": "14.5.11",
+    "@nrwl/tao": "14.5.11",
     "cors": "*",
     "node-fetch": "^2.x",
     "surge": "*"
