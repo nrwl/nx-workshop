@@ -41,6 +41,7 @@ jobs:
 `
   );
   updateJson(host, 'nx.json', (json) => {
+    json['implicitDependencies'] = json['implicitDependencies'] || {};
     json['implicitDependencies']['.github/workflows/ci.yml'] = '*';
     return json;
   });
