@@ -7,7 +7,7 @@ export default async function (
 ) {
   const { lab, from, to, option } = options;
   const migrationDefinitions = readJsonFile(
-    'node_modules/@nrwl/nx-workshop/migrations.json'
+    './libs/nx-workshop/migrations.json'
   ).generators;
   let migrations = Object.keys(migrationDefinitions).map((name) => {
     const { version, description, implementation, cli } =
@@ -27,7 +27,7 @@ export default async function (
       const versionParts = migration.version.split('.');
       const lastVersionPart = versionParts[versionParts.length - 1];
       const optionSuffix = option === 'option1' ? '-alt' : '';
-      const firstLab = from || lab;
+      const firstLab = from || lab || 1;
       const firstLabString =
         firstLab < 19 ? firstLab + '' : firstLab + optionSuffix;
       if (lastVersionPart === firstLabString) {
@@ -44,11 +44,11 @@ export default async function (
     })
     .filter((migration) => {
       const versionParts = migration.version.split('.');
-      const lastVersionPart = versionParts[versionParts.length - 1];
-      if (option == 'option2') {
-        return !Number.isNaN(+lastVersionPart);
+      const lastVersionPart = +versionParts[versionParts.length - 1];
+      if (option === 'option2') {
+        return !Number.isNaN(lastVersionPart);
       } else {
-        return +lastVersionPart < 19 || Number.isNaN(+lastVersionPart);
+        return lastVersionPart < 19 || lastVersionPart > 21 || Number.isNaN(lastVersionPart);
       }
     });
   tree.write('migrations.json', JSON.stringify({ migrations }, undefined, 2));
