@@ -1,10 +1,11 @@
 {
   "name": "@nrwl/nx-workshop",
-  "version": "0.2.29",
+  "version": "0.2.30",
   "main": "src/index.js",
   "publishConfig": {
     "access": "public",
-    "registry": "https://registry.npmjs.org/"
+    "registry": "https://registry.npmjs.org/",
+    "@nrwl:registry": "https://npm.pkg.github.com"
   },
   "private": false,
   "generators": "./generators.json",
@@ -13,13 +14,13 @@
     "migrations": "./migrations.json"
   },
   "dependencies": {
-    "@nrwl/workspace": "14.5.11",
-    "@nrwl/angular": "14.5.11",
-    "@nrwl/nest": "14.5.11",
+    "@nrwl/workspace": "14.7.11",
+    "@nrwl/angular": "14.7.11",
+    "@nrwl/nest": "14.7.11",
     "@nrwl/nx-cloud": "latest",
-    "@nrwl/nx-plugin": "14.5.11",
-    "@nrwl/storybook": "14.5.11",
-    "@nrwl/tao": "14.5.11",
+    "@nrwl/nx-plugin": "14.7.11",
+    "@nrwl/storybook": "14.7.11",
+    "@nrwl/tao": "14.7.11",
     "cors": "*",
     "node-fetch": "^2.x",
     "surge": "*"
