@@ -2,6 +2,12 @@ import { createTreeWithEmptyWorkspace } from '@nrwl/devkit/testing';
 import { Tree, readProjectConfiguration, readJson } from '@nrwl/devkit';
 
 import generator from './generator';
+import migrations from '../../../migrations.json';
+
+jest.mock('@nrwl/devkit', () => ({
+  ...jest.requireActual<any>('@nrwl/devkit'),
+  readJsonFile: () => migrations,
+}));
 
 describe('Complete Labs generator', () => {
   let appTree: Tree;
