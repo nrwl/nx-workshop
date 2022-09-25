@@ -7,31 +7,17 @@ nx generate @nrwl/workspace:workspace-generator update-scope-schema
 ##### Change default project
 
 ```typescript
-import { Tree, formatFiles, updateJson } from '@nrwl/devkit';
-
-export default async function (host: Tree) {
-  updateJson(host, 'nx.json', (nxJson) => {
-    nxJson.defaultProject = 'api';
-    return nxJson;
-  });
-  await formatFiles(host);
-}
-```
-
-##### Update schema with formatter
-
-```typescript
-import { Tree, updateJson, formatFiles, readJson } from '@nrwl/devkit';
+import {Tree, updateJson, formatFiles, ProjectConfiguration, getProjects} from '@nrwl/devkit';
 
 function getScopes(projectMap: Map<string, ProjectConfiguration>) {
-  const projects: any[] = Object.values(projectMap);
+  const projects: any[] = Array.from(projectMap.values());
   const allScopes: string[] = projects
     .map((project) =>
       project.tags.filter((tag: string) => tag.startsWith('scope:'))
     )
     .reduce((acc, tags) => [...acc, ...tags], [])
     .map((scope: string) => scope.slice(6));
-  return [...new Set(allScopes)];
+  return Array.from(new Set(allScopes));
 }
 
 export default async function (host: Tree) {
@@ -50,23 +36,17 @@ export default async function (host: Tree) {
 ##### Final generator code
 
 ```typescript
-import {
-  formatFiles,
-  ProjectConfiguration,
-  Tree,
-  updateJson,
-} from '@nrwl/devkit';
-import { getProjects } from '@nrwl/devkit/src/generators/project-configuration';
+import {Tree, updateJson, formatFiles, ProjectConfiguration, getProjects} from '@nrwl/devkit';
 
 function getScopes(projectMap: Map<string, ProjectConfiguration>) {
-  const projects: any[] = Object.values(projectMap);
+  const projects: any[] = Array.from(projectMap.values());
   const allScopes: string[] = projects
     .map((project) =>
       project.tags.filter((tag: string) => tag.startsWith('scope:'))
     )
     .reduce((acc, tags) => [...acc, ...tags], [])
     .map((scope: string) => scope.slice(6));
-  return [...new Set(allScopes)];
+  return Array.from(new Set(allScopes));
 }
 
 function replaceScopes(content: string, scopes: string[]): string {
