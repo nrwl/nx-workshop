@@ -140,11 +140,11 @@ with a correct scope and type tag.
     - In `libs/api/util-notifications/src/lib/api-util-notifications.ts`
     - Add:
 
-          ```
-
+       ```
       export function sendNotification(clientId: string) {
-      console.log("sending notification to client: ", clientId);
+        console.log("sending notification to client: ", clientId);
       }
+      ```
 
       ```
       <br /> <br />
