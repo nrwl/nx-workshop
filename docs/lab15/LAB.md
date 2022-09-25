@@ -15,19 +15,19 @@
 Before starting on this lab, it's important that you have a version of your local workshop
 pushed to your GitHub repo.
 
-1.  Let's make sure the master branch is up to date (it's important your latest changes are on `master` for the follow-up steps): - If you already are on `master` - commit everything:
-    ` git add . && git commit -m "finished lab 14" git push origin master `
+1.  Let's make sure the main branch is up to date (it's important your latest changes are on `main` (or `master`) for the follow-up steps): - If you already are on `main` - commit everything:
+    `git add . && git commit -m "finished lab 14" git push origin main`
 
-        - If you are on a different branch, commit everything, switch to master
+        - If you are on a different branch, commit everything, switch to `main`:
 
     and bring it up to date:
 
-            ```
-            git add . && git commit "finish lab 14"
-            git checkout master
-            git merge previous-branch-you-were-on
-            git push origin master
-            ```
+      ```
+        git add . && git commit "finish lab 14"
+        git checkout main (or master)
+        git merge previous-branch-you-were-on
+        git push origin main (or master)
+      ```
 
        <br />
 
@@ -61,11 +61,11 @@ pushed to your GitHub repo.
 
     ```
     git add . && git commit -m "add ci"
-    git push origin master
+    git push origin main (or main)
     git checkout -b dynamic-title
     ```
 
-    ⚠️ I know we **just** switched to master above. But it was important we bring it
+    ⚠️ I know we **just** switched to main above. But it was important we bring it
     up to date. Now we need to switch to a new branch so we can submit our PR.
     <br /> <br />
 
@@ -82,7 +82,7 @@ pushed to your GitHub repo.
 
 6.  Commit all your changes and push your new branch.
     <br /> <br />
-7.  Go to GitHub and make a Pull Request to `master`
+7.  Go to GitHub and make a Pull Request to `main`
     <br /> <br />
 8.  After a few moments you'll see something like this:
     ![GitHub Actions example](./github_actions.png)
@@ -93,7 +93,7 @@ pushed to your GitHub repo.
 ---
 
 We are starting to set-up our CI, that will verify our Pull Requests to ensure bad code
-doesn't go into `master`.
+doesn't go into `main`.
 
 But now we're testing both projects - even though we only changed the store.
 
@@ -116,7 +116,7 @@ But now we're testing both projects - even though we only changed the store.
     <details>
     <summary>🐳 Hint 2</summary>
 
-    Since it's a Pull Request, your base commit will always be `--base=origin/master`
+    Since it's a Pull Request, your base commit will always be `--base=origin/main`
     </details>
 
     <details>
@@ -137,7 +137,7 @@ But now we're testing both projects - even though we only changed the store.
 
     </details>
 
-    ⚠️ It's okay to work on this on your new branch. We'll merge everything to `master`
+    ⚠️ It's okay to work on this on your new branch. We'll merge everything to `main`
     eventually.
     <br /> <br />
 
@@ -158,13 +158,13 @@ But now we're testing both projects - even though we only changed the store.
     <br /> <br />
 15. You'll notice some new steps in the GitHub Actions UI. Some of them are failing. That is okay. We can fix them later.
     <br /> <br />
-16. For now, you can merge your PR into `master `
+16. For now, you can merge your PR into `main `
     <br /> <br />
-17. Switch to `master` locally and pull latest so all your new CI changes are up to date.
+17. Switch to `main` locally and pull latest so all your new CI changes are up to date.
 
     ```shell
-    git checkout master
-    git pull origin master
+    git checkout main
+    git pull origin main
     ```
 
     <br /> <br />
