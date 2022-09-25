@@ -47,9 +47,7 @@ Now we have a proper API that we can use to make HTTP requests. We'll look at ho
    ```html
    <mat-card
      class="game-card"
-     *ngFor="let game of games | async"
-     <--
-     HERE
+     *ngFor="let game of games | async" <--HERE
      [routerLink]="['/game', game.id]"
      >...</mat-card
    >
