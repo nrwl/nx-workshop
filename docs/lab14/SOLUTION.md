@@ -82,8 +82,8 @@ export default async function (host: Tree) {
 ```typescript
 function addScopeIfMissing(host: Tree) {
   const projectMap = getProjects(host);
-  Object.keys(projectMap).forEach((projectName) => {
-    const project = projectMap[projectName];
+  Array.from(projectMap.keys()).forEach((projectName) => {
+    const project = projectMap.get(projectName);
     if (!project.tags.some((tag) => tag.startsWith('scope:'))) {
       const scope = projectName.split('-')[0];
       project.tags.push(`scope:${scope}`);
