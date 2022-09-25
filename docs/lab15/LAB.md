@@ -15,18 +15,15 @@
 Before starting on this lab, it's important that you have a version of your local workshop
 pushed to your GitHub repo.
 
-1.  Let's make sure the main branch is up to date (it's important your latest changes are on `main` (or `master`) for the follow-up steps): - If you already are on `main` - commit everything:
-    `git add . && git commit -m "finished lab 14" git push origin main`
-
-        - If you are on a different branch, commit everything, switch to `main`:
-
-    and bring it up to date:
+1.  Let's make sure the main branch is up to date (it's important your latest changes are on `main` (or `master`) for the follow-up steps): 
+    - If you already are on `main` commit everything: `git add . && git commit -m "finished lab 14" git push origin main`
+    - If you are on a different branch, commit everything, switch to `main`, and bring it up to date:
 
       ```
-        git add . && git commit "finish lab 14"
-        git checkout main (or master)
-        git merge previous-branch-you-were-on
-        git push origin main (or master)
+      git add . && git commit "finish lab 14"
+      git checkout main (or master)
+      git merge previous-branch-you-were-on
+      git push origin main (or master)
       ```
 
        <br />
