@@ -146,7 +146,7 @@ with a correct scope and type tag.
       }
       ```
       
-      <br /> <br />
+
 
 14. Now try to import the above function in `apps/api/src/app/app.service.ts`
     - Try to lint all the apps
