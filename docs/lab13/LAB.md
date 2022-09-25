@@ -145,10 +145,8 @@ with a correct scope and type tag.
         console.log("sending notification to client: ", clientId);
       }
       ```
-
-      ```
+      
       <br /> <br />
-      ```
 
 14. Now try to import the above function in `apps/api/src/app/app.service.ts`
     - Try to lint all the apps
