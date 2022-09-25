@@ -132,7 +132,7 @@ Let's fix that - we already have a `Game` interface in a lib. But it's nested in
 
     </details>
 
-    ⚠️ Notice how we didn't have to update the imports in the API. The `move` generator took care of that for us!
+    ⚠️ Open `apps/api/src/app/app.service.ts`. Notice how we didn't have to update the imports in the API. The `move` generator took care of that for us!
    <br /><br />
 9.  **Trigger a build** of both the store and the API projects and make sure it passes
    <br /><br />
