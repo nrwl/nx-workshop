@@ -101,7 +101,7 @@
    <summary>🐳 Hint</summary>
 
    ```shell
-   nx generate app video-games --tags=scope:video-games
+   nx generate app videos --tags=scope:videos
    ```
 
    </details>
