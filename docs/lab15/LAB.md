@@ -42,14 +42,14 @@ pushed to your GitHub repo.
         steps: # what steps it will perform
           - uses: actions/checkout@v1 # checkout whatever branch the PR is using
           - uses: bahmutov/npm-install@v1 # trigger an `npm install`
-          - run: yarn nx test store # test the "store" project
+          - run: npx nx test store # test the "store" project
       test-api:
         runs-on: ubuntu-latest
         name: Test API
         steps:
           - uses: actions/checkout@v1
           - uses: bahmutov/npm-install@v1
-          - run: yarn nx test api
+          - run: npx nx test api
     ```
 
     <br /> <br />
