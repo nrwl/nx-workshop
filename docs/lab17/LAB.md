@@ -16,12 +16,12 @@
 2. Switch to a new branch: `git checkout -b nxcloud-bot`
    <br /> <br />
 
-3. Make a change in the store: `apps/store/src/app/app.component.ts` (so that it will trigger our affected commands in CI):
+3. Make a change (add a `console.log`) in the store: `apps/store/src/app/app.component.ts` (so that it will trigger our affected commands in CI):
 
     ```
     export class AppComponent {
       constructor(private http: HttpClient) {
-        console.log("component constructed")
+        console.log("component constructed") <-- add console log
       }
     ```
 
