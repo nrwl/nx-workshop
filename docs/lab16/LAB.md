@@ -15,7 +15,7 @@
 capabilities. Let's enable distributed caching.
 
    ```
-   npx nx connect-to-nx-cloud.
+   npx nx connect-to-nx-cloud
    ```
    
    ![Nx Cloud Confirmation](./nx_cloud_enabled.png)
