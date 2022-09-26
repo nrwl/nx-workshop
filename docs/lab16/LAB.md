@@ -15,8 +15,7 @@
 capabilities. Let's enable distributed caching.
 
    ```
-   yarn add @nrwl/nx-cloud
-   nx generate @nrwl/nx-cloud:init
+   npx nx connect-to-nx-cloud.
    ```
    
    ![Nx Cloud Confirmation](./nx_cloud_enabled.png)
