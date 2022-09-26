@@ -12,28 +12,28 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - uses: bahmutov/npm-install@v1.4.5
-      - run: npm run nx affected -- --target=build --base=origin/main --parallel
+      - run: npx nx affected --target=build --base=origin/master --parallel
   test:
     runs-on: ubuntu-latest
     name: Testing affected apps
     steps:
       - uses: actions/checkout@v1
       - uses: bahmutov/npm-install@v1.4.5
-      - run: npm run nx affected -- --target=test --base=origin/main --parallel
+      - run: npx nx affected --target=test --base=origin/master --parallel
   lint:
     runs-on: ubuntu-latest
     name: Linting affected apps
     steps:
       - uses: actions/checkout@v1
       - uses: bahmutov/npm-install@v1.4.5
-      - run: npm run nx affected -- --target=lint --base=origin/main --parallel
+      - run: npx nx affected --target=lint --base=origin/master --parallel
   e2e:
     runs-on: ubuntu-latest
     name: E2E testing affected apps
     steps:
       - uses: actions/checkout@v1
       - uses: bahmutov/npm-install@v1.4.5
-      - run: npm run nx affected -- --target=e2e --base=origin/main --parallel
+      - run: npx nx affected --target=e2e --base=origin/master --parallel
 ```
 
 ##### Marking all projects as affected
