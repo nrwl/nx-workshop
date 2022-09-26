@@ -26,10 +26,10 @@ capabilities. Let's enable distributed caching.
 3. **Very important:** Make sure, at this stage, you commit and push your changes:
 
     ```
-    # make sure you're on master
-    git checkout master
+    # make sure you're on main
+    git checkout main
     git add . && git commit -m "add nx cloud"
-    git push origin master
+    git push origin main
     ```
     <br />
 
