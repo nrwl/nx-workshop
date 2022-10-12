@@ -15,7 +15,8 @@
 Before starting on this lab, it's important that you have a version of your local workshop
 pushed to your GitHub repo.
 
-1.  Let's make sure the main branch is up to date (it's important your latest changes are on `main` (or `master`) for the follow-up steps): 
+1.  Let's make sure the main branch is up to date (it's important your latest changes are on `main` (or `master`) for the follow-up steps):
+
     - If you already are on `main` commit everything: `git add . && git commit -m "finished lab 14" git push origin main`
     - If you are on a different branch, commit everything, switch to `main`, and bring it up to date:
 
@@ -40,14 +41,18 @@ pushed to your GitHub repo.
         runs-on: ubuntu-latest # the image our job will run on
         name: Test Store # the name that will appear on the Actions UI
         steps: # what steps it will perform
-          - uses: actions/checkout@v1 # checkout whatever branch the PR is using
+          - uses: actions/checkout@v3 # checkout whatever branch the PR is using
+            with:
+              fetch-depth: 0
           - uses: bahmutov/npm-install@v1 # trigger an `npm install`
           - run: npx nx test store # test the "store" project
       test-api:
         runs-on: ubuntu-latest
         name: Test API
         steps:
-          - uses: actions/checkout@v1
+          - uses: actions/checkout@v3
+            with:
+              fetch-depth: 0
           - uses: bahmutov/npm-install@v1
           - run: npx nx test api
     ```
@@ -127,8 +132,10 @@ But now we're testing both projects - even though we only changed the store.
         runs-on: ubuntu-latest
         name: Testing affected apps
         steps:
-          - uses: actions/checkout@v1
-          - uses: bahmutov/npm-install@v1.4.5
+          - uses: actions/checkout@v3
+            with:
+              fetch-depth: 0
+          - uses: bahmutov/npm-install@v1
           - run: .....
     ```
 
