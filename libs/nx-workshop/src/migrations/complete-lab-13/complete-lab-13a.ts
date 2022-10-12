@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { formatFiles, Tree } from '@nrwl/devkit';
+import { formatFiles, Tree, updateJson } from '@nrwl/devkit';
 import workspaceGenerator from '@nrwl/workspace/src/generators/workspace-generator/workspace-generator';
 
 export default async function update(host: Tree) {
@@ -37,35 +37,35 @@ export default async function update(host: Tree) {
     }
 `
   );
-  host.write(
-    'tools/generators/util-lib/schema.json',
-    `
-  {
-    "cli": "nx",
-    "directory": {
-      "type": "string",
-      "description": "The scope of your lib.",
-      "x-prompt": {
-        "message": "Which directory do you want the lib to be in?",
-        "type": "list",
-        "items": [
-          {
-            "value": "store",
-            "label": "store"
+  updateJson(host, 'tools/generators/util-lib/schema.json', (json) => {
+    return {
+      ...json,
+      properties: {
+        ...json.properties,
+        directory: {
+          type: 'string',
+          description: 'The scope of your lib.',
+          'x-prompt': {
+            message: 'Which directory do you want the lib to be in?',
+            type: 'list',
+            items: [
+              {
+                value: 'store',
+                label: 'store',
+              },
+              {
+                value: 'api',
+                label: 'api',
+              },
+              {
+                value: 'shared',
+                label: 'shared',
+              },
+            ],
           },
-          {
-            "value": "api",
-            "label": "api"
-          },
-          {
-            "value": "shared",
-            "label": "shared"
-          }
-        ]
-      }
-    }
-  }
-`
-  );
+        },
+      },
+    };
+  });
   await formatFiles(host);
 }

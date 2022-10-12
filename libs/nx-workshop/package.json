@@ -1,6 +1,6 @@
 {
   "name": "@nrwl/nx-workshop",
-  "version": "0.2.31",
+  "version": "0.2.32",
   "main": "src/index.js",
   "publishConfig": {
     "access": "public",
@@ -13,13 +13,13 @@
     "migrations": "./migrations.json"
   },
   "dependencies": {
-    "@nrwl/workspace": "14.8.3",
-    "@nrwl/angular": "14.8.3",
-    "@nrwl/nest": "14.8.3",
+    "@nrwl/workspace": "next",
+    "@nrwl/angular": "next",
+    "@nrwl/devkit": "next",
+    "@nrwl/nest": "next",
     "@nrwl/nx-cloud": "latest",
-    "@nrwl/nx-plugin": "14.8.3",
-    "@nrwl/storybook": "14.8.3",
-    "@nrwl/tao": "14.8.3",
+    "@nrwl/nx-plugin": "next",
+    "@nrwl/storybook": "next",
     "cors": "*",
     "node-fetch": "^2.x",
     "surge": "*"

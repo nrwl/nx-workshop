@@ -35,18 +35,17 @@
     "tslib": "^2.0.0"
   },
   "devDependencies": {
-    "@nrwl/angular": "14.8.3",
-    "@nrwl/devkit": "14.8.3",
-    "@nrwl/eslint-plugin-nx": "14.8.3",
-    "@nrwl/jest": "14.8.3",
-    "@nrwl/js": "14.8.3",
-    "@nrwl/linter": "14.8.3",
-    "@nrwl/nest": "14.8.3",
-    "@nrwl/node": "14.8.3",
-    "@nrwl/nx-plugin": "14.8.3",
-    "@nrwl/storybook": "14.8.3",
-    "@nrwl/workspace": "14.8.3",
-    "@nrwl/tao": "14.8.3",
+    "@nrwl/angular": "next",
+    "@nrwl/devkit": "next",
+    "@nrwl/eslint-plugin-nx": "next",
+    "@nrwl/jest": "next",
+    "@nrwl/js": "next",
+    "@nrwl/linter": "next",
+    "@nrwl/nest": "next",
+    "@nrwl/node": "next",
+    "@nrwl/nx-plugin": "next",
+    "@nrwl/storybook": "next",
+    "@nrwl/workspace": "next",
     "@phenomnomnominal/tsquery": "^4.1.1",
     "@swc-node/register": "^1.4.2",
     "@swc/core": "^1.2.173",
@@ -59,7 +58,7 @@
     "eslint-config-prettier": "8.1.0",
     "jest": "28.1.3",
     "node-fetch": "^2.6.1",
-    "nx": "14.8.3",
+    "nx": "next",
     "prettier": "2.7.1",
     "ts-jest": "28.0.8",
     "ts-node": "10.9.1",
@@ -67,4 +66,3 @@
     "typescript": "4.8.4"
   }
 }
-
