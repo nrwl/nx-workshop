@@ -14,7 +14,7 @@ export default async function update(host: Tree) {
     directory: 'store',
     lazy: true,
     routing: true,
-    parentModule: appModulePath,
+    parent: appModulePath,
   });
 
   replaceInFile(
