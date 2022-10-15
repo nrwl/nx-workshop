@@ -1,28 +1,36 @@
-##### Generate a `util-lib` workspace generator:
+##### Generate a `board-game-hoard` plugin:
 
 ```shell script
-nx generate @nrwl/workspace:workspace-generator util-lib
+nx generate @nrwl/nx-plugin:plugin internal-plugin --minimal
+```
+
+#### Generate a `util-lib` generator:
+
+```shell
+nx generate @nrwl/nx-plugin:generator util-lib --project=internal-plugin
 ```
 
 ##### Running the generator in dry mode
 
 ```shell
-nx workspace-generator util-lib test --dry-run
+nx generate @bg-hoard/internal-plugin:util-lib test --dry-run
 ```
 
 ##### Prefixing the name
 
 ```ts
-import { Tree, formatFiles, installPackagesTask } from '@nrwl/devkit';
-import { libraryGenerator } from '@nrwl/workspace/generators';
+import { formatFiles, installPackagesTask, Tree } from '@nrwl/devkit';
+import nrwlJsLibraryGenerator from '@nrwl/workspace/src/generators/library/library';
+import { UtilLibGeneratorSchema } from './schema';
 
-export default async function(host: Tree, schema: any) {
-  await libraryGenerator(host, {
-    name: `util-${schema.name}`,
+export default async function (tree: Tree, options: UtilLibGeneratorSchema) {
+  await nrwlJsLibraryGenerator(tree, {
+    ...options,
+    name: `util-${options.name}`,
   });
-  await formatFiles(host);
+  await formatFiles(tree);
   return () => {
-    installPackagesTask(host);
+    installPackagesTask(tree);
   };
 }
 ```
@@ -56,39 +64,22 @@ export default async function(host: Tree, schema: any) {
 }
 ```
 
-##### Choosing the directory
-
-```ts
-import { Tree, formatFiles, installPackagesTask } from '@nrwl/devkit';
-import { libraryGenerator } from '@nrwl/workspace/generators';
-
-export default async function(host: Tree, schema: any) {
-  await libraryGenerator(host, {
-    name: `util-${schema.name}`,
-    directory: schema.directory
-  });
-  await formatFiles(host);
-  return () => {
-    installPackagesTask(host);
-  };
-}
-```
-
 ##### Passing in tags
 
 ```ts
-import { Tree, formatFiles, installPackagesTask } from '@nrwl/devkit';
-import { libraryGenerator } from '@nrwl/workspace/generators';
+import { formatFiles, installPackagesTask, Tree } from '@nrwl/devkit';
+import nrwlJsLibraryGenerator from '@nrwl/workspace/src/generators/library/library';
+import { UtilLibGeneratorSchema } from './schema';
 
-export default async function(host: Tree, schema: any) {
-  await libraryGenerator(host, {
-    name: `util-${schema.name}`,
-    directory: schema.directory,
-    tags: `type:util, scope:${schema.directory}`
+export default async function (tree: Tree, options: UtilLibGeneratorSchema) {
+  await nrwlJsLibraryGenerator(tree, {
+    ...options,
+    name: `util-${options.name}`,
+    tags: `type:util, scope:${options.directory}`,
   });
-  await formatFiles(host);
+  await formatFiles(tree);
   return () => {
-    installPackagesTask(host);
+    installPackagesTask(tree);
   };
 }
 ```
@@ -96,7 +87,7 @@ export default async function(host: Tree, schema: any) {
 ##### Typed Schema
 
 ```typescript
-interface Schema {
+export interface UtilLibGeneratorSchema {
   name: string;
   directory: 'store' | 'api' | 'shared';
 }
