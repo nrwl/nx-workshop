@@ -165,8 +165,7 @@ export default async function (tree: Tree, options: UtilLibGeneratorSchema) {
     - Try to import a `feature` lib
     - It should correctly fail because the type hierarchy is not respected
       <br /> <br />
-19. **BONUS -** Currently, the schema passed to the generator is of type `any` - `tools/generators/util-lib/index.ts`
-    Try to create an interface for it that respects the generator's schema.
+19. **BONUS -** A `generator.spec.ts` file was created when we ran our generator. Try writing some meaningful tests for this generator.
     <br /> <br />
 
 20. **BONUS BONUS** - try to create another similar generator, but for "feature" libs.

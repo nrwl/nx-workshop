@@ -1,13 +1,33 @@
 ##### Generate a `update-scope-schema` workspace generator:
 
 ```shell script
-nx generate @nrwl/workspace:workspace-generator update-scope-schema
+nx generate @nrwl/nx-plugin:generator update-scope-schema --project=internal-plugin
 ```
 
 ##### Change default project
 
 ```typescript
-import {Tree, updateJson, formatFiles, ProjectConfiguration, getProjects} from '@nrwl/devkit';
+import { formatFiles, Tree, updateJson } from '@nrwl/devkit';
+
+export default async function (tree: Tree) {
+  updateJson(tree, 'nx.json', (json) => ({
+    ...json,
+    defaultProject: 'api',
+  }));
+  await formatFiles(tree);
+}
+```
+
+##### Adding New Scope Tags
+
+```typescript
+import {
+  Tree,
+  updateJson,
+  formatFiles,
+  ProjectConfiguration,
+  getProjects,
+} from '@nrwl/devkit';
 
 function getScopes(projectMap: Map<string, ProjectConfiguration>) {
   const projects: any[] = Array.from(projectMap.values());
@@ -20,23 +40,42 @@ function getScopes(projectMap: Map<string, ProjectConfiguration>) {
   return Array.from(new Set(allScopes));
 }
 
-export default async function (host: Tree) {
-  const scopes = getScopes(getProjects(host));
-  updateJson(host, 'tools/generators/util-lib/schema.json', (schemaJson) => {
-    schemaJson.properties.directory['x-prompt'].items = scopes.map((scope) => ({
-      value: scope,
-      label: scope,
-    }));
-    return schemaJson;
-  });
-  await formatFiles(host);
+export default async function (tree: Tree) {
+  const scopes = getScopes(getProjects(tree));
+  updateJson(
+    tree,
+    'libs/internal-plugin/src/generators/util-lib/schema.json',
+    (schemaJson) => {
+      schemaJson.properties.directory['x-prompt'].items = scopes.map(
+        (scope) => ({
+          value: scope,
+          label: scope,
+        })
+      );
+      return schemaJson;
+    }
+  );
+  await formatFiles(tree);
 }
 ```
 
 ##### Final generator code
 
 ```typescript
-import {Tree, updateJson, formatFiles, ProjectConfiguration, getProjects} from '@nrwl/devkit';
+import {
+  Tree,
+  updateJson,
+  formatFiles,
+  ProjectConfiguration,
+  getProjects,
+} from '@nrwl/devkit';
+
+export default async function (tree: Tree) {
+  const scopes = getScopes(getProjects(tree));
+  updateSchemaJson(tree, scopes);
+  updateSchemaInterface(tree, scopes);
+  await formatFiles(tree);
+}
 
 function getScopes(projectMap: Map<string, ProjectConfiguration>) {
   const projects: any[] = Array.from(projectMap.values());
@@ -49,31 +88,31 @@ function getScopes(projectMap: Map<string, ProjectConfiguration>) {
   return Array.from(new Set(allScopes));
 }
 
-function replaceScopes(content: string, scopes: string[]): string {
-  const joinScopes = scopes.map((s) => `'${s}'`).join(' | ');
-  const PATTERN = /interface Schema \{\n.*\n.*\n\}/gm;
-  return content.replace(
-    PATTERN,
-    `interface Schema {
-      name: string;
-      directory: ${joinScopes};
-    }`
+function updateSchemaJson(tree: Tree, scopes: string[]) {
+  updateJson(
+    tree,
+    'libs/internal-plugin/src/generators/util-lib/schema.json',
+    (schemaJson) => {
+      schemaJson.properties.directory['x-prompt'].items = scopes.map(
+        (scope) => ({
+          value: scope,
+          label: scope,
+        })
+      );
+      return schemaJson;
+    }
   );
 }
 
-export default async function (host: Tree) {
-  const scopes = getScopes(getProjects(host));
-  updateJson(host, 'tools/generators/util-lib/schema.json', (schemaJson) => {
-    schemaJson.properties.directory['x-prompt'].items = scopes.map((scope) => ({
-      value: scope,
-      label: scope,
-    }));
-    return schemaJson;
-  });
-  const content = host.read('tools/generators/util-lib/index.ts', 'utf-8');
-  const newContent = replaceScopes(content, scopes);
-  host.write('tools/generators/util-lib/index.ts', newContent);
-  await formatFiles(host);
+function updateSchemaInterface(tree: Tree, scopes: string[]) {
+  const joinScopes = scopes.map((s) => `'${s}'`).join(' | ');
+  const interfaceDefinitionFilePath =
+    'libs/internal-plugin/src/generators/util-lib/schema.d.ts';
+  const newContent = `export interface UtilLibGeneratorSchema {
+  name: string;
+  directory: ${joinScopes};
+}`;
+  tree.write(interfaceDefinitionFilePath, newContent);
 }
 ```
 
