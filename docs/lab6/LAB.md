@@ -55,8 +55,8 @@ We'll look at more advanced usages of the `@nrwl/angular` generators and generat
    }
    ```
 
-    </details>
-    <br />
+   </details>
+   <br />
 
 5. Adjust your routes in `libs/store/feature-game-detail/src/lib/lib.routes.ts` and make sure it's pointing to the `game-detail` component you generated above
 
