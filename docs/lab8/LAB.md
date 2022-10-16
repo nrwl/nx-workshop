@@ -47,7 +47,8 @@ Now we have a proper API that we can use to make HTTP requests. We'll look at ho
    ```html
    <mat-card
      class="game-card"
-     *ngFor="let game of games | async" <--HERE
+     *ngFor="let game of games | async"
+     <--HERE
      [routerLink]="['/game', game.id]"
      >...</mat-card
    >
@@ -88,7 +89,7 @@ Now let's load the full game in our routed component!
    ⚠️ Notice how we're using the shared `formatRating()` function in our routed component as well!
    <br /><br />
 
-9. Your component should look similar to the provided screenshot! (you might need to restart your `nx serve store` so the new button styles can be copied over)
+9. You should now see a fully-fleshed out detail component when you link on the card list at the top! (you might need to restart your `nx serve store` so the new button styles can be copied over)
    <br /><br />
 10. **Inspect what changed** from the last time you committed, then **commit your changes**
     <br /><br />

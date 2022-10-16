@@ -34,7 +34,7 @@ We'll build the app we just created, and look at what executors are and how to c
 
    <details>
    <summary>🐳 Hint</summary>
-   <img src="../assets/lab3_build_cmds.png" alt="Nx executor command structure">
+   <img src="../assets/lab3_build_cmds.svg" alt="Nx executor command structure">
    </details>
    <br />
 
