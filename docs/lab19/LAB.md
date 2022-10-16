@@ -72,7 +72,7 @@
 
    - define a Docker image and have it sit idly in our app's source folder
    - when we want to deploy, we'll build our app to `dist/apps/api`
-   - we'll then copy this image over to `dist/apps/api`
+   - as part of the build, we need to make sure that our `Dockerfile` makes it into `dist/apps/api`
    - because it will be in the same folder as our built assets, it will copy all of them into the container via the `COPY ./ ./` instruction
    - and then run the server via `CMD node main.js`
    </details>

@@ -74,6 +74,7 @@ import { UtilLibGeneratorSchema } from './schema';
 export default async function (tree: Tree, options: UtilLibGeneratorSchema) {
   await nrwlJsLibraryGenerator(tree, {
     name: `util-${options.name}`,
+    directory: options.directory,
     tags: `type:util, scope:${options.directory}`,
   });
   await formatFiles(tree);
@@ -111,7 +112,7 @@ describe('util-lib generator', () => {
 
   it('should add util to the name and add appropriate tags', async () => {
     await generator(appTree, options);
-    const config = readProjectConfiguration(appTree, 'util-foo');
+    const config = readProjectConfiguration(appTree, 'store-util-foo');
     expect(config).toBeDefined();
     expect(config.tags).toEqual(['type:util', 'scope:store']);
   });
