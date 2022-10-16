@@ -24,16 +24,18 @@ export default async function update(host: Tree) {
     `path: 'game/:id'`
   );
 
-  const gameDetailModulePath =
-    'libs/store/feature-game-detail/src/lib/store-feature-game-detail.module.ts';
-  replaceInFile(
-    host,
-    gameDetailModulePath,
-    `/* {path: '', pathMatch: 'full', component: InsertYourComponentHere} */`,
-    `{ path: '', pathMatch: 'full', component: GameDetailComponent }`
-  );
+  const gameDetailRoutesPath =
+    'libs/store/feature-game-detail/src/lib/lib.routes.ts';
+  host.write(gameDetailRoutesPath, `import { Route } from '@angular/router';
+import { GameDetailComponent } from './game-detail/game-detail.component';
+
+export const storeFeatureGameDetailRoutes: Route[] = [
+  { path: '', pathMatch: 'full', component: GameDetailComponent }
+];`);
 
   // Add MatCardModule to StoreFeatureGameDetailModule imports
+  const gameDetailModulePath =
+    'libs/store/feature-game-detail/src/lib/store-feature-game-detail.module.ts';
   insertNgModuleImport(host, gameDetailModulePath, 'MatCardModule');
   insertImport(
     host,
