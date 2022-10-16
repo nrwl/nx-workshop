@@ -3,7 +3,7 @@ import { formatFiles, Tree } from '@nrwl/devkit';
 import generatorGenerator from '@nrwl/nx-plugin/src/generators/generator/generator';
 
 export default async function update(host: Tree) {
-  generatorGenerator(host, {
+  await generatorGenerator(host, {
     name: 'update-scope-schema',
     project: 'internal-plugin',
     unitTestRunner: 'jest',

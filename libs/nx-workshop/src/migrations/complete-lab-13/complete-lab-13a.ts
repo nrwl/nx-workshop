@@ -6,7 +6,7 @@ import { Linter } from '@nrwl/linter';
 
 export default async function update(host: Tree) {
   // nx generate @nrwl/workspace:workspace-generator util-lib
-  pluginGenerator(host, {
+  await pluginGenerator(host, {
     name: 'internal-plugin',
     skipTsConfig: false,
     unitTestRunner: 'jest',
@@ -17,7 +17,7 @@ export default async function update(host: Tree) {
     minimal: true,
   });
 
-  generatorGenerator(host, {
+  await generatorGenerator(host, {
     name: 'util-lib',
     project: 'internal-plugin',
     unitTestRunner: 'jest',
