@@ -1,6 +1,6 @@
 {
   "name": "@nrwl/nx-workshop",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "main": "src/index.js",
   "publishConfig": {
     "access": "public",
@@ -17,7 +17,7 @@
     "@nrwl/angular": "15.0.0",
     "@nrwl/devkit": "15.0.0",
     "@nrwl/nest": "15.0.0",
-    "@nrwl/nx-cloud": "15.0.0",
+    "@nrwl/nx-cloud": "latest",
     "@nrwl/nx-plugin": "15.0.0",
     "@nrwl/storybook": "15.0.0",
     "cors": "*",
