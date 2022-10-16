@@ -32,7 +32,6 @@ export default async function update(host: Tree) {
 
     export default async function (tree: Tree, options: UtilLibGeneratorSchema) {
       await nrwlJsLibraryGenerator(tree, {
-        ...options,
         name: \`util-\${options.name}\`,
         tags: \`type:util, scope:\${options.directory}\`,
       });
@@ -56,6 +55,7 @@ export default async function update(host: Tree) {
     host,
     'libs/internal-plugin/src/generators/util-lib/schema.json',
     (json) => {
+      delete json.properties.tags;
       return {
         ...json,
         properties: {

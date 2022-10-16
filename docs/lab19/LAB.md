@@ -231,6 +231,8 @@ Because of how we set up our `dependsOn` for the `deploy` target, Nx will know t
 13. Go to `https://<your-app-name>.herokuapp.com/api/games` - it should return you a list of games.
     <br /> <br />
 
+14. BONUS: What would a meaningful test be for your new executor? Add it to `libs/internal-plugin/src/executors/keroku-deploy/executors.spec.ts`
+
 ---
 
 🎓If you get stuck, check out [the solution](SOLUTION.md)

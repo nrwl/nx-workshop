@@ -116,6 +116,8 @@ function updateSchemaInterface(tree: Tree, scopes: string[]) {
    their scope files.
    <br /> <br />
 
+10. **BONUS BONUS BONUS** - create a test to automate verification of this generator in `libs/internal-plugin/src/generators/update-scope-schema/generator.spec.ts`. \*\*This will be particularly difficult, as you'll need to create a project with the actual source code of your `util-lib` generator as part of the setup for this test. (Check [the solution](SOLUTION.md) if you get stuck!)
+
 ---
 
 🎓If you get stuck, check out [the solution](SOLUTION.md)
