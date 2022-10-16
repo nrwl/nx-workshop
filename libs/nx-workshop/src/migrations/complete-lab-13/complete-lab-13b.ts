@@ -4,6 +4,6 @@ import { execSync } from 'child_process';
 
 export default function update(host: Tree) {
   execSync(
-    'npx nx workspace-generator util-lib --name=notifications --directory=api'
+    'npx nx workspace-generator util-lib notifications --directory=api'
   );
 }
