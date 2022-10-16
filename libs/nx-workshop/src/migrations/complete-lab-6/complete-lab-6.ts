@@ -112,10 +112,10 @@ export default async function update(host: Tree) {
     host,
     appComponentHtmlPath,
     `  </div>
-  </div>`,
+</div>`,
     `  </div>
-    <router-outlet></router-outlet>
-  </div>`
+  <router-outlet></router-outlet>
+</div>`
   );
   replaceInFile(
     host,
