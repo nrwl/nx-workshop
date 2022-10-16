@@ -91,7 +91,7 @@ Let's fix that - we already have a `Game` interface in a lib. But it's nested in
 
      <details>
      <summary>🐳 Hint 1</summary>
-     <img src="../assets/lab2_cmds.svg" alt="Nx generate cmd structure">
+     <img src="../assets/lab2_cmds.png" alt="Nx generate cmd structure">
      </details>
 
      <details>

@@ -50,7 +50,7 @@ In this lab we'll generate our first Angular application within the new monorepo
 
    <details>
    <summary>🐳 Hint</summary>
-   <img src="../assets/lab2_cmds.svg" alt="Nx generate cmd structure">
+   <img src="../assets/lab2_cmds.png" alt="Nx generate cmd structure">
    </details>
    <br />
 
