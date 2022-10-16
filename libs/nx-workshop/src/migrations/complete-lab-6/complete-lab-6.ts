@@ -7,19 +7,19 @@ import { insertImport } from '@nrwl/workspace/src/generators/utils/insert-import
 import { replaceInFile } from '../utils';
 
 export default async function update(host: Tree) {
-  const appModulePath = 'apps/store/src/app/app.module.ts';
-  // nx generate @nrwl/angular:lib feature-game-detail --directory=store --lazy --routing --parentModule="apps/store/src/app/app.module.ts"
+  const appRoutingPath = 'apps/store/src/app/app.routes.ts';
+  // nx generate @nrwl/angular:lib feature-game-detail --directory=store --lazy --routing --parent="apps/store/src/app/app.routes.ts"
   await libraryGenerator(host, {
     name: 'feature-game-detail',
     directory: 'store',
     lazy: true,
     routing: true,
-    parent: appModulePath,
+    parent: appRoutingPath,
   });
 
   replaceInFile(
     host,
-    appModulePath,
+    appRoutingPath,
     `path: 'store-feature-game-detail'`,
     `path: 'game/:id'`
   );
