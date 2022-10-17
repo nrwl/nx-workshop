@@ -7,6 +7,7 @@ import {
 } from '@nrwl/workspace';
 import { execSync } from 'child_process';
 import { readJsonFile } from '@nrwl/devkit';
+import { stripConsoleColors } from '../utils';
 
 export default async function update(host: Tree) {
   await addDependenciesToPackageJson(
@@ -24,7 +25,7 @@ export default async function update(host: Tree) {
     surgeName = workshopConstants.surgeName;
   }
   if (!surgeToken || !surgeName) {
-    surgeToken = execSync('npx surge token').toString().trim();
+    surgeToken = stripConsoleColors(execSync('npx surge token').toString().trim());
     surgeName = uniq(`prophetic-narwhal-`);
     if (host.exists('.nx-workshop.json')) {
       updateJson(host, '.nx-workshop.json', (json) => {
