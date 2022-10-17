@@ -72,13 +72,8 @@ In the previous labs we set up automatic deployments. But everytime we push to m
 
    <br />
 
-6. You can now use the output from the above action in your affected commands:
-
-   ```bash
-   --base=${{ env.NX_BASE }}
-   ```
-
-   <br />
+6. You can now remove the `base` parameter from the `affected` as it will be now automatically read from the environment variables.
+   <br /> <br />
 
 7. Commit everything and push. Let it build. It should compare against the immediately previous commit (because your workflow ran against it, and it passed)
    <br /> <br />
