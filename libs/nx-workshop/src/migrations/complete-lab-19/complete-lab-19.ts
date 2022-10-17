@@ -17,7 +17,7 @@ export default async function update(host: Tree) {
   if (host.exists('.nx-workshop.json')) {
     const workshopConstants = readJsonFile('.nx-workshop.json');
     herokuToken = workshopConstants.herokuToken;
-    herokuName = workshopConstants.surgeName;
+    herokuName = workshopConstants.herokuName;
   }
   if (!herokuToken || !herokuName) {
     const herokuToken = execSync('heroku authorizations:create')
@@ -72,49 +72,49 @@ export default async function update(host: Tree) {
   host.write(
     'libs/internal-plugin/src/executors/heroku-deploy/schema.d.ts',
     `export interface HerokuDeployExecutorSchema {
-    distLocation: string;
-    herokuAppName: string;
-  }
+  distLocation: string;
+  herokuAppName: string;
+}
   `
   );
 
   host.write(
     'libs/internal-plugin/src/executors/heroku-deploy/schema.json',
     `{
-    "$schema": "http://json-schema.org/schema",
-    "cli": "nx",
-    "title": "HerokuDeploy executor",
-    "description": "",
-    "type": "object",
-    "properties": {
-      "distLocation": {
-        "type": "string"
-      },
-      "herokuAppName": {
-        "type": "string"
-      }
+  "$schema": "http://json-schema.org/schema",
+  "cli": "nx",
+  "title": "HerokuDeploy executor",
+  "description": "",
+  "type": "object",
+  "properties": {
+    "distLocation": {
+      "type": "string"
     },
-    "required": ["distLocation", "herokuAppName"]
-  }
+    "herokuAppName": {
+      "type": "string"
+    }
+  },
+  "required": ["distLocation", "herokuAppName"]
+}
   `
   );
 
   host.write(
     'libs/internal-plugin/src/executors/heroku-deploy/executor.ts',
     `import { HerokuDeployExecutorSchema } from './schema';
-  import { execSync } from 'child_process';
-  
-  export default async function runExecutor(options: HerokuDeployExecutorSchema) {
-    const cwd = options.distLocation;
-    execSync(\`heroku container:login\`, { cwd });
-    execSync(\`heroku container:push web --app \${options.herokuAppName}\`, { cwd });
-    execSync(\`heroku container:release web --app \${options.herokuAppName}\`, {
-      cwd,
-    });
-    return {
-      success: true,
-    };
-  }
+import { execSync } from 'child_process';
+
+export default async function runExecutor(options: HerokuDeployExecutorSchema) {
+  const cwd = options.distLocation;
+  execSync(\`heroku container:login\`, { cwd });
+  execSync(\`heroku container:push web --app \${options.herokuAppName}\`, { cwd });
+  execSync(\`heroku container:release web --app \${options.herokuAppName}\`, {
+    cwd,
+  });
+  return {
+    success: true,
+  };
+}
   `
   );
 
@@ -148,11 +148,11 @@ export default async function update(host: Tree) {
     host,
     'apps/api/src/main.ts',
     `app.setGlobalPrefix(globalPrefix);
-  const port = process.env.PORT || 3333;
+const port = process.env.PORT || 3333;
 `,
     `app.setGlobalPrefix(globalPrefix);
-  app.enableCors();
-  const port = process.env.PORT || 3333;
+app.enableCors();
+const port = process.env.PORT || 3333;
 `
   );
   await formatFiles(host);

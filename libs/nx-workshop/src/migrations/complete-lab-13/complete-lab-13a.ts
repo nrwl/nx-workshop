@@ -27,13 +27,13 @@ export default async function update(host: Tree) {
     'tools/generators/util-lib/index.ts',
     `
     import { formatFiles, installPackagesTask, Tree } from '@nrwl/devkit';
-    import nrwlJsLibraryGenerator from '@nrwl/workspace/src/generators/library/library';
+    import { libraryGenerator } from '@nrwl/workspace/generators';
     import { UtilLibGeneratorSchema } from './schema';
 
-    export default async function (tree: Tree, options: UtilLibGeneratorSchema) {
-      await nrwlJsLibraryGenerator(tree, {
-        name: \`util-\${options.name}\`,
-        tags: \`type:util, scope:\${options.directory}\`,
+    export default async function (tree: Tree, schema: UtilLibGeneratorSchema) {
+      await libraryGenerator(tree, {
+        name: \`util-\${schema.name}\`,
+        tags: \`type:util, scope:\${schema.directory}\`,
       });
       await formatFiles(tree);
       return () => {

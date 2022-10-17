@@ -1,4 +1,4 @@
-# 🧵 Lab 14 - Workspace generators - Modifying files
+# 🧵 Lab 14 - Workspace Plugins and Generators - Modifying files
 
 ###### ⏰ Estimated time: 25-35 minutes
 
@@ -77,18 +77,18 @@
    <details>
    <summary>🐳 Hint</summary>
 
-```typescript
-function updateSchemaInterface(tree: Tree, scopes: string[]) {
-  const joinScopes = scopes.map((s) => `'${s}'`).join(' | ');
-  const interfaceDefinitionFilePath =
-    'libs/internal-plugin/src/generators/util-lib/schema.d.ts';
-  const newContent = `export interface UtilLibGeneratorSchema {
-    name: string;
-    directory: ${joinScopes};
-  }`;
-  tree.write(interfaceDefinitionFilePath, newContent);
-}
-```
+    ```typescript
+    function updateSchemaInterface(tree: Tree, scopes: string[]) {
+      const joinScopes = scopes.map((s) => `'${s}'`).join(' | ');
+      const interfaceDefinitionFilePath =
+        'libs/internal-plugin/src/generators/util-lib/schema.d.ts';
+      const newContent = `export interface UtilLibGeneratorSchema {
+        name: string;
+        directory: ${joinScopes};
+      }`;
+      tree.write(interfaceDefinitionFilePath, newContent);
+    }
+    ```
 
    </details>
    <br />
@@ -99,7 +99,7 @@ function updateSchemaInterface(tree: Tree, scopes: string[]) {
    <summary>🐳 Hint</summary>
 
    ```shell
-   nx generate app videos --tags=scope:videos
+   nx g app videos --tags=scope:videos
    ```
 
    </details>

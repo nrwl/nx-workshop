@@ -1,4 +1,4 @@
-# 🧸️ Lab 13 - Workspace Generators - Intro
+# 🧸️ Lab 13 - Workspace Plugins and Generators - Intro
 
 ###### ⏰ Estimated time: 20-25 minutes
 
@@ -17,18 +17,20 @@
 
 We just learned how important tags are. But we don't want to constantly and manually
 have to maintain them. In this workshop, we'll create an internal plugin called
-`internal-plugin`, and create a library generator for this plugin that knows
+`internal-plugin`, and create a `library generator` for this plugin that knows
 about the folders in our workspace and automatically tags the new project with a correct
 scope and type tag.
 
 1.  Use the `@nrwl/nx-plugin:plugin` generator to generate a new plugin called
-    `internal-plugin`. Make sure that the `minimal` option is set.
+    `internal-plugin`.<br /> 
+    Make sure that the `minimal` option is set.
     <br /> <br />
 
 2.  Use the `@nrwl/nx-plugin:generator` generator to generate a new generator called
     `util-lib`.
+    <br /> <br />
 
-3.  Inspect the files that got generated and then commit everything (you'll see in a bit why).
+3.  Inspect the files that got generated and then commit everything.
     <br /> <br />
 
 4.  Try to run your generator (you can append `--dry-run` to avoid reverting using Git)
@@ -36,35 +38,33 @@ scope and type tag.
     <details>
     <summary>🐳 Hint</summary>
 
-    When you created your `internal-plugin` project, you created a plugin called `@bg-hoard/internal-plugin`.
+    Run `npx nx list` to see your newly created plugin in the list of installed plugins:
 
-    Run `npx nx list` to see it in your list of installed plugins:
+    ```shell
+    % npx nx list
 
-```shell
-% npx nx list
+    >  NX   Local workspace plugins:
 
- >  NX   Local workspace plugins:
+        @bg-hoard/internal-plugin (generators)
+    ```
 
-    @bg-hoard/internal-plugin (generators)
-```
+    Run `npx nx list @bg-hoard/internal-plugin` to see our generator details:
 
-    Run `npx nx list @bg-hoard/internal-plugin` to see our generator available here as well:
+    ```shell
+    % npx nx list @bg-hoard/internal-plugin
 
-```shell
-% npx nx list @bg-hoard/internal-plugin
+    >  NX   Capabilities in @bg-hoard/internal-plugin:
 
- >  NX   Capabilities in @bg-hoard/internal-plugin:
+      GENERATORS
 
-   GENERATORS
-
-   util-lib : util-lib generator
-```
+      util-lib : util-lib generator
+    ```
 
     You call generators from this local plugin using the same syntax you would with any plugin:
 
-```shell
-nx generate <plugin name>:<generator name> <...options>
-```
+    ```shell
+    nx generate <plugin name>:<generator name> [...options]
+    ```
 
     </details>
 
@@ -72,19 +72,20 @@ nx generate <plugin name>:<generator name> <...options>
      You can use Git to undo those changes (hence why it's recommended to commit before running a generator).
     <br /> <br />
 
-5.  We can call other generators inside of our custom generator. Import the `@nrwl/js:library` generator and call it inside of the default exported function of `libs/internal-plugin/src/generators/util-lib/generator.ts`
+5.  We can call other generators inside of our custom generator. Import the `@nrwl/workspace:library` generator and call it inside of the default exported function of `libs/internal-plugin/src/generators/util-lib/generator.ts`
 
     <details>
     <summary>🐳 Hint</summary>
 
-```typescript
-import nrwlJsLibraryGenerator from '@nrwl/workspace/src/generators/library/library';
+    ```typescript
+    import { libraryGenerator } from '@nrwl/workspace/generators';
 
-export default async function (tree: Tree, options: UtilLibGeneratorSchema) {
-  await nrwlJsLibraryGenerator(tree, options);
-  // ...
-}
-```
+    export default async function (tree: Tree, schema: UtilLibGeneratorSchema) {
+      await libraryGenerator(tree, schema);
+      // ...
+    }
+    ```
+    </details>
 
 6.  In `libs/internal-plugin/src/generators/util-lib/generator.ts` try to make it `console.log()` the value of the `--name` property you passed to it (can use `--dry-run` again to test it)
     <br /> <br />
@@ -108,13 +109,13 @@ export default async function (tree: Tree, options: UtilLibGeneratorSchema) {
     schema it should prompt the user to select from the 3 different values (similar to when you got
     asked about which CSS framework to use when creating Angular libs).
 
-       <details>
-       <summary>🐳 Hint</summary>
+    <details>
+    <summary>🐳 Hint</summary>
 
     [Adding dynamic prompts](https://nx.dev/recipe/generator-options#adding-dynamic-prompts)
 
-       </details>
-       <br />
+    </details>
+    <br />
 
 10. The generator should generate the lib in the directory you pass to it.
     <br /> <br />
@@ -147,7 +148,6 @@ export default async function (tree: Tree, options: UtilLibGeneratorSchema) {
 
     - In `libs/api/util-notifications/src/lib/api-util-notifications.ts`
     - Add:
-
       ```typescript
       export function sendNotification(clientId: string) {
         console.log('sending notification to client: ', clientId);

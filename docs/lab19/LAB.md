@@ -1,4 +1,4 @@
-# 🧲 Lab 19 - Deploying the API
+# 🧲 Lab 19 - Deploying the API with custom executor
 
 ###### ⏰ Estimated time: 30 minutes
 
@@ -127,8 +127,8 @@ Update the the `assets` option in the production build options for the API (`pro
 8. Use the `@nrwl/nx-plugin:executor` generator to generate a `heroku-deploy` exector:
 
 - The executor should have options for:
-  - the target dist location
-  - the name of your heroku app
+  - the target `dist` location
+  - the `name` of your heroku app
 - When running, your executor should perform the following tasks, using the `heroku` cli:
 
   - login: `heroku container:login`
@@ -175,11 +175,11 @@ export interface HerokuDeployExecutorSchema {
 import { HerokuDeployExecutorSchema } from './schema';
 import { execSync } from 'child_process';
 
-export default async function runExecutor(options: HerokuDeployExecutorSchema) {
-  const cwd = options.distLocation;
+export default async function runExecutor(schema: HerokuDeployExecutorSchema) {
+  const cwd = schema.distLocation;
   execSync(`heroku container:login`, { cwd });
-  execSync(`heroku container:push web --app ${options.herokuAppName}`, { cwd });
-  execSync(`heroku container:release web --app ${options.herokuAppName}`, {
+  execSync(`heroku container:push web --app ${schema.herokuAppName}`, { cwd });
+  execSync(`heroku container:release web --app ${schema.herokuAppName}`, {
     cwd,
   });
   return {
@@ -191,17 +191,19 @@ export default async function runExecutor(options: HerokuDeployExecutorSchema) {
 11. Next we'll need to add a `deploy` target to our `apps/api/project.json` file:
 
 ```json
-"deploy": {
+{
+  "deploy": {
     "executor": "@bg-hoard/internal-plugin:heroku-deploy",
     "outputs": [],
     "options": {
-        "distLocation": "dist/apps/api",
-        "herokuAppName": "nx-conf-2022-prep"
+      "distLocation": "dist/apps/api",
+      "herokuAppName": "nx-conf-2022-prep"
     },
     "dependsOn": [
-        { "target": "build", "projects": "self", "params": "forward" }
+      { "target": "build", "projects": "self", "params": "forward" }
     ]
-},
+  }
+}
 ```
 
 12. Let's enable CORS on the server so our API can make requests to it (since they'll be deployed in separate places):
@@ -215,23 +217,24 @@ export default async function runExecutor(options: HerokuDeployExecutorSchema) {
           const globalPrefix = 'api';
           app.setGlobalPrefix(globalPrefix);
           app.enableCors(); // <--- ADD THIS
+      }
       ```
 
-⚠️ Normally, you want to restrict this to just a few origins. But to keep things simple in this workshop we'll enable it for all origins.
-<br /> <br />
+    ⚠️ Normally, you want to restrict this to just a few origins. But to keep things simple in this workshop we'll enable it for all origins.
+    <br /> <br />
 
 12. Now run the command to deploy your api!!
 
-```shell
-npx nx deploy api --prod
-```
+    ```shell
+    npx nx deploy api --prod
+    ```
 
 Because of how we set up our `dependsOn` for the `deploy` target, Nx will know that it needs to run (or pull from the cache if you already ran it) the production build of the api before then running the deploy!
 
 13. Go to `https://<your-app-name>.herokuapp.com/api/games` - it should return you a list of games.
     <br /> <br />
 
-14. BONUS: What would a meaningful test be for your new executor? Add it to `libs/internal-plugin/src/executors/keroku-deploy/executors.spec.ts`
+14. **BONUS** - What would a meaningful test be for your new executor? Add it to `libs/internal-plugin/src/executors/keroku-deploy/executors.spec.ts`
 
 ---
 

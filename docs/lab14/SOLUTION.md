@@ -148,9 +148,8 @@ function addScopeIfMissing(host: Tree) {
 ```typescript
 import { readJson, Tree } from '@nrwl/devkit';
 import { createTreeWithEmptyWorkspace } from '@nrwl/devkit/testing';
-import jsLibGenerator from '@nrwl/js/src/generators/library/library';
-import generatorGenerator from '@nrwl/nx-plugin/src/generators/generator/generator';
-import pluginGenerator from '@nrwl/nx-plugin/src/generators/plugin/plugin';
+import { libraryGenerator } from '@nrwl/workspace/generators';
+import { generatorGenerator, pluginGenerator } from '@nrwl/nx-plugin/generators';
 import { readFileSync } from 'fs';
 import { join } from 'path';
 
@@ -163,8 +162,8 @@ describe('update-scope-schema generator', () => {
   beforeEach(async () => {
     appTree = createTreeWithEmptyWorkspace();
     await addUtilLibProject(appTree);
-    await jsLibGenerator(appTree, { name: 'foo', tags: 'scope:foo' });
-    await jsLibGenerator(appTree, { name: 'bar', tags: 'scope:bar' });
+    await libraryGenerator(appTree, { name: 'foo', tags: 'scope:foo' });
+    await libraryGenerator(appTree, { name: 'bar', tags: 'scope:bar' });
   });
 
   it('should adjust the util-lib generator based on existing projects', async () => {
