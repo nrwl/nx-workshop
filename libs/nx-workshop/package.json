@@ -1,6 +1,6 @@
 {
   "name": "@nrwl/nx-workshop",
-  "version": "0.3.5",
+  "version": "0.4.0",
   "main": "src/index.js",
   "publishConfig": {
     "access": "public",
