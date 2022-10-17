@@ -24,13 +24,14 @@ export default async function update(host: Tree) {
   );
 
   const modulePath = 'apps/store/src/app/app.module.ts';
-  insertNgModuleImport(
+  replaceInFile(
     host,
     modulePath,
-    `{
-  provide: 'baseUrl',
-  useValue: environment.apiUrl
-}`
+    `providers: []`,
+    `providers: [{
+    provide: 'baseUrl',
+    useValue: environment.apiUrl
+  }]`
   );
   insertImport(host, modulePath, 'environment', '../environments/environment');
 
@@ -60,8 +61,8 @@ export default async function update(host: Tree) {
   replaceInFile(
     host,
     gameDetailComponentPath,
-    'this.http.get<Game>(`/api/games/${id}`)',
-    'this.http.get<Game>(`${this.baseUrl}/api/games/${id}`)'
+    '`/api/games/${id}`',
+    '`${this.baseUrl}/api/games/${id}`'
   );
   await formatFiles(host);
 }
