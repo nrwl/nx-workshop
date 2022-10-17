@@ -10,7 +10,7 @@ name: Deploy Website
 on:
   push:
     branches:
-      - master
+      - main
 
 env:
   SURGE_DOMAIN: \${{ secrets.SURGE_DOMAIN }}
@@ -27,8 +27,8 @@ jobs:
           fetch-depth: 0
       - uses: bahmutov/npm-install@v1
       - uses: nrwl/nx-set-shas@v2
-      - run: npm run nx affected -- --target=build --base=\${{ env.NX_BASE }} --parallel --configuration=production
-      - run: npm run nx affected -- --target=deploy --base=\${{ env.NX_BASE }} --parallel
+      - run: npx nx affected --target=build --base=\${{ env.NX_BASE }} --parallel --configuration=production
+      - run: npx nx affected --target=deploy --base=\${{ env.NX_BASE }} --parallel
 `
   );
   await formatFiles(host);

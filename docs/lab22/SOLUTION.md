@@ -25,6 +25,6 @@ jobs:
       - uses: nrwl/nx-set-shas@v2
         with:
           main-branch-name: 'main' # remember to set this correctly
-      - run: npm run nx affected -- --target=build --base=${{ env.NX_BASE }} --parallel --configuration=production
-      - run: npm run nx affected -- --target=deploy --base=${{ env.NX_BASE }} --parallel
+      - run: npx nx affected --target=build --base=${{ env.NX_BASE }} --parallel --configuration=production
+      - run: npx nx affected --target=deploy --base=${{ env.NX_BASE }} --parallel
 ```

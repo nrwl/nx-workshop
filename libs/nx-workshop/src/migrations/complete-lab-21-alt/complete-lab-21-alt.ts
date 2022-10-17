@@ -26,10 +26,10 @@ jobs:
         with:
           fetch-depth: 0
       - uses: bahmutov/npm-install@v1
-      - run: npm run nx build store -- --configuration=production
-      - run: npm run nx build admin-ui -- --configuration=production
-      - run: npm run nx deploy store
-      - run: npm run nx deploy admin-ui
+      - run: npx nx build store --configuration=production
+      - run: npx nx build admin-ui --configuration=production
+      - run: npx nx deploy store
+      - run: npx nx deploy admin-ui
 `
   );
   await formatFiles(host);

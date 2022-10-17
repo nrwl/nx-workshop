@@ -1,8 +1,6 @@
-import { formatFiles, readJsonFile, Tree } from '@nrwl/devkit';
+import { formatFiles, Tree } from '@nrwl/devkit';
 
 export default async function update(host: Tree) {
-  const { herokuName } = readJsonFile('.nx-workshop.json');
-
   host.write(
     '.github/workflows/deploy.yml',
     `
@@ -11,13 +9,12 @@ name: Deploy Website
 on:
   push:
     branches:
-      - master
+      - main
 
 env:
   SURGE_DOMAIN: \${{ secrets.SURGE_DOMAIN }}
   SURGE_TOKEN: \${{ secrets.SURGE_TOKEN }}
   HEROKU_API_KEY: \${{ secrets.HEROKU_API_KEY }}
-  NX_API_URL: https://${herokuName}.herokuapp.com
 
 jobs:
   build:
@@ -28,10 +25,10 @@ jobs:
         with:
           fetch-depth: 0
       - uses: bahmutov/npm-install@v1
-      - run: npm run nx build store -- --configuration=production
-      - run: npm run nx build api -- --configuration=production
-      - run: npm run nx deploy store
-      - run: npm run nx deploy api
+      - run: npx nx build store --configuration=production
+      - run: npx nx build api --configuration=production
+      - run: npx nx deploy store
+      - run: npx nx deploy api
 `
   );
   await formatFiles(host);

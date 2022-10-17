@@ -18,10 +18,10 @@ jobs:
         with:
           fetch-depth: 0
       - uses: bahmutov/npm-install@v1
-      - run: npm run nx affected -- --target=build --base=origin/main --parallel
-      - run: npm run nx affected -- --target=test --base=origin/main --parallel
-      - run: npm run nx affected -- --target=lint --base=origin/main --parallel
-      - run: npm run nx affected -- --target=e2e --base=origin/main --parallel
+      - run: npx nx affected --target=build --base=origin/main --parallel
+      - run: npx nx affected --target=test --base=origin/main --parallel
+      - run: npx nx affected --target=lint --base=origin/main --parallel
+      - run: npx nx affected --target=e2e --base=origin/main --parallel
 `
   );
   updateJson(host, 'nx.json', (json) => {

@@ -22,8 +22,8 @@ jobs:
         with:
           fetch-depth: 0
       - uses: bahmutov/npm-install@v1
-      - run: npm run nx build store -- --configuration=production
-      - run: npm run nx build api -- --configuration=production
-      - run: npm run nx deploy store
-      - run: npm run nx deploy api
+      - run: npx nx build store --configuration=production
+      - run: npx nx build api --configuration=production
+      - run: npx nx deploy store
+      - run: npx nx deploy api
 ```
