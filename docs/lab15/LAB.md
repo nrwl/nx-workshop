@@ -155,7 +155,7 @@ But now we're testing both projects - even though we only changed the store.
 
 13. Our CI only does testing now. But we also have targets for `lint`, `e2e` and `build`. Would really be handy if CI also told us if any of those failed.
 
-    **Add more jobs under your CI workflow that run affected for each of the above targets**
+    **Add more steps under your CI workflow that run affected for each of the above targets**
     <br /> <br />
 
 14. Commit and push your `ci.yml` changes.

@@ -24,6 +24,10 @@ export default async function update(tree: Tree) {
     'store-ui-shared-e2e',
     'store-util-formatters',
     'api-util-notifications',
+    'video',
+    'video-e2e',
+    'internal-plugin',
+    'internal-plugin-e2e',
     'admin-ui',
   ].filter((removeProject) => projects.has(removeProject));
   projectsToRemove.forEach(
