@@ -20,7 +20,7 @@ export default async function update(host: Tree) {
     herokuName = workshopConstants.herokuName;
   }
   if (!herokuToken || !herokuName) {
-    const herokuToken = execSync('heroku authorizations:create')
+    herokuToken = execSync('heroku authorizations:create')
       .toString()
       .split('\n')
       .filter((line) => line.startsWith('ID:'))
@@ -44,21 +44,19 @@ export default async function update(host: Tree) {
 
   host.write(
     'apps/api/.local.env',
-    `
-  HEROKU_API_KEY=${herokuToken}
+    `HEROKU_API_KEY=${herokuToken}
   `
   );
   host.write(
     'apps/api/Dockerfile',
-    `
-    # use images supported by heroku
-    FROM --platform=linux/amd64 node:14.17.0-alpine
-    # switch to the /app folder in the image
-    WORKDIR /app
-    # copy all files from the folder its in into the /app folder we switched to
-    COPY ./ ./
-    # launch the main.js file
-    CMD node main.js
+    `# use images supported by heroku
+FROM --platform=linux/amd64 node:14.17.0-alpine
+# switch to the /app folder in the image
+WORKDIR /app
+# copy all files from the folder its in into the /app folder we switched to
+COPY ./ ./
+# launch the main.js file
+CMD node main.js
 `
   );
 
@@ -148,11 +146,11 @@ export default async function runExecutor(options: HerokuDeployExecutorSchema) {
     host,
     'apps/api/src/main.ts',
     `app.setGlobalPrefix(globalPrefix);
-const port = process.env.PORT || 3333;
+  const port = process.env.PORT || 3333;
 `,
     `app.setGlobalPrefix(globalPrefix);
-app.enableCors();
-const port = process.env.PORT || 3333;
+  app.enableCors();
+  const port = process.env.PORT || 3333;
 `
   );
   await formatFiles(host);
