@@ -108,7 +108,7 @@
 7. Run your generator and notice the resulting changes. Commit them so you start fresh on your next lab.
    <br /> <br />
 
-8. **BONUS** - As a bonus, if project doesn't have `scope` tag defined, we will assume it's the first segment of the name (e.g `admin-ui-lib` -> `scope:admin`) and we will go ahead and set one for it.
+8. **BONUS** - As a bonus, if project doesn't have `scope` tag defined, we will assume it's the first segment of the name (e.g `admin-ui-lib` -> `scope:admin`) and we will go ahead and set one for it. Now run the generator again and see what changed.
    <br /> <br />
 
 9. **BONUS BONUS** - use a tool like [Husky](https://typicode.github.io/husky/#/) to run your

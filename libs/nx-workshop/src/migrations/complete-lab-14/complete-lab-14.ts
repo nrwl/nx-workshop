@@ -17,6 +17,7 @@ export default async function update(host: Tree) {
   formatFiles,
   ProjectConfiguration,
   getProjects,
+  updateProjectConfiguration,
 } from '@nrwl/devkit';
 
 export default async function (tree: Tree) {
