@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import {
-  addDependenciesToPackageJson,
   formatFiles,
   Tree,
   updateJson,

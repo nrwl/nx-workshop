@@ -7,33 +7,35 @@ import { insertImport } from '@nrwl/workspace/src/generators/utils/insert-import
 import { replaceInFile } from '../utils';
 
 export default async function update(host: Tree) {
-  const appModulePath = 'apps/store/src/app/app.module.ts';
-  // nx generate @nrwl/angular:lib feature-game-detail --directory=store --lazy --routing --parentModule="apps/store/src/app/app.module.ts"
+  const appRoutingPath = 'apps/store/src/app/app.routes.ts';
+  // nx generate @nrwl/angular:lib feature-game-detail --directory=store --lazy --routing --parent="apps/store/src/app/app.routes.ts"
   await libraryGenerator(host, {
     name: 'feature-game-detail',
     directory: 'store',
     lazy: true,
     routing: true,
-    parent: appModulePath,
+    parent: appRoutingPath,
   });
 
   replaceInFile(
     host,
-    appModulePath,
+    appRoutingPath,
     `path: 'store-feature-game-detail'`,
     `path: 'game/:id'`
   );
 
-  const gameDetailModulePath =
-    'libs/store/feature-game-detail/src/lib/store-feature-game-detail.module.ts';
-  replaceInFile(
-    host,
-    gameDetailModulePath,
-    `/* {path: '', pathMatch: 'full', component: InsertYourComponentHere} */`,
-    `{ path: '', pathMatch: 'full', component: GameDetailComponent }`
-  );
+  const gameDetailRoutesPath =
+    'libs/store/feature-game-detail/src/lib/lib.routes.ts';
+  host.write(gameDetailRoutesPath, `import { Route } from '@angular/router';
+import { GameDetailComponent } from './game-detail/game-detail.component';
+
+export const storeFeatureGameDetailRoutes: Route[] = [
+  { path: '', pathMatch: 'full', component: GameDetailComponent }
+];`);
 
   // Add MatCardModule to StoreFeatureGameDetailModule imports
+  const gameDetailModulePath =
+    'libs/store/feature-game-detail/src/lib/store-feature-game-detail.module.ts';
   insertNgModuleImport(host, gameDetailModulePath, 'MatCardModule');
   insertImport(
     host,
@@ -112,10 +114,10 @@ export default async function update(host: Tree) {
     host,
     appComponentHtmlPath,
     `  </div>
-  </div>`,
+</div>`,
     `  </div>
-    <router-outlet></router-outlet>
-  </div>`
+  <router-outlet></router-outlet>
+</div>`
   );
   replaceInFile(
     host,

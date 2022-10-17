@@ -5,20 +5,14 @@
   "targets": {
     "lint": {
       "executor": "@nrwl/linter:eslint",
-      "outputs": [
-        "{options.outputFile}"
-      ],
+      "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": [
-          "libs/nx-workshop/**/*.ts"
-        ]
+        "lintFilePatterns": ["libs/nx-workshop/**/*.ts"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": [
-        "coverage/libs/nx-workshop"
-      ],
+      "outputs": ["coverage/libs/nx-workshop"],
       "options": {
         "jestConfig": "libs/nx-workshop/jest.config.ts",
         "passWithNoTests": true
@@ -26,9 +20,7 @@
     },
     "build": {
       "executor": "@nrwl/js:tsc",
-      "outputs": [
-        "{options.outputPath}"
-      ],
+      "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/libs/nx-workshop",
         "tsConfig": "libs/nx-workshop/tsconfig.lib.json",
@@ -65,7 +57,7 @@
       }
     },
     "publish": {
-      "executor": "@nrwl/workspace:run-commands",
+      "executor": "nx:run-commands",
       "options": {
         "parallel": false,
         "commands": [

@@ -3,7 +3,7 @@ import { addDependenciesToPackageJson, formatFiles, Tree } from '@nrwl/devkit';
 import { storybookConfigurationGenerator } from '@nrwl/angular/generators';
 import { dependencies } from '../../../package.json';
 import { Linter } from '@nrwl/linter';
-import { insertImport } from '../utils';
+import { insertImport } from '@nrwl/workspace/src/generators/utils/insert-import';
 
 export default async function update(host: Tree) {
   // yarn add @nrwl/storybook

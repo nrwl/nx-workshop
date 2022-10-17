@@ -1,6 +1,7 @@
 # 💻 Lab 9 - Generate a type lib that the API and frontend can share
 
 ###### ⏰ Estimated time: 15 minutes
+
 <br />
 
 Now our project graph looks a bit disconnected. The frontend and the API still do not have anything in common. The power of Nx libraries is that they can be shared among any number of projects.
@@ -12,7 +13,7 @@ We'll look at creating libs to store Typescript interfaces and then we'll use th
 
 - **Explore other real-world examples of creating shared libs for a specific project**
 - **Learn to use the `move` generator**
-<br /><br /><br />
+  <br /><br /><br />
 
 ## 📲 After this workshop, you should have:
 
@@ -64,6 +65,7 @@ We'll look at creating libs to store Typescript interfaces and then we'll use th
 
    </details>
    <br />
+
 6. **Inspect the project graph**
    <br /><br />
 7. Make sure to **commit everything** before proceeding!
@@ -87,32 +89,32 @@ Let's fix that - we already have a `Game` interface in a lib. But it's nested in
 
     ⚠️ Make sure you use the `--dry-run` flag until you're confident your command is correct
 
-    <details>
-    <summary>🐳 Hint 1</summary>
-    <img src="../assets/lab2_cmds.png" alt="Nx generate cmd structure">
-    </details>
+     <details>
+     <summary>🐳 Hint 1</summary>
+     <img src="../assets/lab2_cmds.png" alt="Nx generate cmd structure">
+     </details>
 
-    <details>
-    <summary>🐳 Hint 2</summary>
+     <details>
+     <summary>🐳 Hint 2</summary>
 
     Use the `--help` command to figure out how to target a specific **project**
     Alternatively, check out the [docs](https://nx.dev/packages/workspace/generators/move)
 
-    </details>
+     </details>
 
-    <details>
+     <details>
 
-    <summary>🐳 Hint 3</summary>
+     <summary>🐳 Hint 3</summary>
 
     Your library name is `api-util-interface` - to move it to root, its new name needs to be `util-interface`
 
-    </details>
-   <br />
+     </details>
+    <br />
 
-8.  We can now **import it in the frontend components** and use it when making the `http` request:
+9.  We can now **import it in the frontend components** and use it when making the `http` request:
 
-    <details>
-    <summary>🐳 Hint</summary>
+     <details>
+     <summary>🐳 Hint</summary>
 
     Frontend store shell app: `apps/store/src/app/app.component.ts`
 
@@ -130,16 +132,17 @@ Let's fix that - we already have a `Game` interface in a lib. But it's nested in
     this.http.get<Game>(`/api/games/${id}`);
     ```
 
-    </details>
+     </details>
 
     ⚠️ Open `apps/api/src/app/app.service.ts`. Notice how we didn't have to update the imports in the API. The `move` generator took care of that for us!
-   <br /><br />
-9.  **Trigger a build** of both the store and the API projects and make sure it passes
-   <br /><br />
-10. **Inspect the project graph**
-   <br /><br />
-11. **Inspect what changed** from the last time you committed, then **commit your changes**
-   <br /><br />
+    <br /><br />
+
+10. **Trigger a build** of both the store and the API projects and make sure it passes
+    <br /><br />
+11. **Inspect the project graph**
+    <br /><br />
+12. **Inspect what changed** from the last time you committed, then **commit your changes**
+    <br /><br />
 
 ---
 
