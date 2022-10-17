@@ -1,4 +1,4 @@
-##### Generate a `board-game-hoard` plugin:
+##### Generate a `internal-plugin` plugin:
 
 ```shell script
 nx generate @nrwl/nx-plugin:plugin internal-plugin --minimal
