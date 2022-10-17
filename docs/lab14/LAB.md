@@ -36,7 +36,6 @@
    - We want to make sure that scope tags specified in our `util-lib` generator are up to date and take into account all these new scopes that teams have been adding
    - We want to check if there is a new scope tag in any of our `project.json` files and update our generator schema
    - We can use the [`getProjects`](https://nx.dev/devkit/index#getprojects) util to read all the projects at once.
-   - **BONUS:** Modify your generator so it fetches list of scopes from all the `project.json` files and updates the schema in util-lib with any new ones
 
    ⚠️ You can use the function provided in the Hint to extract the `scopes`
 
@@ -71,26 +70,25 @@
    - `await` this at the end of your generator
      <br /> <br />
 
-5. `index.ts` also has a `Schema` interface that should be updated. For modifying files that are not JSON we will use `host.read(path)` and `host.write(path, content)` methods.
+5. The `util-lib` generator also has a `schema.d.ts` with a Typescript interface that should be updated. For modifying files that are not JSON we can use `host.read(path)` and `host.write(path, content)` methods.
 
    ⚠️ You can use the function provided in the Hint to replace the `scopes`
 
    <details>
    <summary>🐳 Hint</summary>
 
-   ```typescript
-   function replaceScopes(content: string, scopes: string[]): string {
-     const joinScopes = scopes.map((s) => `'${s}'`).join(' | ');
-     const PATTERN = /interface Schema \{\n.*\n.*\n\}/gm;
-     return content.replace(
-       PATTERN,
-       `interface Schema {
-     name: string;
-     directory: ${joinScopes};
-   }`
-     );
-   }
-   ```
+```typescript
+function updateSchemaInterface(tree: Tree, scopes: string[]) {
+  const joinScopes = scopes.map((s) => `'${s}'`).join(' | ');
+  const interfaceDefinitionFilePath =
+    'libs/internal-plugin/src/generators/util-lib/schema.d.ts';
+  const newContent = `export interface UtilLibGeneratorSchema {
+    name: string;
+    directory: ${joinScopes};
+  }`;
+  tree.write(interfaceDefinitionFilePath, newContent);
+}
+```
 
    </details>
    <br />
@@ -117,6 +115,8 @@
    generator automatically before each commit. This will ensure developers never forget to add
    their scope files.
    <br /> <br />
+
+10. **BONUS BONUS BONUS** - create a test to automate verification of this generator in `libs/internal-plugin/src/generators/update-scope-schema/generator.spec.ts`. \*\*This will be particularly difficult, as you'll need to create a project with the actual source code of your `util-lib` generator as part of the setup for this test. (Check [the solution](SOLUTION.md) if you get stuck!)
 
 ---
 

@@ -1,35 +1,87 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { formatFiles, Tree } from '@nrwl/devkit';
-import workspaceGenerator from '@nrwl/workspace/src/generators/workspace-generator/workspace-generator';
+import generatorGenerator from '@nrwl/nx-plugin/src/generators/generator/generator';
 
 export default async function update(host: Tree) {
-  // nx generate @nrwl/workspace:workspace-generator update-scope-schema
-  workspaceGenerator(host, {
+  await generatorGenerator(host, {
     name: 'update-scope-schema',
-    skipFormat: true,
+    project: 'internal-plugin',
+    unitTestRunner: 'jest',
   });
 
   host.write(
-    'tools/generators/update-scope-schema/index.ts',
+    'libs/internal-plugin/src/generators/update-scope-schema/generator.ts',
     `
-    import { formatFiles, Tree, updateJson } from '@nrwl/devkit';
-
-    export default async function(host: Tree) {
-      updateJson(host, 'nx.json', (json) => {
-        json.defaultProject = 'api';
-        return json;
-      });
-      await formatFiles(host);
+    import {
+      Tree,
+      updateJson,
+      formatFiles,
+      ProjectConfiguration,
+      getProjects,
+    } from '@nrwl/devkit';
+    
+    export default async function (tree: Tree) {
+      const scopes = getScopes(getProjects(tree));
+      updateSchemaJson(tree, scopes);
+      updateSchemaInterface(tree, scopes);
+      await formatFiles(tree);
     }
+    
+    function getScopes(projectMap: Map<string, ProjectConfiguration>) {
+      const projects: any[] = Array.from(projectMap.values());
+      const allScopes: string[] = projects
+        .map((project) =>
+          project.tags.filter((tag: string) => tag.startsWith('scope:'))
+        )
+        .reduce((acc, tags) => [...acc, ...tags], [])
+        .map((scope: string) => scope.slice(6));
+      return Array.from(new Set(allScopes));
+    }
+    
+    function updateSchemaJson(tree: Tree, scopes: string[]) {
+      updateJson(
+        tree,
+        'libs/internal-plugin/src/generators/util-lib/schema.json',
+        (schemaJson) => {
+          schemaJson.properties.directory['x-prompt'].items = scopes.map(
+            (scope) => ({
+              value: scope,
+              label: scope,
+            })
+          );
+          return schemaJson;
+        }
+      );
+    }
+    
+    function updateSchemaInterface(tree: Tree, scopes: string[]) {
+      const joinScopes = scopes.map((s) => \`'\${s}'\`).join(' | ');
+      const interfaceDefinitionFilePath =
+        'libs/internal-plugin/src/generators/util-lib/schema.d.ts';
+      const newContent = \`export interface UtilLibGeneratorSchema {
+      name: string;
+      directory: \${joinScopes};
+    }\`;
+      tree.write(interfaceDefinitionFilePath, newContent);
+    }
+    
 `
   );
   host.write(
-    'tools/generators/update-scope-schema/schema.json',
+    'libs/internal-plugin/src/generators/update-scope-schema/schema.json',
     `
-  {
-    "cli": "nx"
-  }
+    {
+      "$schema": "http://json-schema.org/schema",
+      "cli": "nx",
+      "$id": "UpdateScopeSchema",
+      "properties": {}
+    }
+    
 `
+  );
+
+  host.delete(
+    'libs/internal-plugin/src/generators/update-scope-schema/schema.d.ts'
   );
 
   host.write(

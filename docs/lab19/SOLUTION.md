@@ -1,24 +1,40 @@
-##### Creating an API builder
+##### BONUS: Executor Test
 
-```shell
-nx generate run-commands deploy --project=api --cwd="dist/apps/api"
-```
+```typescript
+import { HerokuDeployExecutorSchema } from './schema';
+import executor from './executor';
+jest.mock('child_process', () => ({
+  execSync: jest.fn(),
+}));
+import { execSync } from 'child_process';
 
-##### The full deploy config for the API
+describe('HerokuDeploy Executor', () => {
+  beforeEach(() => {
+    (execSync as any) = jest.fn();
+  });
 
-```
-"deploy": {
-    "executor": "@nrwl/workspace:run-commands",
-        "outputs": [],
-        "options": {
-        "commands": [
-            "cp ../../../apps/api/Dockerfile .",
-            "heroku container:login",
-            "heroku container:push web -a <the name of your Heroku App>",
-            "heroku container:release web -a <the name of your Heroku App>"
-        ],
-        "cwd": "dist/apps/api",
-        "parallel": false
-    }
-},
+  it('runs the correct heroku cli commands', async () => {
+    const options: HerokuDeployExecutorSchema = {
+      distLocation: 'dist/apps/foo',
+      herokuAppName: 'foo',
+    };
+    const output = await executor(options);
+    expect(output.success).toBe(true);
+    expect(execSync).toHaveBeenCalledWith(`heroku container:login`, {
+      cwd: 'dist/apps/foo',
+    });
+    expect(execSync).toHaveBeenCalledWith(
+      `heroku container:push web --app foo`,
+      {
+        cwd: 'dist/apps/foo',
+      }
+    ),
+      expect(execSync).toHaveBeenCalledWith(
+        `heroku container:release web --app foo`,
+        {
+          cwd: 'dist/apps/foo',
+        }
+      );
+  });
+});
 ```
