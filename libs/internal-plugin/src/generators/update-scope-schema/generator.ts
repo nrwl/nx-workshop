@@ -1,5 +1,28 @@
 import { formatFiles, getProjects, installPackagesTask, ProjectConfiguration, Tree, updateJson, updateProjectConfiguration } from '@nrwl/devkit';
-import { UpdateScopeSchemaGeneratorSchema } from './schema';
+
+export default async function (tree: Tree) {
+  addScopeIfMissing(tree);
+
+  const scopes = getScopes(getProjects(tree));
+  updateUtilLibSchema(tree, scopes);
+  updateSchemaInterface(tree, scopes);
+
+  await formatFiles(tree);
+  return () => {
+    installPackagesTask(tree);
+  };
+}
+
+function updateUtilLibSchema(tree: Tree, scopes: string[]) {
+  updateJson(tree, 'libs/internal-plugin/src/generators/util-lib/schema.json', (schemaJson) => {
+    schemaJson.properties.directory['x-prompt'].items = scopes.map(scope => ({
+      value: scope,
+      label: scope
+    }));
+    return schemaJson;
+  });
+
+}
 
 function getScopes(projectMap: Map<string, ProjectConfiguration>): string[] {
   const projects: ProjectConfiguration[] = Array.from(projectMap.values());
@@ -35,19 +58,3 @@ function addScopeIfMissing(host: Tree) {
   });
 }
 
-export default async function (tree: Tree, schema: UpdateScopeSchemaGeneratorSchema) {
-  addScopeIfMissing(tree);
-  const scopes = getScopes(getProjects(tree));
-  updateJson(tree, 'libs/internal-plugin/src/generators/util-lib/schema.json', (schemaJson) => {
-    schemaJson.properties.directory['x-prompt'].items = scopes.map(scope => ({
-      value: scope,
-      label: scope
-    }));
-    return schemaJson;
-  });
-  updateSchemaInterface(tree, scopes);
-  await formatFiles(tree);
-  return () => {
-    installPackagesTask(tree);
-  };
-}
