@@ -13,7 +13,8 @@
     "store-ui-shared-e2e": "apps/store-ui-shared-e2e",
     "store-util-formatters": "libs/store/util-formatters",
     "util-interface": "libs/util-interface",
-    "util-notifications": "libs/util-notifications"
+    "util-notifications": "libs/util-notifications",
+    "videos": "apps/videos"
   },
   "$schema": "./node_modules/nx/schemas/workspace-schema.json"
 }

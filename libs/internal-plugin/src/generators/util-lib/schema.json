@@ -18,7 +18,7 @@
       "type": "string",
       "description": "Add tags to the project (used for linting)",
       "alias": "t"
-    }, 
+    },
     "directory": {
       "type": "string",
       "description": "The scope of your lib.",
@@ -27,16 +27,20 @@
         "type": "list",
         "items": [
           {
-            "value": "store",
-            "label": "store"
-          },
-          {
             "value": "api",
             "label": "api"
           },
           {
+            "value": "store",
+            "label": "store"
+          },
+          {
             "value": "shared",
             "label": "shared"
+          },
+          {
+            "value": "videos",
+            "label": "videos"
           }
         ]
       }

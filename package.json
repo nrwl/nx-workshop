@@ -24,6 +24,8 @@
     "workspace-generator": "nx workspace-generator",
     "dep-graph": "nx dep-graph",
     "help": "nx help",
+    "postinstall": "husky install",
+    "pre-commit": "yarn nx workspace-generator update-scope-schema",
     "cherry-pick-all": "./tools/cherry-pick-all.sh"
   },
   "private": true,
