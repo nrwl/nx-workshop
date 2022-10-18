@@ -1,5 +1,5 @@
 {
-  "npmScope": "nrwl",
+  "npmScope": "bg-hoard",
   "affected": {
     "defaultBase": "master"
   },
@@ -18,7 +18,13 @@
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"],
+        "cacheableOperations": [
+          "build",
+          "lint",
+          "test",
+          "e2e",
+          "build-storybook"
+        ],
         "parallel": 3
       }
     }
@@ -28,5 +34,21 @@
     "build": {
       "dependsOn": ["^build"]
     }
-  }
+  },
+  "generators": {
+    "@nrwl/angular:application": {
+      "style": "css",
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "linter": "eslint",
+      "unitTestRunner": "jest"
+    },
+    "@nrwl/angular:component": {
+      "style": "css"
+    }
+  },
+  "defaultProject": "store"
 }

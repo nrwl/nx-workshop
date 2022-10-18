@@ -1,8 +1,16 @@
 {
   "version": 2,
   "projects": {
+    "api": "apps/api",
     "nx-workshop": "libs/nx-workshop",
-    "nx-workshop-e2e": "apps/nx-workshop-e2e"
+    "nx-workshop-e2e": "apps/nx-workshop-e2e",
+    "store": "apps/store",
+    "store-e2e": "apps/store-e2e",
+    "store-feature-game-detail": "libs/store/feature-game-detail",
+    "store-ui-shared": "libs/store/ui-shared",
+    "store-ui-shared-e2e": "apps/store-ui-shared-e2e",
+    "store-util-formatters": "libs/store/util-formatters",
+    "util-interface": "libs/util-interface"
   },
   "$schema": "./node_modules/nx/schemas/workspace-schema.json"
 }
