@@ -1,0 +1,23 @@
+name: Run CI checks # The name will show up on the GitHub Actions dashboard
+
+on: [pull_request] # This workflow will run only on Pull Requests
+
+jobs:
+  test-store: # give our job an ID
+    runs-on: ubuntu-latest # the image our job will run on
+    name: Test Store # the name that will appear on the Actions UI
+    steps: # what steps it will perform
+      - uses: actions/checkout@v3 # checkout whatever branch the PR is using
+        with:
+          fetch-depth: 0
+      - uses: bahmutov/npm-install@v1 # trigger an `npm install`
+      - run: npx nx test store # test the "store" project
+  test-api:
+    runs-on: ubuntu-latest
+    name: Test API
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: bahmutov/npm-install@v1
+      - run: npx nx test api
