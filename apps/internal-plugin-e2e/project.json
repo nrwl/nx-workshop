@@ -12,6 +12,6 @@
       }
     }
   },
-  "tags": [],
+  "tags": ["scope:internal"],
   "implicitDependencies": ["internal-plugin"]
 }

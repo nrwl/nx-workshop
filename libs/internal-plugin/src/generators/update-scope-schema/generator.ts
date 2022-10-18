@@ -1,5 +1,4 @@
-import { formatFiles, getProjects, installPackagesTask, ProjectConfiguration, Tree, updateJson } from '@nrwl/devkit';
-import { libraryGenerator } from '@nrwl/workspace/generators';
+import { formatFiles, getProjects, installPackagesTask, ProjectConfiguration, Tree, updateJson, updateProjectConfiguration } from '@nrwl/devkit';
 import { UpdateScopeSchemaGeneratorSchema } from './schema';
 
 function getScopes(projectMap: Map<string, ProjectConfiguration>): string[] {
@@ -37,6 +36,7 @@ function addScopeIfMissing(host: Tree) {
 }
 
 export default async function (tree: Tree, schema: UpdateScopeSchemaGeneratorSchema) {
+  addScopeIfMissing(tree);
   const scopes = getScopes(getProjects(tree));
   updateJson(tree, 'libs/internal-plugin/src/generators/util-lib/schema.json', (schemaJson) => {
     schemaJson.properties.directory['x-prompt'].items = scopes.map(scope => ({
@@ -46,7 +46,6 @@ export default async function (tree: Tree, schema: UpdateScopeSchemaGeneratorSch
     return schemaJson;
   });
   updateSchemaInterface(tree, scopes);
-  addScopeIfMissing(tree);
   await formatFiles(tree);
   return () => {
     installPackagesTask(tree);
