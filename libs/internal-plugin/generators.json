@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "name": "internal-plugin",
+  "version": "0.0.1",
+  "generators": {
+    "util-lib": {
+      "factory": "./src/generators/util-lib/generator",
+      "schema": "./src/generators/util-lib/schema.json",
+      "description": "util-lib generator"
+    }
+  }
+}

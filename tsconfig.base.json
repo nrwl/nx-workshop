@@ -16,6 +16,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@bg-hoard/internal-plugin": ["libs/internal-plugin/src/index.ts"],
       "@bg-hoard/store/feature-game-detail": [
         "libs/store/feature-game-detail/src/index.ts"
       ],
@@ -24,6 +25,7 @@
         "libs/store/util-formatters/src/index.ts"
       ],
       "@bg-hoard/util-interface": ["libs/util-interface/src/index.ts"],
+      "@bg-hoard/util-notifications": ["libs/util-notifications/src/index.ts"],
       "@nrwl/nx-workshop": ["libs/nx-workshop/src/index.ts"]
     }
   },

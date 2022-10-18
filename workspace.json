@@ -2,6 +2,8 @@
   "version": 2,
   "projects": {
     "api": "apps/api",
+    "internal-plugin": "libs/internal-plugin",
+    "internal-plugin-e2e": "apps/internal-plugin-e2e",
     "nx-workshop": "libs/nx-workshop",
     "nx-workshop-e2e": "apps/nx-workshop-e2e",
     "store": "apps/store",
@@ -10,7 +12,8 @@
     "store-ui-shared": "libs/store/ui-shared",
     "store-ui-shared-e2e": "apps/store-ui-shared-e2e",
     "store-util-formatters": "libs/store/util-formatters",
-    "util-interface": "libs/util-interface"
+    "util-interface": "libs/util-interface",
+    "util-notifications": "libs/util-notifications"
   },
   "$schema": "./node_modules/nx/schemas/workspace-schema.json"
 }
