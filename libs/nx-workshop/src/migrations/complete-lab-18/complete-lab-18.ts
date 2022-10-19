@@ -14,7 +14,7 @@ export default async function update(host: Tree) {
     host,
     {},
     {
-      surge: '*',
+      surge: '0.23.1',
     }
   );
 
