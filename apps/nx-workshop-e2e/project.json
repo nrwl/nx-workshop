@@ -22,5 +22,6 @@
     }
   },
   "tags": [],
-  "implicitDependencies": ["nx-workshop"]
+  "implicitDependencies": ["nx-workshop"],
+  "name": "nx-workshop-e2e"
 }

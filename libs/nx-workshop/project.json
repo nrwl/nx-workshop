@@ -67,5 +67,6 @@
       }
     }
   },
-  "tags": []
+  "tags": [],
+  "name": "nx-workshop"
 }

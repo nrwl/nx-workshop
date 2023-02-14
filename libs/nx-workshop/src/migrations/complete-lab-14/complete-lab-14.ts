@@ -3,11 +3,13 @@ import { formatFiles, Tree } from '@nrwl/devkit';
 import { generatorGenerator } from '@nrwl/nx-plugin/generators';
 
 export default async function update(host: Tree) {
+  process.env.NX_PROJECT_GLOB_CACHE = 'false';
   await generatorGenerator(host, {
     name: 'update-scope-schema',
     project: 'internal-plugin',
     unitTestRunner: 'jest',
   });
+  process.env.NX_PROJECT_GLOB_CACHE = 'true';
 
   host.write(
     'libs/internal-plugin/src/generators/update-scope-schema/generator.ts',

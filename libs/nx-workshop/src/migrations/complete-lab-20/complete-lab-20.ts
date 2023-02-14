@@ -1,16 +1,21 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { insertNgModuleImport } from '@nrwl/angular/src/generators/utils';
-import { formatFiles, readJsonFile, Tree } from '@nrwl/devkit';
+import {
+  formatFiles,
+  readJsonFile,
+  readProjectConfiguration,
+  Tree,
+  updateProjectConfiguration,
+} from '@nrwl/devkit';
 import { insertImport } from '@nrwl/workspace/src/generators/utils/insert-import';
 import { replaceInFile } from '../utils';
 
 export default async function update(host: Tree) {
-  const { herokuName } = readJsonFile('.nx-workshop.json');
+  const { flyName } = readJsonFile('.nx-workshop.json');
   host.write(
     'apps/store/src/environments/environment.prod.ts',
     `export const environment = {
   production: true,
-  apiUrl: 'https://${herokuName}.herokuapp.com'
+  apiUrl: 'https://${flyName}.fly.dev'
 };
 `
   );
@@ -22,6 +27,14 @@ export default async function update(host: Tree) {
 };
 `
   );
+  const config = readProjectConfiguration(host, 'store');
+  config.targets['build'].configurations.production.fileReplacements = [
+    {
+      replace: 'apps/store/src/environments/environment.ts',
+      with: 'apps/store/src/environments/environment.prod.ts',
+    },
+  ];
+  updateProjectConfiguration(host, 'store', config);
 
   const modulePath = 'apps/store/src/app/app.module.ts';
   replaceInFile(

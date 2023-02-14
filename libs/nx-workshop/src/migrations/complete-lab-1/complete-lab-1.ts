@@ -17,9 +17,11 @@ export default async function update(tree: Tree) {
     'store-e2e',
     'store',
     'api',
+    'api-e2e',
     'api-util-interface',
     'util-interface',
     'store-feature-game-detail',
+    'ui-shared',
     'store-ui-shared',
     'store-ui-shared-e2e',
     'store-util-formatters',
@@ -38,6 +40,11 @@ export default async function update(tree: Tree) {
         forceRemove: true,
       })
   );
+  // hack to fix remove generator
+  updateJson(tree, 'tsconfig.base.json', (json) => {
+    json.compilerOptions.paths = {};
+    return json;
+  });
 
   // Lab 10
   tree.delete('.storybook');
@@ -49,10 +56,10 @@ export default async function update(tree: Tree) {
   tree.delete('.github/workflows/ci.yml');
   // Lab 19
   if (tree.exists('.nx-workshop.json')) {
-    const { herokuName } = readJson(tree, '.nx-workshop.json');
-    const herokuApps = await execSync(`heroku apps`).toString();
-    if (herokuApps.includes(herokuName)) {
-      execSync(`heroku apps:destroy ${herokuName} --confirm=${herokuName}`);
+    const { flyName } = readJson(tree, '.nx-workshop.json');
+    const flyApps = await execSync(`fly apps list`).toString();
+    if (flyApps.includes(flyName)) {
+      execSync(`fly apps destroy ${flyName} --yes`);
     }
     tree.delete('.nx-workshop.json');
   }
