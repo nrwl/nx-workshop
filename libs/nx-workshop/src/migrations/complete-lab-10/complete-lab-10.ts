@@ -14,6 +14,7 @@ export default async function update(host: Tree) {
       '@nrwl/storybook': dependencies['@nrwl/storybook'],
     }
   );
+  process.env.NX_PROJECT_GLOB_CACHE = 'false';
   // nx generate @nrwl/angular:storybook-configuration store-ui-shared
   await storybookConfigurationGenerator(host, {
     name: 'store-ui-shared',
@@ -22,6 +23,7 @@ export default async function update(host: Tree) {
     generateCypressSpecs: true,
     linter: Linter.EsLint,
   });
+  process.env.NX_PROJECT_GLOB_CACHE = 'true';
 
   const headerComponentStoriesPath = `libs/store/ui-shared/src/lib/header/header.component.stories.ts`;
   insertImport(

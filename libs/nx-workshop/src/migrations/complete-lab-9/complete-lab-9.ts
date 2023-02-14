@@ -22,14 +22,6 @@ export default async function update(host: Tree) {
 }
 `
   );
-  const appSevicePath = 'apps/api/src/app/app.service.ts';
-  insertImport(host, appSevicePath, 'Game', '@bg-hoard/api/util-interface');
-  replaceInFile(
-    host,
-    appSevicePath,
-    `const games = [`,
-    `const games: Game[] = [`
-  );
 
   // nx generate @nrwl/workspace:move --projectName=api-util-interface util-interface
   await moveGenerator(host, {
@@ -37,6 +29,14 @@ export default async function update(host: Tree) {
     destination: 'util-interface',
     updateImportPath: true,
   });
+  const appSevicePath = 'apps/api/src/app/app.service.ts';
+  insertImport(host, appSevicePath, 'Game', '@bg-hoard/util-interface');
+  replaceInFile(
+    host,
+    appSevicePath,
+    `const games = [`,
+    `const games: Game[] = [`
+  );
   const appComponentPath = 'apps/store/src/app/app.component.ts';
   insertImport(host, appComponentPath, 'Game', '@bg-hoard/util-interface');
   replaceInFile(

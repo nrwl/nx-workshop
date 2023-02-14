@@ -1,10 +1,13 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { addDependenciesToPackageJson, Tree, updateJson } from '@nrwl/devkit';
-import { uniq } from '@nrwl/nx-plugin/testing';
 import {
-  formatFiles,
-  runCommandsGenerator,
-} from '@nrwl/workspace';
+  addDependenciesToPackageJson,
+  readProjectConfiguration,
+  Tree,
+  updateJson,
+  updateProjectConfiguration,
+} from '@nrwl/devkit';
+import { uniq } from '@nrwl/nx-plugin/testing';
+import { formatFiles, runCommandsGenerator } from '@nrwl/workspace';
 import { execSync } from 'child_process';
 import { readJsonFile } from '@nrwl/devkit';
 import { stripConsoleColors } from '../utils';
@@ -25,7 +28,9 @@ export default async function update(host: Tree) {
     surgeName = workshopConstants.surgeName;
   }
   if (!surgeToken || !surgeName) {
-    surgeToken = stripConsoleColors(execSync('npx surge token').toString().trim());
+    surgeToken = stripConsoleColors(
+      execSync('npx surge token').toString().trim()
+    );
     surgeName = uniq(`prophetic-narwhal-`);
     if (host.exists('.nx-workshop.json')) {
       updateJson(host, '.nx-workshop.json', (json) => {
@@ -47,6 +52,9 @@ export default async function update(host: Tree) {
     project: 'store',
     command: `surge dist/apps/store https://${surgeName}.surge.sh --token ${surgeToken}`,
   });
+  const config = readProjectConfiguration(host, 'store');
+  config.targets['deploy'].dependsOn = ['build'];
+  updateProjectConfiguration(host, 'store', config);
 
   await formatFiles();
 }

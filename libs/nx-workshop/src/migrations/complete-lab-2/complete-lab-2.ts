@@ -22,10 +22,12 @@ export default async function update(tree: Tree) {
       '@nrwl/angular': dependencies['@nrwl/angular'],
     }
   );
+  process.env.NX_PROJECT_GLOB_CACHE = 'false';
   await applicationGenerator(tree, {
     name: 'store',
     routing: true,
   });
+  process.env.NX_PROJECT_GLOB_CACHE = 'true';
   tree.write(
     'apps/store/src/fake-api.ts',
     `const games = [

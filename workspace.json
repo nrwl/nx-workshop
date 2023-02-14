@@ -1,8 +1,0 @@
-{
-  "version": 2,
-  "projects": {
-    "nx-workshop": "libs/nx-workshop",
-    "nx-workshop-e2e": "apps/nx-workshop-e2e"
-  },
-  "$schema": "./node_modules/nx/schemas/workspace-schema.json"
-}
