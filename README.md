@@ -45,9 +45,9 @@ Make sure you have the following installed:
 
 Optional:
 
-- A Heroku account
-  - https://heroku.com/
-  - with the [CLI installed](https://devcenter.heroku.com/articles/heroku-cli): `heroku --version`
+- A Fly.io account
+  - https://fly.io/
+  - with the [CLI installed](https://fly.io/terminal): `fly help`
 - [Docker](https://www.docker.com/get-started)
   - `docker --version`
 
@@ -116,7 +116,7 @@ If you fall behind or join late, we provide migrations that would bring your rep
 | 🤖 [Lab 17 - NxCloud GitHub bot](docs/lab17/LAB.md) |
 | 🏎️ [Lab 18 - Run-Commands and deploying the frontend](docs/lab18/LAB.md) |
 
-| Option 1 - React frontends and more custom generators practice              | Option 2 - Heroku API deployments with Docker                           |
+| Option 1 - React frontends and more custom generators practice              | Option 2 - Fly.io API deployments                           |
 | --------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
 | 🧭 [Lab 19 - Creating and deploying a 2nd frontend](docs/lab19-alt/LAB.md)  | 🚀 [Lab 19 - Deploying the API with custom executor](docs/lab19/LAB.md)                      |
 | ⛱️ [Lab 20 - Mock Store](docs/lab20-alt/LAB.md)                             | 🪢 [Lab 20 - Connecting the frontend and backend](docs/lab20/LAB.md)    |

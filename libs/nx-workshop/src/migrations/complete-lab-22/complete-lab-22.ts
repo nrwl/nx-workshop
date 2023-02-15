@@ -15,7 +15,7 @@ on:
 env:
   SURGE_DOMAIN: \${{ secrets.SURGE_DOMAIN }}
   SURGE_TOKEN: \${{ secrets.SURGE_TOKEN }}
-  HEROKU_API_KEY: \${{ secrets.HEROKU_API_KEY }}
+  FLY_API_TOKEN: \${{ secrets.FLY_API_TOKEN }}
 
 jobs:
   build:
