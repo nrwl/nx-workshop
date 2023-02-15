@@ -8,7 +8,7 @@ This repo includes the lab instructions as well as code snippets we'll be using 
 
 If you look at very bottom of the README.md you will notice there are two tracks branching on the end of the second day:
 - React frontends and more custom generators practice
-- Heroku API deployments with Docker
+- Fly.io API deployments
 
 Please let us know which track you would like us to take. You can also decide this tomorrow after day one.
 
@@ -30,8 +30,8 @@ Make sure you have the following installed:
 Optional (these might be necessary depending on the track you select):
 - [Yarn](https://classic.yarnpkg.com/en/docs/install/) (you can also use `npx` or `pnpx` or global `nx CLI`)
   - `yarn --version`
-- A [Heroku](https://heroku.com/) account with the [CLI installed](https://devcenter.heroku.com/articles/heroku-cli)
-  - `heroku --version`
+- A [Fly.io](https://fly.io/) account with the [CLI installed](https://fly.io/terminal)
+  - `fly help`
 - [Docker](https://www.docker.com/get-started)
   - `docker --version`
 

@@ -22,7 +22,7 @@ a production URL for the API.
    ```ts
    export const environment = {
      production: true,
-     apiUrl: 'https://<your-heroku-app-name>.herokuapp.com',
+     apiUrl: 'https://<your-fly-app-name>.fly.dev',
    };
    ```
 

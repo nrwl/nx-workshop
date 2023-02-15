@@ -1,40 +1,34 @@
 ##### BONUS: Executor Test
 
 ```typescript
-import { HerokuDeployExecutorSchema } from './schema';
+import { FlyDeployExecutorSchema } from './schema';
 import executor from './executor';
 jest.mock('child_process', () => ({
   execSync: jest.fn(),
 }));
 import { execSync } from 'child_process';
 
-describe('HerokuDeploy Executor', () => {
+describe('FlyDeploy Executor', () => {
   beforeEach(() => {
     (execSync as any) = jest.fn();
   });
 
-  it('runs the correct heroku cli commands', async () => {
-    const options: HerokuDeployExecutorSchema = {
+  it('runs the correct fly cli commands', async () => {
+    const options: FlyDeployExecutorSchema = {
       distLocation: 'dist/apps/foo',
-      herokuAppName: 'foo',
+      flyAppName: 'foo',
     };
     const output = await executor(options);
     expect(output.success).toBe(true);
-    expect(execSync).toHaveBeenCalledWith(`heroku container:login`, {
+    expect(execSync).toHaveBeenCalledWith(`fly apps list`, {
       cwd: 'dist/apps/foo',
     });
     expect(execSync).toHaveBeenCalledWith(
-      `heroku container:push web --app foo`,
+      `fly launch --now --name=foo --region=lax`,
       {
         cwd: 'dist/apps/foo',
       }
-    ),
-      expect(execSync).toHaveBeenCalledWith(
-        `heroku container:release web --app foo`,
-        {
-          cwd: 'dist/apps/foo',
-        }
-      );
+    );
   });
 });
 ```
