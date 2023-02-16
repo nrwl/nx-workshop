@@ -20,7 +20,7 @@
 
 1. **Generate an empty Nx workspace** for a fictional company called "The Board Game Hoard"
    <br /> <br />
-2. **The workspace name should be `bg-hoard`.** Make sure you select `apps` workspace and `No to NxCloud` when asked
+2. **The workspace name should be `bg-hoard`.** Make sure you select `integrated` style, the `apps` preset and `No to NxCloud` when asked
    <br /> <br />
 
 ---
