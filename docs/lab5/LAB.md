@@ -29,7 +29,7 @@ We will create a shared utility lib where we'll add our formatters and see how t
 
 1. **Stop the `nx serve`**
    <br /><br />
-2. **Use the `@nrwl/workspace` package to generate another lib** in the `libs/store` folder - let's call it `util-formatters`.
+2. **Use the `@nrwl/js` package to generate another lib** in the `libs/store` folder - let's call it `util-formatters`.
    <br /><br />
 3. **Add the [code for the utility function](../../examples/lab5/libs/store/util-formatters/src/lib/store-util-formatters.ts)** to the new library you just created `libs/store/util-formatters/src/lib/store-util-formatters.ts`
    <br /><br />
