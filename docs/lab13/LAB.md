@@ -72,7 +72,7 @@ scope and type tag.
      You can use Git to undo those changes (hence why it's recommended to commit before running a generator).
     <br /> <br />
 
-5.  We can call other generators inside of our custom generator. Import the `@nrwl/workspace:library` generator and call it inside of the default exported function of `libs/internal-plugin/src/generators/util-lib/generator.ts`
+5.  We can call other generators inside of our custom generator. Import the `@nrwl/js:library` generator and call it inside of the default exported function of `libs/internal-plugin/src/generators/util-lib/generator.ts`
 
     <details>
     <summary>🐳 Hint</summary>
