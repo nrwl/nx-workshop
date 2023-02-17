@@ -112,7 +112,7 @@ scope and type tag.
     <details>
     <summary>🐳 Hint</summary>
 
-    [Adding dynamic prompts](https://nx.dev/recipe/generator-options#adding-dynamic-prompts)
+    [Adding dynamic prompts](https://nx.dev/recipes/generators/generator-options#adding-dynamic-prompts)
 
     </details>
     <br />
