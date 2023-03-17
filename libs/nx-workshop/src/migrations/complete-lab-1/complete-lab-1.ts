@@ -41,10 +41,12 @@ export default async function update(tree: Tree) {
       })
   );
   // hack to fix remove generator
-  updateJson(tree, 'tsconfig.base.json', (json) => {
-    json.compilerOptions.paths = {};
-    return json;
-  });
+  if (tree.exists('tsconfig.base.json')) {
+    updateJson(tree, 'tsconfig.base.json', (json) => {
+      json.compilerOptions.paths = {};
+      return json;
+    });
+  }
 
   // Lab 10
   tree.delete('.storybook');
