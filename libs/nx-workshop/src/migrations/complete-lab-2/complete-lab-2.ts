@@ -6,17 +6,18 @@ import {
   Tree,
 } from '@nrwl/devkit';
 import { dependencies } from '../../../package.json';
-import { applicationGenerator } from '@nrwl/angular/generators';
+import { applicationGenerator, E2eTestRunner, UnitTestRunner } from '@nrwl/angular/generators';
 import { insertNgModuleImport } from '@nrwl/angular/src/generators/utils';
 import fetch from 'node-fetch';
 import { insertImport } from '@nrwl/workspace/src/generators/utils/insert-import';
+import { Linter } from '@nrwl/linter';
 
 export default async function update(tree: Tree) {
   await addDependenciesToPackageJson(
     tree,
     {
-      '@angular/cdk': '^14.2.0',
-      '@angular/material': '^14.2.0',
+      '@angular/cdk': '^15.2.0',
+      '@angular/material': '^15.2.0',
     },
     {
       '@nrwl/angular': dependencies['@nrwl/angular'],
@@ -24,8 +25,13 @@ export default async function update(tree: Tree) {
   );
   process.env.NX_PROJECT_GLOB_CACHE = 'false';
   await applicationGenerator(tree, {
+    linter: Linter.EsLint,
+    unitTestRunner: UnitTestRunner.Jest,
+    e2eTestRunner: E2eTestRunner.Cypress,
     name: 'store',
     routing: true,
+    strict: true,
+    standaloneConfig: true
   });
   process.env.NX_PROJECT_GLOB_CACHE = 'true';
   tree.write(
