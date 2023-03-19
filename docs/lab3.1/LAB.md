@@ -30,7 +30,7 @@ We'll learn about migration generators and use them to jump to a specific lab in
 
 ## 🏋️‍♀️ Steps:
 
-1. Install an old version of the `@nrwl/nx-workshop` npm package: `yarn add -D @nrwl/nx-workshop@0.0.1`
+1. Install an old version of the `@nrwl/nx-workshop` npm package: `nx-workshop@0.0.1`
 2. Make sure you've committed all your changes to this point: `git commit -am "lab 3"`
 3. Migrate to the latest version of `@nrwl/nx-workshop`
 

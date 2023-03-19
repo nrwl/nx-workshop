@@ -6,7 +6,7 @@ import { Linter } from '@nrwl/linter';
 import { insertImport } from '@nrwl/workspace/src/generators/utils/insert-import';
 
 export default async function update(host: Tree) {
-  // yarn add @nrwl/storybook
+  // add @nrwl/storybook
   await addDependenciesToPackageJson(
     host,
     {},

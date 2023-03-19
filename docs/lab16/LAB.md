@@ -50,7 +50,7 @@ capabilities. Let's enable distributed caching.
     ⚡ It should finish **much quicker** this time - because it just pulled from the local cache!
     <br /> <br />
     
-7. Let's try something different now - in a different folder on your machine, let's try and do a **fresh** of your repository:
+7. Let's try something different now - in a different folder on your machine, let's try and do a **fresh** copy of your repository:
 
     ```
     # go into a new folder
@@ -59,7 +59,7 @@ capabilities. Let's enable distributed caching.
     git clone git@github.com:<your-username>/<your-repo>.git test-distributed-caching
     cd test-distributed-caching
     # install dependencies
-    yarn
+    npm ci
     ```
     <br />
 

@@ -34,7 +34,7 @@ You do not need to be familiar with Nest (and you can use the `@nrwl/express:app
 
 1. **Stop any running `nx serve` instance**
    <br /><br />
-2. **`yarn add @nrwl/nest`**
+2. **Install `@nrwl/nest`**
    <br /><br />
 3. **Generate a new NestJS app**, called `api`
 

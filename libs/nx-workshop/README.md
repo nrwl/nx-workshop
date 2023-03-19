@@ -6,7 +6,7 @@ This library contains migrations, generators and executors used during the [Nx W
 
 ## How to use lab migrations generator
 
-1. Install `@nrwl/nx-workshop` package as dev dependency (e.g. `yarn add -D @nrwl/nx-workshop`)
+1. Install `@nrwl/nx-workshop` package as dev dependency (e.g. `npm i -D @nrwl/nx-workshop`)
 2. Run the generator with one of the following options:
    - Provide `lab` you want to complete: `nx g @nrwl/nx-workshop:complete-labs --lab=5`
    - Use `from` range to finish until end: `nx g @nrwl/nx-workshop:complete-labs --from=2`

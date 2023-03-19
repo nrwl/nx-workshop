@@ -1,7 +1,7 @@
 ##### Generate a React app
 
 ```shell
-yarn add @nrwl/react
+npm i -S @nrwl/react
 nx g @nrwl/react:app admin-ui
 nx serve admin-ui
 ```

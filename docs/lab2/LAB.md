@@ -30,7 +30,7 @@ In this lab we'll generate our first Angular application within the new monorepo
 1. Make sure you can run Nx commands:
    - try out `nx --version` and see if it outputs a version number
    - install the CLI globally: `npm i -g nx`
-   - if you don't want to install it globally, use `yarn nx` instead of `nx` in all the commands below
+   - if you don't want to install it globally, use `npx nx` instead of `nx` in all the commands below
 
 > Please make sure you are using the latest version of Nx (14.5+)
 
@@ -39,10 +39,10 @@ In this lab we'll generate our first Angular application within the new monorepo
 2. **Run `nx list`** to see which plugins you have installed and which are available
    <br /> <br />
 
-3. **Add the Angular plugin: `yarn add @nrwl/angular`**
+3. **Add the Angular plugin: `@nrwl/angular`**
    <br /> <br />
 
-4. Let's also **add Angular Material** so we can use some of their components: `yarn add @angular/material @angular/cdk`
+4. Let's also **add Angular Material** so we can use some of their components: `@angular/material @angular/cdk`
    <br /> <br />
 5. **Use the [`@nrwl/angular` plugin](https://nx.dev/packages/angular/generators/application) to generate an Angular app** called `store` in your new workspace
 
