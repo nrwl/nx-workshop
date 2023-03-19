@@ -40,14 +40,14 @@ You do not need to be familiar with Nest (and you can use the `@nrwl/express:app
 
    ⚠️ Make sure you instruct the generator to configure a proxy from the frontend `store` to the new `api` service (use `--help` to see the available options)
    <br /><br />
-
-4. **Copy the code** from the `fake api` to the new Nest `apps/api/src/app/`[app.service.ts](../../examples/lab7/apps/api/src/app/app.service.ts) and expose the `getGames()` and `getGame()` methods
+4. **Update `proxy.conf.json`** in `apps/store` to point to port `3333`
+5. **Copy the code** from the `fake api` to the new Nest `apps/api/src/app/`[app.service.ts](../../examples/lab7/apps/api/src/app/app.service.ts) and expose the `getGames()` and `getGame()` methods
    <br /><br />
-5. **Update the Nest [app.controller.ts](../../examples/lab7/apps/api/src/app/app.controller.ts)** to use the new methods from the service
+6. **Update the Nest [app.controller.ts](../../examples/lab7/apps/api/src/app/app.controller.ts)** to use the new methods from the service
    <br /><br />
-6. Let's now **inspect the project graph**!
+7. Let's now **inspect the project graph**!
    <br /><br />
-7. **Inspect what changed** from the last time you committed, then **commit your changes**\
+8. **Inspect what changed** from the last time you committed, then **commit your changes**\
    <br /><br />
 
 ---

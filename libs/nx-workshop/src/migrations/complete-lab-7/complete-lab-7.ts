@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { addDependenciesToPackageJson, formatFiles, Tree } from '@nrwl/devkit';
+import { addDependenciesToPackageJson, formatFiles, Tree, updateJson } from '@nrwl/devkit';
 import { applicationGenerator } from '@nrwl/nest';
 import { dependencies } from '../../../package.json';
 
@@ -76,6 +76,10 @@ export default async function update(host: Tree) {
     }
     `
   );
+  updateJson(host, 'apps/store/proxy.conf.json', (json) => {
+    json['/api'].target = 'http://localhost:3333';
+    return json;
+  });
 
   await formatFiles(host);
 }
