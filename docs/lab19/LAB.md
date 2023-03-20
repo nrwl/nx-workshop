@@ -46,7 +46,7 @@
 
     👉 This will determine the address where the API will be deployed to: `https://<your-app-name>.fly.dev`
 
-   ```
+    ```
     app = "<your-unique-app-name>"
     kill_signal = "SIGINT"
     kill_timeout = 5
