@@ -47,47 +47,47 @@
     👉 This will determine the address where the API will be deployed to: `https://<your-app-name>.fly.dev`
 
    ```
-app = "<your-unique-app-name>"
-kill_signal = "SIGINT"
-kill_timeout = 5
-processes = []
+    app = "<your-unique-app-name>"
+    kill_signal = "SIGINT"
+    kill_timeout = 5
+    processes = []
 
-[build]
-  builder = "paketobuildpacks/builder:base"
-  buildpacks = ["gcr.io/paketo-buildpacks/nodejs"]
+    [build]
+      builder = "paketobuildpacks/builder:base"
+      buildpacks = ["gcr.io/paketo-buildpacks/nodejs"]
 
-[env]
-  PORT = "8080"
+    [env]
+      PORT = "8080"
 
-[experimental]
-  cmd = ["PORT=8080 node main.js"]
+    [experimental]
+      cmd = ["PORT=8080 node main.js"]
 
-[[services]]
-  http_checks = []
-  internal_port = 8080
-  processes = ["app"]
-  protocol = "tcp"
-  script_checks = []
-  [services.concurrency]
-    hard_limit = 25
-    soft_limit = 20
-    type = "connections"
+    [[services]]
+      http_checks = []
+      internal_port = 8080
+      processes = ["app"]
+      protocol = "tcp"
+      script_checks = []
+      [services.concurrency]
+        hard_limit = 25
+        soft_limit = 20
+        type = "connections"
 
-  [[services.ports]]
-    force_https = true
-    handlers = ["http"]
-    port = 80
+    [[services.ports]]
+      force_https = true
+      handlers = ["http"]
+      port = 80
 
-  [[services.ports]]
-    handlers = ["tls", "http"]
-    port = 443
+    [[services.ports]]
+      handlers = ["tls", "http"]
+      port = 443
 
-  [[services.tcp_checks]]
-    grace_period = "1s"
-    interval = "15s"
-    restart_limit = 0
-    timeout = "2s"
-   ```
+    [[services.tcp_checks]]
+      grace_period = "1s"
+      interval = "15s"
+      restart_limit = 0
+      timeout = "2s"
+    ```
 
    <details>
    <summary>❓ What's our plan here?</summary>
