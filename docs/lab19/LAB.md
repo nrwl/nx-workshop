@@ -15,7 +15,7 @@
 1. For this workshop you'll need two CLI tools installed:
 
    - [Fly CLI](https://fly.io/terminal)
-     - Verify installation via: `fly`
+     - Verify installation via: `fly version`
    - [Docker](https://www.docker.com/get-started) - Verify via `docker --version`
      <br /> <br />
 
