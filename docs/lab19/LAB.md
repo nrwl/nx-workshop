@@ -124,7 +124,7 @@
         "@nestjs/websockets/socket-module",
         "class-transformer",
         "class-validator",
-        "cache-manager"
+        "cache-manager",
         "cache-manager/package.json"
     ],
     ```
