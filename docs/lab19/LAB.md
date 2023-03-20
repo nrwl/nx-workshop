@@ -103,7 +103,7 @@
    </details>
    <br />
 
-1. If you `nx build api` right now
+5. If you `nx build api` right now
 
    - 👍 Then `cd dist/apps/api && node main.js`
      It should work. Because it has access to `node_modules`
@@ -114,126 +114,126 @@
    If curious why, you can [read more here](https://github.com/nestjs/nest/issues/1706#issuecomment-579248915).
    <br /> <br />
 
-2. Let's fix the above - In `project.json`, under the **production** build options for the API (`projects -> api -> targets -> build -> configurations -> production`)
+6. Let's fix the above - In `project.json`, under the **production** build options for the API (`projects -> api -> targets -> build -> configurations -> production`)
    add this as an option:
 
-```json
-"externalDependencies": [
-    "@nestjs/microservices",
-    "@nestjs/microservices/microservices-module",
-    "@nestjs/websockets/socket-module",
-    "class-transformer",
-    "class-validator",
-    "cache-manager"
-    "cache-manager/package.json"
-],
-```
+    ```json
+    "externalDependencies": [
+        "@nestjs/microservices",
+        "@nestjs/microservices/microservices-module",
+        "@nestjs/websockets/socket-module",
+        "class-transformer",
+        "class-validator",
+        "cache-manager"
+        "cache-manager/package.json"
+    ],
+    ```
 
-       <details>
-       <summary>❓ What does this do?</summary>
+     <details>
+     <summary>❓ What does this do?</summary>
 
-       The above option tells webpack to bundle ALL the dependencies our API requires inside `main.js`, except the ones above (which fail the build if we tell webpack to include, because they're lazily loaded).
-       Normally, it's not recommended to bundle any dependencies with your server bundles,
-       but in this case it simplifies the deployment process.
-       </details>
+     The above option tells webpack to bundle ALL the dependencies our API requires inside `main.js`, except the ones above (which fail the build if we tell webpack to include, because they're lazily loaded).
+     Normally, it's not recommended to bundle any dependencies with your server bundles,
+     but in this case it simplifies the deployment process.
+     </details>
        <br />
 
 7. Currently the `fly.toml` that we added to our `api` project is not present if we inspect the `dist/apps/api` directory after running a prod build. We'll need this to be present for our fly deployment.
 
-Update the the `assets` option in the production build options for the API (`projects -> api -> targets -> build -> configurations -> production`)
+    Update the the `assets` option in the production build options for the API (`projects -> api -> targets -> build -> configurations -> production`)
 
-```json
-"assets": [
-    "apps/api/src/assets",
-    "apps/api/src/fly.toml"
-],
-```
+    ```json
+    "assets": [
+        "apps/api/src/assets",
+        "apps/api/src/fly.toml"
+    ],
+    ```
 
 8. Use the `@nrwl/nx-plugin:executor` generator to generate a `fly-deploy` executor:
 
-- The executor should have options for:
-  - the target `dist` location
-  - the `name` of your fly app
-- When running, your executor should perform the following tasks, using the `fly` cli:
-  - list the current fly apps: `fly apps list`
-  - if the app doesn't exist, launch it: `fly launch --now --name=<the name of your Fly App> --region=lax`
-  - if the app does exist, deploy it again: `fly deploy`
+   - The executor should have options for:
+     - the target `dist` location
+     - the `name` of your fly app
+   - When running, your executor should perform the following tasks, using the `fly` cli:
+     - list the current fly apps: `fly apps list`
+     - if the app doesn't exist, launch it: `fly launch --now --name=<the name of your Fly App> --region=lax`
+     - if the app does exist, deploy it again: `fly deploy`
 
-Fly launch and deploy commands need to be run in the `dist` location of your app.
+    Fly launch and deploy commands need to be run in the `dist` location of your app.
 
-  Use the `@nrwl/nx-plugin:executor` to generator an executor in our `internal-plugin` project for this:
+    Use the `@nrwl/nx-plugin:executor` to generator an executor in our `internal-plugin` project for this:
 
-  ```shell
-  npx nx generate @nrwl/nx-plugin:executor fly-deploy --project=internal-plugin
-  ```
+    ```shell
+    npx nx generate @nrwl/nx-plugin:executor fly-deploy --project=internal-plugin
+    ```
 
-1. Adjust the generated `schema.json` and `schema.d.ts` file to match the required options:
+9. Adjust the generated `schema.json` and `schema.d.ts` file to match the required options:
 
-```json
-{
-  "$schema": "http://json-schema.org/schema",
-  "cli": "nx",
-  "title": "FlyDeploy executor",
-  "description": "",
-  "type": "object",
-  "properties": {
-    "distLocation": {
-      "type": "string"
-    },
-    "flyAppName": {
-      "type": "string"
+    ```json
+    {
+      "$schema": "http://json-schema.org/schema",
+      "cli": "nx",
+      "title": "FlyDeploy executor",
+      "description": "",
+      "type": "object",
+      "properties": {
+        "distLocation": {
+          "type": "string"
+        },
+        "flyAppName": {
+          "type": "string"
+        }
+      },
+      "required": ["distLocation", "flyAppName"]
     }
-  },
-  "required": ["distLocation", "flyAppName"]
-}
-```
+    ```
 
-```typescript
-export interface FlyDeployExecutorSchema {
-  distLocation: string;
-  flyAppName: string;
-}
-```
+    ```typescript
+    export interface FlyDeployExecutorSchema {
+      distLocation: string;
+      flyAppName: string;
+    }
+    ```
 
 10. Implement the required fly steps using `execSync` to call the `fly` cli inside your `executor.ts` file:
 
-```typescript
-import { FlyDeployExecutorSchema } from './schema';
-import { execSync } from 'child_process';
+    ```typescript
+    import { FlyDeployExecutorSchema } from './schema';
+    import { execSync } from 'child_process';
 
-export default async function runExecutor(schema: FlyDeployExecutorSchema) {
-  const cwd = schema.distLocation;
-  const results = execSync(`fly apps list`);
-  if (results.toString().includes(options.flyAppName)) {
-    execSync(`fly deploy`, { cwd });
-  } else {
-    execSync(`fly launch --now --name=${options.flyAppName} --region=lax`, {
-      cwd,
-    });
-  }
-  return {
-    success: true,
-  };
-}
-```
+    export default async function runExecutor(schema: FlyDeployExecutorSchema) {
+      const cwd = schema.distLocation;
+      const results = execSync(`fly apps list`);
+      if (results.toString().includes(options.flyAppName)) {
+        execSync(`fly deploy`, { cwd });
+      } else {
+        execSync(`fly launch --now --name=${options.flyAppName} --region=lax`, {
+          cwd,
+        });
+      }
+      return {
+        success: true,
+      };
+    }
+    ```
 
 11. Next we'll need to add a `deploy` target to our `apps/api/project.json` file:
 
-```json
-{
-  "deploy": {
-    "executor": "@bg-hoard/internal-plugin:fly-deploy",
-    "outputs": [],
-    "options": {
-      "distLocation": "dist/apps/api",
-      "flyAppName": "my-unique-app-name"
-    },
-    "dependsOn": [
-      { "target": "build", "projects": "self", "params": "forward" }
-    ]
-  }
-}
-```
+    ```json
+    {
+      "deploy": {
+        "executor": "@bg-hoard/internal-plugin:fly-deploy",
+        "outputs": [],
+        "options": {
+          "distLocation": "dist/apps/api",
+          "flyAppName": "my-unique-app-name"
+        },
+        "dependsOn": [
+          { "target": "build", "projects": "self", "params": "forward" }
+        ]
+      }
+    }
+    ```
 
 12. Let's enable CORS on the server so our API can make requests to it (since they'll be deployed in separate places):
 
@@ -258,7 +258,7 @@ export default async function runExecutor(schema: FlyDeployExecutorSchema) {
     npx nx deploy api --prod
     ```
 
-Because of how we set up our `dependsOn` for the `deploy` target, Nx will know that it needs to run (or pull from the cache if you already ran it) the production build of the api before then running the deploy!
+    Because of how we set up our `dependsOn` for the `deploy` target, Nx will know that it needs to run (or pull from the cache if you already ran it) the production build of the api before then running the deploy!
 
 13. Go to `https://<your-app-name>.fly.dev/api/games` - it should return you a list of games.
     <br /> <br />
