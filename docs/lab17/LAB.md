@@ -35,6 +35,16 @@
 
     ![NxCloud Bot](./nx_cloud_bot.png)
     <br />
+
+   If your install is failing with `@storybook/angular` add following to the root `package.json`:
+
+   ```
+   "overrides": {
+     "@storybook/angular": {
+       "zone.js": "0.12.0"
+     }
+   }
+   ```
     
 7. Click on one of the "failed" commands (if any). On the "Run Details" page, click on one of the projects and inspect the terminal output:
 
