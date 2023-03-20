@@ -114,7 +114,7 @@
    If curious why, you can [read more here](https://github.com/nestjs/nest/issues/1706#issuecomment-579248915).
    <br /> <br />
 
-6. Let's fix the above - In `project.json`, under the **production** build options for the API (`projects -> api -> targets -> build -> configurations -> production`)
+6. Let's fix the above - In `project.json`, under the **production** build options for the API (`targets -> build -> configurations -> production`)
    add this as an option:
 
     ```json
@@ -140,7 +140,7 @@
 
 7. Currently the `fly.toml` that we added to our `api` project is not present if we inspect the `dist/apps/api` directory after running a prod build. We'll need this to be present for our fly deployment.
 
-    Update the the `assets` option in the production build options for the API (`projects -> api -> targets -> build -> configurations -> production`)
+    Update the the `assets` option in the production build options for the API (`targets -> build -> configurations -> production`)
 
     ```json
     "assets": [
