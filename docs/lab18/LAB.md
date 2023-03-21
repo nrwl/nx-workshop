@@ -69,7 +69,7 @@
 
    ```
    SURGE_TOKEN=<your-surge-token>
-   SURGE_DOMAIN_STORE=https://<some-unique-url-123>.surge.sh
+   SURGE_DOMAIN=https://<some-unique-url-123>.surge.sh
    ```
 
    ✅ Finally, update your "deploy" command, so that it loads the values from the ENV, using the `${ENV_VAR}` syntax.
@@ -78,7 +78,7 @@
     <summary>🐳 Hint</summary>
     
     ```bash
-   surge dist/apps/store ${SURGE_DOMAIN_STORE} --token ${SURGE_TOKEN} 
+   surge dist/apps/store ${SURGE_DOMAIN} --token ${SURGE_TOKEN} 
    ```
     </details>
     <br />
