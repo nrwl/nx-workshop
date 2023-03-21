@@ -56,8 +56,8 @@ In the previous labs, we set up automatic deployments. But every time we push to
 - In our case, "successfully deployed" means when our `deploy.yml` workflow completes without errors. That's a succesful commit!
 - Getting the last successful commit is different on each platform:
   - [Netlify has the `CACHED_COMMIT_REF`](https://docs.netlify.com/configure-builds/environment-variables/#git-metadata)
-  - On CircleCI, we can use the `<< pipeline.git.base_revision >>`
-  - For GitHub actions, we can use the `nrwl/nx-set-shas` action
+  - On `CircleCI`, we can use the [Nx Orb](https://circleci.com/developer/orbs/orb/nrwl/nx)'s `set-shas` command
+  - For `GitHub Actions`, we can use the [nrwl/nx-set-shas](https://github.com/marketplace/actions/nx-set-shas) action
 
 ---
 
