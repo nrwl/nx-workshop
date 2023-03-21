@@ -218,7 +218,7 @@
     }
     ```
 
-11. Next we'll need to add a `deploy` target to our `apps/api/project.json` file:
+11. Next we'll need to add a `deploy` target to our `apps/api/project.json` file (don't forget to put your apps name in `flayAppName` field):
 
     ```json
     {
