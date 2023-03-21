@@ -201,8 +201,8 @@
     import { FlyDeployExecutorSchema } from './schema';
     import { execSync } from 'child_process';
 
-    export default async function runExecutor(schema: FlyDeployExecutorSchema) {
-      const cwd = schema.distLocation;
+    export default async function runExecutor(options: FlyDeployExecutorSchema) {
+      const cwd = options.distLocation;
       const results = execSync(`fly apps list`);
       if (results.toString().includes(options.flyAppName)) {
         execSync(`fly deploy`, { cwd });
