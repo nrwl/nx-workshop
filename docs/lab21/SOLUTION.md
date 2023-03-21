@@ -9,7 +9,7 @@ on:
       - master
 
 env:
-  SURGE_DOMAIN_STORE: ${{ secrets.SURGE_DOMAIN_STORE }}
+  SURGE_DOMAIN: ${{ secrets.SURGE_DOMAIN }}
   SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
   FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
 
