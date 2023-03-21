@@ -262,6 +262,8 @@
     Because of how we set up our `dependsOn` for the `deploy` target, Nx will know that it needs to run (or pull from the cache if you already ran it) the production build of the api before then running the deploy!
 
 13. Go to `https://<your-app-name>.fly.dev/api/games` - it should return you a list of games.
+
+    ⚠️ Since we are on a free tier, it might take some time for application to become available
     <br /> <br />
 
 14. **BONUS** - What would a meaningful test be for your new executor? Add it to `libs/internal-plugin/src/executors/fly-deploy/executors.spec.ts`
