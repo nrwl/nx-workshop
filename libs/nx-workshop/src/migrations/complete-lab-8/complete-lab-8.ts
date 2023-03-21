@@ -62,9 +62,11 @@ export class GameDetailComponent {
   host.write(
     'libs/store/feature-game-detail/src/lib/game-detail/game-detail.component.html',
     `<mat-card *ngIf="game$ | async as game">
-<mat-card-title>
-  {{ game.name }}
-</mat-card-title>
+<mat-card-header>
+  <mat-card-title>
+      {{ game.name }}
+  </mat-card-title>
+</mat-card-header>
 <mat-card-content class="content">
   <img
     class="game-image"

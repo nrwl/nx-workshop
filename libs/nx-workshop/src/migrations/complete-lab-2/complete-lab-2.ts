@@ -96,7 +96,11 @@ export default async function update(tree: Tree) {
   );
   tree.write(
     'apps/store/src/app/app.component.css',
-    `.games-layout {
+    `* {
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .games-layout {
       display: flex;
       justify-content: space-between;
       margin-bottom: 20px;

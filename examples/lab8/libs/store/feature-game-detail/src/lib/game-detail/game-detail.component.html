@@ -1,7 +1,9 @@
 <mat-card *ngIf="game$ | async as game">
-  <mat-card-title>
-    {{ game.name }}
-  </mat-card-title>
+  <mat-card-header>
+    <mat-card-title>
+      {{ game.name }}
+    </mat-card-title>
+  </mat-card-header>
   <mat-card-content class="content">
     <img
       class="game-image"
