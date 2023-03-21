@@ -1,3 +1,9 @@
+#### Generating an executor
+
+```bash
+npx nx g @nrwl/nx-plugin:executor --name=fly-deploy --project=internal-plugin
+```
+
 ##### BONUS: Executor Test
 
 ```typescript
