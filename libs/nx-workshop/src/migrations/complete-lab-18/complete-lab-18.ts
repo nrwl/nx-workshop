@@ -46,11 +46,13 @@ export default async function update(host: Tree) {
     }
   }
 
+  host.write('apps/store/.local.env', `SURGE_TOKEN=${surgeToken}\nSURGE_DOMAIN=https://${surgeName}.surge.sh`);
+
   // nx generate run-commands deploy --project=store --command="surge dist/apps/store https://<chose-some-unique-url-123>.surge.sh --token <your-surge-token>"
   runCommandsGenerator(host, {
     name: 'deploy',
     project: 'store',
-    command: `surge dist/apps/store https://${surgeName}.surge.sh --token ${surgeToken}`,
+    command: `surge dist/apps/store \${SURGE_DOMAIN} --token \${SURGE_TOKEN}`,
   });
   const config = readProjectConfiguration(host, 'store');
   config.targets['deploy'].dependsOn = ['build'];
