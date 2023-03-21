@@ -89,7 +89,7 @@
    To make it pass, you can generate a separate `windows-deploy` executor (make sure you keep the existing `deploy` target intact - it will be used by GitHub Actions):
 
    ```bash
-   nx generate run-commands windows-deploy --project=store --command="surge dist/apps/store %SURGE_DOMAIN_STORE% --token %SURGE_TOKEN%"
+   nx generate run-commands windows-deploy --project=store --command="surge dist/apps/store %SURGE_DOMAIN% --token %SURGE_TOKEN%"
    nx windows-deploy store
    ```
 
