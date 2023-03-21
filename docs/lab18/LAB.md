@@ -13,9 +13,9 @@
 
 ## 🏋️‍♀️ Steps :
 
-1. Make sure you are on the `master` branch
+1. Make sure you are on the `main` branch
    <br /> <br />
-2. We'll use a CLI tool called [Surge](https://surge.sh/) to statically deploy the frontend:
+2. We'll use a CLI tool called [Surge](https://surge.sh/) to statically deploy the front-end:
 
    ```bash
    npm i -S surge

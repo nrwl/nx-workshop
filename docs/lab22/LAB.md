@@ -6,15 +6,15 @@
 
 ## 📚 Learning outcomes:
 
-- **Explore an advanced example of `nx affected` by deploying only the affected apps on the master branch**
-- **Understand how to configure the `base` commit for `nx affected` in a CD scenario**
+- **Explore an advanced example of the `nx affected` by deploying only the affected apps on the `main` branch**
+- **Understand how to configure the `base` commit for the `nx affected` in a CD scenario**
   <br /><br /><br />
 
 ## 🏋️‍♀️ Steps :
 
-In the previous labs we set up automatic deployments. But everytime we push to master, we're always building and running the deployment scripts for ALL the apps in our workspace. As our repo grows, this is not scalable. We only want to build and deploy the apps that have actually changed, and need re-deploying.
+In the previous labs, we set up automatic deployments. But every time we push to the `main`, we're always building and running the deployment scripts for ALL the apps in our workspace. As our repo grows, this is not scalable. We only want to build and deploy the apps that have changed, and need re-deploying.
 
-1. Update your `deploy.yml` file so that it builds only the affected apps, and it deploys only the affected apps
+1. Update your `deploy.yml` file so that it builds only the affected apps, and deploys only the affected apps
 
    ⚠️ You can compare against the previous commit for now: `--base=HEAD~1`
    <br /> <br />
@@ -35,7 +35,7 @@ In the previous labs we set up automatic deployments. But everytime we push to m
 ⛔ The problem now is that it's always comparing against the last commit:
 
 - Let's say I make some changes to the API (or AdminUI) over a few commits - and I don't push them.
-- Then I make one small change to the Store, commit it, and push to master.
+- Then I make one small change to the Store, commit it, and push it to the `main`.
 - Even though **I've pushed lots of commits with changes to both the Store and the API** (or AdminUI), because our CD Workflow is only
   looking at the last commit, **it will only deploy the Store.** 👎
 
@@ -45,7 +45,7 @@ In the previous labs we set up automatic deployments. But everytime we push to m
   Now our setup is simple: it just builds.
   But let's say we wanted to run the E2E tests again before deploying - just to be extra safe!
   In that case, if I change the API (or AdminUI) and push, the E2E tests might fail. So API (or AdminUI) will not get deployed.
-  I then fix the E2E tests, but because the API (or AdminUI) does not depend on its E2E tests, `nx affected` will not mark it for deployment.
+  I then fix the E2E tests, but because the API (or AdminUI) does not depend on its E2E tests, the `nx affected` will not mark it for deployment.
   So even though we changed the API (or AdminUI), it did not get deployed.
     </details>
 
@@ -80,7 +80,7 @@ In the previous labs we set up automatic deployments. But everytime we push to m
 
 8. Try to go through one of the problematic scenarios described above. It should now work, and it should build both the API (or AdminUI) and the Store (instead of just the Store)
 
-> Let's say I make some changes to the API (or AdminUI) over a few commits - and I don't push them. Then I make one small change to the Store, commit it, and push to master.
+> Let's say I make some changes to the API (or AdminUI) over a few commits - and I don't push them. Then I make one small change to the Store, commit it, and push to main.
 > Even though I've pushed lots of commits with changes to both the Store and the API (or AdminUI), because our CD Workflow is only looking at the last commit, it will only deploy the Store.
 > <br />
 

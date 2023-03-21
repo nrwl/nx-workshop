@@ -14,10 +14,10 @@ jobs:
         with:
           fetch-depth: 0
       - uses: bahmutov/npm-install@v1
-      - run: npx nx affected --target=build --base=origin/master --parallel
-      - run: npx nx affected --target=test --base=origin/master --parallel
-      - run: npx nx affected --target=lint --base=origin/master --parallel
-      - run: npx nx affected --target=e2e --base=origin/master --parallel
+      - run: npx nx affected --target=build --base=origin/main --parallel
+      - run: npx nx affected --target=test --base=origin/main --parallel
+      - run: npx nx affected --target=lint --base=origin/main --parallel
+      - run: npx nx affected --target=e2e --base=origin/main --parallel
 ```
 
 ##### Marking all projects as affected

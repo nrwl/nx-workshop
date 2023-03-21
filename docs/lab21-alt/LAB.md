@@ -11,13 +11,13 @@
 
 ## 🏋️‍♀️ Steps :
 
-In this lab we'll be setting up GitHub actions to build and deploy our projects whenever changes go into the `master` branch.
+In this lab we'll be setting up GitHub actions to build and deploy our projects whenever changes go into the `main` branch.
 
 1. Add a `.github/workflows/deploy.yml` file
    <br /> <br />
-2. Using your `ci.yml` config as an example, see if you can configure automated deployments from the `master` branch:
+2. Using your `ci.yml` config as an example, see if you can configure automated deployments from the `main` branch:
 
-   Anytime we push or merge something to the `master` branch it should:
+   Anytime we push or merge something to the `main` branch it should:
    - build the `store` and `admin-ui` for production
    - deploy the `store` and `admin-ui`
        
@@ -29,7 +29,7 @@ In this lab we'll be setting up GitHub actions to build and deploy our projects 
    on:
      push:
        branches:
-         - master <-- workflow will run everytime we push or merge something to master
+         - main <-- workflow will run everytime we push or merge something to main
    jobs:
      build:
        runs-on: ubuntu-latest
@@ -62,7 +62,7 @@ In this lab we'll be setting up GitHub actions to build and deploy our projects 
     - Make a change to your AdminUI (maybe change the text in the header)
     - Make a change to your Store (maybe change the title in the header) 
     <br /> <br />
-6. Commit everything locally on `master` and then push (it's important we push to the `master` branch as that's where our workflow runs)
+6. Commit everything locally on `main` and then push (it's important we push to the `main` branch as that's where our workflow runs)
    <br /> <br />
 7. You should see your new workflow start up under the "Actions" tab on your GitHub repo
    <br /> <br />

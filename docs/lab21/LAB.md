@@ -12,9 +12,9 @@
 
 1. Add a `.github/workflows/deploy.yml` file
    <br /> <br />
-2. Using your `ci.yml` config as an example, see if you can configure automated deployments from the `master` branch:
+2. Using your `ci.yml` config as an example, see if you can configure automated deployments from the `main` branch:
 
-   Anytime we push or merge something to the `master` branch it:
+   Anytime we push or merge something to the `main` branch it:
    - builds the `store` and `api` for production
    - deploys the `store` and `api`
        
@@ -26,7 +26,7 @@
    on:
      push:
        branches:
-         - master <-- workflow will run everytime we push or merge something to master
+         - main <-- workflow will run everytime we push or merge something to `main`
    jobs:
      build:
        runs-on: ubuntu-latest
@@ -59,7 +59,7 @@
     - Make a change to your API (maybe change the name of one of the games)
     - Make a change to your Store (maybe change the title in the header) 
     <br /> <br />
-6. Commit everything locally on `master` and then push (it's important we push to the `master` branch as that's where our workflow runs)
+6. Commit everything locally on `main` and then push (it's important we push to the `main` branch as that's where our workflow runs)
    <br /> <br />
 7. You should see your new workflow start up under the "Actions" tab on your GitHub repo
    <br /> <br />

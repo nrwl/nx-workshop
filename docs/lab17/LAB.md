@@ -62,10 +62,10 @@
 9. Finally, you should see a "Claim workspace" button at the top - it's a good idea to do that at this stage. We'll explain more about that in a bit!
    <br /> <br />
 
-10. Merge your PR into master and pull latest locally:
+10. Merge your PR into `main` and pull latest locally:
 
     ```
-    git checkout master
+    git checkout main
     git pull
     ```
     <br />

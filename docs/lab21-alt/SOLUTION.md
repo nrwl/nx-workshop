@@ -6,7 +6,7 @@ name: Deploy Website
 on:
   push:
     branches:
-      - master
+      - main
 
 env:
   SURGE_DOMAIN_STORE: ${{ secrets.SURGE_DOMAIN_STORE }}
