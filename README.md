@@ -43,11 +43,12 @@ Make sure you have the following installed:
 - A Github account
   - http://github.com
 
-Optional:
+For day 2, option 2 only:
 
 - A Fly.io account
   - https://fly.io/
   - with the [CLI installed](https://fly.io/terminal): `fly help`
+  - No need to set up the Credit card, we will use free tier
 - [Docker](https://www.docker.com/get-started)
   - `docker --version`
 
