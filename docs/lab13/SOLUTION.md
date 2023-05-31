@@ -1,13 +1,13 @@
 ##### Generate a `internal-plugin` plugin:
 
 ```shell script
-nx generate @nrwl/nx-plugin:plugin internal-plugin --minimal
+nx generate @nx/plugin:plugin internal-plugin --minimal
 ```
 
 #### Generate a `util-lib` generator:
 
 ```shell
-nx generate @nrwl/nx-plugin:generator util-lib --project=internal-plugin
+nx generate @nx/plugin:generator util-lib --project=internal-plugin
 ```
 
 ##### Running the generator in dry mode
@@ -19,8 +19,8 @@ nx generate @bg-hoard/internal-plugin:util-lib test --dry-run
 ##### Prefixing the name
 
 ```ts
-import { formatFiles, installPackagesTask, Tree } from '@nrwl/devkit';
-import { libraryGenerator } from '@nrwl/workspace/generators';
+import { formatFiles, installPackagesTask, Tree } from '@nx/devkit';
+import { libraryGenerator } from '@nx/js';
 import { UtilLibGeneratorSchema } from './schema';
 
 export default async function (tree: Tree, schema: UtilLibGeneratorSchema) {
@@ -66,8 +66,8 @@ export default async function (tree: Tree, schema: UtilLibGeneratorSchema) {
 ##### Passing in tags
 
 ```ts
-import { formatFiles, installPackagesTask, Tree } from '@nrwl/devkit';
-import { libraryGenerator } from '@nrwl/workspace/generators';
+import { formatFiles, installPackagesTask, Tree } from '@nx/devkit';
+import { libraryGenerator } from '@nx/js';
 import { UtilLibGeneratorSchema } from './schema';
 
 export default async function (tree: Tree, schema: UtilLibGeneratorSchema) {
@@ -95,8 +95,8 @@ export interface UtilLibGeneratorSchema {
 ##### BONUS: Testing
 
 ```typescript
-import { createTreeWithEmptyWorkspace } from '@nrwl/devkit/testing';
-import { Tree, readProjectConfiguration } from '@nrwl/devkit';
+import { createTreeWithEmptyWorkspace } from '@nx/devkit/testing';
+import { Tree, readProjectConfiguration } from '@nx/devkit';
 
 import generator from './generator';
 import { UtilLibGeneratorSchema } from './schema';

@@ -1,4 +1,4 @@
-import { formatFiles, readJsonFile, Tree } from '@nrwl/devkit';
+import { formatFiles, readJsonFile, Tree } from '@nx/devkit';
 import { CompleteLabsGeneratorSchema } from './schema';
 
 export default async function (
@@ -48,7 +48,11 @@ export default async function (
       if (option === 'option2') {
         return !Number.isNaN(lastVersionPart);
       } else {
-        return lastVersionPart < 19 || lastVersionPart > 21 || Number.isNaN(lastVersionPart);
+        return (
+          lastVersionPart < 19 ||
+          lastVersionPart > 21 ||
+          Number.isNaN(lastVersionPart)
+        );
       }
     });
   tree.write('migrations.json', JSON.stringify({ migrations }, undefined, 2));

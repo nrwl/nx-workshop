@@ -6,11 +6,11 @@ import {
   Tree,
   updateJson,
   updateProjectConfiguration,
-} from '@nrwl/devkit';
-import { uniq } from '@nrwl/nx-plugin/testing';
+} from '@nx/devkit';
+import { uniq } from '@nx/plugin/testing';
 import { execSync } from 'child_process';
 import { replaceInFile } from '../utils';
-import executorGenerator from '@nrwl/nx-plugin/src/generators/executor/executor';
+import executorGenerator from '@nx/plugin/src/generators/executor/executor';
 
 export default async function update(host: Tree) {
   let flyToken, flyName;
@@ -177,11 +177,11 @@ export default async function runExecutor(options: FlyDeployExecutorSchema) {
     host,
     'apps/api/src/main.ts',
     `app.setGlobalPrefix(globalPrefix);
-  const port = process.env.PORT || 3333;
+  const port = process.env.PORT || 3000;
 `,
     `app.setGlobalPrefix(globalPrefix);
   app.enableCors();
-  const port = process.env.PORT || 3333;
+  const port = process.env.PORT || 3000;
 `
   );
   await formatFiles(host);

@@ -1,8 +1,9 @@
 import {
   formatFiles,
-  readProjectConfiguration, Tree,
-  updateProjectConfiguration
-} from '@nrwl/devkit';
+  readProjectConfiguration,
+  Tree,
+  updateProjectConfiguration,
+} from '@nx/devkit';
 
 export default async function update(host: Tree) {
   process.env.NX_PROJECT_GLOB_CACHE = 'false';

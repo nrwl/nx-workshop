@@ -13,16 +13,16 @@
     "migrations": "./migrations.json"
   },
   "dependencies": {
-    "@nrwl/workspace": "15.8.6",
-    "@nrwl/angular": "15.8.6",
-    "@nrwl/devkit": "15.8.6",
-    "@nrwl/nest": "15.8.6",
     "@nrwl/nx-cloud": "latest",
-    "@nrwl/nx-plugin": "15.8.6",
-    "@nrwl/storybook": "15.8.6",
     "cors": "*",
     "node-fetch": "^2.x",
     "surge": "*",
-    "typescript": "4.8.4"
+    "typescript": "5.0.4",
+    "@nx/devkit": "16.3.0",
+    "@nx/workspace": "16.3.0",
+    "@nx/storybook": "16.3.0",
+    "@nx/plugin": "16.3.0",
+    "@nx/nest": "16.3.0",
+    "@nx/angular": "16.3.0"
   }
 }

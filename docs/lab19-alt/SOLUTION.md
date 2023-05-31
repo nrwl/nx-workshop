@@ -12,10 +12,10 @@ nx serve admin-ui
 nx generate run-commands deploy --project=admin-ui --command="surge dist/apps/admin-ui \${SURGE_DOMAIN_ADMIN_UI} --token \${SURGE_TOKEN}"
 ```
 
-##### Bonus 
+##### Bonus
 
 ```shell
-nx g workspace-generator add-deploy-target 
+nx g workspace-generator add-deploy-target
 ```
 
 ![Folder structure](./solution-structure.png)
@@ -34,8 +34,8 @@ import {
   formatFiles,
   installPackagesTask,
   generateFiles,
-} from '@nrwl/devkit';
-import { runCommandsGenerator } from '@nrwl/workspace/generators';
+} from '@nx/devkit';
+import { runCommandsGenerator } from '@nx/workspace/generators';
 import { join } from 'path';
 
 interface Schema {

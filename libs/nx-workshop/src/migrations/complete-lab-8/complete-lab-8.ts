@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { insertNgModuleImport } from '@nrwl/angular/src/generators/utils';
-import { formatFiles, Tree } from '@nrwl/devkit';
-import { insertImport } from '@nrwl/workspace/src/generators/utils/insert-import';
+import { insertNgModuleImport } from '@nx/angular/src/generators/utils';
+import { formatFiles, Tree } from '@nx/devkit';
+import { insertImport } from '@nx/workspace/src/generators/utils/insert-import';
 import { replaceInFile } from '../utils';
 
 export default async function update(host: Tree) {

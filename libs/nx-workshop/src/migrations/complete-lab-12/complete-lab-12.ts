@@ -5,7 +5,7 @@ import {
   Tree,
   updateJson,
   updateProjectConfiguration,
-} from '@nrwl/devkit';
+} from '@nx/devkit';
 
 export default async function update(host: Tree) {
   const projectUpdates = {
@@ -73,5 +73,32 @@ export default async function update(host: Tree) {
     ];
     return json;
   });
+  host.write(
+    'apps/api-e2e/src/api/lint.spec.ts',
+    `
+  import { execSync } from 'child_process';
+import { writeFileSync } from 'node:fs';
+
+describe('Dependencies', () => {
+  it('should fail linting when tag rules are applied', async () => {
+    writeFileSync(
+      'libs/util-interface/src/index.ts',
+      \`import {} from '@bg-hoard/store/ui-shared';
+
+export * from './lib/api-util-interface';
+\`
+    );
+    expect(() => execSync('nx lint util-interface')).toThrow();
+  });
+  afterAll(() => {
+    writeFileSync(
+      'libs/util-interface/src/index.ts',
+      \`export * from './lib/api-util-interface';
+    \`
+    );
+  });
+});
+`
+  );
   await formatFiles(host);
 }

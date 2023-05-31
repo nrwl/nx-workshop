@@ -6,8 +6,9 @@ import {
   getProjects,
   readJson,
   installPackagesTask,
-} from '@nrwl/devkit';
-import { removeGenerator } from '@nrwl/workspace';
+  readJsonFile,
+} from '@nx/devkit';
+import { removeGenerator } from '@nx/workspace';
 import { execSync } from 'child_process';
 
 export default async function update(tree: Tree) {
@@ -70,12 +71,13 @@ export default async function update(tree: Tree) {
   // Lab 21
   tree.delete('.github/workflows/deploy.yml');
   // Set npmScope to bg-hoard
-  updateJson(tree, 'nx.json', (json) => {
-    json.npmScope = 'bg-hoard';
+  updateJson(tree, 'package.json', (json) => {
+    json.name = '@bg-hoard/source';
     return json;
   });
   await formatFiles(tree);
   return () => {
     installPackagesTask(tree);
+    console.log(readJson(tree, 'package.json').name);
   };
 }

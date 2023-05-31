@@ -4,13 +4,17 @@ import {
   formatFiles,
   installPackagesTask,
   Tree,
-} from '@nrwl/devkit';
+} from '@nx/devkit';
 import { dependencies } from '../../../package.json';
-import { applicationGenerator, E2eTestRunner, UnitTestRunner } from '@nrwl/angular/generators';
-import { insertNgModuleImport } from '@nrwl/angular/src/generators/utils';
+import {
+  applicationGenerator,
+  E2eTestRunner,
+  UnitTestRunner,
+} from '@nx/angular/generators';
+import { insertNgModuleImport } from '@nx/angular/src/generators/utils';
 import fetch from 'node-fetch';
-import { insertImport } from '@nrwl/workspace/src/generators/utils/insert-import';
-import { Linter } from '@nrwl/linter';
+import { insertImport } from '@nx/workspace/src/generators/utils/insert-import';
+import { Linter } from '@nx/linter';
 
 export default async function update(tree: Tree) {
   await addDependenciesToPackageJson(
@@ -20,7 +24,7 @@ export default async function update(tree: Tree) {
       '@angular/material': '^15.2.0',
     },
     {
-      '@nrwl/angular': dependencies['@nrwl/angular'],
+      '@nx/angular': dependencies['@nx/angular'],
     }
   );
   process.env.NX_PROJECT_GLOB_CACHE = 'false';
@@ -31,7 +35,7 @@ export default async function update(tree: Tree) {
     name: 'store',
     routing: true,
     strict: true,
-    standaloneConfig: true
+    standaloneConfig: true,
   });
   process.env.NX_PROJECT_GLOB_CACHE = 'true';
   tree.write(
@@ -159,6 +163,20 @@ export default async function update(tree: Tree) {
   const modulePath = 'apps/store/src/app/app.module.ts';
   insertNgModuleImport(tree, modulePath, 'MatCardModule');
   insertImport(tree, modulePath, 'MatCardModule', '@angular/material/card');
+
+  tree.write(
+    'apps/store-e2e/src/e2e/app.cy.ts',
+    `describe('store', () => {
+    beforeEach(() => cy.visit('/'));
+  
+    it('should have 3 games', () => {
+      cy.contains('Settlers in the Can');
+      cy.contains('Chess Pie');
+      cy.contains('Purrfection');
+    });
+  });
+  `
+  );
 
   async function download(uri: string, filename: string) {
     await fetch(uri)

@@ -1,6 +1,7 @@
 # 💻 Lab 10 - Generate Storybook stories for the shared ui component
 
 ###### ⏰ Estimated time: 10-15 minutes
+
 <br />
 
 Let's explore some more Nx plugins by generating and running a storybook configuration for our shared store header.
@@ -9,7 +10,7 @@ Let's explore some more Nx plugins by generating and running a storybook configu
 ## 📚 Learning outcomes:
 
 - **Explore other Nx plugins to create a storybook configuration**
-<br /><br /><br />
+  <br /><br /><br />
 
 ## 📲 After this workshop, you should have:
 
@@ -26,12 +27,13 @@ Let's explore some more Nx plugins by generating and running a storybook configu
 
 ## 🏋️‍♀️ Steps:
 
-1. **Install `@nrwl/storybook`**
+1. **Install `@nx/storybook`**
    <br /><br />
-2. Use the `@nrwl/angular:storybook-configuration` generator to **generate a storybook configuration** for the `store-ui-shared` project
+2. Use the `@nx/angular:storybook-configuration` generator to **generate a storybook configuration** for the `store-ui-shared` project
 
    ⚠️ Answer **YES** to all questions
    <br /><br />
+
 3. Inside `libs/store/ui-shared/src/lib/header/header.component.stories.ts`:
 
    - **Import the `MatToolbarModule`**
@@ -45,14 +47,14 @@ Let's explore some more Nx plugins by generating and running a storybook configu
 
    //......
    export default {
-      title: 'HeaderComponent',
-      component: HeaderComponent,
-      decorators: [
-         moduleMetadata({
-            imports: [MatToolbarModule] // <-- import the module
-         }),
-         //...
-      ],
+     title: 'HeaderComponent',
+     component: HeaderComponent,
+     decorators: [
+       moduleMetadata({
+         imports: [MatToolbarModule], // <-- import the module
+       }),
+       //...
+     ],
    } as Meta<HeaderComponent>;
    ```
 
@@ -84,7 +86,8 @@ Let's explore some more Nx plugins by generating and running a storybook configu
 
    </details>
    <br />
-4. **Serve storybook!**
+
+5. **Serve storybook!**
 
    <details>
    <summary>🐳 Hint</summary>
@@ -94,12 +97,12 @@ Let's explore some more Nx plugins by generating and running a storybook configu
    </details>
    <br />
 
-5. Start typing in different titles and **see how they appear** in the header
+6. Start typing in different titles and **see how they appear** in the header
 
    <img src="../assets/storybook.gif" width="300" alt="the header component running in storybook">
    <br /><br />
 
-6. **Inspect what changed** from the last time you committed, then **commit your changes**
+7. **Inspect what changed** from the last time you committed, then **commit your changes**
    <br /><br />
 
 ---

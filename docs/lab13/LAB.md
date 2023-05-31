@@ -21,12 +21,12 @@ have to maintain them. In this workshop, we'll create an internal plugin called
 about the folders in our workspace and automatically tags the new project with a correct
 scope and type tag.
 
-1.  Use the `@nrwl/nx-plugin:plugin` generator to generate a new plugin called
-    `internal-plugin`.<br /> 
+1.  Use the `@nx/plugin:plugin` generator to generate a new plugin called
+    `internal-plugin`.<br />
     Make sure that the `minimal` option is set.
     <br /> <br />
 
-2.  Use the `@nrwl/nx-plugin:generator` generator to generate a new generator called
+2.  Use the `@nx/plugin:generator` generator to generate a new generator called
     `util-lib`.
     <br /> <br />
 
@@ -69,22 +69,23 @@ scope and type tag.
     </details>
 
     ⚠️ The code we generated creates a very bare-bones new library, with only a `project.json` and a `src/index.ts` file; you will see these files created if you run it.
-     You can use Git to undo those changes (hence why it's recommended to commit before running a generator).
+    You can use Git to undo those changes (hence why it's recommended to commit before running a generator).
     <br /> <br />
 
-5.  We can call other generators inside of our custom generator. Import the `@nrwl/js:library` generator and call it inside of the default exported function of `libs/internal-plugin/src/generators/util-lib/generator.ts`
+5.  We can call other generators inside of our custom generator. Import the `@nx/js:library` generator and call it inside of the default exported function of `libs/internal-plugin/src/generators/util-lib/generator.ts`
 
     <details>
     <summary>🐳 Hint</summary>
 
     ```typescript
-    import { libraryGenerator } from '@nrwl/workspace/generators';
+    import { libraryGenerator } from '@nx/js';
 
     export default async function (tree: Tree, schema: UtilLibGeneratorSchema) {
       await libraryGenerator(tree, schema);
       // ...
     }
     ```
+
     </details>
 
 6.  In `libs/internal-plugin/src/generators/util-lib/generator.ts` try to make it `console.log()` the value of the `--name` property you passed to it (can use `--dry-run` again to test it)
@@ -125,7 +126,7 @@ scope and type tag.
     <details>
     <summary>🐳 Hint</summary>
 
-    Consult the `@nrwl/js:lib` [docs](https://nx.dev/packages/js/generators/library)
+    Consult the `@nx/js:lib` [docs](https://nx.dev/packages/js/generators/library)
     for possible options you can pass to it.
 
     </details>

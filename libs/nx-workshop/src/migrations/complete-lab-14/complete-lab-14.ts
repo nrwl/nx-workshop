@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { formatFiles, Tree } from '@nrwl/devkit';
-import { generatorGenerator } from '@nrwl/nx-plugin/generators';
+import { formatFiles, Tree } from '@nx/devkit';
+import { generatorGenerator } from '@nx/plugin/generators';
 
 export default async function update(host: Tree) {
   process.env.NX_PROJECT_GLOB_CACHE = 'false';
@@ -20,7 +20,7 @@ export default async function update(host: Tree) {
   ProjectConfiguration,
   getProjects,
   updateProjectConfiguration,
-} from '@nrwl/devkit';
+} from '@nx/devkit';
 
 export default async function (tree: Tree) {
   addScopeIfMissing(tree);

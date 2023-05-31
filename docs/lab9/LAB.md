@@ -32,7 +32,7 @@ We'll look at creating libs to store Typescript interfaces and then we'll use th
 
 1. **Stop serving** both the API and the frontend
    <br /><br />
-2. **Generate a new `@nrwl/js` lib** called `util-interface` inside the `libs/api` folder.
+2. **Generate a new `@nx/js` lib** called `util-interface` inside the `libs/api` folder.
 
    ⚠️ It's **important** that we create it in the `/api` folder for now
    <br /><br />
@@ -85,7 +85,7 @@ Let's fix that - we already have a `Game` interface in a lib. But it's nested in
 
 ---
 
-8.  Use the `@nrwl/workspace:move` generator to **move the interface lib** created above into the root `/libs` folder
+8.  Use the `@nx/workspace:move` generator to **move the interface lib** created above into the root `/libs` folder
 
     ⚠️ Make sure you use the `--dry-run` flag until you're confident your command is correct
 

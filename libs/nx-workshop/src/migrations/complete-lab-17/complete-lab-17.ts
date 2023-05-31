@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Tree, formatFiles } from '@nrwl/devkit';
+import { Tree, formatFiles } from '@nx/devkit';
 
 export default async function update(host: Tree) {
   host.write(

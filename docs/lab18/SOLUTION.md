@@ -20,7 +20,7 @@ nx build store --configuration production
 
 ```json
 "deploy": {
-  "executor": "@nrwl/workspace:run-commands",
+  "executor": "@nx/workspace:run-commands",
   "outputs": [],
   "dependsOn": ["build"],
   "options": {

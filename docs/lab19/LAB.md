@@ -44,50 +44,50 @@
 
    Pick a unique app name to include in the `fly.toml` file.
 
-    👉 This will determine the address where the API will be deployed to: `https://<your-app-name>.fly.dev`
+   👉 This will determine the address where the API will be deployed to: `https://<your-app-name>.fly.dev`
 
-    ```
-    app = "<your-unique-app-name>"
-    kill_signal = "SIGINT"
-    kill_timeout = 5
-    processes = []
+   ```
+   app = "<your-unique-app-name>"
+   kill_signal = "SIGINT"
+   kill_timeout = 5
+   processes = []
 
-    [build]
-      builder = "paketobuildpacks/builder:base"
-      buildpacks = ["gcr.io/paketo-buildpacks/nodejs"]
+   [build]
+     builder = "paketobuildpacks/builder:base"
+     buildpacks = ["gcr.io/paketo-buildpacks/nodejs"]
 
-    [env]
-      PORT = "8080"
+   [env]
+     PORT = "8080"
 
-    [experimental]
-      cmd = ["PORT=8080 node main.js"]
+   [experimental]
+     cmd = ["PORT=8080 node main.js"]
 
-    [[services]]
-      http_checks = []
-      internal_port = 8080
-      processes = ["app"]
-      protocol = "tcp"
-      script_checks = []
-      [services.concurrency]
-        hard_limit = 25
-        soft_limit = 20
-        type = "connections"
+   [[services]]
+     http_checks = []
+     internal_port = 8080
+     processes = ["app"]
+     protocol = "tcp"
+     script_checks = []
+     [services.concurrency]
+       hard_limit = 25
+       soft_limit = 20
+       type = "connections"
 
-    [[services.ports]]
-      force_https = true
-      handlers = ["http"]
-      port = 80
+   [[services.ports]]
+     force_https = true
+     handlers = ["http"]
+     port = 80
 
-    [[services.ports]]
-      handlers = ["tls", "http"]
-      port = 443
+   [[services.ports]]
+     handlers = ["tls", "http"]
+     port = 443
 
-    [[services.tcp_checks]]
-      grace_period = "1s"
-      interval = "15s"
-      restart_limit = 0
-      timeout = "2s"
-    ```
+   [[services.tcp_checks]]
+     grace_period = "1s"
+     interval = "15s"
+     restart_limit = 0
+     timeout = "2s"
+   ```
 
    <details>
    <summary>❓ What's our plan here?</summary>
@@ -117,39 +117,39 @@
 6. Let's fix the above - In `project.json`, under the **production** build options for the API (`targets -> build -> configurations -> production`)
    add this as an option:
 
-    ```json
-    "externalDependencies": [
-        "@nestjs/microservices",
-        "@nestjs/microservices/microservices-module",
-        "@nestjs/websockets/socket-module",
-        "class-transformer",
-        "class-validator",
-        "cache-manager",
-        "cache-manager/package.json"
-    ],
-    ```
+   ```json
+   "externalDependencies": [
+       "@nestjs/microservices",
+       "@nestjs/microservices/microservices-module",
+       "@nestjs/websockets/socket-module",
+       "class-transformer",
+       "class-validator",
+       "cache-manager",
+       "cache-manager/package.json"
+   ],
+   ```
 
      <details>
      <summary>❓ What does this do?</summary>
 
-     The above option tells webpack to bundle ALL the dependencies our API requires inside `main.js`, except the ones above (which fail the build if we tell webpack to include, because they're lazily loaded).
-     Normally, it's not recommended to bundle any dependencies with your server bundles,
-     but in this case it simplifies the deployment process.
+   The above option tells webpack to bundle ALL the dependencies our API requires inside `main.js`, except the ones above (which fail the build if we tell webpack to include, because they're lazily loaded).
+   Normally, it's not recommended to bundle any dependencies with your server bundles,
+   but in this case it simplifies the deployment process.
      </details>
        <br />
 
 7. Currently the `fly.toml` that we added to our `api` project is not present if we inspect the `dist/apps/api` directory after running a prod build. We'll need this to be present for our fly deployment.
 
-    Update the the `assets` option in the production build options for the API (`targets -> build -> configurations -> production`)
+   Update the the `assets` option in the production build options for the API (`targets -> build -> configurations -> production`)
 
-    ```json
-    "assets": [
-        "apps/api/src/assets",
-        "apps/api/src/fly.toml"
-    ],
-    ```
+   ```json
+   "assets": [
+       "apps/api/src/assets",
+       "apps/api/src/fly.toml"
+   ],
+   ```
 
-8. Use the `@nrwl/nx-plugin:executor` generator to generate a `fly-deploy` executor:
+8. Use the `@nx/plugin:executor` generator to generate a `fly-deploy` executor:
 
    - The executor should have options for:
      - the target `dist` location
@@ -159,41 +159,41 @@
      - if the app doesn't exist, launch it: `fly launch --now --name=<the name of your Fly App> --region=lax`
      - if the app does exist, deploy it again: `fly deploy`
 
-    Fly launch and deploy commands need to be run in the `dist` location of your app.
+   Fly launch and deploy commands need to be run in the `dist` location of your app.
 
-    Use the `@nrwl/nx-plugin:executor` to generator an executor in our `internal-plugin` project for this:
+   Use the `@nx/plugin:executor` to generator an executor in our `internal-plugin` project for this:
 
-    ```shell
-    npx nx generate @nrwl/nx-plugin:executor fly-deploy --project=internal-plugin
-    ```
+   ```shell
+   npx nx generate @nx/plugin:executor fly-deploy --project=internal-plugin
+   ```
 
 9. Adjust the generated `schema.json` and `schema.d.ts` file to match the required options:
 
-    ```json
-    {
-      "$schema": "http://json-schema.org/schema",
-      "cli": "nx",
-      "title": "FlyDeploy executor",
-      "description": "",
-      "type": "object",
-      "properties": {
-        "distLocation": {
-          "type": "string"
-        },
-        "flyAppName": {
-          "type": "string"
-        }
-      },
-      "required": ["distLocation", "flyAppName"]
-    }
-    ```
+   ```json
+   {
+     "$schema": "http://json-schema.org/schema",
+     "cli": "nx",
+     "title": "FlyDeploy executor",
+     "description": "",
+     "type": "object",
+     "properties": {
+       "distLocation": {
+         "type": "string"
+       },
+       "flyAppName": {
+         "type": "string"
+       }
+     },
+     "required": ["distLocation", "flyAppName"]
+   }
+   ```
 
-    ```typescript
-    export interface FlyDeployExecutorSchema {
-      distLocation: string;
-      flyAppName: string;
-    }
-    ```
+   ```typescript
+   export interface FlyDeployExecutorSchema {
+     distLocation: string;
+     flyAppName: string;
+   }
+   ```
 
 10. Implement the required fly steps using `execSync` to call the `fly` cli inside your `executor.ts` file:
 
@@ -201,7 +201,9 @@
     import { FlyDeployExecutorSchema } from './schema';
     import { execSync } from 'child_process';
 
-    export default async function runExecutor(options: FlyDeployExecutorSchema) {
+    export default async function runExecutor(
+      options: FlyDeployExecutorSchema
+    ) {
       const cwd = options.distLocation;
       const results = execSync(`fly apps list`);
       if (results.toString().includes(options.flyAppName)) {
@@ -243,17 +245,17 @@
 
       ```ts
       async function bootstrap() {
-          const app = await NestFactory.create(AppModule);
-          const globalPrefix = 'api';
-          app.setGlobalPrefix(globalPrefix);
-          app.enableCors(); // <--- ADD THIS
+        const app = await NestFactory.create(AppModule);
+        const globalPrefix = 'api';
+        app.setGlobalPrefix(globalPrefix);
+        app.enableCors(); // <--- ADD THIS
       }
       ```
 
     ⚠️ Normally, you want to restrict this to just a few origins. But to keep things simple in this workshop we'll enable it for all origins.
     <br /> <br />
 
-12. Now run the command to deploy your api!!
+13. Now run the command to deploy your api!!
 
     ```shell
     npx nx deploy api --prod
@@ -261,12 +263,12 @@
 
     Because of how we set up our `dependsOn` for the `deploy` target, Nx will know that it needs to run (or pull from the cache if you already ran it) the production build of the api before then running the deploy!
 
-13. Go to `https://<your-app-name>.fly.dev/api/games` - it should return you a list of games.
+14. Go to `https://<your-app-name>.fly.dev/api/games` - it should return you a list of games.
 
     ⚠️ Since we are on a free tier, it might take some time for application to become available
     <br /> <br />
 
-14. **BONUS** - What would a meaningful test be for your new executor? Add it to `libs/internal-plugin/src/executors/fly-deploy/executors.spec.ts`
+15. **BONUS** - What would a meaningful test be for your new executor? Add it to `libs/internal-plugin/src/executors/fly-deploy/executors.spec.ts`
 
 ---
 

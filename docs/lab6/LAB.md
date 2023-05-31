@@ -4,7 +4,7 @@
 
 <br />
 
-We'll look at more advanced usages of the `@nrwl/angular` generators and generate a new route lib for our store application. We'll see how Nx takes care of most of the work, and we just have to do the wiring up!
+We'll look at more advanced usages of the `@nx/angular` generators and generate a new route lib for our store application. We'll see how Nx takes care of most of the work, and we just have to do the wiring up!
 <br /><br />
 
 ## 📚 Learning outcomes:
@@ -29,7 +29,7 @@ We'll look at more advanced usages of the `@nrwl/angular` generators and generat
 
 1. **Stop `nx serve`**
    <br /><br />
-2. **Use the `@nrwl/angular:lib` generator to generate a new routing library** called `feature-game-detail` that:
+2. **Use the `@nx/angular:lib` generator to generate a new routing library** called `feature-game-detail` that:
 
    - lives under `libs/store`
    - has lazy loading

@@ -1,4 +1,5 @@
 {
+  "name": "nx-workshop-e2e",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "sourceRoot": "apps/nx-workshop-e2e/src",
@@ -14,14 +15,14 @@
       }
     },
     "e2e": {
-      "executor": "@nrwl/nx-plugin:e2e",
+      "executor": "@nx/jest:jest",
       "options": {
-        "target": "nx-workshop:build",
-        "jestConfig": "apps/nx-workshop-e2e/jest.config.js"
-      }
+        "jestConfig": "apps/nx-workshop-e2e/jest.config.js",
+        "runInBand": true
+      },
+      "dependsOn": ["nx-workshop:build"]
     }
   },
   "tags": [],
-  "implicitDependencies": ["nx-workshop"],
-  "name": "nx-workshop-e2e"
+  "implicitDependencies": ["nx-workshop"]
 }

@@ -5,11 +5,11 @@ import {
   Tree,
   updateJson,
   updateProjectConfiguration,
-} from '@nrwl/devkit';
-import { uniq } from '@nrwl/nx-plugin/testing';
-import { formatFiles, runCommandsGenerator } from '@nrwl/workspace';
+} from '@nx/devkit';
+import { uniq } from '@nx/plugin/testing';
+import { formatFiles, runCommandsGenerator } from '@nx/workspace';
 import { execSync } from 'child_process';
-import { readJsonFile } from '@nrwl/devkit';
+import { readJsonFile } from '@nx/devkit';
 import { stripConsoleColors } from '../utils';
 
 export default async function update(host: Tree) {
@@ -46,7 +46,10 @@ export default async function update(host: Tree) {
     }
   }
 
-  host.write('apps/store/.local.env', `SURGE_TOKEN=${surgeToken}\nSURGE_DOMAIN=https://${surgeName}.surge.sh`);
+  host.write(
+    'apps/store/.local.env',
+    `SURGE_TOKEN=${surgeToken}\nSURGE_DOMAIN=https://${surgeName}.surge.sh`
+  );
 
   // nx generate run-commands deploy --project=store --command="surge dist/apps/store https://<chose-some-unique-url-123>.surge.sh --token <your-surge-token>"
   runCommandsGenerator(host, {

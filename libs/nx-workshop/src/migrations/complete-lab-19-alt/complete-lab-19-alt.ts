@@ -4,22 +4,22 @@ import {
   formatFiles,
   installPackagesTask,
   Tree,
-} from '@nrwl/devkit';
-import { applicationGenerator } from '@nrwl/nest';
-import { runCommandsGenerator } from '@nrwl/workspace';
-import workspaceGenerator from '@nrwl/workspace/src/generators/workspace-generator/workspace-generator';
+} from '@nx/devkit';
+import { applicationGenerator } from '@nx/nest';
+import { runCommandsGenerator } from '@nx/workspace';
+import workspaceGenerator from '@nx/workspace/src/generators/workspace-generator/workspace-generator';
 import { dependencies } from '../../../package.json';
 
 export default async function update(host: Tree) {
-  // yarn add @nrwl/nest # or "npm i -S @nrwl/nest"
+  // yarn add @nx/nest # or "npm i -S @nx/nest"
   addDependenciesToPackageJson(
     host,
     {},
     {
-      '@nrwl/nest': dependencies['@nrwl/nest'],
+      '@nx/nest': dependencies['@nx/nest'],
     }
   );
-  // nx g @nrwl/nest:app admin-ui
+  // nx g @nx/nest:app admin-ui
   await applicationGenerator(host, {
     name: 'admin-ui',
   });
@@ -52,8 +52,8 @@ import {
   formatFiles,
   installPackagesTask,
   generateFiles,
-} from '@nrwl/devkit';
-import { runCommandsGenerator } from '@nrwl/workspace/generators';
+} from '@nx/devkit';
+import { runCommandsGenerator } from '@nx/js';
 import { join } from 'path';
 
 interface Schema {

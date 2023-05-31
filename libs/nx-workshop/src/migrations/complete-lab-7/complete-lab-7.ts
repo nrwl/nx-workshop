@@ -1,6 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { addDependenciesToPackageJson, formatFiles, Tree, updateJson } from '@nrwl/devkit';
-import { applicationGenerator } from '@nrwl/nest';
+import {
+  addDependenciesToPackageJson,
+  formatFiles,
+  Tree,
+  updateJson,
+} from '@nx/devkit';
+import { applicationGenerator } from '@nx/nest';
 import { dependencies } from '../../../package.json';
 
 export default async function update(host: Tree) {
@@ -8,11 +13,11 @@ export default async function update(host: Tree) {
     host,
     {},
     {
-      '@nrwl/nest': dependencies['@nrwl/nest'],
+      '@nx/nest': dependencies['@nx/nest'],
     }
   );
 
-  // nx generate @nrwl/nest:application api --frontendProject=store
+  // nx generate @nx/nest:application api --frontendProject=store
   await applicationGenerator(host, {
     name: 'api',
     frontendProject: 'store',
@@ -77,9 +82,48 @@ export default async function update(host: Tree) {
     `
   );
   updateJson(host, 'apps/store/proxy.conf.json', (json) => {
-    json['/api'].target = 'http://localhost:3333';
+    json['/api'].target = 'http://localhost:3000';
     return json;
   });
+  host.write(
+    'apps/api-e2e/src/api/api.spec.ts',
+    `import axios from 'axios';
+    import { exec } from 'child_process';
+    
+    describe('GET /api/games', () => {
+      it('should return a list of games', async () => {
+        exec('nx serve api');
+        const res = await axios.get(\`/api/games\`);
+    
+        expect(res.status).toBe(200);
+        expect(res.data).toMatchObject([
+          {
+            description:
+              'Help your bug family claim the best real estate in a spilled can of beans.',
+            id: 'settlers-in-the-can',
+            image: '/assets/beans.png',
+            name: 'Settlers in the Can',
+            price: 35,
+          },
+          {
+            description: 'A circular game of Chess that you can eat as you play.',
+            id: 'chess-pie',
+            image: '/assets/chess.png',
+            name: 'Chess Pie',
+            price: 15,
+          },
+          {
+            description: 'A cat grooming contest goes horribly wrong.',
+            id: 'purrfection',
+            image: '/assets/cat.png',
+            name: 'Purrfection',
+            price: 45,
+          },
+        ]);
+      });
+    });
+    `
+  );
 
   await formatFiles(host);
 }

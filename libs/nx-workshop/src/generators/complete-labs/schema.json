@@ -1,6 +1,5 @@
 {
   "$schema": "http://json-schema.org/schema",
-  "cli": "nx",
   "$id": "CompleteLabs",
   "title": "",
   "type": "object",
@@ -15,7 +14,10 @@
     },
     "option": {
       "type": "string",
-      "enum": ["option1", "option2"],
+      "enum": [
+        "option1",
+        "option2"
+      ],
       "description": "Complete labs in option 1 or option 2 of the second day"
     },
     "from": {

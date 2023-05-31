@@ -1,11 +1,12 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { formatFiles, Tree } from '@nrwl/devkit';
-import { libraryGenerator, moveGenerator } from '@nrwl/workspace';
-import { insertImport } from '@nrwl/workspace/src/generators/utils/insert-import';
+import { formatFiles, Tree } from '@nx/devkit';
+import { moveGenerator } from '@nx/workspace';
+import { libraryGenerator } from '@nx/js';
+import { insertImport } from '@nx/workspace/src/generators/utils/insert-import';
 import { replaceInFile } from '../utils';
 
 export default async function update(host: Tree) {
-  // nx generate @nrwl/workspace:lib util-interface --directory=api
+  // nx generate @nx/js:lib util-interface --directory=api
   await libraryGenerator(host, {
     name: 'util-interface',
     directory: 'api',
@@ -23,7 +24,7 @@ export default async function update(host: Tree) {
 `
   );
 
-  // nx generate @nrwl/workspace:move --projectName=api-util-interface util-interface
+  // nx generate @nx/workspace:move --projectName=api-util-interface util-interface
   await moveGenerator(host, {
     projectName: 'api-util-interface',
     destination: 'util-interface',
@@ -59,6 +60,22 @@ export default async function update(host: Tree) {
     gameDetailComponentPath,
     'this.http.get<any>(`/api/games/${id}`);',
     'this.http.get<Game>(`/api/games/${id}`);'
+  );
+  host.write(
+    'apps/api-e2e/src/api/graph.spec.ts',
+    `import { execSync } from 'child_process';
+    import { readFileSync } from 'node:fs';
+    
+    describe('Dependencies', () => {
+      it('should have three dependencies on util-interface', async () => {
+        execSync('nx graph --file=graph.json');
+        const graph = JSON.parse(readFileSync('graph.json').toString());
+        expect(graph.graph.dependencies['store'].some(dep => dep.target === 'util-interface')).toBe(true);
+        expect(graph.graph.dependencies['store-feature-game-detail'].some(dep => dep.target === 'util-interface')).toBe(true);
+        expect(graph.graph.dependencies['api'].some(dep => dep.target === 'util-interface')).toBe(true);
+      });
+    });
+    `
   );
   await formatFiles(host);
 }

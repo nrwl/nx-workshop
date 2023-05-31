@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { formatFiles, Tree, updateJson } from '@nrwl/devkit';
-import { pluginGenerator, generatorGenerator } from '@nrwl/nx-plugin/generators';
-import { Linter } from '@nrwl/linter';
+import { formatFiles, Tree, updateJson } from '@nx/devkit';
+import { pluginGenerator, generatorGenerator } from '@nx/plugin/generators';
+import { Linter } from '@nx/linter';
 
 export default async function update(host: Tree) {
-  // nx generate @nrwl/workspace:workspace-generator util-lib
+  // nx generate @nx/workspace:workspace-generator util-lib
   await pluginGenerator(host, {
     name: 'internal-plugin',
     skipTsConfig: false,
@@ -13,7 +13,6 @@ export default async function update(host: Tree) {
     compiler: 'tsc',
     skipFormat: false,
     skipLintChecks: false,
-    minimal: true,
   });
 
   await generatorGenerator(host, {
@@ -24,8 +23,8 @@ export default async function update(host: Tree) {
 
   host.write(
     'libs/internal-plugin/src/generators/util-lib/generator.ts',
-    `import { formatFiles, installPackagesTask, Tree } from '@nrwl/devkit';
-import { libraryGenerator } from '@nrwl/workspace/generators';
+    `import { formatFiles, installPackagesTask, Tree } from '@nx/devkit';
+import { libraryGenerator } from '@nx/js';
 import { UtilLibGeneratorSchema } from './schema';
 
 export default async function (tree: Tree, schema: UtilLibGeneratorSchema) {
@@ -86,8 +85,8 @@ export default async function (tree: Tree, schema: UtilLibGeneratorSchema) {
   );
   host.write(
     'libs/internal-plugin/src/generators/util-lib/generator.spec.ts',
-    `import { createTreeWithEmptyWorkspace } from '@nrwl/devkit/testing';
-import { Tree, readProjectConfiguration } from '@nrwl/devkit';
+    `import { createTreeWithEmptyWorkspace } from '@nx/devkit/testing';
+import { Tree, readProjectConfiguration } from '@nx/devkit';
 
 import generator from './generator';
 import { UtilLibGeneratorSchema } from './schema';
@@ -107,6 +106,7 @@ describe('util-lib generator', () => {
     expect(config.tags).toEqual(['type:util', 'scope:store']);
   });
 });
-    `);
+    `
+  );
   await formatFiles(host);
 }

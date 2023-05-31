@@ -5,8 +5,8 @@ import {
   readProjectConfiguration,
   Tree,
   updateProjectConfiguration,
-} from '@nrwl/devkit';
-import { insertImport } from '@nrwl/workspace/src/generators/utils/insert-import';
+} from '@nx/devkit';
+import { insertImport } from '@nx/workspace/src/generators/utils/insert-import';
 import { replaceInFile } from '../utils';
 
 export default async function update(host: Tree) {

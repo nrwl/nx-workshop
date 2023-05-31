@@ -22,7 +22,7 @@
 
    - Refer to the [docs](https://nx.dev/devkit/index#updatejson)
    - Use this utility:
-     - `import { updateJson } from '@nrwl/devkit';`
+     - `import { updateJson } from '@nx/devkit';`
    - As always, the answer is in the [the solution](SOLUTION.md). Try a few different approaches on your own first.
    </details>
 
@@ -66,7 +66,7 @@
 
 4. It's good practice to have your generator run your modified files through Prettier after modifying them. You might already have this, but just in case you removed it:
 
-   - Use `import { formatFiles } from '@nrwl/devkit';`
+   - Use `import { formatFiles } from '@nx/devkit';`
    - `await` this at the end of your generator
      <br /> <br />
 
@@ -77,18 +77,18 @@
    <details>
    <summary>🐳 Hint</summary>
 
-    ```typescript
-    function updateSchemaInterface(tree: Tree, scopes: string[]) {
-      const joinScopes = scopes.map((s) => `'${s}'`).join(' | ');
-      const interfaceDefinitionFilePath =
-        'libs/internal-plugin/src/generators/util-lib/schema.d.ts';
-      const newContent = `export interface UtilLibGeneratorSchema {
-        name: string;
-        directory: ${joinScopes};
-      }`;
-      tree.write(interfaceDefinitionFilePath, newContent);
-    }
-    ```
+   ```typescript
+   function updateSchemaInterface(tree: Tree, scopes: string[]) {
+     const joinScopes = scopes.map((s) => `'${s}'`).join(' | ');
+     const interfaceDefinitionFilePath =
+       'libs/internal-plugin/src/generators/util-lib/schema.d.ts';
+     const newContent = `export interface UtilLibGeneratorSchema {
+       name: string;
+       directory: ${joinScopes};
+     }`;
+     tree.write(interfaceDefinitionFilePath, newContent);
+   }
+   ```
 
    </details>
    <br />

@@ -1,13 +1,13 @@
 ##### Generate a `update-scope-schema` workspace generator:
 
 ```shell script
-nx generate @nrwl/nx-plugin:generator update-scope-schema --project=internal-plugin
+nx generate @nx/plugin:generator update-scope-schema --project=internal-plugin
 ```
 
 ##### Change default project
 
 ```typescript
-import { formatFiles, Tree, updateJson } from '@nrwl/devkit';
+import { formatFiles, Tree, updateJson } from '@nx/devkit';
 
 export default async function (tree: Tree) {
   updateJson(tree, 'nx.json', (json) => ({
@@ -27,7 +27,7 @@ import {
   formatFiles,
   ProjectConfiguration,
   getProjects,
-} from '@nrwl/devkit';
+} from '@nx/devkit';
 
 function getScopes(projectMap: Map<string, ProjectConfiguration>) {
   const projects: any[] = Array.from(projectMap.values());
@@ -68,7 +68,7 @@ import {
   formatFiles,
   ProjectConfiguration,
   getProjects,
-} from '@nrwl/devkit';
+} from '@nx/devkit';
 
 export default async function (tree: Tree) {
   const scopes = getScopes(getProjects(tree));
@@ -146,14 +146,14 @@ function addScopeIfMissing(host: Tree) {
 ##### BONUS 3 SOLUTION: TESTING
 
 ```typescript
-import { readJson, Tree } from '@nrwl/devkit';
-import { createTreeWithEmptyWorkspace } from '@nrwl/devkit/testing';
-import { libraryGenerator } from '@nrwl/workspace/generators';
-import { generatorGenerator, pluginGenerator } from '@nrwl/nx-plugin/generators';
+import { readJson, Tree } from '@nx/devkit';
+import { createTreeWithEmptyWorkspace } from '@nx/devkit/testing';
+import { libraryGenerator } from '@nx/js';
+import { generatorGenerator, pluginGenerator } from '@nx/plugin/generators';
 import { readFileSync } from 'fs';
 import { join } from 'path';
 
-import { Linter } from '@nrwl/linter';
+import { Linter } from '@nx/linter';
 import generator from './generator';
 
 describe('update-scope-schema generator', () => {

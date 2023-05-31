@@ -47,7 +47,7 @@
    ⚠️ You should see surge deploying to your URL - if you click you'll see just the header though, because it doesn't have a server yet to get the games from (the Network Dev Tools tab will have failing requests).
    <br /> <br />
 
-5. Let's now abstract away the above command into an Nx target. Generate a new **"deploy"** target using the `@nrwl/workspace:run-commands` generator:
+5. Let's now abstract away the above command into an Nx target. Generate a new **"deploy"** target using the `@nx/workspace:run-commands` generator:
 
    - under the `store` project
    - the "command" will be the same as the one you typed in the previous step
@@ -94,7 +94,7 @@
    ```
 
    <br />
-   
+
 9. **BONUS** - Notice how you can keep running the deploy command and it will always fully run it, it will not pull from the cache. We'll talk about this after the lab.
 
 10. We currently have to remember to always run the build before deploying an app. [Can you fix this](https://nx.dev/reference/project-configuration#dependson), so that it always makes sure the app is built before we deploy?

@@ -1,6 +1,5 @@
 {
   "$schema": "http://json-schema.org/schema",
-  "cli": "nx",
   "$id": "NxWorkshop",
   "title": "",
   "type": "object",
@@ -25,5 +24,7 @@
       "alias": "d"
     }
   },
-  "required": ["name"]
+  "required": [
+    "name"
+  ]
 }

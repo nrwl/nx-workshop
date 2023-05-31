@@ -39,12 +39,12 @@ In this lab we'll generate our first Angular application within the new monorepo
 2. **Run `nx list`** to see which plugins you have installed and which are available
    <br /> <br />
 
-3. **Add the Angular plugin: `@nrwl/angular`**
+3. **Add the Angular plugin: `@nx/angular`**
    <br /> <br />
 
 4. Let's also **add Angular Material** so we can use some of their components: `@angular/material @angular/cdk`
    <br /> <br />
-5. **Use the [`@nrwl/angular` plugin](https://nx.dev/packages/angular/generators/application) to generate an Angular app** called `store` in your new workspace
+5. **Use the [`@nx/angular` plugin](https://nx.dev/packages/angular/generators/application) to generate an Angular app** called `store` in your new workspace
 
    ⚠️**Important:** Make sure you **enable routing** when asked!
 

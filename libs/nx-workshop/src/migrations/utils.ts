@@ -1,6 +1,6 @@
-import { Tree } from '@nrwl/devkit';
+import { Tree } from '@nx/devkit';
 import * as ts from 'typescript';
-import { insertImport as astInsertImport } from '@nrwl/workspace/src/utils/ast-utils';
+import { insertImport as astInsertImport } from '@nx/js';
 
 export function replaceInFile(
   host: Tree,
@@ -26,7 +26,7 @@ export function insertImport(
     true
   );
 
-  return astInsertImport(sourceFile, path, symbolName, importPath);
+  return astInsertImport(host, sourceFile, path, symbolName, importPath);
 }
 
 export function stripConsoleColors(log: string): string {
