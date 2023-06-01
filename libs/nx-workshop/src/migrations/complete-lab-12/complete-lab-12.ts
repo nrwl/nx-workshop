@@ -48,7 +48,7 @@ export default async function update(host: Tree) {
 
   updateJson(host, '.eslintrc.json', (json) => {
     json.overrides[0].rules[
-      '@nrwl/nx/enforce-module-boundaries'
+      '@nx/enforce-module-boundaries'
     ][1].depConstraints = [
       {
         sourceTag: 'scope:store',

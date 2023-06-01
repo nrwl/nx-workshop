@@ -29,7 +29,7 @@
 
    <br /><br />
 
-2. Open the root `.eslintrc.json`, find the `"@nrwl/nx/enforce-module-boundaries"` rule and **set the `depConstraints`**:
+2. Open the root `.eslintrc.json`, find the `"@nx/enforce-module-boundaries"` rule and **set the `depConstraints`**:
 
    ```
    "depConstraints": [
